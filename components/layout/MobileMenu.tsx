@@ -2,6 +2,7 @@
 
 import { X, Home, User, Briefcase, FolderOpen, Mail, Github, Linkedin } from 'lucide-react';
 import { useEffect } from 'react';
+import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -9,9 +10,12 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
+    const { handleLinkClick } = useSmoothScroll();
+    
     const menuItems = [
         { href: '#inicio', label: 'Inicio', icon: <Home className="w-5 h-5" /> },
         { href: '#sobre-mi', label: 'Sobre Mí', icon: <User className="w-5 h-5" /> },
+        { href: '#habilidades', label: 'Habilidades', icon: <User className="w-5 h-5" /> },
         { href: '#servicios', label: 'Servicios', icon: <Briefcase className="w-5 h-5" /> },
         { href: '#proyectos', label: 'Proyectos', icon: <FolderOpen className="w-5 h-5" /> },
         { href: '#contacto', label: 'Contacto', icon: <Mail className="w-5 h-5" /> }
@@ -32,7 +36,8 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
 
     if (!isOpen) return null;
 
-    const handleLinkClick = () => {
+    const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        handleLinkClick(e, href);
         setIsOpen(false);
     };
 
@@ -67,7 +72,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                                 <a
                                     href={item.href}
                                     className="flex items-center gap-4 px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-                                    onClick={handleLinkClick}
+                                    onClick={(e) => handleMobileLinkClick(e, item.href)}
                                 >
                                     <span className="text-blue-400">{item.icon}</span>
                                     <span>{item.label}</span>

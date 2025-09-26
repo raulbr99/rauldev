@@ -6,7 +6,7 @@ import Button from '../ui/Button';
 
 export default function HeroSection() {
   return (
-    <section id="hero" aria-label="Hero" className="pt-20 pb-20 px-4">
+    <section id="inicio" aria-label="Hero" className="pt-20 pb-20 px-4">
       <div className="max-w-7xl mx-auto text-center">
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 p-1">

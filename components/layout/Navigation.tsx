@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import MobileMenu from './MobileMenu';
+import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { handleLinkClick } = useSmoothScroll();
 
     return (
         <>
@@ -20,12 +22,12 @@ export default function Navigation() {
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
-                            <a href="#inicio" className="text-white hover:text-blue-400 transition-colors">Inicio</a>
-                            <a href="#sobre-mi" className="text-white hover:text-blue-400 transition-colors">Sobre Mí</a>
-                            <a href="#habilidades" className="text-white hover:text-blue-400 transition-colors">Habilidades</a>
-                            <a href="#servicios" className="text-white hover:text-blue-400 transition-colors">Servicios</a>
-                            <a href="#proyectos" className="text-white hover:text-blue-400 transition-colors">Proyectos</a>
-                            <a href="#contacto" className="text-white hover:text-blue-400 transition-colors">Contacto</a>
+                            <a href="#inicio" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#inicio')}>Inicio</a>
+                            <a href="#sobre-mi" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#sobre-mi')}>Sobre Mí</a>
+                            <a href="#habilidades" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#habilidades')}>Habilidades</a>
+                            <a href="#servicios" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#servicios')}>Servicios</a>
+                            <a href="#proyectos" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#proyectos')}>Proyectos</a>
+                            <a href="#contacto" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#contacto')}>Contacto</a>
                         </div>
 
                         {/* Mobile Menu Button */}
