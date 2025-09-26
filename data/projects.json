@@ -1,45 +1,82 @@
 {
   "projects": [
     {
-      "id": "portfolio-web",
-      "titleKey": "projects.portfolio.title",
-      "descriptionKey": "projects.portfolio.description",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
-      "image": "/images/portfolio-preview.jpg",
-      "github": "https://github.com/raulbr99/portfolio",
-      "demo": "https://rauldev.vercel.app",
+      "id": "ecommerce-platform",
+      "title": "Plataforma E-commerce Completa",
+      "description": "Tienda online moderna con carrito, pasarela de pago Stripe, panel de administración y gestión de inventario. Incluye dashboard analytics y sistema de usuarios.",
+      "tech": ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind"],
+      "image": "/projects/ecommerce.jpg",
+      "github": "https://github.com/raulbr99/ecommerce-platform",
+      "demo": "https://ecommerce-demo.rauldev.dev",
       "featured": true,
-      "createdAt": "2024-01-15T10:00:00Z",
-      "updatedAt": "2024-01-15T10:00:00Z"
+      "category": "E-commerce",
+      "createdAt": "2024-01-15"
     },
     {
-      "id": "ecommerce-app",
-      "titleKey": "projects.ecommerce.title",
-      "descriptionKey": "projects.ecommerce.description",
-      "tech": ["React", "Node.js", "MongoDB", "Express"],
-      "image": "/images/ecommerce-preview.jpg",
-      "github": "https://github.com/raulbr99/ecommerce",
-      "demo": "https://ecommerce-demo.vercel.app",
+      "id": "saas-dashboard",
+      "title": "Dashboard SaaS Multi-tenant",
+      "description": "Panel de control para aplicación SaaS con múltiples inquilinos, analytics en tiempo real, gestión de usuarios y sistema de facturación.",
+      "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "tRPC", "Shadcn/ui"],
+      "image": "/projects/saas-dashboard.jpg",
+      "github": "https://github.com/raulbr99/saas-dashboard",
+      "demo": "https://dashboard-demo.rauldev.dev",
       "featured": true,
-      "createdAt": "2024-01-10T14:30:00Z",
-      "updatedAt": "2024-01-10T14:30:00Z"
+      "category": "SaaS",
+      "createdAt": "2024-02-20"
     },
     {
-      "id": "task-manager",
-      "titleKey": "projects.taskmanager.title",
-      "descriptionKey": "projects.taskmanager.description",
-      "tech": ["Vue.js", "Firebase", "Vuetify"],
-      "image": "/images/taskmanager-preview.jpg",
-      "github": "https://github.com/raulbr99/task-manager",
-      "demo": "https://taskmanager-demo.vercel.app",
+      "id": "mobile-fitness-app",
+      "title": "App Móvil de Fitness",
+      "description": "Aplicación móvil para seguimiento de ejercicios con rutinas personalizadas, seguimiento de progreso y integración con wearables.",
+      "tech": ["React Native", "Expo", "Firebase", "Redux", "Async Storage"],
+      "image": "/projects/fitness-app.jpg",
+      "github": "https://github.com/raulbr99/fitness-app",
+      "demo": "https://expo.dev/@rauldev/fitness-app",
+      "featured": true,
+      "category": "Mobile",
+      "createdAt": "2024-03-10"
+    },
+    {
+      "id": "real-estate-platform",
+      "title": "Plataforma Inmobiliaria",
+      "description": "Portal inmobiliario con búsqueda avanzada, mapas interactivos, tours virtuales y sistema de citas para visitas.",
+      "tech": ["Vue.js", "Nuxt.js", "Laravel", "MySQL", "MapBox", "Socket.io"],
+      "image": "/projects/real-estate.jpg",
+      "github": "https://github.com/raulbr99/real-estate",
+      "demo": "https://inmobiliaria-demo.rauldev.dev",
       "featured": false,
-      "createdAt": "2024-01-05T09:15:00Z",
-      "updatedAt": "2024-01-05T09:15:00Z"
+      "category": "Web Platform",
+      "createdAt": "2023-11-15"
+    },
+    {
+      "id": "restaurant-management",
+      "title": "Sistema de Gestión de Restaurante",
+      "description": "Sistema completo para restaurantes con gestión de mesas, pedidos, inventario, personal y analytics de ventas.",
+      "tech": ["React", "Express.js", "MongoDB", "Socket.io", "Thermal Printer API"],
+      "image": "/projects/restaurant-system.jpg",
+      "github": "https://github.com/raulbr99/restaurant-management",
+      "demo": "https://restaurant-demo.rauldev.dev",
+      "featured": false,
+      "category": "Management System",
+      "createdAt": "2023-09-20"
+    },
+    {
+      "id": "portfolio-website",
+      "title": "Portfolio Personal",
+      "description": "Este mismo portfolio desarrollado con Next.js, diseño moderno, SEO optimizado y sistema de gestión de proyectos.",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "image": "/projects/portfolio.jpg",
+      "github": "https://github.com/raulbr99/portfolio",
+      "demo": "https://rauldev.dev",
+      "featured": false,
+      "category": "Portfolio",
+      "createdAt": "2024-01-01"
     }
   ],
-  "metadata": {
-    "version": "1.0.0",
-    "lastUpdated": "2024-01-15T10:00:00Z",
-    "totalProjects": 3
+  "stats": {
+    "totalProjects": 6,
+    "featuredProjects": 3,
+    "categories": ["E-commerce", "SaaS", "Mobile", "Web Platform", "Management System", "Portfolio"],
+    "technologies": ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "PostgreSQL"]
   }
 }
