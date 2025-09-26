@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import Button from '../ui/Button';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -106,13 +107,14 @@ export default function ContactSection() {
                 required
               />
             </div>
-            <button
+            <Button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+              variant="primary"
+              className="w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2"
             >
               <Send className="w-5 h-5" />
               Enviar Mensaje
-            </button>
+            </Button>
           </form>
         </div>
       </div>

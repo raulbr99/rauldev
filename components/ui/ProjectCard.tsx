@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
-import { Project } from '../../app/hooks/useProjects';
+import { Project } from '../../hooks/useProjects';
 
 interface ProjectCardProps {
     project: Project;

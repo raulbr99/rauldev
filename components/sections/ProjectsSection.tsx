@@ -1,9 +1,9 @@
 'use client';
 
 import { ExternalLink, Github, Calendar } from 'lucide-react';
-import { useProjects } from './../app/hooks/useProjects';
-import LoadingSpinner from '../components/ui/LoadingSpinner';
-import ProjectCard from '../components/ui/ProjectCard';
+import { useProjects } from '../../hooks/useProjects';
+import LoadingSpinner from '../ui/LoadingSpinner';
+import ProjectCard from '../ui/ProjectCard';
 
 export default function ProjectsSection() {
   const { featuredProjects, loading } = useProjects();

@@ -22,6 +22,7 @@ export default function Navigation() {
                         <div className="hidden md:flex items-center space-x-8">
                             <a href="#inicio" className="text-white hover:text-blue-400 transition-colors">Inicio</a>
                             <a href="#sobre-mi" className="text-white hover:text-blue-400 transition-colors">Sobre Mí</a>
+                            <a href="#habilidades" className="text-white hover:text-blue-400 transition-colors">Habilidades</a>
                             <a href="#servicios" className="text-white hover:text-blue-400 transition-colors">Servicios</a>
                             <a href="#proyectos" className="text-white hover:text-blue-400 transition-colors">Proyectos</a>
                             <a href="#contacto" className="text-white hover:text-blue-400 transition-colors">Contacto</a>

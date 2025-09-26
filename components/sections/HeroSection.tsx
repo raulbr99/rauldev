@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import Button from '../ui/Button';
 
 export default function HeroSection() {
   return (
@@ -40,18 +41,22 @@ export default function HeroSection() {
             productos digitales sólidos, fáciles de mantener y listos para crecer.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <a
+            <Button
+              as="a"
               href="#contacto"
-              className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-lg"
+              variant="primary"
+              className="px-8 py-4 rounded-full font-semibold transform hover:scale-105 shadow-lg"
             >
               Hablemos
-            </a>
-            <a
+            </Button>
+            <Button
+              as="a"
               href="#proyectos"
-              className="border-2 border-white/40 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all transform hover:scale-105"
+              variant="secondary"
+              className="px-8 py-4 rounded-full font-semibold transform hover:scale-105"
             >
               Ver Proyectos
-            </a>
+            </Button>
           </div>
           <div className="flex justify-center space-x-6">
             <a

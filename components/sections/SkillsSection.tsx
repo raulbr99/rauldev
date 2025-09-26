@@ -25,7 +25,7 @@ export default function SkillsSection() {
   const categories = [...new Set(skills.map(s => s.category))];
 
   return (
-    <section className="py-20 px-4 bg-black/20">
+    <section id="habilidades" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Habilidades</h2>

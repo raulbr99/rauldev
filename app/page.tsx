@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import Navigation from '../components/layout/Navigation';
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import SkillsSection from '../components/SkillsSection';
-import ServicesSection from '../components/ServicesSection';
-import ProjectsSection from '../components/ProjectsSection';
-import ContactSection from '../components/ContactSection';
+import HeroSection from '../components/sections/HeroSection';
+import AboutSection from '../components/sections/AboutSection';
+import SkillsSection from '../components/sections/SkillsSection';
+import ServicesSection from '../components/sections/ServicesSection';
+import ProjectsSection from '../components/sections/ProjectsSection';
+import ContactSection from '../components/sections/ContactSection';
 
 export default function Home() {
 
