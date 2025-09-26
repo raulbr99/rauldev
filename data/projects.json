@@ -1,0 +1,45 @@
+{
+  "projects": [
+    {
+      "id": "portfolio-web",
+      "titleKey": "projects.portfolio.title",
+      "descriptionKey": "projects.portfolio.description",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+      "image": "/images/portfolio-preview.jpg",
+      "github": "https://github.com/raulbr99/portfolio",
+      "demo": "https://rauldev.vercel.app",
+      "featured": true,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "ecommerce-app",
+      "titleKey": "projects.ecommerce.title",
+      "descriptionKey": "projects.ecommerce.description",
+      "tech": ["React", "Node.js", "MongoDB", "Express"],
+      "image": "/images/ecommerce-preview.jpg",
+      "github": "https://github.com/raulbr99/ecommerce",
+      "demo": "https://ecommerce-demo.vercel.app",
+      "featured": true,
+      "createdAt": "2024-01-10T14:30:00Z",
+      "updatedAt": "2024-01-10T14:30:00Z"
+    },
+    {
+      "id": "task-manager",
+      "titleKey": "projects.taskmanager.title",
+      "descriptionKey": "projects.taskmanager.description",
+      "tech": ["Vue.js", "Firebase", "Vuetify"],
+      "image": "/images/taskmanager-preview.jpg",
+      "github": "https://github.com/raulbr99/task-manager",
+      "demo": "https://taskmanager-demo.vercel.app",
+      "featured": false,
+      "createdAt": "2024-01-05T09:15:00Z",
+      "updatedAt": "2024-01-05T09:15:00Z"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-15T10:00:00Z",
+    "totalProjects": 3
+  }
+}

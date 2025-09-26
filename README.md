@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio de Raúl BR - Desarrollador Full Stack
 
-## Getting Started
+¡Bienvenido a mi portfolio personal! Este sitio web está diseñado para mostrar mis habilidades como desarrollador full stack y ayudarme a conseguir nuevas oportunidades laborales y proyectos freelance.
 
-First, run the development server:
+## 🚀 Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Diseño Moderno**: Interfaz elegante con gradientes y efectos glassmorphism
+- **Responsive**: Optimizado para todos los dispositivos
+- **Gestión Dinámica de Proyectos**: Integración con Supabase para administrar proyectos
+- **Subida de Imágenes**: Sube imágenes de proyectos directamente a Supabase Storage o usa URLs externas
+- **Panel de Administración**: Formulario secreto para agregar/editar proyectos
+- **Secciones Completas**:
+  - Presentación personal
+  - Servicios que ofrezco
+  - Portfolio de proyectos (dinámico)
+  - Información de contacto
+- **SEO Optimizado**: Metadatos configurados para mejor posicionamiento
+- **Navegación Suave**: Scroll suave entre secciones
+- **Integración Directa con Supabase**: Proyectos cargados directamente desde la base de datos
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Next.js 15** - Framework de React
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Estilos utilitarios
+- **Supabase** - Base de datos y backend
+- **Supabase Storage** - Almacenamiento de imágenes
+- **Lucide React** - Iconos modernos
+- **Vercel** - Deployment (recomendado)
+
+## 📦 Instalación y Uso
+
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/raulbr99/rauldev.git
+   cd rauldev
+   ```
+
+2. **Instala las dependencias**:
+   ```bash
+   npm install
+   ```
+
+3. **Configura las variables de entorno**:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Edita `.env.local` con tus credenciales de Supabase
+
+4. **Configura Supabase** (opcional):
+   - Crea un proyecto en [Supabase](https://supabase.com)
+   - Ejecuta el script SQL de `supabase-setup.sql`
+   - Configura las variables de entorno
+   - Ver `SUPABASE_SETUP.md` para instrucciones detalladas
+
+5. **Ejecuta el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+
+6. **Abre tu navegador** en `http://localhost:3000`
+
+## ✏️ Personalización
+
+### Información Personal
+Edita el archivo `src/app/page.tsx` para actualizar:
+- Tu nombre y título
+- Descripción personal
+- Enlaces a redes sociales
+- Email de contacto
+
+### Proyectos
+**Opción 1: Panel de Administración (Recomendado)**
+- Accede a `/admin` en tu aplicación
+- Usa la clave secreta configurada en `ADMIN_SECRET_KEY`
+- Agrega, edita o elimina proyectos desde la interfaz
+
+**Opción 2: Datos de Fallback**
+Modifica el array `fallbackProjects` en `src/data/projects.ts`:
+```typescript
+export const fallbackProjects: Project[] = [
+  {
+    id: "tu-proyecto",
+    titleKey: "projects.tu-proyecto.title",
+    descriptionKey: "projects.tu-proyecto.description",
+    tech: ["React", "Node.js", "MongoDB"],
+    image: "/imagen.jpg",
+    github: "https://github.com/tu-usuario/proyecto",
+    demo: "https://tu-proyecto.com",
+    featured: true
+  }
+];
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Servicios
+Actualiza el array `services` en `src/app/page.tsx` para reflejar los servicios que ofreces.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Estilos
+Personaliza los colores y estilos en:
+- `src/app/globals.css` - Estilos globales
+- `tailwind.config.js` - Configuración de Tailwind
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Deployment
 
-## Learn More
+### Vercel (Recomendado)
+1. Conecta tu repositorio a Vercel
+2. El deployment será automático con cada push
 
-To learn more about Next.js, take a look at the following resources:
+### Netlify
+1. Conecta tu repositorio a Netlify
+2. Configura el comando de build: `npm run build`
+3. Directorio de publicación: `out`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Gestión de Proyectos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Panel de Administración
+- **URL**: `/admin`
+- **Autenticación**: Clave secreta configurada en `ADMIN_SECRET_KEY`
+- **Funciones**:
+  - Crear nuevos proyectos
+  - 🖼️ Subir imágenes de proyectos o usar URLs externas
+  - Editar proyectos existentes
+  - Eliminar proyectos (elimina automáticamente las imágenes asociadas)
+  - Marcar proyectos como destacados
+  - 👀 Vista previa en tiempo real con previsualización de imágenes
 
-## Deploy on Vercel
+### Gestión de Imágenes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Subida**: Arrastra y suelta o selecciona imágenes directamente desde tu dispositivo
+- **Formatos**: JPEG, PNG, WebP, GIF, SVG soportados
+- **Límite de Tamaño**: 50MB máximo por imagen
+- **Almacenamiento**: Imágenes almacenadas de forma segura en Supabase Storage
+- **Auto-limpieza**: Las imágenes se eliminan automáticamente cuando se eliminan los proyectos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### API Endpoints
+- `GET /api/projects` - Obtener todos los proyectos
+- `GET /api/projects/[id]` - Obtener proyecto específico
+- `POST /api/projects` - Crear proyecto (requiere auth)
+- `PUT /api/projects/[id]` - Actualizar proyecto (requiere auth)
+- `DELETE /api/projects/[id]` - Eliminar proyecto (requiere auth)
+- `POST /api/upload` - Subir imagen (requiere auth)
+- `DELETE /api/upload` - Eliminar imagen (requiere auth)
+
+## 📧 Contacto
+
+Si tienes preguntas sobre este portfolio o estás interesado en trabajar conmigo:
+
+- **Email**: raul@ejemplo.com
+- **LinkedIn**: [linkedin.com/in/raulbr99](https://linkedin.com/in/raulbr99)
+- **GitHub**: [github.com/raulbr99](https://github.com/raulbr99)
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de usarlo como base para tu propio portfolio.
+
+---
+
+**¿Te gusta este portfolio?** ¡Dale una estrella ⭐ al repositorio y compártelo con otros desarrolladores!
