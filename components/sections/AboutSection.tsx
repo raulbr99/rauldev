@@ -7,7 +7,7 @@ export default function AboutSection() {
   return (
     <section
       id="sobre-mi"
-      className="py-20 px-4"
+      className="py-20 px-4 bg-black/20"
       itemScope
       itemType="https://schema.org/Person"
     >

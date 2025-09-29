@@ -11,12 +11,12 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const { handleLinkClick } = useSmoothScroll();
-    
+
     const menuItems = [
         { href: '#inicio', label: 'Inicio', icon: <Home className="w-5 h-5" /> },
         { href: '#sobre-mi', label: 'Sobre Mí', icon: <User className="w-5 h-5" /> },
+        { href: '#experiencia', label: 'Experiencia', icon: <Briefcase className="w-5 h-5" /> },
         { href: '#habilidades', label: 'Habilidades', icon: <User className="w-5 h-5" /> },
-        { href: '#servicios', label: 'Servicios', icon: <Briefcase className="w-5 h-5" /> },
         { href: '#proyectos', label: 'Proyectos', icon: <FolderOpen className="w-5 h-5" /> },
         { href: '#contacto', label: 'Contacto', icon: <Mail className="w-5 h-5" /> }
     ];

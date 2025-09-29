@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Button from '../ui/Button';
 
 export default function ContactSection() {
@@ -11,10 +11,40 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(data.error || 'Error al enviar el mensaje');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Error de conexión. Por favor, inténtalo de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,14 +55,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-20 px-4">
+    <section id="contacto" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Contacto</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             ¿Tienes un proyecto en mente? ¡Hablemos! Colaboro con empresas y emprendedores de toda España.
           </p>
-          
+
           {/* Hidden SEO content for local search */}
           <div className="sr-only">
             Contacto desarrollador web Costa Blanca, freelance Vega Baja,
@@ -48,7 +78,7 @@ export default function ContactSection() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-6">Información de Contacto</h3>
             <p className="text-gray-300 mb-6">
-              Disponible para proyectos de desarrollo web, aplicaciones móviles y consultoría tecnológica. 
+              Disponible para proyectos de desarrollo web, aplicaciones móviles y consultoría tecnológica.
               Trabajo con clientes de toda España, especializándome en soluciones para empresas de la zona mediterránea.
             </p>
             <div className="space-y-4">
@@ -107,13 +137,40 @@ export default function ContactSection() {
                 required
               />
             </div>
+            {/* Mensajes de estado */}
+            {submitStatus === 'success' && (
+              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300">
+                <CheckCircle className="w-5 h-5" />
+                <span>¡Mensaje enviado correctamente! Te responderé pronto.</span>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300">
+                <AlertCircle className="w-5 h-5" />
+                <span>{errorMessage}</span>
+              </div>
+            )}
+
             <Button
               type="submit"
               variant="primary"
-              className="w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className={`w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 ${
+                isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+              }`}
             >
-              <Send className="w-5 h-5" />
-              Enviar Mensaje
+              {isSubmitting ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  <Send className="w-5 h-5" />
+                  Enviar Mensaje
+                </>
+              )}
             </Button>
           </form>
         </div>
