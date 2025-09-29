@@ -3,7 +3,7 @@
 
 import { Calendar, MapPin, TrendingUp, Users, Code, Award } from 'lucide-react';
 import Card from '../ui/Card';
-import { experiences, stats } from '../../data/experience';
+import { experiences } from '../../data/experience';
 
 export default function ExperienceSection() {
     const getIconComponent = (iconName: string) => {

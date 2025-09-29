@@ -11,7 +11,7 @@ export default function AboutSection() {
       itemScope
       itemType="https://schema.org/Person"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto text-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2
