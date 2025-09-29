@@ -4,8 +4,8 @@ export interface ExperienceItem {
     id: string;
     company: string;
     role: string;
-    period: string;
-    location: string;
+    period?: string;
+    location?: string;
     type: 'Remoto' | 'Presencial' | 'Híbrido';
     description: string;
     achievements: string[];
@@ -54,8 +54,6 @@ export const experiences: ExperienceItem[] = [
         id: 'proyectos-personales',
         company: 'Proyectos Personales',
         role: 'Desarrollador Independiente',
-        period: '2020 - Presente',
-        location: 'España',
         type: 'Remoto',
         description: 'Desarrollo de proyectos SaaS, e-commerce y herramientas web utilizando tecnologías modernas.',
         achievements: [
@@ -68,11 +66,4 @@ export const experiences: ExperienceItem[] = [
         tech: ['Next.js', 'TypeScript', 'Supabase', 'Strapi', 'Node.js', 'PostgreSQL', 'TailwindCSS'],
         highlight: false
     }
-];
-
-export const stats = [
-    { label: 'Años de Experiencia', value: '2+', icon: 'Calendar' },
-    { label: 'Proyectos Completados', value: '15+', icon: 'Code' },
-    { label: 'Tecnologías Dominadas', value: '12+', icon: 'TrendingUp' },
-    { label: 'Equipos Internacionales', value: '3', icon: 'Users' }
 ];

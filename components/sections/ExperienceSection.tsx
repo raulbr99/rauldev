@@ -29,26 +29,6 @@ export default function ExperienceSection() {
                         Especializado en React, Node.js y tecnologías blockchain, con historial comprobado
                         trabajando en equipos internacionales.
                     </p>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        {stats.map((stat, index) => (
-                            <div
-                                key={index}
-                                className="text-center animate-fade-in"
-                                style={{
-                                    animationDelay: `${index * 150}ms`,
-                                    animationFillMode: 'both'
-                                }}
-                            >
-                                <div className="flex items-center justify-center gap-2 text-blue-400 mb-2">
-                                    {getIconComponent(stat.icon)}
-                                    <span className="text-3xl font-bold text-white">{stat.value}</span>
-                                </div>
-                                <p className="text-gray-300 text-sm">{stat.label}</p>
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
                 {/* Timeline */}
@@ -107,14 +87,18 @@ export default function ExperienceSection() {
 
                                         {/* Metadatos */}
                                         <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-                                            <div className="flex items-center gap-1">
-                                                <Calendar className="w-4 h-4 text-blue-400" />
-                                                {exp.period}
-                                            </div>
-                                            <div className="flex items-center gap-1">
-                                                <MapPin className="w-4 h-4 text-green-400" />
-                                                {exp.location}
-                                            </div>
+                                            {exp.period && (
+                                                <div className="flex items-center gap-1">
+                                                    <Calendar className="w-4 h-4 text-blue-400" />
+                                                    {exp.period}
+                                                </div>
+                                            )}
+                                            {exp.location && (
+                                                <div className="flex items-center gap-1">
+                                                    <MapPin className="w-4 h-4 text-green-400" />
+                                                    {exp.location}
+                                                </div>
+                                            )}
                                             <span className={`px-2 py-1 rounded-full text-xs ${exp.type === 'Remoto' ? 'bg-green-500/20 text-green-300' :
                                                 exp.type === 'Híbrido' ? 'bg-blue-500/20 text-blue-300' :
                                                     'bg-gray-500/20 text-gray-300'

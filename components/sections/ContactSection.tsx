@@ -1,58 +1,24 @@
 'use client';
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Button from '../ui/Button';
+import FormInput from '../ui/FormInput';
+import ContactInfo from './ContactInfo';
+import { useContactForm } from '@/hooks/useContactForm';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-        setErrorMessage(data.error || 'Error al enviar el mensaje');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage('Error de conexión. Por favor, inténtalo de nuevo.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const {
+    formData,
+    errors,
+    touched,
+    isSubmitting,
+    submitStatus,
+    errorMessage,
+    formValid,
+    handleChange,
+    handleBlur,
+    handleSubmit
+  } = useContactForm();
 
   return (
     <section id="contacto" className="py-20 px-4 bg-black/20">
@@ -60,13 +26,13 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Contacto</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            ¿Tienes un proyecto en mente? ¡Hablemos! Colaboro con empresas y emprendedores de toda España.
+            ¿Buscas un desarrollador web profesional? Ofrezco soluciones digitales personalizadas para empresas y startups.
           </p>
 
-          {/* Hidden SEO content for local search */}
+          {/* Hidden SEO content */}
           <div className="sr-only">
-            Contacto desarrollador web Costa Blanca, freelance Vega Baja,
-            programador Callosa de Segura, desarrollo web Alicante,
+            Contacto desarrollador web Alicante, freelance Vega Baja,
+            programador Alicante, desarrollo web Alicante,
             servicios programación Comunidad Valenciana, freelance comarca Bajo Segura,
             desarrollador aplicaciones móviles Valencia, programador Levante español,
             contacto desarrollo software Mediterráneo, freelance zona levantina,
@@ -75,79 +41,64 @@ export default function ContactSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Información de Contacto</h3>
-            <p className="text-gray-300 mb-6">
-              Disponible para proyectos de desarrollo web, aplicaciones móviles y consultoría tecnológica.
-              Trabajo con clientes de toda España, especializándome en soluciones para empresas de la zona mediterránea.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-blue-400" />
-                <span className="text-gray-300">raulbernariera99@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <Phone className="w-6 h-6 text-blue-400" />
-                <span className="text-gray-300">+34 680 359 990</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <MapPin className="w-6 h-6 text-blue-400" />
-                <span className="text-gray-300">España</span>
-              </div>
-            </div>
-          </div>
+          <ContactInfo />
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-white mb-2">Nombre</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
-                placeholder="Tu nombre"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-white mb-2">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
-                placeholder="tu@email.com"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-white mb-2">Mensaje</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={5}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 resize-none"
-                placeholder="¿En qué puedo ayudarte?"
-                required
-              />
-            </div>
+          <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <FormInput
+              id="name"
+              name="name"
+              label="Nombre"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.name}
+              touched={touched.name}
+              placeholder="Tu nombre"
+              maxLength={50}
+            />
+
+            <FormInput
+              id="email"
+              name="email"
+              label="Email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.email}
+              touched={touched.email}
+              placeholder="tu@email.com"
+              maxLength={100}
+            />
+
+            <FormInput
+              id="message"
+              name="message"
+              label="Mensaje"
+              type="textarea"
+              value={formData.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.message}
+              touched={touched.message}
+              placeholder="¿En qué puedo ayudarte?"
+              rows={5}
+              maxLength={1000}
+              showCharCount
+            />
+
             {/* Mensajes de estado */}
             {submitStatus === 'success' && (
-              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300">
-                <CheckCircle className="w-5 h-5" />
+              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 animate-fade-in">
+                <CheckCircle className="w-5 h-5 flex-shrink-0" />
                 <span>¡Mensaje enviado correctamente! Te responderé pronto.</span>
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300">
-                <AlertCircle className="w-5 h-5" />
+              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 animate-fade-in">
+                <AlertCircle className="w-5 h-5 flex-shrink-0" />
                 <span>{errorMessage}</span>
               </div>
             )}
@@ -155,10 +106,9 @@ export default function ContactSection() {
             <Button
               type="submit"
               variant="primary"
-              disabled={isSubmitting}
-              className={`w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 ${
-                isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
+              disabled={isSubmitting || !formValid}
+              className={`w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 transition-all ${isSubmitting || !formValid ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
             >
               {isSubmitting ? (
                 <>
@@ -172,6 +122,12 @@ export default function ContactSection() {
                 </>
               )}
             </Button>
+
+            {!formValid && (touched.name || touched.email || touched.message) && (
+              <p className="text-sm text-gray-400 text-center">
+                Por favor, completa todos los campos correctamente
+              </p>
+            )}
           </form>
         </div>
       </div>
