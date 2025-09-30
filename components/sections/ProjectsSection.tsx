@@ -6,7 +6,7 @@ import LoadingSpinner from '../ui/LoadingSpinner';
 import ProjectCard from '../ui/ProjectCard';
 
 export default function ProjectsSection() {
-  const { featuredProjects, loading } = useProjects();
+  const { projects, featuredProjects, loading } = useProjects();
 
   if (loading) {
     return (
@@ -24,15 +24,15 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Proyectos Destacados
+            Mis Proyectos
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Una selección de mis proyectos más recientes y representativos
+            Una selección de mis proyectos más recientes y lo que está por venir
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>

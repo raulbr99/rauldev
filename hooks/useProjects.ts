@@ -7,11 +7,12 @@ export interface Project {
   description: string;
   tech: string[];
   image: string;
-  github: string;
-  demo: string;
+  github: string | null;
+  demo: string | null;
   featured: boolean;
   category: string;
   createdAt: string;
+  status?: string;
 }
 
 export function useProjects() {
