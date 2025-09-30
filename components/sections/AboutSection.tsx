@@ -148,7 +148,7 @@ export default function AboutSection() {
           {/* Botón de descarga centrado */}
           <div className="text-center">
             <a
-              href="/cv-raul-br.pdf"
+              href="/cv-raul.pdf"
               download
               className="inline-flex items-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
             >
