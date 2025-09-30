@@ -19,7 +19,6 @@ type ButtonAsLink = AnchorHTMLAttributes<HTMLAnchorElement> & {
 type ButtonAsNextLink = {
     as: 'link';
     href: string;
-    [key: string]: any;
 }
 
 type ButtonBaseProps = {
@@ -131,7 +130,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
                 <Link
                     href={href}
                     className={allClasses}
-                    ref={ref as any}
+                    ref={ref as React.Ref<HTMLAnchorElement>}
                     {...linkProps}
                 >
                     {content}
@@ -145,7 +144,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
                 <a
                     href={href}
                     className={allClasses}
-                    ref={ref as any}
+                    ref={ref as React.Ref<HTMLAnchorElement>}
                     {...anchorProps}
                 >
                     {content}
@@ -159,7 +158,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
             <button
                 className={allClasses}
                 disabled={disabled || loading}
-                ref={ref as any}
+                ref={ref as React.Ref<HTMLButtonElement>}
                 {...buttonProps}
             >
                 {content}

@@ -61,7 +61,7 @@ export default function AboutSection() {
                 <div className="text-gray-300 leading-relaxed space-y-4">
                   <p>
                     Lo que más me apasiona es <strong>crear proyectos que la gente realmente use</strong>.
-                    No me conformo con que algo "funcione" técnicamente; quiero que haga la vida de las
+                    No me conformo con que algo &quot;funcione&quot; técnicamente; quiero que haga la vida de las
                     personas más fácil, más eficiente, más agradable.
                   </p>
                   <p>

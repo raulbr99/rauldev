@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, Github, Calendar } from 'lucide-react';
+// Los iconos se usan en ProjectCard, no aquí directamente
 import { useProjects } from '../../hooks/useProjects';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import ProjectCard from '../ui/ProjectCard';

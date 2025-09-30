@@ -1,21 +1,11 @@
 // components/sections/ExperienceSection.tsx
 'use client';
 
-import { Calendar, MapPin, TrendingUp, Users, Code, Award } from 'lucide-react';
+import { Calendar, MapPin, TrendingUp, Code, Award } from 'lucide-react';
 import Card from '../ui/Card';
 import { experiences } from '../../data/experience';
 
 export default function ExperienceSection() {
-    const getIconComponent = (iconName: string) => {
-        const iconMap = {
-            Calendar: <Calendar className="w-5 h-5" />,
-            Code: <Code className="w-5 h-5" />,
-            TrendingUp: <TrendingUp className="w-5 h-5" />,
-            Users: <Users className="w-5 h-5" />
-        };
-        return iconMap[iconName as keyof typeof iconMap] || <Calendar className="w-5 h-5" />;
-    };
-
     return (
         <section id="experiencia" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
