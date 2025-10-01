@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all transform hover:scale-105 group">
+        <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all transform hover:scale-105 group flex flex-col h-full">
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={project.image}
@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
             </div>
 
-            <div className="p-6">
+            <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
                     {project.title}
                 </h3>
@@ -34,23 +34,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 4).map((tech: string, index: number) => (
+                <div className="flex flex-wrap gap-2 mb-6 flex-grow">
+                    {project.tech.map((tech: string, index: number) => (
                         <span
                             key={index}
-                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-md text-xs"
+                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-md text-xs h-fit"
                         >
                             {tech}
                         </span>
                     ))}
-                    {project.tech.length > 4 && (
-                        <span className="px-2 py-1 bg-gray-500/20 text-gray-300 rounded-md text-xs">
-                            +{project.tech.length - 4} más
-                        </span>
-                    )}
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto">
                     <div className="flex gap-3">
                         {project.github ? (
                             <a

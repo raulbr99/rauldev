@@ -49,21 +49,5 @@ export const experiences: ExperienceItem[] = [
         ],
         tech: ['React', 'Node.js', 'JavaScript', 'MongoDB', 'Express', 'CSS'],
         highlight: false
-    },
-    {
-        id: 'proyectos-personales',
-        company: 'Proyectos Personales',
-        role: 'Desarrollador Independiente',
-        type: 'Remoto',
-        description: 'Desarrollo de proyectos SaaS, e-commerce y herramientas web utilizando tecnologías modernas.',
-        achievements: [
-            'Fadesso: SaaS multi-tenant para barberías con reservas online, gestión de barberos/servicios y roles',
-            'E-commerce headless con Printful + Strapi y sincronización automática por webhooks',
-            'Generador/Gestor de contraseñas con cifrado, autenticación y medidor de fortaleza',
-            'Implementé arquitecturas escalables usando Next.js, TypeScript y Supabase',
-            'Demostré capacidad de llevar proyectos desde concepto hasta producción'
-        ],
-        tech: ['Next.js', 'TypeScript', 'Supabase', 'Strapi', 'Node.js', 'PostgreSQL', 'TailwindCSS'],
-        highlight: false
     }
 ];

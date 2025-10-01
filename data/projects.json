@@ -5,25 +5,25 @@
         "title": "Fadesso - SaaS para Barberías",
         "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.",
         "tech": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Stripe"],
-        "image": "/projects/fadesso.png",
+        "image": "/projects/fadesso-black.png",
         "github": "https://github.com/raulbr99/fadesso",
         "demo": "https://fadesso.com",
         "featured": true,
         "category": "SaaS",
-        "createdAt": "2024-01-15",
+        "createdAt": "2025-01-15",
         "status": "production"
       },
       {
         "id": "portfolio-website",
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
-        "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Resend", "Vercel"],
+        "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
         "image": "/projects/portfolio.svg",
         "github": "https://github.com/raulbr99/rauldev",
         "demo": "https://rauldev.dev",
         "featured": true,
         "category": "Portfolio",
-        "createdAt": "2024-12-01",
+        "createdAt": "2025-10-01",
         "status": "production"
       },
       {
@@ -36,7 +36,7 @@
         "demo": null,
         "featured": false,
         "category": "En Desarrollo",
-        "createdAt": "2024-12-01",
+        "createdAt": "2025-10-01",
         "status": "development"
       }
   ],

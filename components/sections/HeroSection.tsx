@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import Button from '../ui/Button';
 
 export default function HeroSection() {
@@ -12,7 +12,7 @@ export default function HeroSection() {
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 p-1">
             <div className="w-full h-full rounded-full overflow-hidden">
               <Image
-                src="/me.webp"
+                src="/me.png"
                 alt="Raúl BR - Full Stack Developer"
                 width={128}
                 height={128}
@@ -36,7 +36,7 @@ export default function HeroSection() {
           </div>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Desarrollador especializado en <strong>React</strong>, <strong>Next.js</strong> y <strong>Node.js</strong>.
-            He trabajado en <strong>e-commerce</strong>, <strong>SaaS multi-tenant</strong> y <strong>paneles de administración</strong>
+            He trabajado en <strong>e-commerce</strong>, <strong>SaaS multi-tenant</strong> y <strong>paneles de administración </strong>
             diseñados para rendimiento y escalabilidad. Ayudo a <strong>startups y empresas</strong> a convertir ideas en
             productos digitales sólidos, fáciles de mantener y listos para crecer.
           </p>
@@ -56,6 +56,16 @@ export default function HeroSection() {
               className="px-8 py-4 rounded-full font-semibold transform hover:scale-105"
             >
               Ver Proyectos
+            </Button>
+            <Button
+              as="a"
+              href="/cv-raul.pdf"
+              download
+              variant="secondary"
+              className="px-8 py-4 rounded-full font-semibold transform hover:scale-105 flex items-center gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Descargar CV
             </Button>
           </div>
           <div className="flex justify-center space-x-6">
