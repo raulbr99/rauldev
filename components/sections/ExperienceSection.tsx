@@ -24,7 +24,7 @@ export default function ExperienceSection() {
                 {/* Timeline */}
                 <div className="relative">
                     {/* Línea vertical */}
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-500 transform md:-translate-x-0.5"></div>
+                    <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-500 md:transform md:-translate-x-0.5"></div>
 
                     {/* Experiencias */}
                     <div className="space-y-12">
@@ -39,7 +39,7 @@ export default function ExperienceSection() {
                                 }}
                             >
                                 {/* Timeline dot */}
-                                <div className={`absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 transform md:-translate-x-2 z-10 ${exp.highlight ? 'bg-yellow-400 animate-pulse' : ''
+                                <div className={`absolute left-0 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-[7px] md:-translate-x-2 z-10 ${exp.highlight ? 'bg-yellow-400 animate-pulse' : ''
                                     }`}>
                                     {exp.highlight && (
                                         <div className="absolute -top-1 -left-1 w-6 h-6 bg-yellow-400/30 rounded-full animate-ping"></div>
@@ -50,7 +50,7 @@ export default function ExperienceSection() {
                                 <div className="hidden md:block md:w-1/2"></div>
 
                                 {/* Contenido */}
-                                <div className={`w-full md:w-1/2 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                                <div className={`w-full md:w-1/2 pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                                     }`}>
                                     <Card
                                         variant={exp.highlight ? 'gradient' : 'default'}

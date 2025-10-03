@@ -6,7 +6,7 @@ import LoadingSpinner from '../ui/LoadingSpinner';
 import ProjectCard from '../ui/ProjectCard';
 
 export default function ProjectsSection() {
-  const { projects, featuredProjects, loading } = useProjects();
+  const { projects, loading } = useProjects();
 
   if (loading) {
     return (
