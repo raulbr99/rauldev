@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Prevenir overscroll bounce y fondo blanco en móvil */
+html, body {
+  overscroll-behavior: none;
+  background: #0f172a; /* slate-900 */
+}
+
 /* Print styles */
 @media print {
   body {

@@ -47,7 +47,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                 <div className="flex items-center justify-between mt-auto">
                     <div className="flex gap-3">
-                        {project.github ? (
+                        {project.github && (
                             <a
                                 href={project.github}
                                 className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm"
@@ -57,13 +57,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 <Github className="w-4 h-4" />
                                 Código
                             </a>
-                        ) : (
-                            <span className="flex items-center gap-1 text-gray-500 text-sm cursor-not-allowed">
-                                <Github className="w-4 h-4" />
-                                Próximamente
-                            </span>
                         )}
-                        {project.demo ? (
+                        {project.demo && (
                             <a
                                 href={project.demo}
                                 className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
@@ -73,11 +68,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 <ExternalLink className="w-4 h-4" />
                                 Demo
                             </a>
-                        ) : (
-                            <span className="flex items-center gap-1 text-gray-500 text-sm cursor-not-allowed">
-                                <ExternalLink className="w-4 h-4" />
-                                Próximamente
-                            </span>
                         )}
                     </div>
 

@@ -6,7 +6,6 @@
         "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.",
         "tech": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Stripe"],
         "image": "/projects/fadesso-black.png",
-        "github": "https://github.com/raulbr99/fadesso",
         "demo": "https://fadesso.com",
         "featured": true,
         "category": "SaaS",
