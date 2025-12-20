@@ -1,32 +1,37 @@
-// components/sections/ExperienceSection.tsx
 'use client';
 
 import { Calendar, MapPin, TrendingUp, Code, Award } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Card from '../ui/Card';
 import { experiences } from '../../data/experience';
 
 export default function ExperienceSection() {
+    const t = useTranslations('experience');
+
+    const getTypeLabel = (type: string) => {
+        const typeMap: Record<string, string> = {
+            'Remoto': t('types.remote'),
+            'Presencial': t('types.onsite'),
+            'Híbrido': t('types.hybrid'),
+        };
+        return typeMap[type] || type;
+    };
+
     return (
         <section id="experiencia" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Experiencia Profesional
+                        {t('title')}
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                        Desarrollador Full Stack con sólida experiencia en empresas tech de Alicante y Murcia.
-                        Especializado en React, Node.js y tecnologías blockchain, con historial comprobado
-                        trabajando en equipos internacionales.
+                        {t('subtitle')}
                     </p>
                 </div>
 
-                {/* Timeline */}
                 <div className="relative">
-                    {/* Línea vertical */}
                     <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-500 md:transform md:-translate-x-0.5"></div>
 
-                    {/* Experiencias */}
                     <div className="space-y-12">
                         {experiences.map((exp, index) => (
                             <div
@@ -38,7 +43,6 @@ export default function ExperienceSection() {
                                     animationFillMode: 'both'
                                 }}
                             >
-                                {/* Timeline dot */}
                                 <div className={`absolute left-0 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-[7px] md:-translate-x-2 z-10 ${exp.highlight ? 'bg-yellow-400 animate-pulse' : ''
                                     }`}>
                                     {exp.highlight && (
@@ -46,10 +50,8 @@ export default function ExperienceSection() {
                                     )}
                                 </div>
 
-                                {/* Espaciador para centrar */}
                                 <div className="hidden md:block md:w-1/2"></div>
 
-                                {/* Contenido */}
                                 <div className={`w-full md:w-1/2 pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                                     }`}>
                                     <Card
@@ -57,7 +59,6 @@ export default function ExperienceSection() {
                                         className={`hover:scale-105 transition-all duration-300 ${exp.highlight ? 'ring-2 ring-yellow-400/50' : ''
                                             }`}
                                     >
-                                        {/* Header */}
                                         <div className="flex flex-wrap items-center justify-between mb-4">
                                             <div>
                                                 <h3 className="text-2xl font-bold text-white mb-1">
@@ -70,12 +71,11 @@ export default function ExperienceSection() {
                                             {exp.highlight && (
                                                 <div className="flex items-center gap-1 bg-yellow-400/20 text-yellow-300 px-3 py-1 rounded-full text-sm">
                                                     <Award className="w-4 h-4" />
-                                                    Destacado
+                                                    {t('featured')}
                                                 </div>
                                             )}
                                         </div>
 
-                                        {/* Metadatos */}
                                         <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
                                             {exp.period && (
                                                 <div className="flex items-center gap-1">
@@ -93,20 +93,18 @@ export default function ExperienceSection() {
                                                 exp.type === 'Híbrido' ? 'bg-blue-500/20 text-blue-300' :
                                                     'bg-gray-500/20 text-gray-300'
                                                 }`}>
-                                                {exp.type}
+                                                {getTypeLabel(exp.type)}
                                             </span>
                                         </div>
 
-                                        {/* Descripción */}
                                         <p className="text-gray-300 mb-4 leading-relaxed">
                                             {exp.description}
                                         </p>
 
-                                        {/* Logros */}
                                         <div className="mb-4">
                                             <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
                                                 <TrendingUp className="w-4 h-4 text-green-400" />
-                                                Logros Clave
+                                                {t('keyAchievements')}
                                             </h4>
                                             <ul className="space-y-2">
                                                 {exp.achievements.map((achievement, achIndex) => (
@@ -118,11 +116,10 @@ export default function ExperienceSection() {
                                             </ul>
                                         </div>
 
-                                        {/* Tecnologías */}
                                         <div>
                                             <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
                                                 <Code className="w-4 h-4 text-purple-400" />
-                                                Stack Técnico
+                                                {t('techStack')}
                                             </h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {exp.tech.map((tech, techIndex) => (

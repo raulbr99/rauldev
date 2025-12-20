@@ -2,6 +2,7 @@
 
 import { X, Home, User, Briefcase, FolderOpen, Mail, Github, Linkedin } from 'lucide-react';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 interface MobileMenuProps {
@@ -11,17 +12,17 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const { handleLinkClick } = useSmoothScroll();
+    const t = useTranslations('navigation');
 
     const menuItems = [
-        { href: '#inicio', label: 'Inicio', icon: <Home className="w-5 h-5" /> },
-        { href: '#sobre-mi', label: 'Sobre Mí', icon: <User className="w-5 h-5" /> },
-        { href: '#experiencia', label: 'Experiencia', icon: <Briefcase className="w-5 h-5" /> },
-        { href: '#habilidades', label: 'Habilidades', icon: <User className="w-5 h-5" /> },
-        { href: '#proyectos', label: 'Proyectos', icon: <FolderOpen className="w-5 h-5" /> },
-        { href: '#contacto', label: 'Contacto', icon: <Mail className="w-5 h-5" /> }
+        { href: '#inicio', key: 'home', icon: <Home className="w-5 h-5" /> },
+        { href: '#sobre-mi', key: 'about', icon: <User className="w-5 h-5" /> },
+        { href: '#experiencia', key: 'experience', icon: <Briefcase className="w-5 h-5" /> },
+        { href: '#habilidades', key: 'skills', icon: <User className="w-5 h-5" /> },
+        { href: '#proyectos', key: 'projects', icon: <FolderOpen className="w-5 h-5" /> },
+        { href: '#contacto', key: 'contact', icon: <Mail className="w-5 h-5" /> }
     ];
 
-    // Prevenir scroll cuando el menú está abierto
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -43,15 +44,12 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
 
     return (
         <>
-            {/* Overlay */}
             <div
                 className="fixed inset-0 bg-black/60 z-40 lg:hidden"
                 onClick={() => setIsOpen(false)}
             />
 
-            {/* Menu Panel */}
             <div className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-slate-900 border-l border-white/10 shadow-2xl z-50 lg:hidden">
-                {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-white/10">
                     <div className="text-xl font-bold text-white">
                         Raúl <span className="text-blue-400">Dev</span>
@@ -64,7 +62,6 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     </button>
                 </div>
 
-                {/* Navigation */}
                 <nav className="p-6">
                     <ul className="space-y-3">
                         {menuItems.map((item) => (
@@ -75,14 +72,13 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                                     onClick={(e) => handleMobileLinkClick(e, item.href)}
                                 >
                                     <span className="text-blue-400">{item.icon}</span>
-                                    <span>{item.label}</span>
+                                    <span>{t(item.key)}</span>
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
-                {/* Social Links */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
                     <div className="flex gap-4 justify-center">
                         <a href="https://github.com/raulbr99" className="text-gray-400 hover:text-white">

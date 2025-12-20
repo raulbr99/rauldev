@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Project } from '../../hooks/useProjects';
 
 interface ProjectCardProps {
@@ -9,6 +10,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+    const t = useTranslations('projects');
+
     return (
         <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all transform hover:scale-105 group flex flex-col h-full">
             <div className="relative h-48 overflow-hidden">
@@ -56,7 +59,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 rel="noopener noreferrer"
                             >
                                 <Github className="w-4 h-4" />
-                                Código
+                                {t('code')}
                             </a>
                         )}
                         {project.demo && (
@@ -67,7 +70,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 rel="noopener noreferrer"
                             >
                                 <ExternalLink className="w-4 h-4" />
-                                Demo
+                                {t('demo')}
                             </a>
                         )}
                     </div>

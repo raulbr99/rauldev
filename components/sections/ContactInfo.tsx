@@ -1,15 +1,16 @@
-// components/sections/ContactInfo.tsx
 'use client';
 
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactInfo() {
+  const t = useTranslations('contact.info');
+
   return (
     <div>
-      <h3 className="text-2xl font-bold text-white mb-6">Información de Contacto</h3>
+      <h3 className="text-2xl font-bold text-white mb-6">{t('title')}</h3>
       <p className="text-gray-300 mb-6">
-        Disponible para proyectos de desarrollo web, aplicaciones móviles y consultoría tecnológica.
-        Trabajo con clientes de toda España, especializándome en soluciones para empresas de la zona mediterránea.
+        {t('description')}
       </p>
       <div className="space-y-4">
         <a
@@ -28,7 +29,7 @@ export default function ContactInfo() {
         </a>
         <div className="flex items-center gap-4">
           <MapPin className="w-6 h-6 text-blue-400" />
-          <span className="text-gray-300">Alicante, España</span>
+          <span className="text-gray-300">{t('location')}</span>
         </div>
       </div>
     </div>

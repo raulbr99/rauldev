@@ -2,12 +2,24 @@
 
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import MobileMenu from './MobileMenu';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { handleLinkClick } = useSmoothScroll();
+    const t = useTranslations('navigation');
+
+    const navItems = [
+        { href: '#inicio', key: 'home' },
+        { href: '#sobre-mi', key: 'about' },
+        { href: '#experiencia', key: 'experience' },
+        { href: '#habilidades', key: 'skills' },
+        { href: '#proyectos', key: 'projects' },
+        { href: '#contacto', key: 'contact' },
+    ];
 
     return (
         <>
@@ -20,28 +32,34 @@ export default function Navigation() {
                             </span>
                         </div>
 
-                        {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
-                            <a href="#inicio" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#inicio')}>Inicio</a>
-                            <a href="#sobre-mi" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#sobre-mi')}>Sobre Mí</a>
-                            <a href="#experiencia" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#experiencia')}>Experiencia</a>
-                            <a href="#habilidades" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#habilidades')}>Habilidades</a>
-                            <a href="#proyectos" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#proyectos')}>Proyectos</a>
-                            <a href="#contacto" className="text-white hover:text-blue-400 transition-colors" onClick={(e) => handleLinkClick(e, '#contacto')}>Contacto</a>
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    className="text-white hover:text-blue-400 transition-colors"
+                                    onClick={(e) => handleLinkClick(e, item.href)}
+                                >
+                                    {t(item.key)}
+                                </a>
+                            ))}
+                            <LanguageSwitcher />
                         </div>
 
-                        {/* Mobile Menu Button */}
-                        <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden p-2 text-white hover:text-blue-400 transition-colors"
-                            aria-label="Toggle mobile menu"
-                        >
-                            {isMobileMenuOpen ? (
-                                <X className="w-6 h-6" />
-                            ) : (
-                                <Menu className="w-6 h-6" />
-                            )}
-                        </button>
+                        <div className="flex items-center gap-4 md:hidden">
+                            <LanguageSwitcher />
+                            <button
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                className="p-2 text-white hover:text-blue-400 transition-colors"
+                                aria-label={t('toggleMenu')}
+                            >
+                                {isMobileMenuOpen ? (
+                                    <X className="w-6 h-6" />
+                                ) : (
+                                    <Menu className="w-6 h-6" />
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>

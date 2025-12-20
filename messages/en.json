@@ -1,0 +1,186 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "toggleMenu": "Toggle mobile menu"
+  },
+  "hero": {
+    "name": "Raúl Berna",
+    "role": "Full Stack Developer",
+    "description": "Developer specialized in <strong>React</strong>, <strong>Next.js</strong> and <strong>Node.js</strong>. I have worked on <strong>e-commerce</strong>, <strong>multi-tenant SaaS</strong> and <strong>admin dashboards</strong> designed for performance and scalability. I help <strong>startups and companies</strong> turn ideas into solid, maintainable digital products ready to grow.",
+    "cta": {
+      "contact": "Let's Talk",
+      "projects": "View Projects",
+      "downloadCV": "Download CV"
+    },
+    "imageAlt": "Raúl BR - Full Stack Developer",
+    "seo": "Full stack developer with experience in React, Next.js, Node.js and TypeScript. Web application development. E-commerce, SaaS, admin dashboards and scalable solutions for startups and SMBs."
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "More than code, I create solutions that make people's lives easier",
+    "history": {
+      "title": "My Story",
+      "paragraph1": "My passion for programming started in high school when I discovered <strong>Scratch</strong>. Seeing how simple instructions came to life and created something functional fascinated me from the very first moment.",
+      "paragraph2": "With over <strong>3 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
+    },
+    "passion": {
+      "title": "What Drives Me",
+      "paragraph1": "What I'm most passionate about is <strong>creating projects that people actually use</strong>. I'm not satisfied with something that just \"works\" technically; I want it to make people's lives easier, more efficient, more enjoyable.",
+      "paragraph2": "Every time I see end users interact with an application I developed and receive positive feedback from the team, I know I'm doing what I love. <strong>That's my goal: solving real problems with technology</strong>."
+    },
+    "hobbies": {
+      "title": "Outside of Code",
+      "item1": "Passionate about <strong>padel</strong> - nothing better than disconnecting on the court",
+      "item2": "Amateur runner - currently training for <strong>several races</strong>",
+      "item3": "The discipline of running helps me keep a clear mind for solving complex problems"
+    },
+    "location": {
+      "title": "Why Alicante",
+      "description": "I live in Alicante because everything that matters is here: <strong>my family, my friends and an incredible climate</strong> that allows me to train outdoors all year round.",
+      "seeking": "I'm looking for opportunities in tech companies where I can add value, work in teams and continue growing professionally in a challenging environment."
+    },
+    "teamwork": {
+      "title": "How I Work in Teams",
+      "communication": {
+        "title": "Clear Communication",
+        "description": "Constant feedback and transparency in the process"
+      },
+      "quality": {
+        "title": "Quality Focus",
+        "description": "Clean, tested and well-documented code"
+      },
+      "collaboration": {
+        "title": "Collaborative Work",
+        "description": "I adapt well to agile methodologies and diverse teams"
+      }
+    },
+    "downloadCV": "Download Full CV",
+    "downloadCVHint": "Want to know more? Download my CV or let's talk directly",
+    "seo": "Web developer specialized in React, Next.js and Node.js. E-commerce, SaaS and application development for businesses. Digital solutions for startups and SMBs."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "Full Stack Developer with solid experience in tech companies. Specialized in React, Node.js and blockchain technologies, with a proven track record working in international teams.",
+    "types": {
+      "remote": "Remote",
+      "onsite": "On-site",
+      "hybrid": "Hybrid"
+    },
+    "featured": "Featured",
+    "keyAchievements": "Key Achievements",
+    "techStack": "Tech Stack",
+    "data": {
+      "nanonino": {
+        "role": "Fullstack Developer",
+        "description": "Development of web and blockchain applications, working with international teams in India and Spain.",
+        "achievements": [
+          "Developed progressive web applications with good performance handling large data volumes",
+          "Implemented smart contracts optimizing digital interactions and transactions on blockchain",
+          "Created AI-powered booking system for golf courses with voice and chat interactions",
+          "Developed CBD products e-commerce with landing page, catalog and advanced search with Algolia",
+          "Collaborated effectively with multicultural teams in India and Spain"
+        ]
+      },
+      "evvant": {
+        "role": "Fullstack Developer",
+        "description": "Development of complete booking system, ensuring scalability and security with continuous performance improvements.",
+        "achievements": [
+          "Created complete booking system with ReactJS and NodeJS optimized for scalability and security",
+          "Implemented dynamic interactive map that facilitated unit selection and booking",
+          "Developed key functionalities to purchase, cancel and modify bookings easily",
+          "Applied continuous performance optimizations ensuring speed and better UX",
+          "Delivered robust solution that significantly improved user experience"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I work with",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "cms": "CMS",
+      "ai": "AI & Machine Learning"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "A selection of my most recent projects and what's coming next",
+    "loading": "Loading projects...",
+    "viewAll": "View All Projects",
+    "code": "Code",
+    "demo": "Demo",
+    "categories": {
+      "ai": "AI/ML",
+      "saas": "SaaS",
+      "portfolio": "Portfolio",
+      "development": "In Development"
+    },
+    "data": {
+      "bomkai": {
+        "title": "BomkAI - AI Book Generator",
+        "description": "Web application that uses artificial intelligence to generate complete books. Users can configure topic, genre, number of chapters, writing style and target audience to create personalized literary content."
+      },
+      "fadesso": {
+        "title": "Fadesso - SaaS for Barbershops",
+        "description": "Multi-tenant online booking system for barbershops. Includes barber management, services, schedules, analytics dashboard and role system. Developed with scalable architecture and modern design."
+      },
+      "portfolio": {
+        "title": "Personal Portfolio",
+        "description": "This very portfolio developed with Next.js 15, modern design, SEO optimized, contact system with Resend and scalable architecture."
+      },
+      "comingSoon": {
+        "title": "Coming Soon...",
+        "description": "I'm working on several exciting projects that will be available soon. They include modern web applications, management systems and innovative SaaS tools."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Looking for a professional web developer? I offer personalized digital solutions for companies and startups.",
+    "info": {
+      "title": "Contact Information",
+      "description": "Available for web development projects, mobile applications and technology consulting.",
+      "location": "Alicante, Spain"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "message": "Message",
+      "messagePlaceholder": "How can I help you?",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "fillAllFields": "Please fill in all fields correctly"
+    },
+    "seo": "Contact web developer, freelance programmer, web development services"
+  },
+  "validation": {
+    "name": {
+      "required": "Name is required",
+      "minLength": "Name must have at least 2 characters",
+      "maxLength": "Name cannot exceed 50 characters",
+      "lettersOnly": "Name can only contain letters"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Please enter a valid email",
+      "maxLength": "Email cannot exceed 100 characters"
+    },
+    "message": {
+      "required": "Message is required",
+      "minLength": "Message must have at least 10 characters",
+      "maxLength": "Message cannot exceed 1000 characters"
+    }
+  }
+}

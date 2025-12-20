@@ -1,12 +1,14 @@
 'use client';
 
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Button from '../ui/Button';
 import FormInput from '../ui/FormInput';
 import ContactInfo from './ContactInfo';
 import { useContactForm } from '@/hooks/useContactForm';
 
 export default function ContactSection() {
+  const t = useTranslations('contact');
   const {
     formData,
     errors,
@@ -24,19 +26,13 @@ export default function ContactSection() {
     <section id="contacto" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Contacto</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('title')}</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            ¿Buscas un desarrollador web profesional? Ofrezco soluciones digitales personalizadas para empresas y startups.
+            {t('subtitle')}
           </p>
 
-          {/* Hidden SEO content */}
           <div className="sr-only">
-            Contacto desarrollador web Alicante, freelance Vega Baja,
-            programador Alicante, desarrollo web Alicante,
-            servicios programación Comunidad Valenciana, freelance comarca Bajo Segura,
-            desarrollador aplicaciones móviles Valencia, programador Levante español,
-            contacto desarrollo software Mediterráneo, freelance zona levantina,
-            servicios web empresas valencianas, programador pymes regionales
+            {t('seo')}
           </div>
         </div>
 
@@ -47,52 +43,51 @@ export default function ContactSection() {
             <FormInput
               id="name"
               name="name"
-              label="Nombre"
+              label={t('form.name')}
               type="text"
               value={formData.name}
               onChange={handleChange}
               onBlur={handleBlur}
               error={errors.name}
               touched={touched.name}
-              placeholder="Tu nombre"
+              placeholder={t('form.namePlaceholder')}
               maxLength={50}
             />
 
             <FormInput
               id="email"
               name="email"
-              label="Email"
+              label={t('form.email')}
               type="email"
               value={formData.email}
               onChange={handleChange}
               onBlur={handleBlur}
               error={errors.email}
               touched={touched.email}
-              placeholder="tu@email.com"
+              placeholder={t('form.emailPlaceholder')}
               maxLength={100}
             />
 
             <FormInput
               id="message"
               name="message"
-              label="Mensaje"
+              label={t('form.message')}
               type="textarea"
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
               error={errors.message}
               touched={touched.message}
-              placeholder="¿En qué puedo ayudarte?"
+              placeholder={t('form.messagePlaceholder')}
               rows={5}
               maxLength={1000}
               showCharCount
             />
 
-            {/* Mensajes de estado */}
             {submitStatus === 'success' && (
               <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 animate-fade-in">
                 <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                <span>¡Mensaje enviado correctamente! Te responderé pronto.</span>
+                <span>{t('form.success')}</span>
               </div>
             )}
 
@@ -113,19 +108,19 @@ export default function ContactSection() {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                  Enviando...
+                  {t('form.submitting')}
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  Enviar Mensaje
+                  {t('form.submit')}
                 </>
               )}
             </Button>
 
             {!formValid && (touched.name || touched.email || touched.message) && (
               <p className="text-sm text-gray-400 text-center">
-                Por favor, completa todos los campos correctamente
+                {t('form.fillAllFields')}
               </p>
             )}
           </form>

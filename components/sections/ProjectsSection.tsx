@@ -1,19 +1,20 @@
 'use client';
 
-// Los iconos se usan en ProjectCard, no aquí directamente
+import { useTranslations } from 'next-intl';
 import { useProjects } from '../../hooks/useProjects';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import ProjectCard from '../ui/ProjectCard';
 
 export default function ProjectsSection() {
   const { projects, loading } = useProjects();
+  const t = useTranslations('projects');
 
   if (loading) {
     return (
       <section id="proyectos" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <LoadingSpinner />
-          <p className="text-gray-300 mt-4">Cargando proyectos...</p>
+          <p className="text-gray-300 mt-4">{t('loading')}</p>
         </div>
       </section>
     );
@@ -24,10 +25,10 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Mis Proyectos
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Una selección de mis proyectos más recientes y lo que está por venir
+            {t('subtitle')}
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export default function ProjectsSection() {
             href="#contacto"
             className="inline-flex items-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105"
           >
-            Ver Todos los Proyectos
+            {t('viewAll')}
           </a>
         </div>
       </div>
