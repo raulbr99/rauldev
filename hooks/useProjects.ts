@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import projectsData from '@/data/projects.json';
 
 export interface Project {
@@ -16,18 +16,8 @@ export interface Project {
 }
 
 export function useProjects() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simular loading para UX
-    const timer = setTimeout(() => {
-      setProjects(projectsData.projects);
-      setLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [projects] = useState<Project[]>(projectsData.projects);
+  const loading = false;
 
   const featuredProjects = projects.filter(p => p.featured);
   

@@ -1,6 +1,19 @@
 {
   "projects": [
       {
+        "id": "bomkai-generator",
+        "title": "BomkAI - Generador de Libros con IA",
+        "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.",
+        "tech": ["Next.js", "TypeScript", "Neon", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel"],
+        "image": "/project-placeholder.svg",
+        "github": null,
+        "demo": "https://bomkai.vercel.app/",
+        "featured": true,
+        "category": "IA/ML",
+        "createdAt": "2025-01-10",
+        "status": "production"
+      },
+      {
         "id": "fadesso-saas",
         "title": "Fadesso - SaaS para Barberías",
         "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.",
@@ -41,10 +54,10 @@
       }
   ],
   "stats": {
-    "totalProjects": 3,
-    "featuredProjects": 2,
+    "totalProjects": 4,
+    "featuredProjects": 3,
     "inDevelopment": 1,
-    "categories": ["SaaS", "Portfolio", "En Desarrollo"],
-    "technologies": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Resend"]
+    "categories": ["IA/ML", "SaaS", "Portfolio", "En Desarrollo"],
+    "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend"]
   }
 }

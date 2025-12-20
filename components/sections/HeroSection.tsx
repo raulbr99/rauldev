@@ -17,8 +17,7 @@ export default function HeroSection() {
                 width={128}
                 height={128}
                 className="w-full h-full object-cover object-center"
-                priority={false} // Si no es LCP
-                loading="eager" // Solo si es crítica
+                priority
               />
             </div>
           </div>

@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     images: ["https://rauldev.dev/me.webp"],
   },
   verification: {
-    google: "google-site-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   alternates: {
     canonical: "https://rauldev.dev",
