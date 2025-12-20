@@ -9,33 +9,57 @@ interface ProjectCardProps {
     project: Project;
 }
 
+// Mapeo de IDs de proyecto a claves de traducción
+const projectKeyMap: Record<string, string> = {
+    'bomkai-generator': 'bomkai',
+    'fadesso-saas': 'fadesso',
+    'portfolio-website': 'portfolio',
+    'coming-soon-1': 'comingSoon',
+};
+
+// Mapeo de categorías a claves de traducción
+const categoryKeyMap: Record<string, string> = {
+    'IA/ML': 'ai',
+    'SaaS': 'saas',
+    'Portfolio': 'portfolio',
+    'En Desarrollo': 'development',
+};
+
 export default function ProjectCard({ project }: ProjectCardProps) {
     const t = useTranslations('projects');
+
+    const projectKey = projectKeyMap[project.id];
+    const categoryKey = categoryKeyMap[project.category];
+
+    // Usar traducciones si existen, sino fallback al JSON
+    const title = projectKey ? t(`data.${projectKey}.title`) : project.title;
+    const description = projectKey ? t(`data.${projectKey}.description`) : project.description;
+    const category = categoryKey ? t(`categories.${categoryKey}`) : project.category;
 
     return (
         <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all transform hover:scale-105 group flex flex-col h-full">
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 bg-blue-500/80 text-white text-xs rounded-full">
-                        {project.category}
+                        {category}
                     </span>
                 </div>
             </div>
 
             <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
-                    {project.title}
+                    {title}
                 </h3>
 
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                    {project.description}
+                    {description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6 flex-grow">
