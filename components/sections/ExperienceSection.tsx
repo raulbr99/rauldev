@@ -7,6 +7,7 @@ import { experiences } from '../../data/experience';
 
 // Mapeo de IDs de experiencia a claves de traducción
 const experienceKeyMap: Record<string, string> = {
+    'nanonino-sl-2': 'nanoninoCurrent',
     'nanonino-sl': 'nanonino',
     'evvant-sl': 'evvant',
 };

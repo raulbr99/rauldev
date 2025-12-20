@@ -75,6 +75,14 @@
     "keyAchievements": "Logros Clave",
     "techStack": "Stack Técnico",
     "data": {
+      "nanoninoCurrent": {
+        "role": "Fullstack Developer",
+        "description": "Segunda etapa en la empresa, continuando el desarrollo de aplicaciones web y soluciones digitales.",
+        "achievements": [
+          "Reincorporación al equipo de desarrollo tras experiencia internacional",
+          "Continuando con el desarrollo de aplicaciones web modernas"
+        ]
+      },
       "nanonino": {
         "role": "Fullstack Developer",
         "description": "Desarrollo de aplicaciones web y blockchain, trabajando con equipos internacionales en India y España.",

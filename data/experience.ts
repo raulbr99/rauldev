@@ -15,6 +15,21 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
     {
+        id: 'nanonino-sl-2',
+        company: 'Nanonino SL',
+        role: 'Fullstack Developer',
+        period: 'Oct 2025 - Actualidad',
+        location: 'Alicante, España',
+        type: 'Presencial',
+        description: 'Segunda etapa en la empresa, continuando el desarrollo de aplicaciones web y soluciones digitales.',
+        achievements: [
+            'Reincorporación al equipo de desarrollo tras experiencia internacional',
+            'Continuando con el desarrollo de aplicaciones web modernas'
+        ],
+        tech: ['JavaScript', 'TypeScript', 'React', 'NextJS', 'Node.js', 'MongoDB'],
+        highlight: true
+    },
+    {
         id: 'nanonino-sl',
         company: 'Nanonino SL',
         role: 'Fullstack Developer',
@@ -30,7 +45,7 @@ export const experiences: ExperienceItem[] = [
             'Colaboré efectivamente con equipos multiculturales en India y España'
         ],
         tech: ['JavaScript', 'TypeScript', 'React', 'NextJS', 'Node.js', 'MongoDB', 'OpenAI API', 'Algolia', 'Blockchain'],
-        highlight: true
+        highlight: false
     },
     {
         id: 'evvant-sl',
