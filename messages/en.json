@@ -205,9 +205,9 @@
     }
   },
   "chat": {
-    "title": "Ask my AI",
-    "status": "Raúl's assistant",
-    "greeting": "Hi! 👋 I'm Raúl's AI assistant. Ask me about his experience, stack or projects.",
+    "title": "Talk to me",
+    "status": "Raúl Berná",
+    "greeting": "Hi! 👋 I'm Raúl. Ask me anything about my experience, my stack or my projects.",
     "placeholder": "Type your question...",
     "send": "Send",
     "open": "Open chat",
@@ -215,9 +215,9 @@
     "disclaimer": "AI · may make mistakes",
     "error": "Something went wrong. Please try again.",
     "suggestions": {
-      "stack": "What's his stack?",
-      "experience": "Tell me about his experience",
-      "available": "Is he open to work?"
+      "stack": "What's your stack?",
+      "experience": "Tell me about your experience",
+      "available": "Are you open to work?"
     }
   }
 }

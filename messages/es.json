@@ -205,9 +205,9 @@
     }
   },
   "chat": {
-    "title": "Pregúntale a mi IA",
-    "status": "Asistente de Raúl",
-    "greeting": "¡Hola! 👋 Soy el asistente de IA de Raúl. Pregúntame por su experiencia, su stack o sus proyectos.",
+    "title": "Habla conmigo",
+    "status": "Raúl Berná",
+    "greeting": "¡Hola! 👋 Soy Raúl. Pregúntame lo que quieras sobre mi experiencia, mi stack o mis proyectos.",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "open": "Abrir chat",
@@ -215,9 +215,9 @@
     "disclaimer": "IA · puede cometer errores",
     "error": "Algo salió mal. Inténtalo de nuevo.",
     "suggestions": {
-      "stack": "¿Cuál es su stack?",
-      "experience": "Cuéntame su experiencia",
-      "available": "¿Está disponible para trabajar?"
+      "stack": "¿Cuál es tu stack?",
+      "experience": "Cuéntame tu experiencia",
+      "available": "¿Estás disponible para trabajar?"
     }
   }
 }
