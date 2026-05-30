@@ -6,6 +6,7 @@ import SectionHeading from '../ui/SectionHeading';
 
 // Mapeo de IDs de experiencia a claves de traducción
 const experienceKeyMap: Record<string, string> = {
+    'talkrev': 'talkrev',
     'nanonino-sl-2': 'nanoninoCurrent',
     'nanonino-sl': 'nanonino',
     'evvant-sl': 'evvant',

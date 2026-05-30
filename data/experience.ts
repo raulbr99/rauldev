@@ -15,6 +15,24 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
     {
+        id: 'talkrev',
+        company: 'Talkrev',
+        role: 'Full Stack Developer',
+        period: 'Oct 2025 - Actualidad',
+        location: 'Remoto',
+        type: 'Remoto',
+        description: 'Desarrollo de la plataforma de IA conversacional de Talkrev (chat, voz y reservas) y de PartsNow.ai, su plataforma de agentic commerce para piezas de camión y tráiler.',
+        achievements: [
+            'Construí PartsNow.ai: comercio con IA para piezas de camión con búsqueda por chat, voz, foto o VIN sobre un catálogo de +50.000 piezas y checkout unificado',
+            'Desarrollé el dashboard del agente de chat con IA y la suite de reservas "Turno" en Next.js, con servidor MCP para integración con agentes de IA',
+            'Implementé generación programática de vídeos de marketing con Remotion y renderizado en la nube (AWS Lambda)',
+            'Integré analítica de producto con PostHog y backend en Supabase, con despliegue continuo en Vercel',
+            'Desarrollé scrapers para alimentar catálogos e inventario en tiempo real'
+        ],
+        tech: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Supabase', 'MCP', 'OpenAI API', 'Remotion', 'PostHog', 'Vercel'],
+        highlight: true
+    },
+    {
         id: 'nanonino-sl-2',
         company: 'Nanonino SL',
         role: 'Fullstack Developer',
@@ -27,7 +45,7 @@ export const experiences: ExperienceItem[] = [
             'Continuando con el desarrollo de aplicaciones web modernas'
         ],
         tech: ['JavaScript', 'TypeScript', 'React', 'NextJS', 'Node.js', 'MongoDB'],
-        highlight: true
+        highlight: false
     },
     {
         id: 'nanonino-sl',
