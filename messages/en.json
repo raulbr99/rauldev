@@ -80,23 +80,14 @@
     "keyAchievements": "Key Achievements",
     "techStack": "Tech Stack",
     "data": {
-      "talkrev": {
-        "role": "Full Stack Developer",
-        "description": "Building Talkrev's conversational AI platform (chat, voice and bookings) and PartsNow.ai, its agentic-commerce platform for heavy-duty truck and trailer parts.",
+      "nanoninoCurrent": {
+        "role": "Fullstack Developer",
+        "description": "Second stage at the company, building Talkrev, a conversational AI platform (chat, voice and bookings), and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
         "achievements": [
           "Built PartsNow.ai: AI commerce for truck parts with search by chat, voice, photo or VIN over a 50,000+ parts catalog with unified checkout",
           "Developed the AI chat-agent dashboard and the \"Turno\" booking suite in Next.js, with an MCP server for AI-agent integrations",
           "Implemented programmatic marketing-video generation with Remotion and cloud rendering (AWS Lambda)",
-          "Integrated product analytics with PostHog and a Supabase backend, with continuous deployment on Vercel",
-          "Built scrapers to feed real-time catalog and inventory data"
-        ]
-      },
-      "nanoninoCurrent": {
-        "role": "Fullstack Developer",
-        "description": "Second stage at the company, continuing the development of web applications and digital solutions.",
-        "achievements": [
-          "Rejoined the development team after international experience",
-          "Continuing with modern web application development"
+          "Integrated product analytics with PostHog and a Supabase backend, with continuous deployment on Vercel"
         ]
       },
       "nanonino": {
