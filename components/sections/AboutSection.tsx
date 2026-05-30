@@ -1,5 +1,3 @@
-'use client';
-
 import { Download, Code2, Heart, MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 

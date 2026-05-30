@@ -13,9 +13,9 @@
   "categories": ["business", "productivity", "portfolio"],
   "screenshots": [
     {
-      "src": "/og-image.svg",
+      "src": "/og-image.jpg",
       "sizes": "1200x630",
-      "type": "image/svg+xml",
+      "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Portfolio de Raúl BR - Vista completa"
     }

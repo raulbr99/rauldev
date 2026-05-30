@@ -1,5 +1,3 @@
-'use client';
-
 import { Calendar, MapPin, TrendingUp, Code, Award } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Card from '../ui/Card';

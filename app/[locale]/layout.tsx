@@ -80,9 +80,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : "Full Stack Developer specialized in creating modern digital solutions for businesses and entrepreneurs. Expert in React, Next.js, Node.js and mobile applications.",
       images: [
         {
-          url: "https://rauldev.dev/me.webp",
-          width: 800,
-          height: 800,
+          url: "https://rauldev.dev/og-image.jpg",
+          width: 1200,
+          height: 630,
           alt: isSpanish ? "Raúl Dev - Desarrollador Full Stack" : "Raúl Dev - Full Stack Developer",
         },
       ],
@@ -96,7 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? "Desarrollador Full Stack especializado en React, Next.js, Node.js. Creando soluciones digitales modernas."
         : "Full Stack Developer specialized in React, Next.js, Node.js. Creating modern digital solutions.",
       creator: "@raulbr99",
-      images: ["https://rauldev.dev/me.webp"],
+      images: ["https://rauldev.dev/og-image.jpg"],
     },
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
