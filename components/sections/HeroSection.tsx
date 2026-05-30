@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section
       id="inicio"
       aria-label="Hero"
-      className="relative flex min-h-[94vh] items-center bg-techgrid px-4 pt-28 pb-16"
+      className="relative flex min-h-[82vh] items-center bg-techgrid px-4 pt-28 pb-16 lg:min-h-[94vh]"
     >
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
         {/* LEFT — big type */}
@@ -90,7 +90,7 @@ export default function HeroSection() {
 
         {/* RIGHT — framed "spec card" */}
         <Reveal direction="left" delay={0.6} className="order-first lg:order-last">
-          <div className="relative mx-auto max-w-xs lg:max-w-sm">
+          <div className="relative mx-auto max-w-[12rem] sm:max-w-[15rem] lg:max-w-sm">
             {/* accent corner brackets */}
             <span className="absolute -left-2 -top-2 h-6 w-6 border-l-2 border-t-2 border-cyan-400" />
             <span className="absolute -bottom-2 -right-2 h-6 w-6 border-b-2 border-r-2 border-cyan-400" />

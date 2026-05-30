@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import { useTranslations } from 'next-intl';
+import Markdown from './Markdown';
 
 export default function ChatWidget() {
   const t = useTranslations('chat');
@@ -122,13 +123,13 @@ export default function ChatWidget() {
                 return (
                   <div key={m.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
                     <div
-                      className={`max-w-[85%] whitespace-pre-wrap px-3 py-2 text-sm ${
+                      className={`max-w-[85%] px-3 py-2 text-sm ${
                         isUser
-                          ? 'bg-cyan-400 text-slate-950'
+                          ? 'whitespace-pre-wrap bg-cyan-400 text-slate-950'
                           : 'border border-white/10 bg-white/[0.04] text-gray-200'
                       }`}
                     >
-                      {text}
+                      {isUser ? text : <Markdown>{text}</Markdown>}
                     </div>
                   </div>
                 );
