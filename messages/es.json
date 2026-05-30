@@ -137,6 +137,7 @@
     "categories": {
       "ai": "IA/ML",
       "saas": "SaaS",
+      "webapp": "Web App",
       "portfolio": "Portfolio",
       "development": "En Desarrollo"
     },
@@ -148,6 +149,10 @@
       "fadesso": {
         "title": "Fadesso - SaaS para Barberías",
         "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno."
+      },
+      "cuotia": {
+        "title": "Cuotia - Calculadoras Fiscales para Autónomos",
+        "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails."
       },
       "portfolio": {
         "title": "Portfolio Personal",

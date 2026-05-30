@@ -14,6 +14,7 @@ interface ProjectCardProps {
 const projectKeyMap: Record<string, string> = {
     'bomkai-generator': 'bomkai',
     'fadesso-saas': 'fadesso',
+    'cuotia': 'cuotia',
     'portfolio-website': 'portfolio',
     'coming-soon-1': 'comingSoon',
 };
@@ -22,6 +23,7 @@ const projectKeyMap: Record<string, string> = {
 const categoryKeyMap: Record<string, string> = {
     'IA/ML': 'ai',
     'SaaS': 'saas',
+    'Web App': 'webapp',
     'Portfolio': 'portfolio',
     'En Desarrollo': 'development',
 };

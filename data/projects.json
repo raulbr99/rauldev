@@ -27,6 +27,19 @@
         "status": "production"
       },
       {
+        "id": "cuotia",
+        "title": "Cuotia - Calculadoras Fiscales para Autónomos",
+        "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.",
+        "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
+        "image": "/projects/cuotia.png",
+        "github": null,
+        "demo": "https://cuotia.es",
+        "featured": true,
+        "category": "Web App",
+        "createdAt": "2026-05-01",
+        "status": "production"
+      },
+      {
         "id": "portfolio-website",
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
@@ -54,10 +67,10 @@
       }
   ],
   "stats": {
-    "totalProjects": 4,
-    "featuredProjects": 3,
+    "totalProjects": 5,
+    "featuredProjects": 4,
     "inDevelopment": 1,
-    "categories": ["IA/ML", "SaaS", "Portfolio", "En Desarrollo"],
+    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio", "En Desarrollo"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend"]
   }
 }

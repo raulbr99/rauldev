@@ -137,6 +137,7 @@
     "categories": {
       "ai": "AI/ML",
       "saas": "SaaS",
+      "webapp": "Web App",
       "portfolio": "Portfolio",
       "development": "In Development"
     },
@@ -148,6 +149,10 @@
       "fadesso": {
         "title": "Fadesso - SaaS for Barbershops",
         "description": "Multi-tenant online booking system for barbershops. Includes barber management, services, schedules, analytics dashboard and role system. Developed with scalable architecture and modern design."
+      },
+      "cuotia": {
+        "title": "Cuotia - Tax Calculators for the Self-Employed",
+        "description": "Tax-calculator platform for self-employed workers in Spain (social-security fee, regional income tax, modelo 130, net/gross…) updated to 2026 regulations. Includes programmatic SEO with ~180 pages, a newsletter and official-gazette (BOE) alerts. No sign-up, no emails."
       },
       "portfolio": {
         "title": "Personal Portfolio",
