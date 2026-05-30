@@ -75,6 +75,29 @@ export default function ExperienceSection() {
 
                                         <p className="mb-5 max-w-2xl leading-relaxed text-gray-300">{description}</p>
 
+                                        {exp.projects && exp.projects.length > 0 && (
+                                            <div className="mb-6">
+                                                <p className="mb-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-500">
+                                                    {t('builtProjects')}
+                                                </p>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {exp.projects.map((proj) => (
+                                                        <a
+                                                            key={proj.name}
+                                                            href={proj.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            aria-label={proj.name}
+                                                            className="flex items-center border border-white/10 bg-white px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-cyan-400/50"
+                                                        >
+                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                            <img src={proj.logo} alt={proj.name} className="h-7 w-auto" />
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+
                                         <ul className="mb-5 space-y-1.5">
                                             {achievements.map((achievement, achIndex) => (
                                                 <li key={achIndex} className="flex items-start gap-2.5 text-sm text-gray-400">

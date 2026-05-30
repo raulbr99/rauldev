@@ -11,6 +11,8 @@ export interface ExperienceItem {
     achievements: string[];
     tech: string[];
     highlight?: boolean;
+    /** Featured products built during this role (logo shown in the card). */
+    projects?: { name: string; logo: string; url: string }[];
 }
 
 export const experiences: ExperienceItem[] = [
@@ -29,7 +31,11 @@ export const experiences: ExperienceItem[] = [
             'Integré analítica de producto con PostHog y backend en Supabase, con despliegue continuo en Vercel'
         ],
         tech: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Supabase', 'MongoDB', 'MCP', 'OpenAI API', 'Remotion', 'PostHog', 'Vercel'],
-        highlight: true
+        highlight: true,
+        projects: [
+            { name: 'Talkrev', logo: '/logos/talkrev.svg', url: 'https://talkrev.ai' },
+            { name: 'PartsNow.ai', logo: '/logos/partsnow.svg', url: 'https://partsnow.ai' }
+        ]
     },
     {
         id: 'nanonino-sl',
