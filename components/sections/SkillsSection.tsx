@@ -6,6 +6,7 @@ import {
   SiAmazon, SiGithub, SiStrapi, SiSupabase,
   SiOpenai, SiGoogle
 } from 'react-icons/si';
+import Reveal from '../anim/Reveal';
 
 export default function SkillsSection() {
   const t = useTranslations('skills');
@@ -45,9 +46,9 @@ export default function SkillsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categoryKeys.map((catKey, i) => (
+            <Reveal key={i} delay={i * 0.08} direction="up" className="h-full">
             <div
-              key={i}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:scale-105 transition-transform shadow-lg">
+              className="h-full bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:scale-[1.03] hover:border-cyan-400/30 transition-all shadow-lg hover:shadow-cyan-500/10">
               <h3 className="text-xl font-bold text-white mb-4 text-center border-b border-white/20 pb-3">
                 {t(`categories.${catKey}`)}
               </h3>
@@ -63,6 +64,7 @@ export default function SkillsSection() {
                 ))}
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

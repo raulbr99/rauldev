@@ -87,3 +87,34 @@ html, body {
   animation-delay: 1.2s;
   animation-fill-mode: both;
 }
+
+/* ── Reforma animaciones ───────────────────────────────────────────── */
+
+/* Shimmer del gradiente (rol del hero, acentos) */
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-pan {
+  background-size: 200% auto;
+  animation: gradient-pan 6s ease infinite;
+}
+
+/* Brillo de borde para cards destacadas */
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.10); }
+  50% { box-shadow: 0 0 0 1px rgba(56,189,248,0.35), 0 0 40px rgba(56,189,248,0.22); }
+}
+.animate-border-glow {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -2,6 +2,7 @@ import { Calendar, MapPin, TrendingUp, Code, Award } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Card from '../ui/Card';
 import { experiences } from '../../data/experience';
+import Reveal from '../anim/Reveal';
 
 // Mapeo de IDs de experiencia a claves de traducción
 const experienceKeyMap: Record<string, string> = {
@@ -47,14 +48,15 @@ export default function ExperienceSection() {
                                 : exp.achievements;
 
                             return (
-                                <div
+                                <Reveal
                                     key={exp.id}
-                                    className={`relative flex flex-col md:flex-row gap-8 animate-fade-in ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                                    direction={index % 2 === 0 ? 'left' : 'right'}
+                                    delay={index * 0.08}
+                                    amount={0.15}
+                                >
+                                <div
+                                    className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                                         }`}
-                                    style={{
-                                        animationDelay: `${400 + index * 200}ms`,
-                                        animationFillMode: 'both'
-                                    }}
                                 >
                                     <div className={`absolute left-0 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-[7px] md:-translate-x-2 z-10 ${exp.highlight ? 'bg-yellow-400 animate-pulse' : ''
                                         }`}>
@@ -148,6 +150,7 @@ export default function ExperienceSection() {
                                         </Card>
                                     </div>
                                 </div>
+                                </Reveal>
                             );
                         })}
                     </div>

@@ -6,6 +6,9 @@ import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
+import AuroraBackground from '@/components/anim/AuroraBackground';
+import ScrollProgress from '@/components/anim/ScrollProgress';
+import Reveal from '@/components/anim/Reveal';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -16,14 +19,16 @@ export default async function Home({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="relative min-h-screen overflow-x-clip">
+      <AuroraBackground />
+      <ScrollProgress />
       <Navigation />
       <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <Reveal><AboutSection /></Reveal>
+      <Reveal><ExperienceSection /></Reveal>
+      <Reveal><SkillsSection /></Reveal>
+      <Reveal><ProjectsSection /></Reveal>
+      <Reveal><ContactSection /></Reveal>
     </div>
   );
 }

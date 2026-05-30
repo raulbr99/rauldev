@@ -23,6 +23,11 @@
   "about": {
     "title": "About Me",
     "subtitle": "More than code, I create solutions that make people's lives easier",
+    "stats": {
+      "years": "Years of experience",
+      "projects": "Projects",
+      "technologies": "Technologies"
+    },
     "history": {
       "title": "My Story",
       "paragraph1": "My passion for programming started in high school when I discovered <strong>Scratch</strong>. Seeing how simple instructions came to life and created something functional fascinated me from the very first moment.",

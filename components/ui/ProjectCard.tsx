@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Project } from '../../hooks/useProjects';
+import TiltCard from '../anim/TiltCard';
 
 interface ProjectCardProps {
     project: Project;
@@ -37,7 +38,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const category = categoryKey ? t(`categories.${categoryKey}`) : project.category;
 
     return (
-        <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all transform hover:scale-105 group flex flex-col h-full">
+        <TiltCard className="h-full rounded-xl">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group flex flex-col h-full">
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={project.image}
@@ -105,6 +107,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </TiltCard>
     );
 }

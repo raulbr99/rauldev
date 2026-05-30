@@ -1,5 +1,6 @@
 import { Download, Code2, Heart, MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Counter from '../anim/Counter';
 
 export default function AboutSection() {
   const t = useTranslations('about');
@@ -22,6 +23,27 @@ export default function AboutSection() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
+        </div>
+
+        {/* Stats con contadores animados */}
+        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-14">
+          {[
+            { to: 3, suffix: '+', label: t('stats.years') },
+            { to: 4, suffix: '', label: t('stats.projects') },
+            { to: 18, suffix: '+', label: t('stats.technologies') },
+          ].map((s, i) => (
+            <div
+              key={i}
+              className="text-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 transition-colors hover:border-cyan-400/30"
+            >
+              <Counter
+                to={s.to}
+                suffix={s.suffix}
+                className="block text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
+              />
+              <div className="mt-2 text-xs sm:text-sm text-gray-400">{s.label}</div>
+            </div>
+          ))}
         </div>
 
         <div className="max-w-4xl mx-auto">
