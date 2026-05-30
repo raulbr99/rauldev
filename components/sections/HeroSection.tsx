@@ -12,9 +12,9 @@ export default function HeroSection() {
     <section
       id="inicio"
       aria-label="Hero"
-      className="relative flex min-h-[82vh] items-center bg-techgrid px-4 pt-28 pb-16 lg:min-h-[94vh]"
+      className="relative flex min-h-[70vh] items-start bg-techgrid px-4 pt-24 pb-12 lg:min-h-[94vh] lg:items-center lg:pt-28 lg:pb-16"
     >
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
         <div>
           <div className="mb-6 flex items-center gap-2.5 font-mono text-xs font-medium tracking-[0.25em] text-cyan-300">
@@ -90,7 +90,7 @@ export default function HeroSection() {
 
         {/* RIGHT — framed "spec card" */}
         <Reveal direction="left" delay={0.6} className="order-first lg:order-last">
-          <div className="relative mx-auto max-w-[12rem] sm:max-w-[15rem] lg:max-w-sm">
+          <div className="relative mx-auto max-w-[9.5rem] sm:max-w-[14rem] lg:max-w-sm">
             {/* accent corner brackets */}
             <span className="absolute -left-2 -top-2 h-6 w-6 border-l-2 border-t-2 border-cyan-400" />
             <span className="absolute -bottom-2 -right-2 h-6 w-6 border-b-2 border-r-2 border-cyan-400" />
@@ -109,7 +109,7 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
               </div>
 
-              <dl className="mt-2 border-t border-white/10 font-mono text-xs">
+              <dl className="mt-2 hidden border-t border-white/10 font-mono text-xs sm:block">
                 <div className="flex items-center justify-between border-b border-white/10 px-1 py-2">
                   <dt className="text-gray-500">LOC</dt>
                   <dd className="text-gray-200">Alicante, ES</dd>

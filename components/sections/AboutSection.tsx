@@ -38,7 +38,7 @@ export default function AboutSection() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-mdp-8 mb-10 border border-white/10">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md p-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4 mb-6">
               <div className="bg-blue-500/20 p-3 rounded-full">
                 <Code2 className="w-6 h-6 text-blue-400" />
@@ -53,7 +53,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-mdp-8 mb-10 border border-white/10">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md p-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4">
               <div className="bg-red-500/20 p-3 rounded-full">
                 <Heart className="w-6 h-6 text-red-400" />
@@ -69,7 +69,7 @@ export default function AboutSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-white/5 backdrop-blur-smp-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 🏃‍♂️ {t('hobbies.title')}
               </h4>
@@ -89,7 +89,7 @@ export default function AboutSection() {
               </ul>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-smp-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-blue-400" />
                 {t('location.title')}
@@ -103,7 +103,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-smp-6 mb-10 border border-blue-500/20">
+          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-sm p-6 mb-10 border border-blue-500/20">
             <h4 className="text-xl font-bold text-white mb-4 text-center">{t('teamwork.title')}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
