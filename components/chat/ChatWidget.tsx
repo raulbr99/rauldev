@@ -1,24 +1,29 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { MessageSquare, X, Send, Square } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Markdown from './Markdown';
 
 export default function ChatWidget() {
   const t = useTranslations('chat');
+  const locale = useLocale();
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status, stop, error } = useChat({
-    transport: new DefaultChatTransport({ api: '/api/chat' }),
-  });
+  // Pasa el idioma de la página como pista por defecto (la regla principal es
+  // responder en el idioma del mensaje del usuario).
+  const transport = useMemo(
+    () => new DefaultChatTransport({ api: '/api/chat', body: { locale } }),
+    [locale]
+  );
+  const { messages, sendMessage, status, stop, error } = useChat({ transport });
 
   const busy = status === 'submitted' || status === 'streaming';
 

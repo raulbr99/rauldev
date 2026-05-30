@@ -21,8 +21,9 @@ export async function POST(req: Request) {
   }
 
   let messages: UIMessage[];
+  let locale: string | undefined;
   try {
-    ({ messages } = await req.json());
+    ({ messages, locale } = await req.json());
   } catch {
     return Response.json({ error: 'Petición inválida' }, { status: 400 });
   }
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: MODEL,
-    system: buildSystemPrompt(),
+    system: buildSystemPrompt(locale),
     messages: await convertToModelMessages(messages),
   });
 
