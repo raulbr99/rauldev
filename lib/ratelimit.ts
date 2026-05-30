@@ -20,10 +20,15 @@ const WINDOW_MS: Record<string, number> = { s: 1000, m: 60_000, h: 3_600_000 };
  * back to an in-memory limiter (with eviction) for local development.
  */
 export function createRateLimiter({ prefix, limit, window }: Options) {
+  // Vercel's Upstash marketplace integration injects KV_REST_API_*; keep
+  // UPSTASH_REDIS_REST_* as a fallback for portability.
+  const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+
   const upstash =
-    process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    url && token
       ? new Ratelimit({
-          redis: Redis.fromEnv(),
+          redis: new Redis({ url, token }),
           limiter: Ratelimit.slidingWindow(limit, window),
           prefix,
           analytics: true,

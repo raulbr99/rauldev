@@ -1,53 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { Ratelimit } from '@upstash/ratelimit';
-import { Redis } from '@upstash/redis';
+import { createRateLimiter } from '@/lib/ratelimit';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minuto
-const MAX_REQUESTS = 3; // máximo 3 requests por minuto
-
-// Rate limiting duradero con Upstash Redis cuando está configurado.
-// En serverless la memoria no se comparte entre instancias ni sobrevive a
-// los cold starts, así que el Map en memoria solo sirve de fallback local.
-const ratelimit =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-    ? new Ratelimit({
-        redis: Redis.fromEnv(),
-        limiter: Ratelimit.slidingWindow(MAX_REQUESTS, '60 s'),
-        prefix: 'ratelimit:contact',
-        analytics: true,
-      })
-    : null;
-
-// Fallback en memoria (con purga para no crecer indefinidamente).
-const memoryStore = new Map<string, { count: number; lastReset: number }>();
-
-function memoryRateLimited(ip: string): boolean {
-  const now = Date.now();
-  for (const [key, rec] of memoryStore) {
-    if (now - rec.lastReset > RATE_LIMIT_WINDOW) memoryStore.delete(key);
-  }
-  const record = memoryStore.get(ip);
-  if (!record) {
-    memoryStore.set(ip, { count: 1, lastReset: now });
-    return false;
-  }
-  if (record.count >= MAX_REQUESTS) {
-    return true;
-  }
-  record.count++;
-  return false;
-}
-
-async function isRateLimited(ip: string): Promise<boolean> {
-  if (ratelimit) {
-    const { success } = await ratelimit.limit(ip);
-    return !success;
-  }
-  return memoryRateLimited(ip);
-}
+// Rate limiting duradero (Upstash Redis) con fallback en memoria para local.
+const isRateLimited = createRateLimiter({ prefix: 'ratelimit:contact', limit: 3, window: '1 m' });
 
 // Sanitizar HTML para prevenir XSS
 function sanitizeHtml(str: string): string {
