@@ -195,5 +195,21 @@
       "minLength": "El mensaje debe tener al menos 10 caracteres",
       "maxLength": "El mensaje no puede exceder 1000 caracteres"
     }
+  },
+  "chat": {
+    "title": "Pregúntale a mi IA",
+    "status": "Asistente de Raúl",
+    "greeting": "¡Hola! 👋 Soy el asistente de IA de Raúl. Pregúntame por su experiencia, su stack o sus proyectos.",
+    "placeholder": "Escribe tu pregunta...",
+    "send": "Enviar",
+    "open": "Abrir chat",
+    "close": "Cerrar chat",
+    "disclaimer": "IA · puede cometer errores",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "suggestions": {
+      "stack": "¿Cuál es su stack?",
+      "experience": "Cuéntame su experiencia",
+      "available": "¿Está disponible para trabajar?"
+    }
   }
 }

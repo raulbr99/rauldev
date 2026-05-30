@@ -195,5 +195,21 @@
       "minLength": "Message must have at least 10 characters",
       "maxLength": "Message cannot exceed 1000 characters"
     }
+  },
+  "chat": {
+    "title": "Ask my AI",
+    "status": "Raúl's assistant",
+    "greeting": "Hi! 👋 I'm Raúl's AI assistant. Ask me about his experience, stack or projects.",
+    "placeholder": "Type your question...",
+    "send": "Send",
+    "open": "Open chat",
+    "close": "Close chat",
+    "disclaimer": "AI · may make mistakes",
+    "error": "Something went wrong. Please try again.",
+    "suggestions": {
+      "stack": "What's his stack?",
+      "experience": "Tell me about his experience",
+      "available": "Is he open to work?"
+    }
   }
 }
