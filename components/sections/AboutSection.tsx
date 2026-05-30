@@ -1,6 +1,7 @@
 import { Download, Code2, Heart, MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Counter from '../anim/Counter';
+import SectionHeading from '../ui/SectionHeading';
 
 export default function AboutSection() {
   const t = useTranslations('about');
@@ -13,20 +14,10 @@ export default function AboutSection() {
       itemType="https://schema.org/Person"
     >
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
-            itemProp="jobTitle"
-          >
-            {t('title')}
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </div>
+        <SectionHeading number="01" label="ABOUT" title={t('title')} subtitle={t('subtitle')} />
 
         {/* Stats con contadores animados */}
-        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-14">
+        <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10 mb-14">
           {[
             { to: 3, suffix: '+', label: t('stats.years') },
             { to: 4, suffix: '', label: t('stats.projects') },
@@ -34,20 +25,20 @@ export default function AboutSection() {
           ].map((s, i) => (
             <div
               key={i}
-              className="text-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 transition-colors hover:border-cyan-400/30"
+              className="bg-slate-950/60 p-6 transition-colors hover:bg-cyan-950/20"
             >
               <Counter
                 to={s.to}
                 suffix={s.suffix}
                 className="block text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
               />
-              <div className="mt-2 text-xs sm:text-sm text-gray-400">{s.label}</div>
+              <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-gray-500">{s.label}</div>
             </div>
           ))}
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-8 mb-10 border border-white/10">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-mdp-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4 mb-6">
               <div className="bg-blue-500/20 p-3 rounded-full">
                 <Code2 className="w-6 h-6 text-blue-400" />
@@ -62,7 +53,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-8 mb-10 border border-white/10">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-mdp-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4">
               <div className="bg-red-500/20 p-3 rounded-full">
                 <Heart className="w-6 h-6 text-red-400" />
@@ -78,7 +69,7 @@ export default function AboutSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/5 backdrop-blur-smp-6 border border-white/10 hover:bg-white/10 transition-all">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 🏃‍♂️ {t('hobbies.title')}
               </h4>
@@ -98,7 +89,7 @@ export default function AboutSection() {
               </ul>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/5 backdrop-blur-smp-6 border border-white/10 hover:bg-white/10 transition-all">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-blue-400" />
                 {t('location.title')}
@@ -112,7 +103,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 mb-10 border border-blue-500/20">
+          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-smp-6 mb-10 border border-blue-500/20">
             <h4 className="text-xl font-bold text-white mb-4 text-center">{t('teamwork.title')}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
@@ -141,9 +132,9 @@ export default function AboutSection() {
             <a
               href="/cv-raul.pdf"
               download
-              className="inline-flex items-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+              className="inline-flex items-center gap-2 bg-cyan-400 text-slate-950 px-8 py-4 font-mono text-sm font-medium uppercase tracking-wider hover:bg-cyan-300 transition-colors"
             >
-              <Download className="w-5 h-5 mr-2" />
+              <Download className="w-5 h-5" />
               {t('downloadCV')}
             </a>
             <p className="text-gray-400 text-sm mt-3">

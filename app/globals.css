@@ -1,9 +1,30 @@
 @import "tailwindcss";
 
+/* Design tokens — bold tech */
+@theme {
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --color-volt: #d1ff26;
+}
+
 /* Prevenir overscroll bounce y fondo blanco en móvil */
 html, body {
   overscroll-behavior: none;
   background: #0f172a; /* slate-900 */
+}
+
+/* Display font para todos los titulares */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Patrón de grid visible para fondos de sección (estética brutalista) */
+.bg-techgrid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 /* Print styles */

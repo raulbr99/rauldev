@@ -1,8 +1,8 @@
-import { Calendar, MapPin, TrendingUp, Code, Award } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Card from '../ui/Card';
 import { experiences } from '../../data/experience';
 import Reveal from '../anim/Reveal';
+import SectionHeading from '../ui/SectionHeading';
 
 // Mapeo de IDs de experiencia a claves de traducción
 const experienceKeyMap: Record<string, string> = {
@@ -24,136 +24,81 @@ export default function ExperienceSection() {
     };
 
     return (
-        <section id="experiencia" className="py-20 px-4">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        {t('title')}
-                    </h2>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                        {t('subtitle')}
-                    </p>
-                </div>
+        <section id="experiencia" className="bg-techgrid px-4 py-20">
+            <div className="mx-auto max-w-5xl">
+                <SectionHeading number="02" label="EXPERIENCE" title={t('title')} subtitle={t('subtitle')} />
 
-                <div className="relative">
-                    <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-500 md:transform md:-translate-x-0.5"></div>
+                <div className="border-t border-white/10">
+                    {experiences.map((exp, index) => {
+                        const expKey = experienceKeyMap[exp.id];
+                        const role = expKey ? t(`data.${expKey}.role`) : exp.role;
+                        const description = expKey ? t(`data.${expKey}.description`) : exp.description;
+                        const achievements = expKey
+                            ? (t.raw(`data.${expKey}.achievements`) as string[])
+                            : exp.achievements;
 
-                    <div className="space-y-12">
-                        {experiences.map((exp, index) => {
-                            const expKey = experienceKeyMap[exp.id];
-                            const role = expKey ? t(`data.${expKey}.role`) : exp.role;
-                            const description = expKey ? t(`data.${expKey}.description`) : exp.description;
-                            const achievements = expKey
-                                ? (t.raw(`data.${expKey}.achievements`) as string[])
-                                : exp.achievements;
-
-                            return (
-                                <Reveal
-                                    key={exp.id}
-                                    direction={index % 2 === 0 ? 'left' : 'right'}
-                                    delay={index * 0.08}
-                                    amount={0.15}
-                                >
-                                <div
-                                    className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                                        }`}
-                                >
-                                    <div className={`absolute left-0 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-[7px] md:-translate-x-2 z-10 ${exp.highlight ? 'bg-yellow-400 animate-pulse' : ''
-                                        }`}>
-                                        {exp.highlight && (
-                                            <div className="absolute -top-1 -left-1 w-6 h-6 bg-yellow-400/30 rounded-full animate-ping"></div>
+                        return (
+                            <Reveal key={exp.id} delay={index * 0.05} amount={0.15}>
+                                <article className="group grid gap-6 border-b border-white/10 py-10 transition-colors hover:bg-white/[0.02] md:grid-cols-[10rem_1fr] md:gap-10">
+                                    {/* índice + periodo */}
+                                    <div className="flex items-baseline gap-4 md:flex-col md:gap-2">
+                                        <span className="font-mono text-5xl font-bold leading-none text-white/15 transition-colors group-hover:text-cyan-400/50">
+                                            {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                        {exp.period && (
+                                            <span className="font-mono text-xs text-gray-500">{exp.period}</span>
                                         )}
                                     </div>
 
-                                    <div className="hidden md:block md:w-1/2"></div>
-
-                                    <div className={`w-full md:w-1/2 pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
-                                        }`}>
-                                        <Card
-                                            variant={exp.highlight ? 'gradient' : 'default'}
-                                            className={`hover:scale-105 transition-all duration-300 ${exp.highlight ? 'ring-2 ring-yellow-400/50' : ''
-                                                }`}
-                                        >
-                                            <div className="flex flex-wrap items-center justify-between mb-4">
-                                                <div>
-                                                    <h3 className="text-2xl font-bold text-white mb-1">
-                                                        {role}
-                                                    </h3>
-                                                    <p className="text-blue-400 font-semibold text-lg">
-                                                        {exp.company}
-                                                    </p>
-                                                </div>
-                                                {exp.highlight && (
-                                                    <div className="flex items-center gap-1 bg-yellow-400/20 text-yellow-300 px-3 py-1 rounded-full text-sm">
-                                                        <Award className="w-4 h-4" />
-                                                        {t('featured')}
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-                                                {exp.period && (
-                                                    <div className="flex items-center gap-1">
-                                                        <Calendar className="w-4 h-4 text-blue-400" />
-                                                        {exp.period}
-                                                    </div>
-                                                )}
-                                                {exp.location && (
-                                                    <div className="flex items-center gap-1">
-                                                        <MapPin className="w-4 h-4 text-green-400" />
-                                                        {exp.location}
-                                                    </div>
-                                                )}
-                                                <span className={`px-2 py-1 rounded-full text-xs ${exp.type === 'Remoto' ? 'bg-green-500/20 text-green-300' :
-                                                    exp.type === 'Híbrido' ? 'bg-blue-500/20 text-blue-300' :
-                                                        'bg-gray-500/20 text-gray-300'
-                                                    }`}>
-                                                    {getTypeLabel(exp.type)}
+                                    {/* contenido */}
+                                    <div>
+                                        <div className="mb-1.5 flex flex-wrap items-center gap-3">
+                                            <h3 className="text-2xl font-bold text-white">{role}</h3>
+                                            {exp.highlight && (
+                                                <span className="border border-cyan-400/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-cyan-300">
+                                                    {t('featured')}
                                                 </span>
-                                            </div>
+                                            )}
+                                        </div>
 
-                                            <p className="text-gray-300 mb-4 leading-relaxed">
-                                                {description}
-                                            </p>
+                                        <p className="mb-3 font-mono text-sm text-cyan-400">{exp.company}</p>
 
-                                            <div className="mb-4">
-                                                <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                                                    <TrendingUp className="w-4 h-4 text-green-400" />
-                                                    {t('keyAchievements')}
-                                                </h4>
-                                                <ul className="space-y-2">
-                                                    {achievements.map((achievement, achIndex) => (
-                                                        <li key={achIndex} className="text-gray-300 text-sm flex items-start gap-2">
-                                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                            {achievement}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
+                                        <div className="mb-4 flex flex-wrap gap-4 font-mono text-xs text-gray-500">
+                                            {exp.location && (
+                                                <span className="inline-flex items-center gap-1.5">
+                                                    <MapPin className="h-3.5 w-3.5" />
+                                                    {exp.location}
+                                                </span>
+                                            )}
+                                            <span className="uppercase tracking-wider">{getTypeLabel(exp.type)}</span>
+                                        </div>
 
-                                            <div>
-                                                <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                                                    <Code className="w-4 h-4 text-purple-400" />
-                                                    {t('techStack')}
-                                                </h4>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {exp.tech.map((tech, techIndex) => (
-                                                        <span
-                                                            key={techIndex}
-                                                            className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-md text-xs font-medium"
-                                                        >
-                                                            {tech}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </Card>
+                                        <p className="mb-5 max-w-2xl leading-relaxed text-gray-300">{description}</p>
+
+                                        <ul className="mb-5 space-y-1.5">
+                                            {achievements.map((achievement, achIndex) => (
+                                                <li key={achIndex} className="flex items-start gap-2.5 text-sm text-gray-400">
+                                                    <span className="mt-0.5 text-cyan-400">▹</span>
+                                                    {achievement}
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {exp.tech.map((tech, techIndex) => (
+                                                <span
+                                                    key={techIndex}
+                                                    className="border border-white/10 px-2.5 py-1 font-mono text-[11px] text-gray-400 transition-colors group-hover:border-white/20"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                </Reveal>
-                            );
-                        })}
-                    </div>
+                                </article>
+                            </Reveal>
+                        );
+                    })}
                 </div>
             </div>
         </section>

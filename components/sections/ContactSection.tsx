@@ -2,9 +2,9 @@
 
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Button from '../ui/Button';
 import FormInput from '../ui/FormInput';
 import ContactInfo from './ContactInfo';
+import SectionHeading from '../ui/SectionHeading';
 import { useContactForm } from '@/hooks/useContactForm';
 
 export default function ContactSection() {
@@ -26,16 +26,8 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('title')}</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
-
-          <div className="sr-only">
-            {t('seo')}
-          </div>
-        </div>
+        <SectionHeading number="05" label="CONTACT" title={t('title')} subtitle={t('subtitle')} />
+        <div className="sr-only">{t('seo')}</div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <ContactInfo />
@@ -96,29 +88,28 @@ export default function ContactSection() {
             />
 
             {submitStatus === 'success' && (
-              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 animate-fade-in">
+              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 text-green-300 animate-fade-in">
                 <CheckCircle className="w-5 h-5 flex-shrink-0" />
                 <span>{t('form.success')}</span>
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 animate-fade-in">
+              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 text-red-300 animate-fade-in">
                 <AlertCircle className="w-5 h-5 flex-shrink-0" />
                 <span>{errorMessage}</span>
               </div>
             )}
 
-            <Button
+            <button
               type="submit"
-              variant="primary"
               disabled={isSubmitting || !formValid}
-              className={`w-full py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 transition-all ${isSubmitting || !formValid ? 'opacity-70 cursor-not-allowed' : ''
+              className={`flex w-full items-center justify-center gap-2 bg-cyan-400 px-6 py-4 font-mono text-sm font-medium uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-300 ${isSubmitting || !formValid ? 'cursor-not-allowed opacity-50' : ''
                 }`}
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin"></div>
                   {t('form.submitting')}
                 </>
               ) : (
@@ -127,7 +118,7 @@ export default function ContactSection() {
                   {t('form.submit')}
                 </>
               )}
-            </Button>
+            </button>
 
             {!formValid && (touched.name || touched.email || touched.message) && (
               <p className="text-sm text-gray-400 text-center">

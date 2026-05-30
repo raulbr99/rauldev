@@ -38,8 +38,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const category = categoryKey ? t(`categories.${categoryKey}`) : project.category;
 
     return (
-        <TiltCard className="h-full rounded-xl">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group flex flex-col h-full">
+        <TiltCard className="h-full">
+            <div className="group flex h-full flex-col overflow-hidden border border-white/15 bg-white/[0.04] backdrop-blur-md transition-colors hover:border-cyan-400/30">
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={project.image}
@@ -49,14 +49,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-blue-500/80 text-white text-xs rounded-full">
+                    <span className="bg-cyan-400 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-slate-950">
                         {category}
                     </span>
                 </div>
             </div>
 
             <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                     {title}
                 </h3>
 
@@ -68,7 +68,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     {project.tech.map((tech: string, index: number) => (
                         <span
                             key={index}
-                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-md text-xs h-fit"
+                            className="h-fit border border-white/10 px-2 py-1 font-mono text-[11px] text-gray-400"
                         >
                             {tech}
                         </span>

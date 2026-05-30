@@ -26,18 +26,18 @@ export default function Navigation() {
             <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center py-4">
-                        <div className="text-2xl font-bold text-white">
+                        <div className="text-xl font-bold uppercase tracking-tight text-white">
                             <span>
-                                Raúl <span className="bg-gradient-to-r from-white to-blue-400 text-transparent bg-clip-text">Dev</span>
+                                Raúl <span className="text-cyan-400">Dev</span>
                             </span>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-8">
+                        <div className="hidden md:flex items-center space-x-7">
                             {navItems.map((item) => (
                                 <a
                                     key={item.href}
                                     href={item.href}
-                                    className="text-white hover:text-blue-400 transition-colors"
+                                    className="font-mono text-xs uppercase tracking-widest text-gray-300 transition-colors hover:text-cyan-300"
                                     onClick={(e) => handleLinkClick(e, item.href)}
                                 >
                                     {t(item.key)}
@@ -50,7 +50,7 @@ export default function Navigation() {
                             <LanguageSwitcher />
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="p-2 text-white hover:text-blue-400 transition-colors"
+                                className="p-2 text-white hover:text-cyan-300 transition-colors"
                                 aria-label={t('toggleMenu')}
                             >
                                 {isMobileMenuOpen ? (

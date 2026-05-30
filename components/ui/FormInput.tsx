@@ -37,17 +37,17 @@ export default function FormInput({
     const hasError = touched && error;
     const isValid = touched && !error && value;
 
-    const inputClasses = `w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-colors ${hasError
+    const inputClasses = `w-full px-4 py-3 bg-white/[0.04] border text-white placeholder-gray-500 font-mono text-sm focus:outline-none transition-colors ${hasError
         ? 'border-red-500 focus:border-red-500'
         : isValid
             ? 'border-green-500 focus:border-green-500'
-            : 'border-white/20 focus:border-blue-400'
+            : 'border-white/15 focus:border-cyan-400'
         } ${type === 'textarea' ? 'resize-none' : ''}`;
 
     return (
         <div>
             <div className="flex justify-between items-center mb-2">
-                <label htmlFor={id} className="block text-white font-medium">
+                <label htmlFor={id} className="block font-mono text-xs uppercase tracking-widest text-gray-400">
                     {label}
                 </label>
                 {showCharCount && maxLength && (
