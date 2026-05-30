@@ -82,6 +82,7 @@ export async function POST(request: NextRequest) {
     const data = await resend.emails.send({
       from: 'Contacto Portfolio <onboarding@resend.dev>',
       to: ['raulbernariera99@gmail.com'],
+      replyTo: email.trim(),
       subject: `Nuevo mensaje de contacto de ${safeName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
