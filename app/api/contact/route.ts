@@ -1,28 +1,52 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Rate limiting simple en memoria
-const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minuto
 const MAX_REQUESTS = 3; // máximo 3 requests por minuto
 
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const record = rateLimitMap.get(ip);
+// Rate limiting duradero con Upstash Redis cuando está configurado.
+// En serverless la memoria no se comparte entre instancias ni sobrevive a
+// los cold starts, así que el Map en memoria solo sirve de fallback local.
+const ratelimit =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Ratelimit({
+        redis: Redis.fromEnv(),
+        limiter: Ratelimit.slidingWindow(MAX_REQUESTS, '60 s'),
+        prefix: 'ratelimit:contact',
+        analytics: true,
+      })
+    : null;
 
-  if (!record || now - record.lastReset > RATE_LIMIT_WINDOW) {
-    rateLimitMap.set(ip, { count: 1, lastReset: now });
+// Fallback en memoria (con purga para no crecer indefinidamente).
+const memoryStore = new Map<string, { count: number; lastReset: number }>();
+
+function memoryRateLimited(ip: string): boolean {
+  const now = Date.now();
+  for (const [key, rec] of memoryStore) {
+    if (now - rec.lastReset > RATE_LIMIT_WINDOW) memoryStore.delete(key);
+  }
+  const record = memoryStore.get(ip);
+  if (!record) {
+    memoryStore.set(ip, { count: 1, lastReset: now });
     return false;
   }
-
   if (record.count >= MAX_REQUESTS) {
     return true;
   }
-
   record.count++;
   return false;
+}
+
+async function isRateLimited(ip: string): Promise<boolean> {
+  if (ratelimit) {
+    const { success } = await ratelimit.limit(ip);
+    return !success;
+  }
+  return memoryRateLimited(ip);
 }
 
 // Sanitizar HTML para prevenir XSS
@@ -38,15 +62,24 @@ function sanitizeHtml(str: string): string {
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown';
-    if (isRateLimited(ip)) {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    if (await isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Demasiadas solicitudes. Intenta de nuevo en un minuto.' },
         { status: 429 }
       );
     }
 
-    const { name, email, message } = await request.json();
+    const { name, email, message, website } = await request.json();
+
+    // Honeypot: campo oculto que solo rellenan los bots. Si viene con valor,
+    // respondemos 200 fingido (sin enviar nada) para no darles pistas.
+    if (website) {
+      return NextResponse.json(
+        { message: 'Email enviado correctamente' },
+        { status: 200 }
+      );
+    }
 
     // Validación básica
     if (!name || !email || !message) {

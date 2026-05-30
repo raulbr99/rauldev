@@ -17,6 +17,7 @@ export default function ContactSection() {
     submitStatus,
     errorMessage,
     formValid,
+    honeypotRef,
     handleChange,
     handleBlur,
     handleSubmit
@@ -40,6 +41,16 @@ export default function ContactSection() {
           <ContactInfo />
 
           <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            {/* Honeypot anti-spam: oculto para humanos, tentador para bots */}
+            <input
+              ref={honeypotRef}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] top-[-9999px] h-0 w-0 opacity-0"
+            />
             <FormInput
               id="name"
               name="name"

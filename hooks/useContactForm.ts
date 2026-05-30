@@ -1,7 +1,7 @@
 // hooks/useContactForm.ts
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FormData, FormErrors, validateField, validateAllFields, isFormValid } from '@/utils/formValidation';
 
 interface FormTouched {
@@ -27,6 +27,9 @@ export function useContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Honeypot anti-spam: input oculto que solo rellenan los bots.
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   // Validación en tiempo real
   useEffect(() => {
@@ -95,7 +98,7 @@ export function useContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, website: honeypotRef.current?.value ?? '' }),
       });
 
       const data = await response.json();
@@ -127,6 +130,7 @@ export function useContactForm() {
     submitStatus,
     errorMessage,
     formValid,
+    honeypotRef,
     handleChange,
     handleBlur,
     handleSubmit
