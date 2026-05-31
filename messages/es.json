@@ -31,7 +31,7 @@
     "history": {
       "title": "Mi Historia",
       "paragraph1": "Mi pasión por la programación comenzó en el instituto cuando descubrí <strong>Scratch</strong>. Ver cómo unas simples instrucciones cobraban vida y creaban algo funcional me fascinó desde el primer momento.",
-      "paragraph2": "Con más de <strong>3 años de experiencia profesional</strong>, he trabajado en proyectos de <strong>e-commerce, SaaS multi-tenant y aplicaciones blockchain</strong>. Pero lo que realmente me motiva cada día no son las tecnologías en sí, sino el <strong>impacto real</strong> que tienen en las personas."
+      "paragraph2": "Con más de <strong>4 años de experiencia profesional</strong>, he trabajado en proyectos de <strong>e-commerce, SaaS multi-tenant, IA conversacional y aplicaciones blockchain</strong>. Pero lo que realmente me motiva cada día no son las tecnologías en sí, sino el <strong>impacto real</strong> que tienen en las personas."
     },
     "passion": {
       "title": "Lo Que Me Mueve",
@@ -62,6 +62,22 @@
       "collaboration": {
         "title": "Trabajo Colaborativo",
         "description": "Me adapto bien a metodologías ágiles y equipos diversos"
+      }
+    },
+    "education": {
+      "title": "Formación",
+      "degree": "Estudios en Ingeniería Informática",
+      "institution": "Universidad de Alicante"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "spanish": {
+        "name": "Español",
+        "level": "Nativo"
+      },
+      "english": {
+        "name": "Inglés",
+        "level": "Profesional"
       }
     },
     "downloadCV": "Descargar CV Completo",

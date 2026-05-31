@@ -31,7 +31,7 @@
     "history": {
       "title": "My Story",
       "paragraph1": "My passion for programming started in high school when I discovered <strong>Scratch</strong>. Seeing how simple instructions came to life and created something functional fascinated me from the very first moment.",
-      "paragraph2": "With over <strong>3 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
+      "paragraph2": "With over <strong>4 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS, conversational AI and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
     },
     "passion": {
       "title": "What Drives Me",
@@ -62,6 +62,22 @@
       "collaboration": {
         "title": "Collaborative Work",
         "description": "I adapt well to agile methodologies and diverse teams"
+      }
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Computer Engineering studies",
+      "institution": "University of Alicante"
+    },
+    "languages": {
+      "title": "Languages",
+      "spanish": {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      "english": {
+        "name": "English",
+        "level": "Professional"
       }
     },
     "downloadCV": "Download Full CV",

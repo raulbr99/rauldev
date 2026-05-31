@@ -1,4 +1,4 @@
-import { Download, Code2, Heart, MapPin } from 'lucide-react';
+import { Download, Code2, Heart, MapPin, GraduationCap, Languages } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Counter from '../anim/Counter';
 import SectionHeading from '../ui/SectionHeading';
@@ -19,7 +19,7 @@ export default function AboutSection() {
         {/* Stats con contadores animados */}
         <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10 mb-14">
           {[
-            { to: 3, suffix: '+', label: t('stats.years') },
+            { to: 4, suffix: '+', label: t('stats.years') },
             { to: 4, suffix: '', label: t('stats.projects') },
             { to: 18, suffix: '+', label: t('stats.technologies') },
           ].map((s, i) => (
@@ -100,6 +100,36 @@ export default function AboutSection() {
                   {t('location.seeking')}
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-blue-400" />
+                {t('education.title')}
+              </h4>
+              <div className="text-gray-300">
+                <p className="font-semibold">{t('education.degree')}</p>
+                <p className="text-sm text-gray-400 mt-1">{t('education.institution')}</p>
+              </div>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Languages className="w-5 h-5 text-blue-400" />
+                {t('languages.title')}
+              </h4>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center justify-between gap-4">
+                  <span>{t('languages.spanish.name')}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">{t('languages.spanish.level')}</span>
+                </li>
+                <li className="flex items-center justify-between gap-4">
+                  <span>{t('languages.english.name')}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">{t('languages.english.level')}</span>
+                </li>
+              </ul>
             </div>
           </div>
 

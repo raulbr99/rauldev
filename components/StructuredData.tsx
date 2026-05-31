@@ -13,7 +13,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "name": "Raúl BR",
     "alternateName": "rauldev",
     "url": "https://rauldev.dev",
-    "image": "https://rauldev.dev/profile-image.jpg",
+    "image": "https://rauldev.dev/me.png",
     "sameAs": [
       "https://github.com/raulbr99",
       "https://linkedin.com/in/raulbr99",
