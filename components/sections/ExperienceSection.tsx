@@ -88,10 +88,14 @@ export default function ExperienceSection() {
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             aria-label={proj.name}
-                                                            className="flex items-center border border-white/10 bg-white px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-cyan-400/50"
+                                                            className="flex items-center rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-cyan-400/50 hover:bg-white/[0.06]"
                                                         >
                                                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                            <img src={proj.logo} alt={proj.name} className="h-7 w-auto" />
+                                                            <img
+                                                                src={proj.logo}
+                                                                alt={proj.name}
+                                                                className="h-7 w-auto opacity-80 brightness-0 invert transition-opacity group-hover:opacity-100"
+                                                            />
                                                         </a>
                                                     ))}
                                                 </div>
