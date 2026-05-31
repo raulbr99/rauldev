@@ -23,14 +23,16 @@ export const experiences: ExperienceItem[] = [
         period: 'Oct 2025 - Actualidad',
         location: 'Alicante, España',
         type: 'Presencial',
-        description: 'Segunda etapa en la empresa, desarrollando Talkrev, una plataforma de IA conversacional (chat, voz y reservas), y PartsNow.ai, su producto de agentic commerce para piezas de camión y tráiler.',
+        description: 'Segunda etapa en la empresa, desarrollando Talkrev, una plataforma SaaS de IA conversacional multi-tenant (chat, voz en tiempo real y reservas), y PartsNow.ai, su producto de agentic commerce para piezas de camión y tráiler.',
         achievements: [
-            'Construí PartsNow.ai: comercio con IA para piezas de camión con búsqueda por chat, voz, foto o VIN sobre un catálogo de +50.000 piezas y checkout unificado',
-            'Desarrollé el dashboard del agente de chat con IA y la suite de reservas "Turno" en Next.js, con servidor MCP para integración con agentes de IA',
-            'Implementé generación programática de vídeos de marketing con Remotion y renderizado en la nube (AWS Lambda)',
-            'Integré analítica de producto con PostHog y backend en Supabase, con despliegue continuo en Vercel'
+            'Desarrollé Talkrev, una plataforma SaaS de IA conversacional multi-tenant con chat y voz en tiempo real, incluyendo el dashboard del agente y la suite de reservas "Turno" en Next.js',
+            'Construí un pipeline RAG propio en FastAPI con búsqueda híbrida (Qdrant) y reranking para dar contexto a los agentes sobre la base de conocimiento de cada cliente',
+            'Implementé los agentes conversacionales con LangGraph y agentes de voz en tiempo real (OpenAI Realtime sobre SIP / VAPI), además de un servidor MCP para integraciones con otros agentes de IA',
+            'Construí PartsNow.ai: comercio con IA para piezas de camión con búsqueda por chat, voz, foto o VIN sobre un catálogo de +50.000 piezas, sincronización de inventario con Shopify y checkout unificado',
+            'Integré pagos con Stripe / Stripe Connect y envíos automatizados en 1 clic (EasyPost), con analítica de producto en PostHog, backend en Supabase y despliegue continuo en Vercel',
+            'Implementé generación programática de vídeos de marketing con Remotion y renderizado en la nube (AWS Lambda)'
         ],
-        tech: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Supabase', 'MongoDB', 'MCP', 'OpenAI API', 'Remotion', 'PostHog', 'Vercel'],
+        tech: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'FastAPI', 'LangGraph', 'Qdrant', 'Supabase', 'MCP', 'OpenAI API', 'Stripe', 'Shopify', 'Remotion', 'PostHog', 'Vercel'],
         highlight: true,
         projects: [
             { name: 'Talkrev', logo: '/logos/talkrev.svg', url: 'https://talkrev.ai' },

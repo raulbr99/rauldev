@@ -83,12 +83,14 @@
     "data": {
       "nanoninoCurrent": {
         "role": "Fullstack Developer",
-        "description": "Second stage at the company, building Talkrev, a conversational AI platform (chat, voice and bookings), and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
+        "description": "Second stage at the company, building Talkrev, a multi-tenant conversational AI SaaS platform (chat, real-time voice and bookings), and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
         "achievements": [
-          "Built PartsNow.ai: AI commerce for truck parts with search by chat, voice, photo or VIN over a 50,000+ parts catalog with unified checkout",
-          "Developed the AI chat-agent dashboard and the \"Turno\" booking suite in Next.js, with an MCP server for AI-agent integrations",
-          "Implemented programmatic marketing-video generation with Remotion and cloud rendering (AWS Lambda)",
-          "Integrated product analytics with PostHog and a Supabase backend, with continuous deployment on Vercel"
+          "Built Talkrev, a multi-tenant conversational AI SaaS platform with chat and real-time voice, including the agent dashboard and the \"Turno\" booking suite in Next.js",
+          "Built an in-house RAG pipeline in FastAPI with hybrid search (Qdrant) and reranking to ground the agents on each client's knowledge base",
+          "Implemented the conversational agents with LangGraph and real-time voice agents (OpenAI Realtime over SIP / VAPI), plus an MCP server for integrations with other AI agents",
+          "Built PartsNow.ai: AI commerce for truck parts with search by chat, voice, photo or VIN over a 50,000+ parts catalog, Shopify inventory sync and unified checkout",
+          "Integrated payments with Stripe / Stripe Connect and automated 1-click shipping (EasyPost), with product analytics in PostHog, a Supabase backend and continuous deployment on Vercel",
+          "Implemented programmatic marketing-video generation with Remotion and cloud rendering (AWS Lambda)"
         ]
       },
       "nanonino": {
