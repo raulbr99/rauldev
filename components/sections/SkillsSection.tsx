@@ -4,7 +4,8 @@ import {
   SiPython, SiMongodb, SiPostgresql, SiTailwindcss,
   SiJavascript, SiNestjs, SiWordpress, SiGooglecloud,
   SiAmazon, SiGithub, SiStrapi, SiSupabase,
-  SiOpenai, SiGoogle
+  SiOpenai, SiGoogle, SiFastapi, SiLangchain,
+  SiStripe, SiShopify, SiVercel, SiDocker, SiRedis
 } from 'react-icons/si';
 import Reveal from '../anim/Reveal';
 import SectionHeading from '../ui/SectionHeading';
@@ -21,15 +22,22 @@ export default function SkillsSection() {
     { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" />, categoryKey: 'backend' },
     { name: 'NestJS', icon: <SiNestjs className="text-red-500" />, categoryKey: 'backend' },
     { name: 'Python', icon: <SiPython className="text-yellow-400" />, categoryKey: 'backend' },
-    { name: 'MongoDB', icon: <SiMongodb className="text-green-400" />, categoryKey: 'database' },
+    { name: 'FastAPI', icon: <SiFastapi className="text-teal-400" />, categoryKey: 'backend' },
+    { name: 'Stripe', icon: <SiStripe className="text-indigo-400" />, categoryKey: 'backend' },
     { name: 'PostgreSQL', icon: <SiPostgresql className="text-sky-500" />, categoryKey: 'database' },
     { name: 'Supabase', icon: <SiSupabase className="text-green-500" />, categoryKey: 'database' },
+    { name: 'MongoDB', icon: <SiMongodb className="text-green-400" />, categoryKey: 'database' },
+    { name: 'Redis', icon: <SiRedis className="text-red-500" />, categoryKey: 'database' },
+    { name: 'Vercel', icon: <SiVercel className="text-white" />, categoryKey: 'cloud' },
     { name: 'Google Cloud', icon: <SiGooglecloud className="text-blue-500" />, categoryKey: 'cloud' },
     { name: 'AWS', icon: <SiAmazon className="text-orange-500" />, categoryKey: 'cloud' },
+    { name: 'Docker', icon: <SiDocker className="text-sky-400" />, categoryKey: 'cloud' },
     { name: 'GitHub', icon: <SiGithub className="text-white" />, categoryKey: 'cloud' },
+    { name: 'Shopify', icon: <SiShopify className="text-green-500" />, categoryKey: 'cms' },
     { name: 'WordPress', icon: <SiWordpress className="text-blue-600" />, categoryKey: 'cms' },
     { name: 'Strapi', icon: <SiStrapi className="text-purple-500" />, categoryKey: 'cms' },
     { name: 'OpenAI', icon: <SiOpenai className="text-green-400" />, categoryKey: 'ai' },
+    { name: 'LangChain', icon: <SiLangchain className="text-emerald-400" />, categoryKey: 'ai' },
     { name: 'Dialogflow', icon: <SiGoogle className="text-blue-500" />, categoryKey: 'ai' },
   ];
 

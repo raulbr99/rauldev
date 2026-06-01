@@ -25,14 +25,15 @@ export default function StructuredData({ language }: StructuredDataProps) {
       "name": "Freelance"
     },
     "knowsAbout": [
-      "React", "Next.js", "Node.js", "TypeScript", "JavaScript", 
-      "React Native", "MongoDB", "PostgreSQL", "Tailwind CSS", "Git"
+      "React", "Next.js", "Node.js", "TypeScript", "JavaScript",
+      "Python", "FastAPI", "LangChain", "Conversational AI", "RAG",
+      "PostgreSQL", "Supabase", "Tailwind CSS", "Git"
     ],
-    "description": isSpanish 
-      ? "Desarrollador Full Stack especializado en React, Next.js y Node.js, creando aplicaciones web y móviles modernas para empresas de España y la zona mediterránea."
-      : "Full Stack Developer specialized in React, Next.js and Node.js, creating modern web and mobile applications for companies in Spain and the Mediterranean area.",
-    "email": "contacto@rauldev.dev",
-    "telephone": "+34-XXX-XXX-XXX",
+    "description": isSpanish
+      ? "Desarrollador Full Stack especializado en React, Next.js, Node.js e IA conversacional, creando aplicaciones web y plataformas SaaS modernas para empresas de España y la zona mediterránea."
+      : "Full Stack Developer specialized in React, Next.js, Node.js and conversational AI, building modern web applications and SaaS platforms for companies in Spain and the Mediterranean area.",
+    "email": "raulbernariera99@gmail.com",
+    "telephone": "+34-680-359-990",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "ES",
@@ -61,8 +62,8 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "alternateName": "rauldev",
     "url": "https://rauldev.dev",
     "description": isSpanish
-      ? "Portfolio profesional de Raúl BR, desarrollador Full Stack especializado en React, Next.js, Node.js y aplicaciones móviles."
-      : "Professional portfolio of Raúl BR, Full Stack developer specialized in React, Next.js, Node.js and mobile applications.",
+      ? "Portfolio profesional de Raúl BR, desarrollador Full Stack especializado en React, Next.js, Node.js e IA conversacional."
+      : "Professional portfolio of Raúl BR, Full Stack developer specialized in React, Next.js, Node.js and conversational AI.",
     "inLanguage": ["es-ES", "en-US"],
     "author": {
       "@type": "Person",
@@ -83,8 +84,8 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "@type": "ProfessionalService",
     "name": isSpanish ? "Servicios de Desarrollo Web" : "Web Development Services",
     "description": isSpanish
-      ? "Servicios profesionales de desarrollo web, aplicaciones móviles y consultoría técnica para empresas de España, especialmente en la Comunidad Valenciana y Costa Blanca."
-      : "Professional web development, mobile applications and technical consulting services for companies in Spain, especially in the Valencian Community and Costa Blanca.",
+      ? "Servicios profesionales de desarrollo web, plataformas SaaS, IA conversacional y consultoría técnica para empresas de España, especialmente en la Comunidad Valenciana y Costa Blanca."
+      : "Professional web development, SaaS platforms, conversational AI and technical consulting services for companies in Spain, especially in the Valencian Community and Costa Blanca.",
     "provider": {
       "@type": "Person",
       "name": "Raúl BR"
@@ -113,7 +114,8 @@ export default function StructuredData({ language }: StructuredDataProps) {
     ],
     "serviceType": [
       isSpanish ? "Desarrollo Web" : "Web Development",
-      isSpanish ? "Aplicaciones Móviles" : "Mobile Applications",
+      isSpanish ? "Plataformas SaaS" : "SaaS Platforms",
+      isSpanish ? "IA Conversacional" : "Conversational AI",
       isSpanish ? "Consultoría Técnica" : "Technical Consulting"
     ],
     "offers": {
@@ -128,8 +130,8 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "@type": "CreativeWork",
     "name": isSpanish ? "Portfolio de Raúl BR" : "Raúl BR Portfolio",
     "description": isSpanish
-      ? "Colección de proyectos web y aplicaciones móviles desarrolladas por Raúl BR."
-      : "Collection of web projects and mobile applications developed by Raúl BR.",
+      ? "Colección de proyectos web y plataformas SaaS desarrolladas por Raúl BR."
+      : "Collection of web projects and SaaS platforms developed by Raúl BR.",
     "author": {
       "@type": "Person",
       "name": "Raúl BR"
