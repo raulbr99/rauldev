@@ -161,7 +161,7 @@
     "data": {
       "bomkai": {
         "title": "BomkAI - AI Book Generator",
-        "description": "Web application that uses artificial intelligence to generate complete books. Users can configure topic, genre, number of chapters, writing style and target audience to create personalized literary content."
+        "description": "App that generates complete books with AI (Claude): coherent stories up to 50 chapters with real-time streaming, control over genre, tone and audience, AI editing and export to TXT, EPUB and PDF. Personal library on Neon."
       },
       "fadesso": {
         "title": "Fadesso - SaaS for Barbershops",
