@@ -52,25 +52,12 @@
         "createdAt": "2025-10-01",
         "status": "production"
       },
-      {
-        "id": "coming-soon-1",
-        "title": "Próximamente...",
-        "description": "Estoy trabajando en varios proyectos emocionantes que estarán disponibles próximamente. Incluyen aplicaciones web modernas, sistemas de gestión y herramientas SaaS innovadoras.",
-        "tech": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-        "image": "/project-placeholder.svg",
-        "github": null,
-        "demo": null,
-        "featured": false,
-        "category": "En Desarrollo",
-        "createdAt": "2025-10-01",
-        "status": "development"
-      }
   ],
   "stats": {
-    "totalProjects": 5,
+    "totalProjects": 4,
     "featuredProjects": 4,
-    "inDevelopment": 1,
-    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio", "En Desarrollo"],
+    "inDevelopment": 0,
+    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend"]
   }
 }

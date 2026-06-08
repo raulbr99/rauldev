@@ -16,7 +16,6 @@ const projectKeyMap: Record<string, string> = {
     'fadesso-saas': 'fadesso',
     'cuotia': 'cuotia',
     'portfolio-website': 'portfolio',
-    'coming-soon-1': 'comingSoon',
 };
 
 // Mapeo de categorías a claves de traducción
@@ -25,7 +24,6 @@ const categoryKeyMap: Record<string, string> = {
     'SaaS': 'saas',
     'Web App': 'webapp',
     'Portfolio': 'portfolio',
-    'En Desarrollo': 'development',
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
