@@ -144,19 +144,19 @@
       "ai": "AI & Machine Learning"
     }
   },
-  "projects": {
+    "projects": {
     "title": "My Projects",
     "subtitle": "A selection of my most recent projects and what's coming next",
     "loading": "Loading projects...",
     "viewAll": "View All Projects",
     "code": "Code",
     "demo": "Demo",
-      "categories": {
+    "categories": {
         "ai": "AI/ML",
         "saas": "SaaS",
         "webapp": "Web App",
         "portfolio": "Portfolio"
-      },
+    },
     "data": {
       "bomkai": {
         "title": "BomkAI - AI Book Generator",

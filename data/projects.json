@@ -51,7 +51,7 @@
         "category": "Portfolio",
         "createdAt": "2025-10-01",
         "status": "production"
-      },
+      }
   ],
   "stats": {
     "totalProjects": 4,

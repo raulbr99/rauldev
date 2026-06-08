@@ -144,19 +144,19 @@
       "ai": "IA & Machine Learning"
     }
   },
-  "projects": {
+    "projects": {
     "title": "Mis Proyectos",
     "subtitle": "Una selección de mis proyectos más recientes y lo que está por venir",
     "loading": "Cargando proyectos...",
     "viewAll": "Ver Todos los Proyectos",
     "code": "Código",
     "demo": "Demo",
-      "categories": {
+    "categories": {
         "ai": "IA/ML",
         "saas": "SaaS",
         "webapp": "Web App",
         "portfolio": "Portfolio"
-      },
+    },
     "data": {
       "bomkai": {
         "title": "BomkAI - Generador de Libros con IA",
@@ -173,7 +173,7 @@
       "portfolio": {
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."
-      },
+      }
     }
   },
   "contact": {
