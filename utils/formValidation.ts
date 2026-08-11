@@ -4,58 +4,56 @@ export interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
+  consent?: string;
 }
 
 export interface FormData {
   name: string;
   email: string;
   message: string;
+  consent: boolean;
 }
 
-export const validateField = (name: string, value: string): string | undefined => {
+/**
+ * Devuelve la CLAVE de traducción del error (p. ej. "name.required"), no el
+ * texto. Quien la consume la pasa por next-intl, de modo que el formulario
+ * habla el idioma de la página en vez de responder siempre en español.
+ */
+export const validateField = (
+  name: string,
+  value: string | boolean
+): string | undefined => {
   switch (name) {
-    case 'name':
-      if (!value.trim()) {
-        return 'El nombre es requerido';
-      }
-      if (value.trim().length < 2) {
-        return 'El nombre debe tener al menos 2 caracteres';
-      }
-      if (value.length > 50) {
-        return 'El nombre no puede exceder 50 caracteres';
-      }
+    case 'name': {
+      const v = String(value);
+      if (!v.trim()) return 'name.required';
+      if (v.trim().length < 2) return 'name.minLength';
+      if (v.length > 50) return 'name.maxLength';
       // Letras de cualquier alfabeto (\p{L}), marcas diacríticas (\p{M}) y los
       // separadores habituales en nombres compuestos: Müller, Nguyễn, O'Brien,
       // Jean-Pierre, Ivanović… Solo excluye dígitos y símbolos.
-      if (!/^[\p{L}\p{M}\s'’\-.]+$/u.test(value)) {
-        return 'El nombre solo puede contener letras';
-      }
+      if (!/^[\p{L}\p{M}\s'’\-.]+$/u.test(v)) return 'name.lettersOnly';
       return undefined;
+    }
 
-    case 'email':
-      if (!value.trim()) {
-        return 'El email es requerido';
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        return 'Por favor, introduce un email válido';
-      }
-      if (value.length > 100) {
-        return 'El email no puede exceder 100 caracteres';
-      }
+    case 'email': {
+      const v = String(value);
+      if (!v.trim()) return 'email.required';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'email.invalid';
+      if (v.length > 100) return 'email.maxLength';
       return undefined;
+    }
 
-    case 'message':
-      if (!value.trim()) {
-        return 'El mensaje es requerido';
-      }
-      if (value.trim().length < 10) {
-        return 'El mensaje debe tener al menos 10 caracteres';
-      }
-      if (value.length > 1000) {
-        return 'El mensaje no puede exceder 1000 caracteres';
-      }
+    case 'message': {
+      const v = String(value);
+      if (!v.trim()) return 'message.required';
+      if (v.trim().length < 10) return 'message.minLength';
+      if (v.length > 1000) return 'message.maxLength';
       return undefined;
+    }
+
+    case 'consent':
+      return value === true ? undefined : 'consent.required';
 
     default:
       return undefined;
@@ -64,9 +62,9 @@ export const validateField = (name: string, value: string): string | undefined =
 
 export const validateAllFields = (formData: FormData): FormErrors => {
   const errors: FormErrors = {};
-  
-  Object.keys(formData).forEach((key) => {
-    const error = validateField(key, formData[key as keyof FormData]);
+
+  (Object.keys(formData) as (keyof FormData)[]).forEach((key) => {
+    const error = validateField(key, formData[key]);
     if (error) {
       errors[key as keyof FormErrors] = error;
     }
@@ -76,8 +74,11 @@ export const validateAllFields = (formData: FormData): FormErrors => {
 };
 
 export const isFormValid = (errors: FormErrors, formData: FormData): boolean => {
-  return Object.keys(errors).length === 0 && 
-    formData.name.trim() !== '' && 
-    formData.email.trim() !== '' && 
-    formData.message.trim() !== '';
+  return (
+    Object.keys(errors).length === 0 &&
+    formData.name.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    formData.message.trim() !== '' &&
+    formData.consent === true
+  );
 };

@@ -19,7 +19,7 @@ export default function AboutSection() {
         {/* Stats con contadores animados */}
         <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10 mb-14">
           {[
-            { to: 4, suffix: '+', label: t('stats.years') },
+            { to: 3, suffix: '+', label: t('stats.years') },
             { to: 4, suffix: '', label: t('stats.projects') },
             { to: 18, suffix: '+', label: t('stats.technologies') },
           ].map((s, i) => (

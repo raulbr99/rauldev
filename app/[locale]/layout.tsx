@@ -142,6 +142,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
 
+  // El provider serializa en el HTML todo lo que se le pase, así que solo
+  // viajan al cliente los espacios que usan componentes 'use client'. El resto
+  // (hero, about, experience, skills, footer, legal…) se resuelve en servidor.
+  const clientMessages = Object.fromEntries(
+    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error'] as const)
+      .filter((ns) => ns in messages)
+      .map((ns) => [ns, messages[ns]])
+  );
+
   return (
     <html lang={locale} className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <head>
@@ -156,7 +165,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <StructuredData language={locale as 'es' | 'en'} />
       </head>
       <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
         <Analytics />

@@ -11,6 +11,7 @@
   "hero": {
     "name": "Raúl Berna",
     "role": "Full Stack Developer",
+    "availability": "Open to offers · Alicante or remote",
     "description": "Developer specialized in <strong>React</strong>, <strong>Next.js</strong> and <strong>Node.js</strong>. I have worked on <strong>e-commerce</strong>, <strong>multi-tenant SaaS</strong> and <strong>admin dashboards</strong> designed for performance and scalability. I help <strong>startups and companies</strong> turn ideas into solid, maintainable digital products ready to grow.",
     "cta": {
       "contact": "Let's Talk",
@@ -30,7 +31,7 @@
     "history": {
       "title": "My Story",
       "paragraph1": "My passion for programming started in high school when I discovered <strong>Scratch</strong>. Seeing how simple instructions came to life and created something functional fascinated me from the very first moment.",
-      "paragraph2": "With over <strong>4 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS, conversational AI and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
+      "paragraph2": "With over <strong>3 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS, conversational AI and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
     },
     "passion": {
       "title": "What Drives Me",
@@ -176,10 +177,10 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Looking for a professional web developer? I offer personalized digital solutions for companies and startups.",
+    "subtitle": "Got a Full Stack opening, or just want to reach out? Write to me and I'll reply within 24-48 h.",
     "info": {
-      "title": "Contact Information",
-      "description": "Available for web development projects, mobile applications and technology consulting.",
+      "title": "Let's talk",
+      "description": "I'm open to Full Stack Developer roles, on-site in Alicante or remote. You can also reach me on LinkedIn.",
       "location": "Alicante, Spain"
     },
     "form": {
@@ -192,7 +193,16 @@
       "submit": "Send Message",
       "submitting": "Sending...",
       "success": "Message sent successfully! I'll get back to you soon.",
-      "fillAllFields": "Please fill in all fields correctly"
+      "fillAllFields": "Please fill in all fields correctly",
+      "consent": "I have read and accept the <a>privacy policy</a>. I'll use your data only to reply to you.",
+      "errors": {
+        "rate_limited": "Too many requests. Please try again in a minute.",
+        "missing_fields": "Some fields are still empty.",
+        "too_long": "One of the fields exceeds the maximum length.",
+        "invalid_email": "That email address is not valid.",
+        "server_error": "The message could not be sent. Please try again or reach me on LinkedIn.",
+        "network": "Connection error. Please try again."
+      }
     }
   },
   "validation": {
@@ -211,6 +221,9 @@
       "required": "Message is required",
       "minLength": "Message must have at least 10 characters",
       "maxLength": "Message cannot exceed 1000 characters"
+    },
+    "consent": {
+      "required": "I need your consent in order to reply to you"
     }
   },
   "chat": {
@@ -228,5 +241,80 @@
       "experience": "Tell me about your experience",
       "available": "Are you open to work?"
     }
+  },
+  "footer": {
+    "tagline": "Full Stack Developer based in Alicante. Open to new opportunities.",
+    "sections": "Sections",
+    "legal": "Legal",
+    "elsewhere": "Elsewhere",
+    "legalNotice": "Legal notice",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "downloadCV": "Download CV",
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js and Tailwind"
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "lastUpdated": "Last updated",
+    "notice": {
+      "title": "Legal notice",
+      "intro": "In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the following details are provided:",
+      "ownerTitle": "Site owner",
+      "ownerBody": "Raúl Berná Riera · Tax ID: [to be completed] · Alicante, Spain · Contact email: raulbernariera99@gmail.com",
+      "purposeTitle": "Purpose",
+      "purposeBody": "This site is a personal portfolio for informational purposes. Its aim is to present the professional background of its owner and to allow companies and professionals to get in touch. No products or services are sold through this website.",
+      "termsTitle": "Terms of use",
+      "termsBody": "Access to this site is free and requires no registration. Users agree to make appropriate use of its contents and not to use them for unlawful or harmful purposes. The owner is not responsible for the use third parties may make of the published information.",
+      "ipTitle": "Intellectual property",
+      "ipBody": "The texts, design and code of this site belong to its owner unless otherwise stated. Third-party logos and trademarks shown on the site belong to their respective owners and are displayed for identification purposes only.",
+      "lawTitle": "Applicable law",
+      "lawBody": "This relationship is governed by Spanish law. Any dispute shall be settled by the courts designated under the applicable regulations."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This policy explains what personal data this site collects, for what purpose, and what rights you have over it, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).",
+      "controllerTitle": "Data controller",
+      "controllerBody": "Raúl Berná Riera · Tax ID: [to be completed] · Alicante, Spain · raulbernariera99@gmail.com",
+      "dataTitle": "What data is collected",
+      "dataBody": "Only what you voluntarily enter in the contact form: your name, your email address and the content of your message. In addition, your IP address is temporarily recorded for the sole purpose of limiting the number of submissions and preventing abuse of the form.",
+      "purposeTitle": "What it is used for",
+      "purposeBody": "Exclusively to read your message and reply to you. It is not used to send you marketing communications, no profiling is carried out and no automated decisions are made.",
+      "legalBasisTitle": "Legal basis",
+      "legalBasisBody": "Your explicit consent, given by ticking the checkbox in the form before submitting it (art. 6.1.a GDPR). You may withdraw it at any time by writing to the address above.",
+      "retentionTitle": "How long it is kept",
+      "retentionBody": "Your message is kept in the controller's mailbox for as long as needed to handle your enquiry, and for a reasonable period afterwards as a record of the exchange. You may request its deletion at any time. The IP address used for submission control is discarded after a few minutes.",
+      "processorsTitle": "Who else processes your data",
+      "processorsBody": "The following providers are used, all of them with GDPR compliance guarantees: Vercel Inc. (site hosting), Resend (delivery of the form email) and Upstash (temporary submission-rate control). Your data is not shared with any other third party and is never sold.",
+      "analyticsTitle": "Analytics",
+      "analyticsBody": "This site uses Vercel Analytics and Vercel Speed Insights to measure visits and page performance. These tools use no cookies and collect no personally identifiable data: the information is aggregated anonymously.",
+      "chatTitle": "AI chat",
+      "chatBody": "The site's assistant processes your messages through a language model in order to reply to you. They are not linked to your identity and are not stored permanently. Even so, we recommend not entering sensitive personal information in the chat.",
+      "rightsTitle": "Your rights",
+      "rightsBody": "You may exercise your rights of access, rectification, erasure, objection, restriction of processing and portability by writing to raulbernariera99@gmail.com. If you believe your data has not been handled properly, you may lodge a complaint with the Spanish Data Protection Agency (aepd.es)."
+    },
+    "cookies": {
+      "title": "Cookie policy",
+      "intro": "Short version: this site uses no tracking, advertising or third-party analytics cookies, which is why no consent banner is shown.",
+      "ownTitle": "First-party cookies",
+      "ownBody": "A single technical cookie is used, NEXT_LOCALE, which remembers whether you prefer the site in Spanish or English. It is essential for the language switcher to work and is exempt from consent under article 22.2 of the LSSI-CE.",
+      "thirdTitle": "Third parties",
+      "thirdBody": "Vercel Analytics and Speed Insights, which measure visits and performance, work without cookies and collect no identifying data.",
+      "manageTitle": "How to manage them",
+      "manageBody": "You can delete or block cookies from your browser settings. Since this is only a language cookie, blocking it will simply mean the site does not remember your preference between visits."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "title": "This page doesn't exist",
+    "description": "The link you followed leads nowhere, or the page has moved.",
+    "cta": "Back to home"
+  },
+  "error": {
+    "code": "500",
+    "title": "Something broke",
+    "description": "An unexpected error occurred on my side. You can retry or go back home.",
+    "retry": "Retry",
+    "cta": "Back to home"
   }
 }

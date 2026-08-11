@@ -22,10 +22,7 @@ export async function POST(request: NextRequest) {
     // Rate limiting
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
     if (await isRateLimited(ip)) {
-      return NextResponse.json(
-        { error: 'Demasiadas solicitudes. Intenta de nuevo en un minuto.' },
-        { status: 429 }
-      );
+      return NextResponse.json({ error: 'rate_limited' }, { status: 429 });
     }
 
     const { name, email, message, website } = await request.json();
@@ -39,29 +36,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validación básica
+    // Los errores viajan como códigos estables; el texto lo pone el cliente en
+    // el idioma de la página (contact.form.errors.*).
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Todos los campos son requeridos' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'missing_fields' }, { status: 400 });
     }
 
-    // Validación de longitud
-    if (name.length > 100 || email.length > 254 || message.length > 5000) {
-      return NextResponse.json(
-        { error: 'Los campos exceden la longitud máxima permitida' },
-        { status: 400 }
-      );
+    // Mismos límites que valida el cliente, para que ninguno sea inalcanzable.
+    if (name.length > 50 || email.length > 100 || message.length > 1000) {
+      return NextResponse.json({ error: 'too_long' }, { status: 400 });
     }
 
-    // Validación de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Email inválido' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'invalid_email' }, { status: 400 });
     }
 
     // Sanitizar inputs

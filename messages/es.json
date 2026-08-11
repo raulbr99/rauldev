@@ -11,6 +11,7 @@
   "hero": {
     "name": "Raúl Berna",
     "role": "Full Stack Developer",
+    "availability": "Abierto a ofertas · Alicante o remoto",
     "description": "Desarrollador especializado en <strong>React</strong>, <strong>Next.js</strong> y <strong>Node.js</strong>. He trabajado en <strong>e-commerce</strong>, <strong>SaaS multi-tenant</strong> y <strong>paneles de administración</strong> diseñados para rendimiento y escalabilidad. Ayudo a <strong>startups y empresas</strong> a convertir ideas en productos digitales sólidos, fáciles de mantener y listos para crecer.",
     "cta": {
       "contact": "Hablemos",
@@ -30,7 +31,7 @@
     "history": {
       "title": "Mi Historia",
       "paragraph1": "Mi pasión por la programación comenzó en el instituto cuando descubrí <strong>Scratch</strong>. Ver cómo unas simples instrucciones cobraban vida y creaban algo funcional me fascinó desde el primer momento.",
-      "paragraph2": "Con más de <strong>4 años de experiencia profesional</strong>, he trabajado en proyectos de <strong>e-commerce, SaaS multi-tenant, IA conversacional y aplicaciones blockchain</strong>. Pero lo que realmente me motiva cada día no son las tecnologías en sí, sino el <strong>impacto real</strong> que tienen en las personas."
+      "paragraph2": "Con más de <strong>3 años de experiencia profesional</strong>, he trabajado en proyectos de <strong>e-commerce, SaaS multi-tenant, IA conversacional y aplicaciones blockchain</strong>. Pero lo que realmente me motiva cada día no son las tecnologías en sí, sino el <strong>impacto real</strong> que tienen en las personas."
     },
     "passion": {
       "title": "Lo Que Me Mueve",
@@ -176,10 +177,10 @@
   },
   "contact": {
     "title": "Contacto",
-    "subtitle": "¿Buscas un desarrollador web profesional? Ofrezco soluciones digitales personalizadas para empresas y startups.",
+    "subtitle": "¿Tienes una vacante de Full Stack o quieres comentarme algo? Escríbeme y te respondo en 24-48 h.",
     "info": {
-      "title": "Información de Contacto",
-      "description": "Disponible para proyectos de desarrollo web, aplicaciones móviles y consultoría tecnológica.",
+      "title": "Hablemos",
+      "description": "Estoy abierto a ofertas como Full Stack Developer, presencial en Alicante o en remoto. También puedes escribirme por LinkedIn.",
       "location": "Alicante, España"
     },
     "form": {
@@ -192,7 +193,16 @@
       "submit": "Enviar Mensaje",
       "submitting": "Enviando...",
       "success": "¡Mensaje enviado correctamente! Te responderé pronto.",
-      "fillAllFields": "Por favor, completa todos los campos correctamente"
+      "fillAllFields": "Por favor, completa todos los campos correctamente",
+      "consent": "He leído y acepto la <a>política de privacidad</a>. Usaré tus datos solo para responderte.",
+      "errors": {
+        "rate_limited": "Demasiadas solicitudes. Inténtalo de nuevo en un minuto.",
+        "missing_fields": "Faltan campos por completar.",
+        "too_long": "Algún campo supera la longitud máxima permitida.",
+        "invalid_email": "El email no es válido.",
+        "server_error": "No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por LinkedIn.",
+        "network": "Error de conexión. Por favor, inténtalo de nuevo."
+      }
     }
   },
   "validation": {
@@ -211,6 +221,9 @@
       "required": "El mensaje es requerido",
       "minLength": "El mensaje debe tener al menos 10 caracteres",
       "maxLength": "El mensaje no puede exceder 1000 caracteres"
+    },
+    "consent": {
+      "required": "Necesito tu consentimiento para poder responderte"
     }
   },
   "chat": {
@@ -228,5 +241,80 @@
       "experience": "Cuéntame tu experiencia",
       "available": "¿Estás disponible para trabajar?"
     }
+  },
+  "footer": {
+    "tagline": "Full Stack Developer en Alicante. Abierto a nuevas oportunidades.",
+    "sections": "Secciones",
+    "legal": "Legal",
+    "elsewhere": "En otros sitios",
+    "legalNotice": "Aviso legal",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "downloadCV": "Descargar CV",
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho con Next.js y Tailwind"
+  },
+  "legal": {
+    "backHome": "Volver al inicio",
+    "lastUpdated": "Última actualización",
+    "notice": {
+      "title": "Aviso legal",
+      "intro": "En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilitan los siguientes datos:",
+      "ownerTitle": "Titular del sitio",
+      "ownerBody": "Raúl Berná Riera · NIF: [pendiente de completar] · Alicante, España · Correo de contacto: raulbernariera99@gmail.com",
+      "purposeTitle": "Objeto",
+      "purposeBody": "Este sitio es un portfolio personal de carácter informativo. Su finalidad es dar a conocer la trayectoria profesional de su titular y permitir el contacto por parte de empresas y profesionales. No se comercializan productos ni servicios a través de la web.",
+      "termsTitle": "Condiciones de uso",
+      "termsBody": "El acceso a este sitio es gratuito y no requiere registro. La persona usuaria se compromete a hacer un uso adecuado de los contenidos y a no emplearlos con fines ilícitos o lesivos. El titular no se hace responsable del uso que terceros hagan de la información publicada.",
+      "ipTitle": "Propiedad intelectual",
+      "ipBody": "Los textos, el diseño y el código de este sitio pertenecen a su titular, salvo indicación en contrario. Los logotipos y marcas de terceros que aparecen en la web pertenecen a sus respectivos propietarios y se muestran únicamente a título identificativo.",
+      "lawTitle": "Legislación aplicable",
+      "lawBody": "Esta relación se rige por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales que correspondan conforme a la normativa vigente."
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "intro": "Esta política explica qué datos personales se recogen en este sitio, con qué finalidad y qué derechos tienes sobre ellos, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).",
+      "controllerTitle": "Responsable del tratamiento",
+      "controllerBody": "Raúl Berná Riera · NIF: [pendiente de completar] · Alicante, España · raulbernariera99@gmail.com",
+      "dataTitle": "Qué datos se recogen",
+      "dataBody": "Únicamente los que introduces voluntariamente en el formulario de contacto: nombre, dirección de correo electrónico y el contenido de tu mensaje. Adicionalmente, se registra tu dirección IP de forma temporal con el único fin de limitar el número de envíos y evitar el abuso del formulario.",
+      "purposeTitle": "Para qué se usan",
+      "purposeBody": "Exclusivamente para leer tu mensaje y responderte. No se usan para enviarte comunicaciones comerciales, no se elaboran perfiles y no se toman decisiones automatizadas.",
+      "legalBasisTitle": "Base jurídica",
+      "legalBasisBody": "Tu consentimiento expreso, que otorgas al marcar la casilla del formulario antes de enviarlo (art. 6.1.a RGPD). Puedes retirarlo en cualquier momento escribiendo a la dirección indicada arriba.",
+      "retentionTitle": "Cuánto tiempo se conservan",
+      "retentionBody": "El mensaje se conserva en el buzón de correo del responsable mientras sea necesario para atender tu consulta y durante el tiempo razonable posterior para poder acreditar la comunicación. Puedes solicitar su supresión en cualquier momento. La dirección IP usada para el control de envíos se descarta pasados unos minutos.",
+      "processorsTitle": "Quién más trata tus datos",
+      "processorsBody": "Se utilizan los siguientes proveedores, todos ellos con garantías de cumplimiento del RGPD: Vercel Inc. (alojamiento del sitio), Resend (envío del correo del formulario) y Upstash (control temporal del número de envíos). No se ceden datos a ningún otro tercero ni se venden en ningún caso.",
+      "analyticsTitle": "Analítica",
+      "analyticsBody": "Este sitio usa Vercel Analytics y Vercel Speed Insights para conocer el número de visitas y el rendimiento de las páginas. Son herramientas que no utilizan cookies ni recogen datos que permitan identificarte personalmente: la información se agrega de forma anónima.",
+      "chatTitle": "Chat con IA",
+      "chatBody": "El asistente de la web procesa tus mensajes mediante un modelo de lenguaje para poder responderte. No se asocian a tu identidad ni se almacenan de forma permanente. Aun así, te recomendamos no escribir en el chat información personal sensible.",
+      "rightsTitle": "Tus derechos",
+      "rightsBody": "Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a raulbernariera99@gmail.com. Si consideras que tus datos no se han tratado correctamente, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es)."
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "intro": "Resumen breve: este sitio no utiliza cookies de seguimiento, publicidad ni analítica de terceros, por lo que no se muestra ningún banner de consentimiento.",
+      "ownTitle": "Cookies propias",
+      "ownBody": "Se utiliza una única cookie técnica, NEXT_LOCALE, que recuerda si prefieres ver la web en español o en inglés. Es imprescindible para el funcionamiento del selector de idioma y está exenta de consentimiento según el artículo 22.2 de la LSSI-CE.",
+      "thirdTitle": "Terceros",
+      "thirdBody": "Vercel Analytics y Speed Insights, que miden visitas y rendimiento, funcionan sin cookies y sin recoger datos identificativos.",
+      "manageTitle": "Cómo gestionarlas",
+      "manageBody": "Puedes borrar o bloquear las cookies desde la configuración de tu navegador. Al tratarse únicamente de una cookie de idioma, bloquearla solo hará que la web no recuerde tu preferencia entre visitas."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Esta página no existe",
+    "description": "El enlace que has seguido no lleva a ninguna parte, o la página ha cambiado de sitio.",
+    "cta": "Volver al inicio"
+  },
+  "error": {
+    "code": "500",
+    "title": "Algo se ha roto",
+    "description": "Ha ocurrido un error inesperado por mi parte. Puedes reintentarlo o volver al inicio.",
+    "retry": "Reintentar",
+    "cta": "Volver al inicio"
   }
 }

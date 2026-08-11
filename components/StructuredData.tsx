@@ -36,8 +36,9 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "description": isSpanish
       ? "Desarrollador Full Stack especializado en React, Next.js, Node.js e IA conversacional, creando aplicaciones web y plataformas SaaS modernas para empresas de España y la zona mediterránea."
       : "Full Stack Developer specialized in React, Next.js, Node.js and conversational AI, building modern web applications and SaaS platforms for companies in Spain and the Mediterranean area.",
-    "email": "raulbernariera99@gmail.com",
-    "telephone": "+34-680-359-990",
+    // Sin email ni teléfono en el JSON-LD: en texto plano dentro del HTML son
+    // cosecha directa para los scrapers de spam. Los canales de contacto reales
+    // son el formulario y los enlaces de la página.
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "ES",

@@ -17,6 +17,15 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
         <div>
+          {/* Señal de disponibilidad: es lo primero que un recruiter necesita saber */}
+          <p className="mb-5 inline-flex items-center gap-2.5 border border-cyan-400/30 bg-cyan-400/5 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-cyan-300">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
+            </span>
+            {t('availability')}
+          </p>
+
           <h1 className="mb-3 text-6xl font-bold uppercase leading-[0.88] text-white sm:text-7xl xl:text-8xl">
             <WordReveal text={t('name')} className="block" />
           </h1>

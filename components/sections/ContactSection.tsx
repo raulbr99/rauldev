@@ -2,6 +2,7 @@
 
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import FormInput from '../ui/FormInput';
 import ContactInfo from './ContactInfo';
 import SectionHeading from '../ui/SectionHeading';
@@ -85,6 +86,38 @@ export default function ContactSection() {
               maxLength={1000}
               showCharCount
             />
+
+            {/* Consentimiento RGPD: base jurídica del tratamiento (art. 6.1.a) */}
+            <div>
+              <label htmlFor="consent" className="flex cursor-pointer items-start gap-3 text-sm text-gray-400">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  aria-invalid={touched.consent && !!errors.consent ? 'true' : 'false'}
+                  aria-describedby={touched.consent && errors.consent ? 'consent-error' : undefined}
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 accent-cyan-400"
+                />
+                <span className="leading-relaxed">
+                  {t.rich('form.consent', {
+                    a: (chunks) => (
+                      <Link href="/privacidad" className="text-cyan-300 underline underline-offset-2">
+                        {chunks}
+                      </Link>
+                    ),
+                  })}
+                </span>
+              </label>
+              {touched.consent && errors.consent && (
+                <p id="consent-error" className="mt-1 flex items-center gap-1 text-sm text-red-400">
+                  <AlertCircle className="h-4 w-4" />
+                  {errors.consent}
+                </p>
+              )}
+            </div>
 
             {submitStatus === 'success' && (
               <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 text-green-300 animate-fade-in">

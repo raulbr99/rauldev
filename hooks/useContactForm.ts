@@ -2,27 +2,31 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { FormData, FormErrors, validateField, validateAllFields, isFormValid } from '@/utils/formValidation';
 
 interface FormTouched {
   name: boolean;
   email: boolean;
   message: boolean;
+  consent: boolean;
 }
 
-export function useContactForm() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  });
+const EMPTY_FORM: FormData = { name: '', email: '', message: '', consent: false };
+const UNTOUCHED: FormTouched = { name: false, email: false, message: false, consent: false };
 
+/** Códigos que devuelve /api/contact, traducidos en contact.form.errors.*  */
+const API_ERROR_CODES = ['rate_limited', 'missing_fields', 'too_long', 'invalid_email', 'server_error'];
+
+export function useContactForm() {
+  // Las claves que devuelve el validador se resuelven aquí, así el formulario
+  // habla el idioma de la página en vez de responder siempre en español.
+  const tv = useTranslations('validation');
+  const te = useTranslations('contact.form.errors');
+
+  const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<FormTouched>({
-    name: false,
-    email: false,
-    message: false
-  });
+  const [touched, setTouched] = useState<FormTouched>(UNTOUCHED);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -31,21 +35,21 @@ export function useContactForm() {
   // Honeypot anti-spam: input oculto que solo rellenan los bots.
   const honeypotRef = useRef<HTMLInputElement>(null);
 
-  // Validación en tiempo real
+  // Validación en tiempo real (solo sobre los campos ya tocados)
   useEffect(() => {
     const newErrors: FormErrors = {};
-    
-    Object.keys(formData).forEach((key) => {
+
+    (Object.keys(formData) as (keyof FormData)[]).forEach((key) => {
       if (touched[key as keyof FormTouched]) {
-        const error = validateField(key, formData[key as keyof FormData]);
-        if (error) {
-          newErrors[key as keyof FormErrors] = error;
+        const errorKey = validateField(key, formData[key]);
+        if (errorKey) {
+          newErrors[key as keyof FormErrors] = tv(errorKey);
         }
       }
     });
 
     setErrors(newErrors);
-  }, [formData, touched]);
+  }, [formData, touched, tv]);
 
   // Auto-dismiss mensajes
   useEffect(() => {
@@ -60,31 +64,30 @@ export function useContactForm() {
   }, [submitStatus]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
+    const { name, value, type } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name } = e.target;
-    setTouched(prev => ({
-      ...prev,
-      [name]: true
-    }));
+    setTouched((prev) => ({ ...prev, [name]: true }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Marcar todos como touched
-    setTouched({ name: true, email: true, message: true });
 
-    // Validar
+    setTouched({ name: true, email: true, message: true, consent: true });
+
     const newErrors = validateAllFields(formData);
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+      setErrors(
+        Object.fromEntries(
+          Object.entries(newErrors).map(([field, key]) => [field, tv(key as string)])
+        ) as FormErrors
+      );
       return;
     }
 
@@ -95,9 +98,7 @@ export function useContactForm() {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, website: honeypotRef.current?.value ?? '' }),
       });
 
@@ -105,16 +106,18 @@ export function useContactForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        setTouched({ name: false, email: false, message: false });
+        setFormData(EMPTY_FORM);
+        setTouched(UNTOUCHED);
         setErrors({});
       } else {
         setSubmitStatus('error');
-        setErrorMessage(data.error || 'Error al enviar el mensaje');
+        // La API devuelve un código estable; el texto lo pone el idioma actual.
+        const code = API_ERROR_CODES.includes(data?.error) ? data.error : 'server_error';
+        setErrorMessage(te(code));
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
-      setErrorMessage('Error de conexión. Por favor, inténtalo de nuevo.');
+      setErrorMessage(te('network'));
     } finally {
       setIsSubmitting(false);
     }
@@ -133,6 +136,6 @@ export function useContactForm() {
     honeypotRef,
     handleChange,
     handleBlur,
-    handleSubmit
+    handleSubmit,
   };
 }

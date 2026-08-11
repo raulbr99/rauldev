@@ -6,6 +6,7 @@ import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
+import Footer from '@/components/layout/Footer';
 import AuroraBackground from '@/components/anim/AuroraBackground';
 import ScrollProgress from '@/components/anim/ScrollProgress';
 import Reveal from '@/components/anim/Reveal';
@@ -30,6 +31,7 @@ export default async function Home({ params }: Props) {
       <Reveal><SkillsSection /></Reveal>
       <Reveal><ProjectsSection /></Reveal>
       <Reveal><ContactSection /></Reveal>
+      <Footer />
       <ChatWidget />
     </div>
   );
