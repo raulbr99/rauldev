@@ -11,36 +11,41 @@ const MAX_MESSAGES = 24;
 const isLimited = createRateLimiter({ prefix: 'ratelimit:chat', limit: 15, window: '1 m' });
 
 export async function POST(req: Request) {
-  // Rate limiting por IP (el endpoint de IA cuesta tokens)
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-  if (await isLimited(ip)) {
-    return Response.json(
-      { error: 'Demasiados mensajes. Espera un momento e inténtalo de nuevo.' },
-      { status: 429 }
-    );
-  }
-
-  let messages: UIMessage[];
-  let locale: string | undefined;
   try {
-    ({ messages, locale } = await req.json());
-  } catch {
-    return Response.json({ error: 'Petición inválida' }, { status: 400 });
-  }
+    // Rate limiting por IP (el endpoint de IA cuesta tokens)
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    if (await isLimited(ip)) {
+      return Response.json(
+        { error: 'Demasiados mensajes. Espera un momento e inténtalo de nuevo.' },
+        { status: 429 }
+      );
+    }
 
-  if (!Array.isArray(messages) || messages.length === 0) {
-    return Response.json({ error: 'No hay mensajes' }, { status: 400 });
-  }
-  // Corta conversaciones excesivamente largas (anti-abuso de tokens)
-  if (messages.length > MAX_MESSAGES) {
-    messages = messages.slice(-MAX_MESSAGES);
-  }
+    let messages: UIMessage[];
+    let locale: string | undefined;
+    try {
+      ({ messages, locale } = await req.json());
+    } catch {
+      return Response.json({ error: 'Petición inválida' }, { status: 400 });
+    }
 
-  const result = streamText({
-    model: MODEL,
-    system: buildSystemPrompt(locale),
-    messages: await convertToModelMessages(messages),
-  });
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return Response.json({ error: 'No hay mensajes' }, { status: 400 });
+    }
+    // Corta conversaciones excesivamente largas (anti-abuso de tokens)
+    if (messages.length > MAX_MESSAGES) {
+      messages = messages.slice(-MAX_MESSAGES);
+    }
 
-  return result.toUIMessageStreamResponse();
+    const result = streamText({
+      model: MODEL,
+      system: buildSystemPrompt(locale),
+      messages: await convertToModelMessages(messages),
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (error) {
+    console.error('Error en /api/chat:', error);
+    return Response.json({ error: 'Error interno del servidor' }, { status: 500 });
+  }
 }

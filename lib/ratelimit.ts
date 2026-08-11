@@ -39,10 +39,24 @@ export function createRateLimiter({ prefix, limit, window }: Options) {
   const windowMs = Number(count) * (WINDOW_MS[unit] ?? 60_000);
   const store = new Map<string, { count: number; reset: number }>();
 
+  // Se avisa una sola vez por instancia para no inundar los logs.
+  let warned = false;
+
   return async function isLimited(id: string): Promise<boolean> {
     if (upstash) {
-      const { success } = await upstash.limit(id);
-      return !success;
+      try {
+        const { success } = await upstash.limit(id);
+        return !success;
+      } catch (error) {
+        // Si Redis no responde (borrado, caído, credenciales caducadas) NO se
+        // puede tumbar la ruta que este limitador debía proteger: se degrada al
+        // contador en memoria. Es más débil en serverless, pero mantiene vivo
+        // el formulario de contacto y el chat.
+        if (!warned) {
+          warned = true;
+          console.error(`[ratelimit:${prefix}] Upstash no disponible, usando fallback en memoria`, error);
+        }
+      }
     }
     const now = Date.now();
     for (const [key, rec] of store) {
