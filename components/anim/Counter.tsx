@@ -22,11 +22,7 @@ export default function Counter({ to, prefix = '', suffix = '', duration = 1.6, 
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
-    if (reduce) {
-      setValue(to);
-      return;
-    }
+    if (!inView || reduce) return;
     const controls = animate(0, to, {
       duration,
       ease: [0.22, 1, 0.36, 1],
@@ -35,10 +31,14 @@ export default function Counter({ to, prefix = '', suffix = '', duration = 1.6, 
     return () => controls.stop();
   }, [inView, to, duration, reduce]);
 
+  // Con reduced-motion se muestra el valor final directamente, sin pasar por
+  // el estado: fijarlo desde el efecto provocaba un render extra innecesario.
+  const shown = reduce ? to : value;
+
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {value}
+      {shown}
       {suffix}
     </span>
   );

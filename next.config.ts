@@ -25,13 +25,20 @@ const nextConfig: NextConfig = {
   // SEO and Performance optimizations
   poweredByHeader: false,
   compress: true,
+
+  // resend hace un import dinámico de @react-email/render, un peer opcional
+  // que aquí no se usa (los correos van como HTML plano). Webpack lo toleraba;
+  // Turbopack falla el build. Dejándolo fuera del bundle se resuelve en runtime
+  // desde node_modules y la rama que lo necesita nunca se ejecuta.
+  serverExternalPackages: ['resend'],
   
-  // Image optimization
+  // Image optimization. Sin minimumCacheTTL: el default de Next 16 son 4 h,
+  // y forzarlo a 60 s revalidaba cada minuto (más CPU y más factura). Tampoco
+  // se declara el tamaño 16, que Next 16 quitó del default para acortar srcset.
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    imageSizes: [32, 48, 64, 96, 128, 256, 384],
   },
   
   // Headers for security and SEO

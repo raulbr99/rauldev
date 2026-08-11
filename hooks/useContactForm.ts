@@ -1,7 +1,7 @@
 // hooks/useContactForm.ts
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { FormData, FormErrors, validateField, validateAllFields, isFormValid } from '@/utils/formValidation';
 
@@ -25,7 +25,6 @@ export function useContactForm() {
   const te = useTranslations('contact.form.errors');
 
   const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
-  const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<FormTouched>(UNTOUCHED);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,21 +34,26 @@ export function useContactForm() {
   // Honeypot anti-spam: input oculto que solo rellenan los bots.
   const honeypotRef = useRef<HTMLInputElement>(null);
 
-  // Validación en tiempo real (solo sobre los campos ya tocados)
-  useEffect(() => {
-    const newErrors: FormErrors = {};
+  // Los errores son estado DERIVADO de (formData, touched): se calculan en el
+  // render, no en un efecto. Así no hay un render en cascada por cada tecla.
+  const errors = useMemo(() => {
+    const found: FormErrors = {};
 
     (Object.keys(formData) as (keyof FormData)[]).forEach((key) => {
-      if (touched[key as keyof FormTouched]) {
-        const errorKey = validateField(key, formData[key]);
-        if (errorKey) {
-          newErrors[key as keyof FormErrors] = tv(errorKey);
-        }
-      }
+      if (!touched[key as keyof FormTouched]) return;
+      const errorKey = validateField(key, formData[key]);
+      if (errorKey) found[key as keyof FormErrors] = tv(errorKey);
     });
 
-    setErrors(newErrors);
+    return found;
   }, [formData, touched, tv]);
+
+  // La validez no depende de qué campos se hayan tocado: el botón debe estar
+  // activo cuando el formulario es enviable, lo haya mirado o no.
+  const formValid = useMemo(
+    () => isFormValid(validateAllFields(formData), formData),
+    [formData]
+  );
 
   // Auto-dismiss mensajes
   useEffect(() => {
@@ -81,15 +85,8 @@ export function useContactForm() {
 
     setTouched({ name: true, email: true, message: true, consent: true });
 
-    const newErrors = validateAllFields(formData);
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(
-        Object.fromEntries(
-          Object.entries(newErrors).map(([field, key]) => [field, tv(key as string)])
-        ) as FormErrors
-      );
-      return;
-    }
+    // Marcar todo como tocado basta: los errores se derivan de ahí.
+    if (Object.keys(validateAllFields(formData)).length > 0) return;
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -108,7 +105,6 @@ export function useContactForm() {
         setSubmitStatus('success');
         setFormData(EMPTY_FORM);
         setTouched(UNTOUCHED);
-        setErrors({});
       } else {
         setSubmitStatus('error');
         // La API devuelve un código estable; el texto lo pone el idioma actual.
@@ -122,8 +118,6 @@ export function useContactForm() {
       setIsSubmitting(false);
     }
   };
-
-  const formValid = isFormValid(errors, formData);
 
   return {
     formData,
