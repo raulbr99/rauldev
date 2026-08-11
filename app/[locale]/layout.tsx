@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n/config';
 import StructuredData from '@/components/StructuredData';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SITE_URL, localeUrl } from '@/lib/site';
 import type { Metadata } from 'next';
 
 const spaceGrotesk = Space_Grotesk({
@@ -34,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isSpanish = locale === 'es';
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       default: isSpanish
         ? "Raul Dev - Desarrollador Full Stack | Portfolio Profesional"
@@ -67,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "Raúl BR", "rauldev", "web development", "web apps", "e-commerce",
         "dashboard", "UI/UX", "responsive design", "SEO", "performance", "PWA"
       ],
-    authors: [{ name: "Raúl Dev", url: "https://rauldev.dev" }],
+    authors: [{ name: "Raúl Dev", url: SITE_URL }],
     creator: "Raúl Dev",
     publisher: "Raúl Dev",
     robots: {
@@ -85,7 +89,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: isSpanish ? "es_ES" : "en_US",
       alternateLocale: isSpanish ? ["en_US"] : ["es_ES"],
-      url: `https://rauldev.dev${locale === 'en' ? '/en' : ''}`,
+      url: localeUrl(locale),
       siteName: isSpanish ? "Raúl Dev - Desarrollador Full Stack" : "Raúl Dev - Full Stack Developer",
       title: isSpanish
         ? "Raúl Dev - Desarrollador Full Stack | Portfolio Profesional"
@@ -95,7 +99,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : "Full Stack Developer specialized in creating modern digital solutions for businesses and entrepreneurs. Expert in React, Next.js, Node.js and mobile applications.",
       images: [
         {
-          url: "https://rauldev.dev/og-image.jpg",
+          url: `${SITE_URL}/og-image.jpg`,
           width: 1200,
           height: 630,
           alt: isSpanish ? "Raúl Dev - Desarrollador Full Stack" : "Raúl Dev - Full Stack Developer",
@@ -111,16 +115,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? "Desarrollador Full Stack especializado en React, Next.js, Node.js. Creando soluciones digitales modernas."
         : "Full Stack Developer specialized in React, Next.js, Node.js. Creating modern digital solutions.",
       creator: "@raulbr99",
-      images: ["https://rauldev.dev/og-image.jpg"],
+      images: [`${SITE_URL}/og-image.jpg`],
     },
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
     alternates: {
-      canonical: `https://rauldev.dev${locale === 'en' ? '/en' : ''}`,
+      canonical: localeUrl(locale),
       languages: {
-        'es-ES': 'https://rauldev.dev',
-        'en-US': 'https://rauldev.dev/en',
+        'es-ES': SITE_URL,
+        'en-US': `${SITE_URL}/en`,
+        'x-default': SITE_URL,
       },
     },
     category: "technology",
@@ -154,6 +159,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

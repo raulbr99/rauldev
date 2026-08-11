@@ -17,8 +17,7 @@
       "projects": "View Projects",
       "downloadCV": "Download CV"
     },
-    "imageAlt": "Raúl BR - Full Stack Developer",
-    "seo": "Full stack developer with experience in React, Next.js, Node.js and TypeScript. Web application development. E-commerce, SaaS, admin dashboards and scalable solutions for startups and SMBs."
+    "imageAlt": "Raúl BR - Full Stack Developer"
   },
   "about": {
     "title": "About Me",
@@ -81,8 +80,7 @@
       }
     },
     "downloadCV": "Download Full CV",
-    "downloadCVHint": "Want to know more? Download my CV or let's talk directly",
-    "seo": "Web developer specialized in React, Next.js and Node.js. E-commerce, SaaS and application development for businesses. Digital solutions for startups and SMBs."
+    "downloadCVHint": "Want to know more? Download my CV or let's talk directly"
   },
   "experience": {
     "title": "Professional Experience",
@@ -195,8 +193,7 @@
       "submitting": "Sending...",
       "success": "Message sent successfully! I'll get back to you soon.",
       "fillAllFields": "Please fill in all fields correctly"
-    },
-    "seo": "Contact web developer, freelance programmer, web development services"
+    }
   },
   "validation": {
     "name": {

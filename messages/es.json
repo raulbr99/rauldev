@@ -17,8 +17,7 @@
       "projects": "Ver Proyectos",
       "downloadCV": "Descargar CV"
     },
-    "imageAlt": "Raúl BR - Full Stack Developer",
-    "seo": "Desarrollador full stack con experiencia en React, Next.js, Node.js y TypeScript. Desarrollo de aplicaciones web en Alicante y Comunidad Valenciana. E-commerce, SaaS, paneles de administración y soluciones escalables para startups y pymes."
+    "imageAlt": "Raúl BR - Full Stack Developer"
   },
   "about": {
     "title": "Sobre Mí",
@@ -81,8 +80,7 @@
       }
     },
     "downloadCV": "Descargar CV Completo",
-    "downloadCVHint": "¿Quieres saber más? Descarga mi CV o hablemos directamente",
-    "seo": "Desarrollador web en Alicante y Comunidad Valenciana, especializado en React, Next.js y Node.js. Desarrollo de e-commerce, SaaS y aplicaciones para empresas y negocios locales. Soluciones digitales para startups y pymes en la Vega Baja y el área mediterránea."
+    "downloadCVHint": "¿Quieres saber más? Descarga mi CV o hablemos directamente"
   },
   "experience": {
     "title": "Experiencia Profesional",
@@ -195,8 +193,7 @@
       "submitting": "Enviando...",
       "success": "¡Mensaje enviado correctamente! Te responderé pronto.",
       "fillAllFields": "Por favor, completa todos los campos correctamente"
-    },
-    "seo": "Contacto desarrollador web Alicante, freelance Vega Baja, programador Alicante, desarrollo web Alicante, servicios programación Comunidad Valenciana"
+    }
   },
   "validation": {
     "name": {

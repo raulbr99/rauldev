@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,7 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/private/', '/admin/', '/_next/'],
+        // Nunca bloquear /_next/: Google necesita el JS y el CSS para renderizar.
+        disallow: ['/private/', '/admin/'],
       },
       {
         userAgent: 'Googlebot',
@@ -19,7 +21,7 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       }
     ],
-    sitemap: 'https://rauldev.dev/sitemap.xml',
-    host: 'https://rauldev.dev',
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   }
 }

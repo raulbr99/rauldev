@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { SITE_URL } from '@/lib/site';
 
 interface StructuredDataProps {
   language: 'es' | 'en';
@@ -12,17 +13,20 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "@type": "Person",
     "name": "Raúl BR",
     "alternateName": "rauldev",
-    "url": "https://rauldev.dev",
-    "image": "https://rauldev.dev/me.png",
+    "url": SITE_URL,
+    "image": `${SITE_URL}/me.png`,
+    // sameAs vincula la entidad: los perfiles deben existir y coincidir
+    // exactamente con los que enlaza la web.
     "sameAs": [
       "https://github.com/raulbr99",
-      "https://linkedin.com/in/raulbr99",
+      "https://www.linkedin.com/in/raul-berna-riera",
       "https://twitter.com/raulbr99"
     ],
     "jobTitle": isSpanish ? "Desarrollador Full Stack" : "Full Stack Developer",
     "worksFor": {
       "@type": "Organization",
-      "name": "Freelance"
+      "name": "Nanonino SL",
+      "url": "https://talkrev.ai"
     },
     "knowsAbout": [
       "React", "Next.js", "Node.js", "TypeScript", "JavaScript",
@@ -60,7 +64,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "@type": "WebSite",
     "name": "Raúl BR - Desarrollador Full Stack",
     "alternateName": "rauldev",
-    "url": "https://rauldev.dev",
+    "url": SITE_URL,
     "description": isSpanish
       ? "Portfolio profesional de Raúl BR, desarrollador Full Stack especializado en React, Next.js, Node.js e IA conversacional."
       : "Professional portfolio of Raúl BR, Full Stack developer specialized in React, Next.js, Node.js and conversational AI.",
@@ -73,7 +77,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://rauldev.dev?q={search_term_string}"
+        "urlTemplate": `${SITE_URL}?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
@@ -120,8 +124,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
     ],
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/InStock",
-      "priceRange": "€€€"
+      "availability": "https://schema.org/InStock"
     }
   };
 

@@ -1,41 +1,24 @@
 import { MetadataRoute } from 'next'
-import { locales, defaultLocale } from '@/i18n/config'
+import { locales } from '@/i18n/config'
+import { SITE_URL, localeUrl } from '@/lib/site'
 
+/**
+ * Solo URLs reales: los fragmentos (#seccion) no son URLs para un buscador y
+ * Google los descarta. Cada entrada declara sus alternativas de idioma más
+ * x-default, que apunta al español.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rauldev.dev'
-  const currentDate = new Date()
+  const lastModified = new Date()
 
-  const entries: MetadataRoute.Sitemap = []
+  const languages = {
+    es: SITE_URL,
+    en: `${SITE_URL}/en`,
+    'x-default': SITE_URL,
+  }
 
-  // Páginas principales por locale
-  locales.forEach((locale) => {
-    const url = locale === defaultLocale ? baseUrl : `${baseUrl}/${locale}`
-
-    entries.push({
-      url,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 1,
-      alternates: {
-        languages: {
-          es: baseUrl,
-          en: `${baseUrl}/en`,
-        },
-      },
-    })
-
-    // Secciones con anchors
-    const sections = ['#sobre-mi', '#experiencia', '#habilidades', '#proyectos', '#contacto']
-
-    sections.forEach((section, index) => {
-      entries.push({
-        url: `${url}${section}`,
-        lastModified: currentDate,
-        changeFrequency: 'monthly',
-        priority: 0.8 - index * 0.05,
-      })
-    })
-  })
-
-  return entries
+  return locales.map((locale) => ({
+    url: localeUrl(locale),
+    lastModified,
+    alternates: { languages },
+  }))
 }

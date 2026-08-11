@@ -29,8 +29,6 @@ export default function HeroSection() {
             />
           </div>
 
-          <div className="sr-only">{t('seo')}</div>
-
           <Reveal delay={0.9}>
             <p
               className="mb-8 max-w-xl text-lg leading-relaxed text-gray-300/90"

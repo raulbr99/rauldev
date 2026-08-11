@@ -154,10 +154,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="sr-only">
-            {t('seo')}
-          </div>
-
           <div className="text-center">
             <a
               href="/cv-raul.pdf"

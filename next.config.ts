@@ -69,18 +69,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  
-  // Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      config.optimization.splitChunks.cacheGroups.vendor = {
-        test: /[\\/]node_modules[\\/]/,
-        name: 'vendors',
-        chunks: 'all',
-      };
-    }
-    return config;
-  },
 };
 
 export default withNextIntl(nextConfig);

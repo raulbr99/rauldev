@@ -24,7 +24,10 @@ export const validateField = (name: string, value: string): string | undefined =
       if (value.length > 50) {
         return 'El nombre no puede exceder 50 caracteres';
       }
-      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
+      // Letras de cualquier alfabeto (\p{L}), marcas diacríticas (\p{M}) y los
+      // separadores habituales en nombres compuestos: Müller, Nguyễn, O'Brien,
+      // Jean-Pierre, Ivanović… Solo excluye dígitos y símbolos.
+      if (!/^[\p{L}\p{M}\s'’\-.]+$/u.test(value)) {
         return 'El nombre solo puede contener letras';
       }
       return undefined;
