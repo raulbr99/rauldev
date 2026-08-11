@@ -80,7 +80,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-24 right-5 z-[90] flex h-[min(34rem,calc(100vh-8rem))] w-[min(24rem,calc(100vw-2.5rem))] flex-col border border-white/15 bg-slate-950/95 backdrop-blur-md shadow-2xl shadow-black/50"
+            className="fixed bottom-24 right-5 z-[90] flex h-[min(34rem,calc(100dvh-8rem))] w-[min(24rem,calc(100vw-2.5rem))] flex-col border border-white/15 bg-slate-950/95 backdrop-blur-md shadow-2xl shadow-black/50"
           >
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-white/10 bg-techgrid px-4 py-3">
@@ -94,7 +94,7 @@ export default function ChatWidget() {
                   {t('status')}
                 </p>
               </div>
-              <button onClick={() => setOpen(false)} aria-label={t('close')} className="ml-auto text-gray-500 transition-colors hover:text-white">
+              <button onClick={() => setOpen(false)} aria-label={t('close')} className="ml-auto text-gray-400 transition-colors hover:text-white">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -192,7 +192,7 @@ export default function ChatWidget() {
                 </button>
               )}
             </form>
-            <p className="pb-2 text-center font-mono text-[10px] text-gray-600">{t('disclaimer')}</p>
+            <p className="pb-2 text-center font-mono text-[10px] text-gray-500">{t('disclaimer')}</p>
           </motion.div>
         )}
       </AnimatePresence>

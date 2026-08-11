@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section
       id="inicio"
       aria-label="Hero"
-      className="relative flex min-h-[70vh] items-start bg-techgrid px-4 pt-24 pb-12 lg:min-h-[94vh] lg:items-center lg:pt-28 lg:pb-16"
+      className="relative flex min-h-[70dvh] items-start bg-techgrid px-4 pt-24 pb-12 lg:min-h-[94dvh] lg:items-center lg:pt-28 lg:pb-16"
     >
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
@@ -71,16 +71,16 @@ export default function HeroSection() {
           </Reveal>
 
           <Reveal delay={1.2}>
-            <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-500">
+            <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-400">
               <span className="hidden sm:inline">FOLLOW</span>
               <span className="hidden h-px w-8 bg-white/15 sm:inline-block" />
-              <a href="https://github.com/raulbr99" aria-label="GitHub" className="transition-colors hover:text-cyan-300">
+              <a href="https://github.com/raulbr99" aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com/in/raul-berna-riera" aria-label="LinkedIn" className="transition-colors hover:text-cyan-300">
+              <a href="https://www.linkedin.com/in/raul-berna-riera" aria-label="LinkedIn" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="mailto:raulbernariera99@gmail.com" aria-label="Email" className="transition-colors hover:text-cyan-300">
+              <a href="mailto:raulbernariera99@gmail.com" aria-label="Email" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -110,11 +110,11 @@ export default function HeroSection() {
 
               <dl className="mt-2 hidden border-t border-white/10 font-mono text-xs sm:block">
                 <div className="flex items-center justify-between border-b border-white/10 px-1 py-2">
-                  <dt className="text-gray-500">LOC</dt>
+                  <dt className="text-gray-400">LOC</dt>
                   <dd className="text-gray-200">Alicante, ES</dd>
                 </div>
                 <div className="flex items-center justify-between px-1 py-2">
-                  <dt className="text-gray-500">STACK</dt>
+                  <dt className="text-gray-400">STACK</dt>
                   <dd className="text-cyan-300">React · Next · Node</dd>
                 </div>
               </dl>

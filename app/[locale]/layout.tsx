@@ -146,17 +146,23 @@ export default async function LocaleLayout({ children, params }: Props) {
   // viajan al cliente los espacios que usan componentes 'use client'. El resto
   // (hero, about, experience, skills, footer, legal…) se resuelve en servidor.
   const clientMessages = Object.fromEntries(
-    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error'] as const)
+    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error', 'a11y'] as const)
       .filter((ns) => ns in messages)
       .map((ns) => [ns, messages[ns]])
   );
 
   return (
-    <html lang={locale} className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    // data-scroll-behavior: desde Next 16 hay que declararlo para que el
+    // router siga saltando al instante entre rutas pese al smooth global.
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#3B82F6" />
-        <meta name="msapplication-TileColor" content="#3B82F6" />
+        <meta name="theme-color" content="#22D3EE" />
+        <meta name="msapplication-TileColor" content="#22D3EE" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

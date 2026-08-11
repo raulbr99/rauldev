@@ -4,13 +4,29 @@
 @theme {
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
-  --color-volt: #d1ff26;
 }
 
 /* Prevenir overscroll bounce y fondo blanco en móvil */
 html, body {
   overscroll-behavior: none;
-  background: #0f172a; /* slate-900 */
+  background: #020617; /* slate-950, el mismo que pinta AuroraBackground */
+}
+
+/* Anclas de sección: el header fijo mide 70px, así que el scroll nativo debe
+   dejar ese hueco. Sustituye al offset hardcodeado que había en JS. */
+:where(section[id]) {
+  scroll-margin-top: 5.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Quien pide menos movimiento no debería recibir scroll animado. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Display font para todos los titulares */

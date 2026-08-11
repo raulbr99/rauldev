@@ -32,7 +32,7 @@ export default function AboutSection() {
                 suffix={s.suffix}
                 className="block text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
               />
-              <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-gray-500">{s.label}</div>
+              <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-gray-400">{s.label}</div>
             </div>
           ))}
         </div>
@@ -123,11 +123,11 @@ export default function AboutSection() {
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center justify-between gap-4">
                   <span>{t('languages.spanish.name')}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">{t('languages.spanish.level')}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400">{t('languages.spanish.level')}</span>
                 </li>
                 <li className="flex items-center justify-between gap-4">
                   <span>{t('languages.english.name')}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">{t('languages.english.level')}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400">{t('languages.english.level')}</span>
                 </li>
               </ul>
             </div>

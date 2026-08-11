@@ -143,7 +143,7 @@
       "ai": "AI & Machine Learning"
     }
   },
-    "projects": {
+  "projects": {
     "title": "My Projects",
     "subtitle": "A selection of my most recent projects and what's coming next",
     "loading": "Loading projects...",
@@ -151,10 +151,10 @@
     "code": "Code",
     "demo": "Demo",
     "categories": {
-        "ai": "AI/ML",
-        "saas": "SaaS",
-        "webapp": "Web App",
-        "portfolio": "Portfolio"
+      "ai": "AI/ML",
+      "saas": "SaaS",
+      "webapp": "Web App",
+      "portfolio": "Portfolio"
     },
     "data": {
       "bomkai": {
@@ -316,5 +316,11 @@
     "description": "An unexpected error occurred on my side. You can retry or go back home.",
     "retry": "Retry",
     "cta": "Back to home"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "currentSection": "Current section"
   }
 }

@@ -55,6 +55,8 @@ export default function ContactSection() {
               touched={touched.name}
               placeholder={t('form.namePlaceholder')}
               maxLength={50}
+              autoComplete="name"
+              required
             />
 
             <FormInput
@@ -69,6 +71,8 @@ export default function ContactSection() {
               touched={touched.email}
               placeholder={t('form.emailPlaceholder')}
               maxLength={100}
+              autoComplete="email"
+              required
             />
 
             <FormInput
@@ -85,6 +89,7 @@ export default function ContactSection() {
               rows={5}
               maxLength={1000}
               showCharCount
+              required
             />
 
             {/* Consentimiento RGPD: base jurídica del tratamiento (art. 6.1.a) */}

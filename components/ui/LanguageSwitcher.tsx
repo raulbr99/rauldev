@@ -19,10 +19,13 @@ export default function LanguageSwitcher() {
         <button
           key={loc}
           onClick={() => handleChange(loc)}
-          className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+          lang={loc}
+          aria-current={locale === loc ? 'true' : undefined}
+          // min-h/w-11 = 44px: mínimo de área táctil en móvil
+          className={`flex min-h-11 min-w-11 items-center justify-center px-2 font-mono text-xs uppercase tracking-widest transition-colors ${
             locale === loc
-              ? 'bg-blue-500 text-white'
-              : 'text-gray-400 hover:text-white hover:bg-white/10'
+              ? 'bg-cyan-400 text-slate-950'
+              : 'text-gray-400 hover:bg-white/10 hover:text-white'
           }`}
         >
           {loc.toUpperCase()}

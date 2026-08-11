@@ -17,6 +17,9 @@ interface FormInputProps {
     rows?: number;
     maxLength?: number;
     showCharCount?: boolean;
+    /** Pista de autorrelleno del navegador: sin esto el móvil no ofrece nada. */
+    autoComplete?: string;
+    required?: boolean;
 }
 
 export default function FormInput({
@@ -32,7 +35,9 @@ export default function FormInput({
     placeholder,
     rows = 5,
     maxLength,
-    showCharCount = false
+    showCharCount = false,
+    autoComplete,
+    required
 }: FormInputProps) {
     const hasError = touched && error;
     const isValid = touched && !error && value;
@@ -70,6 +75,8 @@ export default function FormInput({
                         className={inputClasses}
                         placeholder={placeholder}
                         maxLength={maxLength}
+                        autoComplete={autoComplete}
+                        required={required}
                         aria-invalid={hasError ? "true" : "false"}
                         aria-describedby={hasError ? `${id}-error` : undefined}
                     />
@@ -84,6 +91,8 @@ export default function FormInput({
                         className={inputClasses}
                         placeholder={placeholder}
                         maxLength={maxLength}
+                        autoComplete={autoComplete}
+                        required={required}
                         aria-invalid={hasError ? "true" : "false"}
                         aria-describedby={hasError ? `${id}-error` : undefined}
                     />

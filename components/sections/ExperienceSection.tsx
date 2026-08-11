@@ -42,11 +42,11 @@ export default function ExperienceSection() {
                                 <article className="group grid gap-6 border-b border-white/10 py-10 transition-colors hover:bg-white/[0.02] md:grid-cols-[10rem_1fr] md:gap-10">
                                     {/* índice + periodo */}
                                     <div className="flex items-baseline gap-4 md:flex-col md:gap-2">
-                                        <span className="font-mono text-5xl font-bold leading-none text-white/15 transition-colors group-hover:text-cyan-400/50">
+                                        <span className="font-mono text-5xl font-bold leading-none text-white/25 transition-colors group-hover:text-cyan-400/50">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
                                         {exp.period && (
-                                            <span className="font-mono text-xs text-gray-500">{exp.period}</span>
+                                            <span className="font-mono text-xs text-gray-400">{exp.period}</span>
                                         )}
                                     </div>
 
@@ -63,7 +63,7 @@ export default function ExperienceSection() {
 
                                         <p className="mb-3 font-mono text-sm text-cyan-400">{exp.company}</p>
 
-                                        <div className="mb-4 flex flex-wrap gap-4 font-mono text-xs text-gray-500">
+                                        <div className="mb-4 flex flex-wrap gap-4 font-mono text-xs text-gray-400">
                                             {exp.location && (
                                                 <span className="inline-flex items-center gap-1.5">
                                                     <MapPin className="h-3.5 w-3.5" />
@@ -77,7 +77,7 @@ export default function ExperienceSection() {
 
                                         {exp.projects && exp.projects.length > 0 && (
                                             <div className="mb-6">
-                                                <p className="mb-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-500">
+                                                <p className="mb-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-400">
                                                     {t('builtProjects')}
                                                 </p>
                                                 <div className="flex flex-wrap gap-3">

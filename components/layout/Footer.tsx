@@ -32,7 +32,7 @@ export default function Footer() {
   const tn = useTranslations('navigation');
   const year = new Date().getFullYear();
 
-  const columnTitle = 'mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500';
+  const columnTitle = 'mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400';
   const columnLink =
     'inline-block py-1 text-sm text-gray-400 transition-colors hover:text-cyan-300';
 
@@ -105,7 +105,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 font-mono text-[11px] tracking-widest text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 font-mono text-[11px] tracking-widest text-gray-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Raúl Berná Riera. {t('rights')}</p>
           <p>{t('builtWith')}</p>
         </div>

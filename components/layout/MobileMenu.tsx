@@ -1,95 +1,142 @@
 'use client';
 
-import { X, Home, User, Briefcase, FolderOpen, Mail, Github, Linkedin } from 'lucide-react';
-import { useEffect } from 'react';
+import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 interface MobileMenuProps {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
 }
 
-export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
-    const { handleLinkClick } = useSmoothScroll();
-    const t = useTranslations('navigation');
+const menuItems = [
+    { href: '#inicio', key: 'home', Icon: Home },
+    { href: '#sobre-mi', key: 'about', Icon: User },
+    { href: '#experiencia', key: 'experience', Icon: Briefcase },
+    { href: '#habilidades', key: 'skills', Icon: Wrench },
+    { href: '#proyectos', key: 'projects', Icon: FolderOpen },
+    { href: '#contacto', key: 'contact', Icon: Mail },
+] as const;
 
-    const menuItems = [
-        { href: '#inicio', key: 'home', icon: <Home className="w-5 h-5" /> },
-        { href: '#sobre-mi', key: 'about', icon: <User className="w-5 h-5" /> },
-        { href: '#experiencia', key: 'experience', icon: <Briefcase className="w-5 h-5" /> },
-        { href: '#habilidades', key: 'skills', icon: <User className="w-5 h-5" /> },
-        { href: '#proyectos', key: 'projects', icon: <FolderOpen className="w-5 h-5" /> },
-        { href: '#contacto', key: 'contact', icon: <Mail className="w-5 h-5" /> }
-    ];
+const socialItems = [
+    { href: 'https://github.com/raulbr99', label: 'GitHub', Icon: Github },
+    { href: 'https://www.linkedin.com/in/raul-berna-riera', label: 'LinkedIn', Icon: Linkedin },
+    { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
+] as const;
+
+const FOCUSABLE = 'a[href], button:not([disabled])';
+
+export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
+    const t = useTranslations('navigation');
+    const ta = useTranslations('a11y');
+    const panelRef = useRef<HTMLDivElement>(null);
+    const openerRef = useRef<Element | null>(null);
 
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
+        if (!isOpen) return;
+
+        openerRef.current = document.activeElement;
+        document.body.style.overflow = 'hidden';
+
+        // El foco entra en el panel y queda atrapado dentro mientras esté abierto:
+        // sin esto se puede tabular por la página de detrás sin verla.
+        const panel = panelRef.current;
+        panel?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
+
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsOpen(false);
+                return;
+            }
+            if (e.key !== 'Tab' || !panel) return;
+
+            const items = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE));
+            if (items.length === 0) return;
+
+            const first = items[0];
+            const last = items[items.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        };
+
+        document.addEventListener('keydown', onKeyDown);
 
         return () => {
-            document.body.style.overflow = 'unset';
+            document.removeEventListener('keydown', onKeyDown);
+            document.body.style.overflow = '';
+            // Devuelve el foco al botón que lo abrió.
+            (openerRef.current as HTMLElement | null)?.focus?.();
         };
-    }, [isOpen]);
+    }, [isOpen, setIsOpen]);
 
     if (!isOpen) return null;
-
-    const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        handleLinkClick(e, href);
-        setIsOpen(false);
-    };
 
     return (
         <>
             <div
-                className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+                className="fixed inset-0 bg-black/60 z-40 md:hidden"
                 onClick={() => setIsOpen(false)}
+                aria-hidden="true"
             />
 
-            <div className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-slate-900 border-l border-white/10 shadow-2xl z-50 lg:hidden">
+            <div
+                ref={panelRef}
+                id="menu-movil"
+                role="dialog"
+                aria-modal="true"
+                aria-label={t('toggleMenu')}
+                className="fixed right-0 top-0 h-dvh w-80 max-w-[85vw] bg-slate-900 border-l border-white/10 shadow-2xl z-50 md:hidden"
+            >
                 <div className="flex items-center justify-between p-6 border-b border-white/10">
-                    <div className="text-xl font-bold uppercase tracking-tight text-white">
+                    <p className="text-xl font-bold uppercase tracking-tight text-white">
                         Raúl <span className="text-cyan-400">Dev</span>
-                    </div>
+                    </p>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="p-2 text-gray-400 hover:text-white transition-colors"
+                        aria-label={ta('closeMenu')}
+                        className="flex min-h-11 min-w-11 items-center justify-center text-gray-400 transition-colors hover:text-white"
                     >
                         <X className="w-6 h-6" />
                     </button>
                 </div>
 
-                <nav className="p-6">
+                <nav className="p-6" aria-label={ta('mainNav')}>
                     <ul className="space-y-3">
-                        {menuItems.map((item) => (
-                            <li key={item.href}>
+                        {menuItems.map(({ href, key, Icon }) => (
+                            <li key={href}>
                                 <a
-                                    href={item.href}
+                                    href={href}
                                     className="flex items-center gap-4 border border-transparent px-4 py-3 font-mono text-sm uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/30 hover:bg-white/5 hover:text-cyan-300"
-                                    onClick={(e) => handleMobileLinkClick(e, item.href)}
+                                    onClick={() => setIsOpen(false)}
                                 >
-                                    <span className="text-cyan-400">{item.icon}</span>
-                                    <span>{t(item.key)}</span>
+                                    <Icon className="h-5 w-5 text-cyan-400" />
+                                    <span>{t(key)}</span>
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-                    <div className="flex gap-4 justify-center">
-                        <a href="https://github.com/raulbr99" className="text-gray-400 hover:text-white">
-                            <Github className="w-5 h-5" />
-                        </a>
-                        <a href="https://linkedin.com/in/raul-berna-riera" className="text-gray-400 hover:text-cyan-400">
-                            <Linkedin className="w-5 h-5" />
-                        </a>
-                        <a href="mailto:raulbernariera99@gmail.com" className="text-gray-400 hover:text-green-400">
-                            <Mail className="w-5 h-5" />
-                        </a>
+                <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 p-6">
+                    <div className="flex justify-center gap-2">
+                        {socialItems.map(({ href, label, Icon }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                aria-label={label}
+                                target={href.startsWith('http') ? '_blank' : undefined}
+                                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                className="flex min-h-11 min-w-11 items-center justify-center text-gray-400 transition-colors hover:text-cyan-300"
+                            >
+                                <Icon className="h-5 w-5" />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
