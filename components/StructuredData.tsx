@@ -1,18 +1,21 @@
 import Script from 'next/script';
+import { getTranslations } from 'next-intl/server';
 import { SITE_URL } from '@/lib/site';
 
 interface StructuredDataProps {
   language: 'es' | 'en';
 }
 
-export default function StructuredData({ language }: StructuredDataProps) {
+export default async function StructuredData({ language }: StructuredDataProps) {
   const isSpanish = language === 'es';
+  const tFaq = await getTranslations({ locale: language, namespace: 'faq' });
+  const faqItems = tFaq.raw('items') as { q: string; a: string }[];
   
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Raúl BR",
-    "alternateName": "rauldev",
+    "name": "Raúl Berná",
+    "alternateName": ["Raúl BR", "rauldev", "Raúl Berná Riera"],
     "url": SITE_URL,
     "image": `${SITE_URL}/me.png`,
     // sameAs vincula la entidad: los perfiles deben existir y coincidir
@@ -72,7 +75,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
     "inLanguage": ["es-ES", "en-US"],
     "author": {
       "@type": "Person",
-      "name": "Raúl BR"
+      "name": "Raúl Berná"
     },
     "potentialAction": {
       "@type": "SearchAction",
@@ -84,49 +87,21 @@ export default function StructuredData({ language }: StructuredDataProps) {
     }
   };
 
-  const professionalServiceSchema = {
+  // Nota: aquí hubo un schema "ProfessionalService" (servicios de desarrollo web
+  // a la carta, área de cobertura, disponibilidad). Se quitó porque contradecía
+  // el objetivo real del sitio: que le contraten como empleado, no captar
+  // clientes freelance. Un Person con jobTitle/worksFor ya comunica lo correcto.
+
+  // Mismo contenido que <FAQSection>, tomado de messages/*.json — una sola
+  // fuente de verdad para lo visible y lo marcado como FAQPage.
+  const faqSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": isSpanish ? "Servicios de Desarrollo Web" : "Web Development Services",
-    "description": isSpanish
-      ? "Servicios profesionales de desarrollo web, plataformas SaaS, IA conversacional y consultoría técnica para empresas de España, especialmente en la Comunidad Valenciana y Costa Blanca."
-      : "Professional web development, SaaS platforms, conversational AI and technical consulting services for companies in Spain, especially in the Valencian Community and Costa Blanca.",
-    "provider": {
-      "@type": "Person",
-      "name": "Raúl BR"
-    },
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "España"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Comunidad Valenciana"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Costa Blanca"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Vega Baja"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Comarca Bajo Segura"
-      }
-    ],
-    "serviceType": [
-      isSpanish ? "Desarrollo Web" : "Web Development",
-      isSpanish ? "Plataformas SaaS" : "SaaS Platforms",
-      isSpanish ? "IA Conversacional" : "Conversational AI",
-      isSpanish ? "Consultoría Técnica" : "Technical Consulting"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/InStock"
-    }
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a },
+    })),
   };
 
   const portfolioSchema = {
@@ -138,7 +113,7 @@ export default function StructuredData({ language }: StructuredDataProps) {
       : "Collection of web projects and SaaS platforms developed by Raúl BR.",
     "author": {
       "@type": "Person",
-      "name": "Raúl BR"
+      "name": "Raúl Berná"
     },
     "dateCreated": "2024-01-01",
     "dateModified": new Date().toISOString().split('T')[0],
@@ -163,10 +138,10 @@ export default function StructuredData({ language }: StructuredDataProps) {
         }}
       />
       <Script
-        id="service-schema"
+        id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(professionalServiceSchema),
+          __html: JSON.stringify(faqSchema),
         }}
       />
       <Script

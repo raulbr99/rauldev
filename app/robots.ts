@@ -19,7 +19,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Bingbot',
         allow: '/',
         crawlDelay: 1,
-      }
+      },
+      // Crawlers de motores de IA: el wildcard '*' ya los deja pasar, pero se
+      // permiten explícitamente por si alguno cambia su comportamiento por
+      // defecto a "denegado" cuando no aparece nombrado.
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'Claude-SearchBot', allow: '/' },
+      { userAgent: 'Claude-User', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Perplexity-User', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,

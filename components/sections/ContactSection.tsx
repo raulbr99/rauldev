@@ -27,7 +27,7 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading number="05" label="CONTACT" title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading number="06" label="CONTACT" title={t('title')} subtitle={t('subtitle')} />
 
         <div className="grid md:grid-cols-2 gap-12">
           <ContactInfo />

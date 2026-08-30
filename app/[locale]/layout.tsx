@@ -52,24 +52,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: isSpanish
       ? [
         "desarrollador web", "full stack developer", "React developer", "Next.js",
-        "Node.js", "TypeScript", "JavaScript", "freelance developer",
+        "Node.js", "TypeScript", "JavaScript",
         "portfolio desarrollador", "programador web", "aplicaciones móviles",
         "React Native", "frontend developer", "backend developer",
-        "desarrollador freelance", "programador freelance", "web developer",
-        "software developer", "Raúl BR", "rauldev", "desarrollo web",
-        "páginas web", "aplicaciones web", "e-commerce", "dashboard",
-        "UI/UX", "responsive design", "SEO", "performance", "PWA",
+        "web developer", "software developer", "Raúl BR", "rauldev",
+        "desarrollo web", "páginas web", "aplicaciones web", "e-commerce",
+        "dashboard", "UI/UX", "responsive design", "SEO", "performance", "PWA",
         "desarrollador Costa Blanca", "programador Comunidad Valenciana",
-        "desarrollo web Valencia", "freelance España"
+        "desarrollo web Valencia"
       ]
       : [
         "web developer", "full stack developer", "React developer", "Next.js",
-        "Node.js", "TypeScript", "JavaScript", "freelance developer",
+        "Node.js", "TypeScript", "JavaScript",
         "developer portfolio", "web programmer", "mobile applications",
         "React Native", "frontend developer", "backend developer",
-        "freelance developer", "web developer", "software developer",
-        "Raúl BR", "rauldev", "web development", "web apps", "e-commerce",
-        "dashboard", "UI/UX", "responsive design", "SEO", "performance", "PWA"
+        "software developer", "Raúl BR", "rauldev", "web development",
+        "web apps", "e-commerce", "dashboard", "UI/UX", "responsive design",
+        "SEO", "performance", "PWA"
       ],
     authors: [{ name: "Raúl Dev", url: SITE_URL }],
     creator: "Raúl Dev",
