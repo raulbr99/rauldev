@@ -60,6 +60,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         {category}
                     </span>
                 </div>
+                {project.logo && (
+                    <div className="absolute top-4 left-4 h-10 w-10 overflow-hidden rounded-full border border-white/20 shadow-lg">
+                        <Image
+                            src={project.logo}
+                            alt={`${title} logo`}
+                            fill
+                            sizes="40px"
+                            className="object-cover"
+                        />
+                    </div>
+                )}
             </div>
 
             <div className="p-6 flex flex-col flex-grow">

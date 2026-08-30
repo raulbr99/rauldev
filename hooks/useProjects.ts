@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   tech: string[];
   image: string;
+  logo?: string;
   github: string | null;
   demo: string | null;
   featured: boolean;
