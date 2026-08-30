@@ -154,7 +154,8 @@
       "ai": "IA/ML",
       "saas": "SaaS",
       "webapp": "Web App",
-      "portfolio": "Portfolio"
+      "portfolio": "Portfolio",
+      "webdesign": "Diseño Web"
     },
     "data": {
       "bomkai": {
@@ -172,6 +173,30 @@
       "portfolio": {
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."
+      },
+      "clinicaDentalMarina": {
+        "title": "Clínica Dental Marina",
+        "description": "Web bilingüe (ES/EN) para una clínica dental, con SEO local (schema.org Dentist), FAQ accesible con <details> nativo y tipografía propia vía Google Fonts."
+      },
+      "estudioAire": {
+        "title": "Estudio Aire",
+        "description": "Web bilingüe para un estudio de pilates y yoga, con el horario semanal de clases renderizado como tabla semántica y una identidad tipográfica editorial propia."
+      },
+      "gestoriaLlobet": {
+        "title": "Gestoría Llobet",
+        "description": "Landing corporativa para una asesoría fiscal y laboral, con paquetes de precios comparativos y un hero con métricas en lugar de fotografía de stock."
+      },
+      "tallerBernabeu": {
+        "title": "Taller Bernabéu",
+        "description": "Web de taller mecánico con identidad industrial: hero con cuñas diagonales en CSS puro, sección de proceso de reparación paso a paso y tipografía condensada."
+      },
+      "casaRibes": {
+        "title": "Casa Ribes",
+        "description": "Web de alojamiento turístico real con motor de reserva directa: selector de fechas y huéspedes que calcula el precio según temporada y arma el mensaje de WhatsApp al propietario."
+      },
+      "alteaSuiteVault": {
+        "title": "Altea Suite Vault",
+        "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados."
       }
     }
   },

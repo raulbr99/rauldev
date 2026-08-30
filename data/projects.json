@@ -51,13 +51,91 @@
         "category": "Portfolio",
         "createdAt": "2025-10-01",
         "status": "production"
+      },
+      {
+        "id": "clinica-dental-marina",
+        "title": "Clínica Dental Marina",
+        "description": "Web bilingüe (ES/EN) para una clínica dental, con SEO local (schema.org Dentist), FAQ accesible con <details> nativo y tipografía propia vía Google Fonts.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/clinica-dental-marina.jpg",
+        "github": null,
+        "demo": "https://clinica-dental-marina.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-29",
+        "status": "production"
+      },
+      {
+        "id": "estudio-aire",
+        "title": "Estudio Aire",
+        "description": "Web bilingüe para un estudio de pilates y yoga, con el horario semanal de clases renderizado como tabla semántica y una identidad tipográfica editorial propia.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/estudio-aire.jpg",
+        "github": null,
+        "demo": "https://estudio-aire.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-29",
+        "status": "production"
+      },
+      {
+        "id": "gestoria-llobet",
+        "title": "Gestoría Llobet",
+        "description": "Landing corporativa para una asesoría fiscal y laboral, con paquetes de precios comparativos y un hero con métricas en lugar de fotografía de stock.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/gestoria-llobet.jpg",
+        "github": null,
+        "demo": "https://gestoria-llobet.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-29",
+        "status": "production"
+      },
+      {
+        "id": "taller-bernabeu",
+        "title": "Taller Bernabéu",
+        "description": "Web de taller mecánico con identidad industrial: hero con cuñas diagonales en CSS puro, sección de proceso de reparación paso a paso y tipografía condensada.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/taller-bernabeu.jpg",
+        "github": null,
+        "demo": "https://taller-bernabeu.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-29",
+        "status": "production"
+      },
+      {
+        "id": "casa-ribes",
+        "title": "Casa Ribes",
+        "description": "Web de alojamiento turístico real con motor de reserva directa: selector de fechas y huéspedes que calcula el precio según temporada y arma el mensaje de WhatsApp al propietario.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/casa-ribes.jpg",
+        "github": null,
+        "demo": "https://casa-ribes.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-24",
+        "status": "production"
+      },
+      {
+        "id": "altea-suite-vault",
+        "title": "Altea Suite Vault",
+        "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados.",
+        "tech": ["Astro", "TypeScript", "Vercel"],
+        "image": "/projects/altea-suite-vault.jpg",
+        "github": null,
+        "demo": "https://altea-suite-vault.vercel.app",
+        "featured": true,
+        "category": "Web Design",
+        "createdAt": "2026-08-24",
+        "status": "production"
       }
   ],
   "stats": {
-    "totalProjects": 4,
-    "featuredProjects": 4,
+    "totalProjects": 10,
+    "featuredProjects": 10,
     "inDevelopment": 0,
-    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio"],
-    "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend"]
+    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio", "Web Design"],
+    "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Astro"]
   }
 }

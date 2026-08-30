@@ -154,7 +154,8 @@
       "ai": "AI/ML",
       "saas": "SaaS",
       "webapp": "Web App",
-      "portfolio": "Portfolio"
+      "portfolio": "Portfolio",
+      "webdesign": "Web Design"
     },
     "data": {
       "bomkai": {
@@ -172,6 +173,30 @@
       "portfolio": {
         "title": "Personal Portfolio",
         "description": "This very portfolio developed with Next.js 15, modern design, SEO optimized, contact system with Resend and scalable architecture."
+      },
+      "clinicaDentalMarina": {
+        "title": "Clínica Dental Marina",
+        "description": "Bilingual (ES/EN) website for a dental clinic, with local SEO (schema.org Dentist), an accessible FAQ built with native <details> elements, and a custom Google Fonts pairing."
+      },
+      "estudioAire": {
+        "title": "Estudio Aire",
+        "description": "Bilingual website for a pilates and yoga studio, with the weekly class timetable rendered as a semantic table and its own editorial typographic identity."
+      },
+      "gestoriaLlobet": {
+        "title": "Gestoría Llobet",
+        "description": "Corporate landing page for a tax and labor advisory firm, with comparative pricing packages and a stats-driven hero instead of stock photography."
+      },
+      "tallerBernabeu": {
+        "title": "Taller Bernabéu",
+        "description": "Car repair garage website with an industrial identity: a hero with diagonal CSS wedges, a step-by-step repair process section, and condensed display type."
+      },
+      "casaRibes": {
+        "title": "Casa Ribes",
+        "description": "Real holiday-rental website with a direct booking engine: a date and guest picker that calculates the price by season and builds the WhatsApp message to the owner."
+      },
+      "alteaSuiteVault": {
+        "title": "Altea Suite Vault",
+        "description": "High-end holiday suites website with the same direct booking engine as Casa Ribes, in a dark, elegant aesthetic with gold accents."
       }
     }
   },
