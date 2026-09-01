@@ -4,25 +4,12 @@ import Image from 'next/image';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Project } from '../../hooks/useProjects';
+import { projectKeyMap } from '@/lib/project-keys';
 import TiltCard from '../anim/TiltCard';
 
 interface ProjectCardProps {
     project: Project;
 }
-
-// Mapeo de IDs de proyecto a claves de traducción
-const projectKeyMap: Record<string, string> = {
-    'bomkai-generator': 'bomkai',
-    'fadesso-saas': 'fadesso',
-    'cuotia': 'cuotia',
-    'portfolio-website': 'portfolio',
-    'clinica-dental-marina': 'clinicaDentalMarina',
-    'estudio-aire': 'estudioAire',
-    'gestoria-llobet': 'gestoriaLlobet',
-    'taller-bernabeu': 'tallerBernabeu',
-    'casa-ribes': 'casaRibes',
-    'altea-suite-vault': 'alteaSuiteVault',
-};
 
 // Mapeo de categorías a claves de traducción
 const categoryKeyMap: Record<string, string> = {

@@ -9,16 +9,16 @@
     "toggleMenu": "Abrir menú móvil"
   },
   "hero": {
-    "name": "Raúl Berna",
+    "name": "Raúl Berná",
     "role": "Full Stack Developer",
     "availability": "Abierto a ofertas · Alicante o remoto",
-    "description": "Desarrollador especializado en <strong>React</strong>, <strong>Next.js</strong> y <strong>Node.js</strong>. He trabajado en <strong>e-commerce</strong>, <strong>SaaS multi-tenant</strong> y <strong>paneles de administración</strong> diseñados para rendimiento y escalabilidad. Ayudo a <strong>startups y empresas</strong> a convertir ideas en productos digitales sólidos, fáciles de mantener y listos para crecer.",
+    "description": "Full Stack Developer con más de <strong>3 años de experiencia</strong> construyendo productos con <strong>React</strong>, <strong>Next.js</strong> y <strong>Node.js</strong>: e-commerce, SaaS multi-tenant e <strong>IA conversacional</strong>. Actualmente en <strong>Nanonino SL</strong>, desarrollando Talkrev y PartsNow.ai. Busco un equipo donde seguir construyendo productos que la gente use de verdad.",
     "cta": {
       "contact": "Hablemos",
       "projects": "Ver Proyectos",
       "downloadCV": "Descargar CV"
     },
-    "imageAlt": "Raúl BR - Full Stack Developer"
+    "imageAlt": "Raúl Berná, Full Stack Developer en Alicante"
   },
   "about": {
     "title": "Sobre Mí",
@@ -204,11 +204,26 @@
     "title": "Preguntas Frecuentes",
     "subtitle": "Lo que más me preguntan antes de escribirme",
     "items": [
-      { "q": "¿Está Raúl disponible para trabajar?", "a": "Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto." },
-      { "q": "¿Cuál es su stack principal?", "a": "React, Next.js y Node.js, con experiencia en TypeScript, PostgreSQL/Supabase, IA conversacional (agentes, RAG) y aplicaciones móviles con React Native." },
-      { "q": "¿Cuántos años de experiencia tiene?", "a": "Más de 3 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional." },
-      { "q": "¿Dónde está ubicado?", "a": "Vive en Alicante, España, y puede trabajar tanto presencial como en remoto." },
-      { "q": "¿Dónde trabaja actualmente?", "a": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai." }
+      {
+        "q": "¿Está Raúl disponible para trabajar?",
+        "a": "Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto."
+      },
+      {
+        "q": "¿Cuál es su stack principal?",
+        "a": "React, Next.js y Node.js, con experiencia en TypeScript, PostgreSQL/Supabase, IA conversacional (agentes, RAG) y aplicaciones móviles con React Native."
+      },
+      {
+        "q": "¿Cuántos años de experiencia tiene?",
+        "a": "Más de 3 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional."
+      },
+      {
+        "q": "¿Dónde está ubicado?",
+        "a": "Vive en Alicante, España, y puede trabajar tanto presencial como en remoto."
+      },
+      {
+        "q": "¿Dónde trabaja actualmente?",
+        "a": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai."
+      }
     ]
   },
   "contact": {
