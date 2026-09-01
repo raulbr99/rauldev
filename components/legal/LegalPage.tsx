@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import LegalBreadcrumb from '@/components/legal/Breadcrumb';
 
 interface LegalPageProps {
   /** Clave del bloque dentro de `legal` en los mensajes: notice | privacy | cookies */
@@ -26,6 +27,8 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
       <Navigation />
 
       <main className="mx-auto max-w-3xl px-4 pb-24 pt-32">
+        <LegalBreadcrumb section={section} />
+
         <Link
           href="/"
           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-400 transition-colors hover:text-cyan-300"

@@ -314,6 +314,8 @@
   "legal": {
     "backHome": "Back to home",
     "lastUpdated": "Last updated",
+    "breadcrumbHome": "Home",
+    "breadcrumbLegal": "Legal",
     "notice": {
       "title": "Legal notice",
       "intro": "In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the following details are provided:",

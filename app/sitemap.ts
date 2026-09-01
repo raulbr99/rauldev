@@ -8,14 +8,13 @@ import { SITE_URL, localeUrl } from '@/lib/site'
  * x-default, que apunta al español.
  */
 const PATHS = ['', '/aviso-legal', '/privacidad', '/cookies']
+const CONTENT_UPDATED = new Date('2026-09-01T00:00:00.000Z')
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
-
   return PATHS.flatMap((path) =>
     locales.map((locale) => ({
       url: localeUrl(locale, path),
-      lastModified,
+      lastModified: CONTENT_UPDATED,
       alternates: {
         languages: {
           es: `${SITE_URL}${path}`,
