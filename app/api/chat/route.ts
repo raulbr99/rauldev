@@ -1,11 +1,11 @@
-import { convertToModelMessages, streamText, type UIMessage } from 'ai';
+import { convertToModelMessages, streamText, type LanguageModel, type UIMessage } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { buildSystemPrompt } from '@/lib/raul-context';
 import { createRateLimiter } from '@/lib/ratelimit';
 
 // Permite respuestas en streaming hasta 30s
 export const maxDuration = 30;
 
-const MODEL = 'anthropic/claude-haiku-4.5';
 const MAX_MESSAGES = 24;
 /** Tope de caracteres por mensaje (el input del widget corta a 500). */
 const MAX_TEXT_PER_MESSAGE = 4_000;
@@ -15,6 +15,35 @@ const MAX_TOTAL_TEXT = 24_000;
 const isLimited = createRateLimiter({ prefix: 'ratelimit:chat', limit: 15, window: '1 m' });
 
 type TextPart = { type: 'text'; text: string };
+
+/**
+ * Modelos en orden de preferencia. El principal llama a OpenAI directamente
+ * con la clave del proyecto; el Vercel AI Gateway queda de respaldo. El chat
+ * ya se quedó mudo una vez porque el gateway, en plan gratuito, dejó de
+ * servir el modelo configurado y además limita las peticiones sin avisar.
+ */
+function candidateModels(): { id: string; model: LanguageModel }[] {
+  const candidates: { id: string; model: LanguageModel }[] = [];
+  if (process.env.OPENAI_API_KEY) {
+    const openai = createOpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    candidates.push({ id: 'openai:gpt-4.1-mini', model: openai('gpt-4.1-mini') });
+  }
+  candidates.push({ id: 'gateway:openai/gpt-4.1-mini', model: 'openai/gpt-4.1-mini' });
+  return candidates;
+}
+
+/**
+ * Espera a que el proveedor acepte la petición: true en cuanto llega
+ * contenido, false si el primer evento sustantivo es un error. Lee de una
+ * rama `tee` del stream, así que no le quita nada a la respuesta final.
+ */
+async function providerAccepted(result: ReturnType<typeof streamText>): Promise<boolean> {
+  for await (const part of result.fullStream) {
+    if (part.type === 'error') return false;
+    if (part.type === 'text-start' || part.type === 'text-delta' || part.type === 'finish') return true;
+  }
+  return false;
+}
 
 /**
  * Acepta solo mensajes user/assistant con partes de texto. Cualquier otra
@@ -68,17 +97,30 @@ export async function POST(req: Request) {
     }
     const locale = body.locale === 'en' ? 'en' : 'es';
 
-    const result = streamText({
-      model: MODEL,
-      system: buildSystemPrompt(locale),
-      messages: await convertToModelMessages(messages),
-      // Respuestas estables y ceñidas a los datos: es un asistente factual,
-      // no creativo. El tope de salida mantiene las respuestas breves.
-      temperature: 0.4,
-      maxOutputTokens: 700,
-    });
+    const system = buildSystemPrompt(locale);
+    const modelMessages = await convertToModelMessages(messages);
 
-    return result.toUIMessageStreamResponse();
+    for (const { id, model } of candidateModels()) {
+      const result = streamText({
+        model,
+        system,
+        messages: modelMessages,
+        // Respuestas estables y ceñidas a los datos: es un asistente factual,
+        // no creativo. El tope de salida mantiene las respuestas breves.
+        temperature: 0.4,
+        maxOutputTokens: 700,
+        // Un solo reintento por proveedor: si falla, mejor pasar al siguiente
+        // que hacer esperar a la persona tres intentos con backoff.
+        maxRetries: 1,
+        onError: ({ error }) => console.error(`[chat] ${id} falló:`, error),
+      });
+
+      if (await providerAccepted(result)) {
+        return result.toUIMessageStreamResponse();
+      }
+    }
+
+    return Response.json({ error: 'model_unavailable' }, { status: 503 });
   } catch (error) {
     console.error('Error en /api/chat:', error);
     return Response.json({ error: 'server_error' }, { status: 500 });
