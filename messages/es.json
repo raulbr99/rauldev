@@ -278,19 +278,25 @@
     }
   },
   "chat": {
-    "title": "Habla conmigo",
-    "status": "Raúl Berná",
-    "greeting": "¡Hola! 👋 Soy Raúl. Pregúntame lo que quieras sobre mi experiencia, mi stack o mis proyectos.",
+    "title": "Raúl Berná",
+    "status": "Asistente con IA · responde al instante",
+    "dialogLabel": "Chat con el asistente de Raúl Berná",
+    "greeting": "¡Hola! Soy Raúl, o mejor dicho, mi asistente con IA. Pregúntame sobre mi experiencia, mi stack o mis proyectos. Si prefieres hablar conmigo directamente, usa el formulario de contacto.",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
+    "stop": "Detener respuesta",
     "open": "Abrir chat",
     "close": "Cerrar chat",
-    "disclaimer": "IA · puede cometer errores",
-    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "reset": "Nueva conversación",
+    "thinking": "Escribiendo...",
+    "disclaimer": "Respuestas generadas con IA a partir de mi CV · pueden contener errores",
+    "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
+    "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
-      "stack": "¿Cuál es tu stack?",
-      "experience": "Cuéntame tu experiencia",
-      "available": "¿Estás disponible para trabajar?"
+      "stack": "¿Cuál es tu stack principal?",
+      "experience": "Resume tu experiencia",
+      "ai": "¿Qué has construido con IA?",
+      "remote": "¿Trabajas en remoto?"
     }
   },
   "footer": {

@@ -278,19 +278,25 @@
     }
   },
   "chat": {
-    "title": "Talk to me",
-    "status": "Raúl Berná",
-    "greeting": "Hi! 👋 I'm Raúl. Ask me anything about my experience, my stack or my projects.",
+    "title": "Raúl Berná",
+    "status": "AI assistant · replies instantly",
+    "dialogLabel": "Chat with Raúl Berná's assistant",
+    "greeting": "Hi! I'm Raúl, or rather, my AI assistant. Ask me about my experience, my stack or my projects. To reach me directly, use the contact form.",
     "placeholder": "Type your question...",
     "send": "Send",
+    "stop": "Stop response",
     "open": "Open chat",
     "close": "Close chat",
-    "disclaimer": "AI · may make mistakes",
-    "error": "Something went wrong. Please try again.",
+    "reset": "New conversation",
+    "thinking": "Typing...",
+    "disclaimer": "AI-generated answers based on my CV · may contain mistakes",
+    "error": "I couldn't answer that. Please try again in a few seconds.",
+    "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
-      "stack": "What's your stack?",
-      "experience": "Tell me about your experience",
-      "available": "Are you open to work?"
+      "stack": "What's your main stack?",
+      "experience": "Summarize your experience",
+      "ai": "What have you built with AI?",
+      "remote": "Do you work remotely?"
     }
   },
   "footer": {
