@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/LegalPage';
+import LegalStructuredData from '@/components/legal/StructuredData';
 import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -62,6 +63,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const legalLocale = locale as 'es' | 'en';
 
-  return <LegalPage section="notice" blocks={BLOCKS} updatedAt={UPDATED_AT} />;
+  return (
+    <>
+      <LegalStructuredData section="notice" locale={legalLocale} />
+      <LegalPage section="notice" blocks={BLOCKS} updatedAt={UPDATED_AT} />
+    </>
+  );
 }
