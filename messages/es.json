@@ -318,6 +318,7 @@
     "breadcrumbLegal": "Legal",
     "notice": {
       "title": "Aviso legal",
+      "metaDescription": "Información legal del portfolio de Raúl Berná: datos del titular, condiciones de uso, propiedad intelectual y legislación aplicable.",
       "intro": "En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilitan los siguientes datos:",
       "ownerTitle": "Titular del sitio",
       "ownerBody": "Raúl Berná Riera · NIF: [pendiente de completar] · Alicante, España · Correo de contacto: raulbernariera99@gmail.com",
@@ -332,6 +333,7 @@
     },
     "privacy": {
       "title": "Política de privacidad",
+      "metaDescription": "Política de privacidad del portfolio: qué datos se recogen, finalidad, base legal, derechos del usuario y proveedores (Vercel, Resend, Upstash). Cumple RGPD y LOPDGDD.",
       "intro": "Esta política explica qué datos personales se recogen en este sitio, con qué finalidad y qué derechos tienes sobre ellos, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).",
       "controllerTitle": "Responsable del tratamiento",
       "controllerBody": "Raúl Berná Riera · NIF: [pendiente de completar] · Alicante, España · raulbernariera99@gmail.com",
@@ -354,6 +356,7 @@
     },
     "cookies": {
       "title": "Política de cookies",
+      "metaDescription": "Política de cookies del portfolio: solo se usa una cookie técnica (NEXT_LOCALE) para recordar el idioma, exenta de consentimiento. Sin cookies de seguimiento, publicidad ni analítica de terceros.",
       "intro": "Resumen breve: este sitio no utiliza cookies de seguimiento, publicidad ni analítica de terceros, por lo que no se muestra ningún banner de consentimiento.",
       "ownTitle": "Cookies propias",
       "ownBody": "Se utiliza una única cookie técnica, NEXT_LOCALE, que recuerda si prefieres ver la web en español o en inglés. Es imprescindible para el funcionamiento del selector de idioma y está exenta de consentimiento según el artículo 22.2 de la LSSI-CE.",

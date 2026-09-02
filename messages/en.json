@@ -318,6 +318,7 @@
     "breadcrumbLegal": "Legal",
     "notice": {
       "title": "Legal notice",
+      "metaDescription": "Legal information for Raúl Berná's portfolio: site owner details, terms of use, intellectual property, and applicable law.",
       "intro": "In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the following details are provided:",
       "ownerTitle": "Site owner",
       "ownerBody": "Raúl Berná Riera · Tax ID: [to be completed] · Alicante, Spain · Contact email: raulbernariera99@gmail.com",
@@ -332,6 +333,7 @@
     },
     "privacy": {
       "title": "Privacy policy",
+      "metaDescription": "Privacy policy for Raúl Berná's portfolio: what data is collected, purpose, legal basis, user rights, and processors (Vercel, Resend, Upstash). GDPR and LOPDGDD compliant.",
       "intro": "This policy explains what personal data this site collects, for what purpose, and what rights you have over it, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).",
       "controllerTitle": "Data controller",
       "controllerBody": "Raúl Berná Riera · Tax ID: [to be completed] · Alicante, Spain · raulbernariera99@gmail.com",
@@ -354,6 +356,7 @@
     },
     "cookies": {
       "title": "Cookie policy",
+      "metaDescription": "Cookie policy for Raúl Berná's portfolio: only a technical cookie (NEXT_LOCALE) is used to remember language preference, exempt from consent. No tracking, advertising or third-party analytics cookies.",
       "intro": "Short version: this site uses no tracking, advertising or third-party analytics cookies, which is why no consent banner is shown.",
       "ownTitle": "First-party cookies",
       "ownBody": "A single technical cookie is used, NEXT_LOCALE, which remembers whether you prefer the site in Spanish or English. It is essential for the language switcher to work and is exempt from consent under article 22.2 of the LSSI-CE.",

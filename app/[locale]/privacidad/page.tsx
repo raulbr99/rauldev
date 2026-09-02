@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL),
     title: t('title'),
-    description: t('intro'),
+    description: t('metaDescription'),
     authors: [{ name: SITE_OWNER, url: SITE_URL }],
     robots: { index: true, follow: true },
     openGraph: {
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       siteName: `${SITE_OWNER} — Portfolio`,
       title: t('title'),
-      description: t('intro'),
+      description: t('metaDescription'),
       images: [
         {
           url: `${SITE_URL}/og-image.jpg`,
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
-      description: t('intro'),
+      description: t('metaDescription'),
       creator: '@raulbr99',
       images: [{ url: `${SITE_URL}/og-image.jpg`, alt: ogImageAlt }],
     },
