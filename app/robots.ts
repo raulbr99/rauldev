@@ -32,7 +32,13 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Perplexity-User', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: [
+      `${SITE_URL}/sitemap.xml`,
+      // llms.txt: fuente única de verdad para agentes de IA (AEO).
+      // Perfil, experiencia, proyectos, FAQ y schema.org estructurado.
+      // https://github.com/llms-txt/llms-txt
+      `${SITE_URL}/llms.txt`,
+    ],
     host: SITE_URL,
   }
 }
