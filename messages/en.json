@@ -289,7 +289,7 @@
     "close": "Close chat",
     "reset": "New conversation",
     "thinking": "Typing...",
-    "disclaimer": "AI-generated answers based on my CV · may contain mistakes",
+    "disclaimer": "AI-powered assistant based on my professional profile · For formal inquiries, please use the contact form",
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {

@@ -289,7 +289,7 @@
     "close": "Cerrar chat",
     "reset": "Nueva conversación",
     "thinking": "Escribiendo...",
-    "disclaimer": "Respuestas generadas con IA a partir de mi CV · pueden contener errores",
+    "disclaimer": "Asistente con IA basado en mi perfil profesional · Para consultas formales, usa el formulario de contacto",
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
