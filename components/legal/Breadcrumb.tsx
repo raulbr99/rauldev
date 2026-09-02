@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 interface BreadcrumbProps {
-  /** Clave del bloque dentro de `legal` en los mensajes: notice | privacy | cookies */
   section: 'notice' | 'privacy' | 'cookies';
 }
 
@@ -21,15 +20,6 @@ export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
           <Link href="/" className="transition-colors hover:text-cyan-300">
             {t('breadcrumbHome')}
           </Link>
-        </li>
-        <li className="flex items-center gap-2">
-          <ChevronRight
-            className="h-3.5 w-3.5 flex-shrink-0 text-gray-600"
-            aria-hidden="true"
-          />
-          <span className="font-medium text-gray-400 transition-colors hover:text-cyan-300 cursor-default">
-            {t('breadcrumbLegal')}
-          </span>
         </li>
         <li className="flex items-center gap-2">
           <ChevronRight
