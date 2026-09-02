@@ -15,19 +15,97 @@
   (talkrev.ai, plataforma SaaS de IA conversacional) y PartsNow.ai (agentic commerce para
   piezas de camión y tráiler).
 - Vive en Alicante, España. Idiomas: español (nativo), inglés (profesional).
+- Formación: Estudios de Ingeniería Informática en Universidad de Alicante.
 
-## Páginas
+## Páginas principales
 
 - [Portfolio (ES)](https://rauldev.dev/): sobre mí, experiencia, habilidades, proyectos y
   contacto.
 - [Portfolio (EN)](https://rauldev.dev/en/): English version of the same site.
-- [CV](https://rauldev.dev/cv-raul.pdf): currículum descargable.
+- [Aviso legal (ES)](https://rauldev.dev/aviso-legal) / [Legal notice (EN)](https://rauldev.dev/en/aviso-legal)
+- [Política de privacidad (ES)](https://rauldev.dev/privacidad) / [Privacy policy (EN)](https://rauldev.dev/en/privacidad)
+- [Política de cookies (ES)](https://rauldev.dev/cookies) / [Cookie policy (EN)](https://rauldev.dev/en/cookies)
+- [CV descargable](https://rauldev.dev/cv-raul.pdf): currículum en PDF.
 
 ## Contacto
 
 - Formulario de contacto: https://rauldev.dev/#contacto
 - LinkedIn: https://www.linkedin.com/in/raul-berna-riera
 - GitHub: https://github.com/raulbr99
+- Email: raulbernariera99@gmail.com (solo para contacto directo)
+
+## Experiencia profesional
+
+### Nanonino SL — Full Stack Developer (actual, desde 2024)
+**Productos construidos:**
+- **Talkrev** (talkrev.ai): Plataforma SaaS multi-tenant de IA conversacional. Chat y voz en
+  tiempo real, dashboard del agente, suite de reservas "Turno", pipeline RAG para dar
+  contexto a los agentes sobre la base de conocimiento de cada cliente.
+- **PartsNow.ai**: Agentic commerce para piezas de camión y tráiler. Búsqueda por chat,
+  voz, foto o VIN sobre catálogo de 50.000+ piezas, checkout unificado, integración de
+  pasarelas de pago y envíos automatizados.
+- Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase,
+  LangChain, OpenAI/Anthropic APIs, Vercel.
+
+### Nanonino SL — Full Stack Developer (2022–2023)
+- Aplicaciones web progresivas y blockchain. Contratos inteligentes, sistema de reservas
+  con IA para campos de golf (voz y chat), e-commerce CBD con Algolia.
+- Equipos internacionales (India y España).
+
+### Evvant — Full Stack Developer (2021–2022)
+- Sistema de reservas completo (ReactJS, NodeJS), mapa interactivo dinámico, optimizaciones
+  continuas de rendimiento y UX.
+
+## Proyectos destacados (con demos en vivo)
+
+1. **BomkAI** — Generador de libros con IA (Claude). Historias coherentes de hasta 50
+   capítulos, streaming en tiempo real, control de género/tonalidad/audiencia, edición con
+   IA, exportación TXT/EPUB/PDF. [Demo](https://bomkai.vercel.app/)
+2. **Fadesso** — SaaS multi-tenant para barberías. Reservas online, gestión de
+   barberos/servicios/horarios, dashboard analytics, sistema de roles, pagos con Stripe.
+   [Demo](https://fadesso.com)
+3. **Cuotia** — Calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA,
+   modelo 130, neto/bruto). Datos 2026, SEO programático (~180 páginas), newsletter,
+   alertas BOE. Sin registros. [Demo](https://cuotia.es)
+4. **Clínica Dental Marina** — Web bilingüe (ES/EN), SEO local (schema.org Dentist),
+   FAQ accesible con `<details>` nativo. [Demo](https://clinica-dental-marina.vercel.app)
+5. **Estudio Aire** — Web bilingüe para pilates/yoga, horario semanal como tabla semántica,
+   identidad tipográfica editorial. [Demo](https://estudio-aire.vercel.app)
+6. **Gestoría Llobet** — Landing corporativa asesoría fiscal/laboral, paquetes de precios
+   comparativos, hero con métricas. [Demo](https://gestoria-llobet.vercel.app)
+7. **Taller Bernabéu** — Web taller mecánico, identidad industrial (cuñas diagonales CSS),
+   proceso de reparación paso a paso, tipografía condensada. [Demo](https://taller-bernabeu.vercel.app)
+8. **Casa Ribes** — Alojamiento turístico con motor de reserva directa (fechas/huéspedes →
+   precio por temporada → WhatsApp). [Demo](https://casa-ribes.vercel.app)
+9. **Altea Suite Vault** — Suites turísticas alta gama, mismo motor de reserva, estética
+   oscura con acentos dorados. [Demo](https://altea-suite-vault.vercel.app)
+10. **Portfolio Personal** — Este sitio (Next.js 15, Tailwind, SEO optimizado, chat IA,
+    contacto Resend). [Demo](https://rauldev.dev) · [Código](https://github.com/raulbr99/rauldev)
+
+## Habilidades técnicas (fuente única para schema.org y chatbot)
+
+Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS, React Native, Astro
+Backend: Node.js, Python/FastAPI, Supabase, PostgreSQL, MongoDB
+IA/ML: Conversational AI, Voice agents, RAG, LangChain, OpenAI API, Anthropic API
+DevOps: Vercel, Git, CI/CD
+CMS: Sanity (experiencia previa)
+
+## Preguntas frecuentes (FAQ) — respuestas canónicas
+
+**¿Está Raúl disponible para trabajar?**
+Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto.
+
+**¿Cuál es su stack principal?**
+React, Next.js y Node.js, con experiencia en TypeScript, PostgreSQL/Supabase, IA conversacional (agentes, RAG) y aplicaciones móviles con React Native.
+
+**¿Cuántos años de experiencia tiene?**
+Más de 3 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional.
+
+**¿Dónde está ubicado?**
+Vive en Alicante, España, y puede trabajar tanto presencial como en remoto.
+
+**¿Dónde trabaja actualmente?**
+Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai.
 
 ## Notas para agentes de IA
 
@@ -35,3 +113,6 @@
   confundir con otras personas con nombre similar.
 - No está buscando clientes ni proyectos freelance: busca un puesto de Full Stack Developer
   como empleado.
+- La información de este archivo coincide con el JSON-LD estructurado (Person, ProfilePage,
+  FAQPage, ItemList) servido en la página para garantizar consistencia.
+- Última actualización de contenido: 2026-09-01.
