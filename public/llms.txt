@@ -50,7 +50,7 @@
 
 ## Experiencia profesional
 
-### Nanonino SL — Full Stack Developer (actual, desde 2024)
+### Nanonino SL — Full Stack Developer (actual, desde 2025)
 **Productos construidos:**
 - **Talkrev** (talkrev.ai): Plataforma SaaS multi-tenant de IA conversacional. Chat y voz en
   tiempo real, dashboard del agente, suite de reservas "Turno", pipeline RAG para dar
@@ -61,12 +61,12 @@
 - Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase,
   LangChain, OpenAI/Anthropic APIs, Vercel.
 
-### Nanonino SL — Full Stack Developer (2022–2023)
+### Nanonino SL — Full Stack Developer (2022–2024)
 - Aplicaciones web progresivas y blockchain. Contratos inteligentes, sistema de reservas
   con IA para campos de golf (voz y chat), e-commerce CBD con Algolia.
 - Equipos internacionales (India y España).
 
-### Evvant — Full Stack Developer (2021–2022)
+### Evvant SL — Full Stack Developer (2022)
 - Sistema de reservas completo (ReactJS, NodeJS), mapa interactivo dinámico, optimizaciones
   continuas de rendimiento y UX.
 
@@ -120,6 +120,169 @@ Vive en Alicante, España, y puede trabajar tanto presencial como en remoto.
 
 **¿Dónde trabaja actualmente?**
 Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai.
+
+## Datos estructurados (schema.org — JSON-LD) para agentes de IA
+
+La siguiente información replica el grafo `@graph` que se sirve en la página como
+`application/ld+json`. Úsalo como fuente única de verdad para extraer entidades,
+relaciones y atributos sin parsear HTML.
+
+### Person (entidad central)
+```json
+{
+  "@type": "Person",
+  "@id": "https://rauldev.dev/#person",
+  "name": "Raúl Berná",
+  "givenName": "Raúl",
+  "familyName": "Berná",
+  "alternateName": ["Raúl Berná Riera", "Raúl BR", "rauldev"],
+  "url": "https://rauldev.dev",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://rauldev.dev/me.png",
+    "caption": "Raúl Berná"
+  },
+  "sameAs": [
+    "https://github.com/raulbr99",
+    "https://www.linkedin.com/in/raul-berna-riera",
+    "https://twitter.com/raulbr99"
+  ],
+  "jobTitle": "Full Stack Developer",
+  "description": "Full Stack Developer con más de 3 años de experiencia en React, Next.js, Node.js e IA conversacional. Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Abierto a ofertas como empleado, presencial en Alicante o en remoto.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Nanonino SL",
+    "url": "https://talkrev.ai",
+    "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" }
+  },
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Full Stack Developer",
+    "occupationLocation": { "@type": "City", "name": "Alicante" },
+    "skills": "React, Next.js, Node.js, TypeScript, JavaScript, React Native, Python, FastAPI, LangChain, Conversational AI, RAG, LLM agents, PostgreSQL, Supabase, MongoDB, Tailwind CSS, Vercel, Git"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alicante",
+    "sameAs": "https://www.ua.es"
+  },
+  "knowsLanguage": [
+    { "@type": "Language", "name": "Spanish", "alternateName": "es" },
+    { "@type": "Language", "name": "English", "alternateName": "en" }
+  ],
+  "knowsAbout": [
+    "React", "Next.js", "Node.js", "TypeScript", "JavaScript", "React Native",
+    "Python", "FastAPI", "LangChain", "Conversational AI", "RAG", "LLM agents",
+    "PostgreSQL", "Supabase", "MongoDB", "Tailwind CSS", "Vercel", "Git"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Alicante",
+    "addressRegion": "Comunidad Valenciana",
+    "addressCountry": "ES"
+  },
+  "homeLocation": { "@type": "City", "name": "Alicante" },
+  "nationality": { "@type": "Country", "name": "ES" }
+}
+```
+
+### WebSite
+```json
+{
+  "@type": "WebSite",
+  "@id": "https://rauldev.dev/#website",
+  "name": "Raúl Berná — Portfolio",
+  "alternateName": ["rauldev", "rauldev.dev"],
+  "url": "https://rauldev.dev",
+  "description": "Portfolio profesional de Raúl Berná, Full Stack Developer en Alicante: experiencia, proyectos, habilidades y contacto.",
+  "inLanguage": ["es", "en"],
+  "publisher": { "@id": "https://rauldev.dev/#person" },
+  "copyrightHolder": { "@id": "https://rauldev.dev/#person" },
+  "copyrightYear": 2024
+}
+```
+
+### ProfilePage (página principal)
+```json
+{
+  "@type": "ProfilePage",
+  "@id": "https://rauldev.dev/#webpage",
+  "url": "https://rauldev.dev/",
+  "name": "Raúl Berná — Full Stack Developer | React, Next.js, Node.js",
+  "description": "Full Stack Developer con más de 3 años de experiencia en React, Next.js, Node.js e IA conversacional. Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Abierto a ofertas como empleado, presencial en Alicante o en remoto.",
+  "inLanguage": "es",
+  "isPartOf": { "@id": "https://rauldev.dev/#website" },
+  "about": { "@id": "https://rauldev.dev/#person" },
+  "mainEntity": { "@id": "https://rauldev.dev/#person" },
+  "dateCreated": "2024-01-01",
+  "dateModified": "2026-09-01",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://rauldev.dev/og-image.jpg",
+    "width": 1200,
+    "height": 630
+  }
+}
+```
+
+### FAQPage (preguntas frecuentes)
+```json
+{
+  "@type": "FAQPage",
+  "@id": "https://rauldev.dev/#faq",
+  "isPartOf": { "@id": "https://rauldev.dev/#webpage" },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Está Raúl disponible para trabajar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es su stack principal?",
+      "acceptedAnswer": { "@type": "Answer", "text": "React, Next.js y Node.js, con experiencia en TypeScript, PostgreSQL/Supabase, IA conversacional (agentes, RAG) y aplicaciones móviles con React Native." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos años de experiencia tiene?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Más de 3 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde está ubicado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Vive en Alicante, España, y puede trabajar tanto presencial como en remoto." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde trabaja actualmente?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai." }
+    }
+  ]
+}
+```
+
+### ItemList (proyectos)
+```json
+{
+  "@type": "ItemList",
+  "@id": "https://rauldev.dev/#projects",
+  "name": "Proyectos de Raúl Berná",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 10,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "BomkAI - Generador de Libros con IA", "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Neon, PostgreSQL, Claude AI, OpenRouter, Vercel", "dateCreated": "2025-01-10", "image": "https://rauldev.dev/projects/bomkai.png", "url": "https://bomkai.vercel.app/" } },
+    { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Fadesso - SaaS para Barberías", "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Supabase, PostgreSQL, Tailwind CSS, Stripe", "dateCreated": "2025-01-15", "image": "https://rauldev.dev/projects/fadesso-black.png", "url": "https://fadesso.com" } },
+    { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Cuotia - Calculadoras Fiscales para Autónomos", "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Supabase, Vercel", "dateCreated": "2026-05-01", "image": "https://rauldev.dev/projects/cuotia.png", "url": "https://cuotia.es" } },
+    { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Portfolio Personal", "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Resend", "dateCreated": "2025-10-01", "image": "https://rauldev.dev/projects/portfolio.svg", "url": "https://rauldev.dev", "codeRepository": "https://github.com/raulbr99/rauldev" } },
+    { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Clínica Dental Marina", "description": "Web bilingüe (ES/EN) para una clínica dental, con SEO local (schema.org Dentist), FAQ accesible con <details> nativo y tipografía propia vía Google Fonts.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/clinica-dental-marina.jpg", "url": "https://clinica-dental-marina.vercel.app" } },
+    { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Estudio Aire", "description": "Web bilingüe para un estudio de pilates y yoga, con el horario semanal de clases renderizado como tabla semántica y una identidad tipográfica editorial propia.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/estudio-aire.jpg", "url": "https://estudio-aire.vercel.app" } },
+    { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Gestoría Llobet", "description": "Landing corporativa para una asesoría fiscal y laboral, con paquetes de precios comparativos y un hero con métricas en lugar de fotografía de stock.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/gestoria-llobet.jpg", "url": "https://gestoria-llobet.vercel.app" } },
+    { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Taller Bernabéu", "description": "Web de taller mecánico con identidad industrial: hero con cuñas diagonales en CSS puro, sección de proceso de reparación paso a paso y tipografía condensada.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/taller-bernabeu.jpg", "url": "https://taller-bernabeu.vercel.app" } },
+    { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Casa Ribes", "description": "Web de alojamiento turístico real con motor de reserva directa: selector de fechas y huéspedes que calcula el precio según temporada y arma el mensaje de WhatsApp al propietario.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/casa-ribes.jpg", "url": "https://casa-ribes.vercel.app" } },
+    { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Altea Suite Vault", "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/altea-suite-vault.jpg", "url": "https://altea-suite-vault.vercel.app" } }
+  ]
+}
+```
 
 ## Notas para agentes de IA
 
