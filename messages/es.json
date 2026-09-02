@@ -294,9 +294,9 @@
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
       "stack": "¿Cuál es tu stack principal?",
-      "experience": "Resume tu experiencia",
-      "ai": "¿Qué has construido con IA?",
-      "remote": "¿Trabajas en remoto?"
+      "experience": "¿Qué proyectos has liderado?",
+      "ai": "¿Cuál es tu experiencia con IA conversacional?",
+      "availability": "¿Cuál es tu disponibilidad?"
     }
   },
   "footer": {

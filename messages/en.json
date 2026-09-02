@@ -294,9 +294,9 @@
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
       "stack": "What's your main stack?",
-      "experience": "Summarize your experience",
-      "ai": "What have you built with AI?",
-      "remote": "Do you work remotely?"
+      "experience": "What projects have you led?",
+      "ai": "What's your conversational AI experience?",
+      "availability": "What's your availability?"
     }
   },
   "footer": {
