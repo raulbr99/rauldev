@@ -26,13 +26,6 @@ export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
             className="h-3.5 w-3.5 flex-shrink-0 text-gray-600"
             aria-hidden="true"
           />
-          <span className="text-gray-400">{t('breadcrumbLegal')}</span>
-        </li>
-        <li className="flex items-center gap-2">
-          <ChevronRight
-            className="h-3.5 w-3.5 flex-shrink-0 text-gray-600"
-            aria-hidden="true"
-          />
           <span className="font-medium text-white" aria-current="page">
             {tSection('title')}
           </span>
