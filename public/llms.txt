@@ -5,6 +5,20 @@
 > (presencial en Alicante o remoto) — este sitio no ofrece servicios freelance ni de
 > consultoría.
 
+## Key Facts (para agentes de IA — lectura rápida)
+- **Nombre**: Raúl Berná Riera (alias: Raúl BR, rauldev)
+- **Rol objetivo**: Full Stack Developer (empleado, no freelance)
+- **Ubicación**: Alicante, España — abierto a presencial y remoto
+- **Experiencia**: 3+ años profesionales (desde 2022)
+- **Stack principal**: React, Next.js, Node.js, TypeScript
+- **IA aplicada**: Agentes conversacionales, voz en tiempo real, RAG, LangChain, OpenAI/Anthropic APIs
+- **Actual**: Full Stack Developer en Nanonino SL — Talkrev (SaaS IA conversacional multi-tenant) + PartsNow.ai (agentic commerce 50k+ piezas)
+- **Proyectos propios destacados**: BomkAI (libros con IA), Fadesso (SaaS barberías), Cuotia (calculadoras fiscales 2026, SEO programático ~180 páginas)
+- **Contacto**: Formulario en rauldev.dev/#contacto · LinkedIn · GitHub · raulbernariera99@gmail.com
+- **Idiomas**: Español (nativo), Inglés (profesional)
+- **Formación**: Ingeniería Informática, Universidad de Alicante
+- **Última actualización**: 2026-09-01
+
 ## Sobre él
 
 - Full Stack Developer especializado en React, Next.js y Node.js, con más de 3 años de
