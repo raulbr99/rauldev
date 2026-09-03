@@ -43,6 +43,40 @@ const SECTION_INFO: Record<LegalSection, { es: { title: string; description: str
   },
 };
 
+const BREADCRUMB_HOME: Record<'es' | 'en', string> = {
+  es: 'Inicio',
+  en: 'Home',
+};
+
+function buildBreadcrumbList(pageUrl: string, title: string, locale: 'es' | 'en') {
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/#webpage`,
+          url: localeUrl(locale),
+          name: BREADCRUMB_HOME[locale],
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'WebPage',
+          '@id': `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+        },
+      },
+    ],
+  };
+}
+
 export default async function LegalStructuredData({ section, locale }: LegalStructuredDataProps) {
   const pageUrl = localeUrl(locale, `/${section === 'notice' ? 'aviso-legal' : section}`);
   const info = SECTION_INFO[section][locale];
@@ -68,9 +102,11 @@ export default async function LegalStructuredData({ section, locale }: LegalStru
     },
   };
 
+  const breadcrumbList = buildBreadcrumbList(pageUrl, info.title, locale);
+
   const graph = {
     '@context': 'https://schema.org',
-    '@graph': [webPage],
+    '@graph': [webPage, breadcrumbList],
   };
 
   return (
