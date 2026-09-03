@@ -8,7 +8,7 @@ import { SITE_URL, localeUrl } from '@/lib/site'
  * x-default, que apunta al español.
  */
 const PATHS = ['', '/aviso-legal', '/privacidad', '/cookies']
-const CONTENT_UPDATED = new Date('2026-09-01T00:00:00.000Z')
+const CONTENT_UPDATED = new Date('2026-09-03T00:00:00.000Z')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return PATHS.flatMap((path) =>
