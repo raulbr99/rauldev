@@ -297,7 +297,8 @@
       "challenge": "Tell me about a challenging project and how you solved it",
       "teamwork": "How do you work in a team?",
       "availability": "What's your availability?",
-      "aiExperience": "What's your experience with conversational AI and agents?"
+      "aiExperience": "What's your experience with conversational AI and agents?",
+      "whyHire": "Why should we hire you?"
     }
   },
   "footer": {
