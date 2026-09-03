@@ -296,7 +296,8 @@
       "achievement": "¿Cuál ha sido tu mayor logro técnico?",
       "challenge": "Cuéntame un proyecto desafiante y cómo lo resolviste",
       "teamwork": "¿Cómo trabajas en equipo?",
-      "availability": "¿Cuál es tu disponibilidad?"
+      "availability": "¿Cuál es tu disponibilidad?",
+      "aiExperience": "¿Qué experiencia tienes con IA conversacional y agentes?"
     }
   },
   "footer": {
