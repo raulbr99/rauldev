@@ -283,9 +283,9 @@
   },
   "chat": {
     "title": "Raúl Berná",
-    "status": "Asistente con IA · responde al instante",
+    "status": "Asistente profesional · Datos verificados",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "¡Hola! Soy Raúl, o mejor dicho, mi asistente con IA. Pregúntame sobre mi experiencia, mi stack o mis proyectos. Si prefieres hablar conmigo directamente, usa el formulario de contacto.",
+    "greeting": "Hola. Soy el asistente de Raúl Berná. Puedo responder sobre su experiencia, stack técnico, proyectos y disponibilidad. Para contacto directo, usa el formulario.",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",

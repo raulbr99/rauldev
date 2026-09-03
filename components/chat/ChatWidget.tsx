@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
-import { MessageSquare, X, Send, Square, RotateCcw, Sparkles } from 'lucide-react';
+import { MessageSquare, X, Send, Square, RotateCcw, Bot } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
@@ -119,7 +119,7 @@ export default function ChatWidget() {
               <div className="min-w-0">
                 <p className="truncate font-bold text-white">{t('title')}</p>
                 <p className="flex items-center gap-1.5 font-mono text-[11px] text-gray-400">
-                  <Sparkles className="h-3 w-3 text-cyan-300" aria-hidden />
+                  <Bot className="h-3 w-3 text-cyan-300" aria-hidden />
                   {t('status')}
                 </p>
               </div>

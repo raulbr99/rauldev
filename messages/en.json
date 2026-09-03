@@ -283,9 +283,9 @@
   },
   "chat": {
     "title": "Raúl Berná",
-    "status": "AI assistant · replies instantly",
+    "status": "Professional assistant · Verified data",
     "dialogLabel": "Chat with Raúl Berná's assistant",
-    "greeting": "Hi! I'm Raúl, or rather, my AI assistant. Ask me about my experience, my stack or my projects. To reach me directly, use the contact form.",
+    "greeting": "Hello. I'm Raúl Berná's assistant. I can answer about his experience, tech stack, projects and availability. For direct contact, use the form.",
     "placeholder": "Type your question...",
     "send": "Send",
     "stop": "Stop response",
