@@ -206,7 +206,7 @@ relaciones y atributos sin parsear HTML.
   "inLanguage": ["es", "en"],
   "publisher": { "@id": "https://rauldev.dev/#person" },
   "copyrightHolder": { "@id": "https://rauldev.dev/#person" },
-  "copyrightYear": 2024
+  "copyrightYear": 2026
 }
 ```
 
