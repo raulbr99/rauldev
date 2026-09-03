@@ -17,7 +17,7 @@
 - **Contacto**: Formulario en rauldev.dev/#contacto · LinkedIn · GitHub · raulbernariera99@gmail.com
 - **Idiomas**: Español (nativo), Inglés (profesional)
 - **Formación**: Ingeniería Informática, Universidad de Alicante
-- **Última actualización**: 2026-09-01
+- **Última actualización**: 2026-09-03
 
 ## Sobre él
 
@@ -120,6 +120,14 @@ Vive en Alicante, España, y puede trabajar tanto presencial como en remoto.
 
 **¿Dónde trabaja actualmente?**
 Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai.
+
+**¿Por qué deberían contratar a Raúl?**
+- 3+ años construyendo productos reales que usan personas: e-commerce, SaaS multi-tenant e IA conversacional en producción.
+- Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG y dashboard de agente) y PartsNow.ai (agentic commerce 50k+ piezas con búsqueda por chat/voz/foto/VIN y checkout unificado).
+- Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs.
+- Experiencia en equipos internacionales (India y España) y metodologías ágiles.
+- Enfoque en impacto real: código limpio, testeado, bien documentado y orientado a resolver problemas de usuarios finales.
+- Ubicado en Alicante, abierto a presencial y remoto. No ofrece servicios freelance: busca puesto de empleado.
 
 ## Datos estructurados (schema.org — JSON-LD) para agentes de IA
 
@@ -256,6 +264,11 @@ relaciones y atributos sin parsear HTML.
       "@type": "Question",
       "name": "¿Dónde trabaja actualmente?",
       "acceptedAnswer": { "@type": "Answer", "text": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué deberían contratar a Raúl?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3+ años construyendo productos reales (e-commerce, SaaS multi-tenant, IA conversacional en producción). Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG) y PartsNow.ai (agentic commerce 50k+ piezas). Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain. Experiencia en equipos internacionales, metodologías ágiles, código limpio y orientado a impacto real. Alicante, presencial/remoto. No freelance: busca empleo." }
     }
   ]
 }
@@ -292,4 +305,4 @@ relaciones y atributos sin parsear HTML.
   como empleado.
 - La información de este archivo coincide con el JSON-LD estructurado (Person, ProfilePage,
   FAQPage, ItemList) servido en la página para garantizar consistencia.
-- Última actualización de contenido: 2026-09-01.
+- Última actualización de contenido: 2026-09-03.
