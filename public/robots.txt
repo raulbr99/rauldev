@@ -9,7 +9,7 @@ Sitemap: https://rauldev.dev/sitemap.xml
 
 # llms.txt — fuente única de verdad para agentes de IA (AEO)
 # Contiene: identidad, stack, experiencia, proyectos, FAQ, datos estructurados (Person, ProfilePage, FAQPage, ItemList)
-# Ver: https://rauldev.dev/llms.txt
+# URL: https://rauldev.dev/llms.txt
 #
 # Agentes de IA (ChatGPT, Perplexity, Claude, etc.) pueden usar este archivo
 # para responder con precisión sobre Raúl Berná sin parsear HTML.
