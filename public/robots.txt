@@ -1,0 +1,22 @@
+# robots.txt — rauldev.dev
+# Permite rastreo completo para indexación y descubrimiento por agentes de IA.
+
+User-agent: *
+Allow: /
+
+# Sitemap (generado automáticamente por next-sitemap o equivalent en build)
+Sitemap: https://rauldev.dev/sitemap.xml
+
+# llms.txt — fuente única de verdad para agentes de IA (AEO)
+# Contiene: identidad, stack, experiencia, proyectos, FAQ, datos estructurados (Person, ProfilePage, FAQPage, ItemList)
+# Ver: https://rauldev.dev/llms.txt
+#
+# Agentes de IA (ChatGPT, Perplexity, Claude, etc.) pueden usar este archivo
+# para responder con precisión sobre Raúl Berná sin parsear HTML.
+#
+# Para más detalles sobre el estándar: https://github.com/ai-robots-txt/llms.txt
+
+# No bloquear recursos estáticos críticos para renderizado (CSS, JS, fuentes, imágenes)
+# Next.js los sirve con hashes en /_next/static/ — rastrearlos ayuda a previsualizaciones.
+
+# Crawl-delay no necesario: sitio estático ligero, sin backend costoso.
