@@ -107,7 +107,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     inLanguage: ['es', 'en'],
     publisher: { '@id': PERSON_ID },
     copyrightHolder: { '@id': PERSON_ID },
-    copyrightYear: 2024,
+    copyrightYear: 2026,
   };
 
   // ProfilePage es el tipo que Google reconoce para páginas "sobre una
