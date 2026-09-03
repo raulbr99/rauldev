@@ -133,6 +133,23 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       width: 1200,
       height: 630,
     },
+    // Señal explícita para buscadores/IA: esta persona busca empleo.
+    // ApplyAction apunta al formulario de contacto (#contacto ancla en la home).
+    potentialAction: {
+      '@type': 'ApplyAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${pageUrl}#contacto`,
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+      name: isSpanish ? 'Contactar para oportunidades laborales' : 'Contact for job opportunities',
+      description: isSpanish
+        ? 'Formulario de contacto para ofertas de empleo como Full Stack Developer (presencial en Alicante o remoto). No se ofrecen servicios freelance.'
+        : 'Contact form for Full Stack Developer job offers (on-site in Alicante or remote). No freelance services offered.',
+    },
   };
 
   // Mismo contenido que <FAQSection>, tomado de messages/*.json — una sola
