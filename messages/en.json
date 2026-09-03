@@ -223,6 +223,10 @@
       {
         "q": "Where does he currently work?",
         "a": "He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai."
+      },
+      {
+        "q": "Why should we hire you?",
+        "a": "3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role."
       }
     ]
   },

@@ -223,6 +223,10 @@
       {
         "q": "¿Dónde trabaja actualmente?",
         "a": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai."
+      },
+      {
+        "q": "¿Por qué deberían contratar a Raúl?",
+        "a": "3+ años construyendo productos reales que usan personas: e-commerce, SaaS multi-tenant e IA conversacional en producción. Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG y dashboard de agente) y PartsNow.ai (agentic commerce 50k+ piezas con búsqueda por chat/voz/foto/VIN y checkout unificado). Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experiencia en equipos internacionales (India y España) y metodologías ágiles. Enfoque en impacto real: código limpio, testeado, bien documentado y orientado a resolver problemas de usuarios finales. Ubicado en Alicante, abierto a presencial y remoto. No ofrece servicios freelance: busca puesto de empleado."
       }
     ]
   },
