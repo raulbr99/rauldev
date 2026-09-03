@@ -293,9 +293,9 @@
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
-      "stack": "¿Cuál es tu stack principal?",
-      "experience": "¿Qué proyectos has liderado?",
-      "ai": "¿Cuál es tu experiencia con IA conversacional?",
+      "achievement": "¿Cuál ha sido tu mayor logro técnico?",
+      "challenge": "Cuéntame un proyecto desafiante y cómo lo resolviste",
+      "teamwork": "¿Cómo trabajas en equipo?",
       "availability": "¿Cuál es tu disponibilidad?"
     }
   },
