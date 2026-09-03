@@ -285,7 +285,7 @@
     "title": "Raúl Berná",
     "status": "Asistente profesional · Datos verificados",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "Hola. Soy el asistente de Raúl Berná. Puedo responder sobre su experiencia, stack técnico, proyectos y disponibilidad. Para contacto directo, usa el formulario.",
+    "greeting": "Hola. Soy el asistente de IA de Raúl Berná. Tengo acceso a su perfil profesional verificado: experiencia, stack técnico, proyectos y disponibilidad. ¿En qué te ayudo?",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",
@@ -293,7 +293,7 @@
     "close": "Cerrar chat",
     "reset": "Nueva conversación",
     "thinking": "Escribiendo...",
-    "disclaimer": "Asistente con IA basado en mi perfil profesional · Para consultas formales, usa el formulario de contacto",
+    "disclaimer": "Asistente con IA basado en el perfil profesional de Raúl · No almacena datos personales · Para consultas formales, usa el formulario de contacto",
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
