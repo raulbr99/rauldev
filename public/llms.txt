@@ -223,7 +223,7 @@ relaciones y atributos sin parsear HTML.
   "about": { "@id": "https://rauldev.dev/#person" },
   "mainEntity": { "@id": "https://rauldev.dev/#person" },
   "dateCreated": "2024-01-01",
-  "dateModified": "2026-09-01",
+  "dateModified": "2026-09-03",
   "primaryImageOfPage": {
     "@type": "ImageObject",
     "url": "https://rauldev.dev/og-image.jpg",
