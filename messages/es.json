@@ -284,7 +284,7 @@
     "title": "Raúl Berná",
     "status": "CHAT // ASISTENTE_IA_VERIFICADO",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "Hola. Soy el asistente IA de Raúl. Puedo contarte qué tipo de webs crea, enseñarte proyectos y resumir su experiencia técnica. ¿En qué te ayudo?",
+    "greeting": "Hola. Soy Raúl. Te cuento qué webs creo, te enseño proyectos y resumo mi experiencia técnica. ¿En qué te ayudo?",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",
