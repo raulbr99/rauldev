@@ -230,7 +230,7 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
-### ProfilePage (página principal)
+### ProfilePage (página principal — ES)
 ```json
 {
   "@type": "ProfilePage",
@@ -262,6 +262,42 @@ relaciones y atributos sin parsear HTML.
     },
     "name": "Contactar para oportunidades laborales",
     "description": "Formulario de contacto para ofertas de empleo como Full Stack Developer (presencial en Alicante o remoto). No se ofrecen servicios freelance."
+  }
+}
+```
+
+### ProfilePage (página principal — EN)
+```json
+{
+  "@type": "ProfilePage",
+  "@id": "https://rauldev.dev/en/#webpage",
+  "url": "https://rauldev.dev/en/",
+  "name": "Raúl Berná — Full Stack Developer | React, Next.js, Node.js",
+  "description": "Full Stack Developer with 3+ years of experience in React, Next.js, Node.js and conversational AI. Currently at Nanonino SL (Alicante, Spain) building Talkrev and PartsNow.ai. Open to employment offers, on-site in Alicante or remote.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "https://rauldev.dev/#website" },
+  "about": { "@id": "https://rauldev.dev/#person" },
+  "mainEntity": { "@id": "https://rauldev.dev/#person" },
+  "dateCreated": "2024-01-01",
+  "dateModified": "2026-09-03",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://rauldev.dev/og-image.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "potentialAction": {
+    "@type": "ApplyAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://rauldev.dev/en/#contacto",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "name": "Contact for job opportunities",
+    "description": "Contact form for Full Stack Developer job offers (on-site in Alicante or remote). No freelance services offered."
   }
 }
 ```
