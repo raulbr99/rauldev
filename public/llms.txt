@@ -495,6 +495,171 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
+### WebPage + BreadcrumbList (Legal notice / Aviso legal — English)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/en/aviso-legal#webpage",
+      "url": "https://rauldev.dev/en/aviso-legal",
+      "name": "Legal notice",
+      "description": "Legal information for the website of Raúl Berná, Full Stack Developer in Alicante. Site owner details, terms of use, intellectual property and applicable law.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Legal notice",
+        "description": "Legal information for the website of Raúl Berná, Full Stack Developer in Alicante. Site owner details, terms of use, intellectual property and applicable law.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "en"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/en/aviso-legal#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/en/",
+            "name": "Home"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/en/aviso-legal#webpage",
+            "url": "https://rauldev.dev/en/aviso-legal",
+            "name": "Legal notice"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### WebPage + BreadcrumbList (Privacy policy / Política de privacidad — English)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/en/privacidad#webpage",
+      "url": "https://rauldev.dev/en/privacidad",
+      "name": "Privacy policy",
+      "description": "Privacy policy for Raúl Berná portfolio. What personal data is collected, for what purpose, legal basis, user rights and processors (Vercel, Resend, Upstash). GDPR and LOPDGDD compliant.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Privacy policy",
+        "description": "Privacy policy for Raúl Berná portfolio. What personal data is collected, for what purpose, legal basis, user rights and processors (Vercel, Resend, Upstash). GDPR and LOPDGDD compliant.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "en"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/en/privacidad#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/en/",
+            "name": "Home"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/en/privacidad#webpage",
+            "url": "https://rauldev.dev/en/privacidad",
+            "name": "Privacy policy"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### WebPage + BreadcrumbList (Cookie policy / Política de cookies — English)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/en/cookies#webpage",
+      "url": "https://rauldev.dev/en/cookies",
+      "name": "Cookie policy",
+      "description": "Cookie policy for Raúl Berná portfolio. Only a single technical cookie (NEXT_LOCALE) is used to remember language preference, exempt from consent. No tracking, advertising or third-party analytics cookies.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Cookie policy",
+        "description": "Cookie policy for Raúl Berná portfolio. Only a single technical cookie (NEXT_LOCALE) is used to remember language preference, exempt from consent. No tracking, advertising or third-party analytics cookies.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "en"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/en/cookies#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/en/",
+            "name": "Home"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/en/cookies#webpage",
+            "url": "https://rauldev.dev/en/cookies",
+            "name": "Cookie policy"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Notas para agentes de IA
 
 - El nombre completo es "Raúl Berná" (también usa el alias "Raúl BR" / "rauldev"). No
