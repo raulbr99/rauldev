@@ -204,8 +204,8 @@
     "subtitle": "What people usually ask before reaching out",
     "items": [
       {
-        "q": "What kind of websites do you create?",
-        "a": "I create corporate websites, landing pages, portfolios, shops and websites for accommodation or service businesses. The scope adapts to the business, from a clear online presence to bookings, catalogues or custom functionality."
+        "q": "Is Raúl available to work?",
+        "a": "Yes, he's open to Full Stack Developer offers, on-site in Alicante or remote."
       },
       {
         "q": "What's his main stack?",
@@ -224,8 +224,8 @@
         "a": "He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai."
       },
       {
-        "q": "Why work with you on my website?",
-        "a": "Because I do not stop at making a website look good: I also care about performance, SEO, accessibility and the technical foundation it needs to work. I have over 3 years of experience building real products with React, Next.js, Node.js and TypeScript, from business websites to e-commerce and SaaS platforms."
+        "q": "Why should we hire you?",
+        "a": "3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role."
       }
     ]
   },

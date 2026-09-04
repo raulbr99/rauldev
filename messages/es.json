@@ -201,11 +201,11 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
-    "subtitle": "Lo que más me preguntan antes de escribirme",
+    "subtitle": "Lo que más me preguntan antes de contactar",
     "items": [
       {
-        "q": "¿Qué tipo de webs creas?",
-        "a": "Creo webs corporativas, landings, portfolios, tiendas y páginas para alojamientos o servicios. El alcance se adapta al negocio: desde una presencia online clara hasta reservas, catálogos o funcionalidades a medida."
+        "q": "¿Está Raúl disponible para trabajar?",
+        "a": "Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto."
       },
       {
         "q": "¿Cuál es su stack principal?",
@@ -224,8 +224,8 @@
         "a": "Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai."
       },
       {
-        "q": "¿Por qué contar contigo para mi web?",
-        "a": "Porque no me limito a que una web se vea bien: también cuido el rendimiento, el SEO, la accesibilidad y la parte técnica que necesita para funcionar. Tengo más de 3 años de experiencia construyendo productos reales con React, Next.js, Node.js y TypeScript, desde webs para negocios hasta e-commerce y plataformas SaaS."
+        "q": "¿Por qué deberían contratar a Raúl?",
+        "a": "3+ años construyendo productos reales (e-commerce, SaaS multi-tenant, IA conversacional en producción). Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG) y PartsNow.ai (agentic commerce 50k+ piezas). Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain. Experiencia en equipos internacionales, metodologías ágiles, código limpio y orientado a impacto real. Alicante, presencial/remoto. No freelance: busca empleo."
       }
     ]
   },
