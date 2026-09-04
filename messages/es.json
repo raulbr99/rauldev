@@ -283,7 +283,7 @@
   },
   "chat": {
     "title": "Raúl Berná",
-    "status": "Asistente profesional · Datos verificados",
+    "status": "CHAT // ASISTENTE_IA_VERIFICADO",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
     "greeting": "Hola. Soy el asistente IA de Raúl, hablando en su nombre con su perfil profesional verificado: experiencia, stack técnico, proyectos y disponibilidad. ¿En qué te ayudo?",
     "placeholder": "Escribe tu pregunta...",

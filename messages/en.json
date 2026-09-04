@@ -283,7 +283,7 @@
   },
   "chat": {
     "title": "Raúl Berná",
-    "status": "Professional assistant · Verified data",
+    "status": "CHAT // AI_ASSISTANT_VERIFIED",
     "dialogLabel": "Chat with Raúl Berná's assistant",
     "greeting": "Hello. I'm Raúl's AI assistant, speaking on his behalf with his verified professional profile: experience, tech stack, projects, and availability. How can I help?",
     "placeholder": "Type your question...",
