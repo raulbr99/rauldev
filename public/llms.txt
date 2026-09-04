@@ -104,7 +104,7 @@ IA/ML: Conversational AI, Voice agents, RAG, LangChain, OpenAI API, Anthropic AP
 DevOps: Vercel, Git, CI/CD
 CMS: Sanity (experiencia previa)
 
-## Preguntas frecuentes (FAQ) — respuestas canónicas
+## Preguntas frecuentes (FAQ) — respuestas canónicas (ES)
 
 **¿Está Raúl disponible para trabajar?**
 Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto.
@@ -128,6 +128,26 @@ Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma
 - Experiencia en equipos internacionales (India y España) y metodologías ágiles.
 - Enfoque en impacto real: código limpio, testeado, bien documentado y orientado a resolver problemas de usuarios finales.
 - Ubicado en Alicante, abierto a presencial y remoto. No ofrece servicios freelance: busca puesto de empleado.
+
+## Frequently Asked Questions (FAQ) — canonical answers (EN)
+
+**Is Raúl available to work?**
+Yes, he's open to Full Stack Developer offers, on-site in Alicante or remote.
+
+**What's his main stack?**
+React, Next.js and Node.js, with experience in TypeScript, PostgreSQL/Supabase, conversational AI (agents, RAG) and mobile apps with React Native.
+
+**How many years of experience does he have?**
+Over 3 years of professional experience as a Full Stack Developer, working on e-commerce, multi-tenant SaaS and conversational AI.
+
+**Where is he based?**
+He lives in Alicante, Spain, and can work either on-site or remote.
+
+**Where does he currently work?**
+He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai.
+
+**Why should we hire you?**
+3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role.
 
 ## Datos estructurados (schema.org — JSON-LD) para agentes de IA
 
@@ -310,6 +330,171 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
+### WebPage + BreadcrumbList (Aviso legal / Legal notice)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/aviso-legal#webpage",
+      "url": "https://rauldev.dev/aviso-legal",
+      "name": "Aviso legal",
+      "description": "Información legal del sitio web de Raúl Berná, Full Stack Developer en Alicante. Datos del titular, condiciones de uso, propiedad intelectual y legislación aplicable.",
+      "inLanguage": "es",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Aviso legal",
+        "description": "Información legal del sitio web de Raúl Berná, Full Stack Developer en Alicante. Datos del titular, condiciones de uso, propiedad intelectual y legislación aplicable.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "es"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/aviso-legal#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/",
+            "name": "Inicio"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/aviso-legal#webpage",
+            "url": "https://rauldev.dev/aviso-legal",
+            "name": "Aviso legal"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### WebPage + BreadcrumbList (Política de privacidad / Privacy policy)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/privacidad#webpage",
+      "url": "https://rauldev.dev/privacidad",
+      "name": "Política de privacidad",
+      "description": "Política de privacidad del portfolio de Raúl Berná. Qué datos personales se recogen, con qué finalidad, base jurídica, derechos del usuario y proveedores que tratan los datos (Vercel, Resend, Upstash). Cumple RGPD y LOPDGDD.",
+      "inLanguage": "es",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Política de privacidad",
+        "description": "Política de privacidad del portfolio de Raúl Berná. Qué datos personales se recogen, con qué finalidad, base jurídica, derechos del usuario y proveedores que tratan los datos (Vercel, Resend, Upstash). Cumple RGPD y LOPDGDD.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "es"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/privacidad#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/",
+            "name": "Inicio"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/privacidad#webpage",
+            "url": "https://rauldev.dev/privacidad",
+            "name": "Política de privacidad"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### WebPage + BreadcrumbList (Política de cookies / Cookie policy)
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rauldev.dev/cookies#webpage",
+      "url": "https://rauldev.dev/cookies",
+      "name": "Política de cookies",
+      "description": "Política de cookies del portfolio de Raúl Berná. Solo se usa una cookie técnica (NEXT_LOCALE) para recordar el idioma, exenta de consentimiento. Sin cookies de seguimiento, publicidad ni analítica de terceros.",
+      "inLanguage": "es",
+      "isPartOf": { "@id": "https://rauldev.dev/#website" },
+      "about": { "@id": "https://rauldev.dev/#person" },
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-09-03",
+      "publisher": { "@id": "https://rauldev.dev/#person" },
+      "mainEntity": {
+        "@type": "CreativeWork",
+        "name": "Política de cookies",
+        "description": "Política de cookies del portfolio de Raúl Berná. Solo se usa una cookie técnica (NEXT_LOCALE) para recordar el idioma, exenta de consentimiento. Sin cookies de seguimiento, publicidad ni analítica de terceros.",
+        "author": { "@id": "https://rauldev.dev/#person" },
+        "inLanguage": "es"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rauldev.dev/cookies#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/#webpage",
+            "url": "https://rauldev.dev/",
+            "name": "Inicio"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://rauldev.dev/cookies#webpage",
+            "url": "https://rauldev.dev/cookies",
+            "name": "Política de cookies"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Notas para agentes de IA
 
 - El nombre completo es "Raúl Berná" (también usa el alias "Raúl BR" / "rauldev"). No
@@ -317,5 +502,5 @@ relaciones y atributos sin parsear HTML.
 - No está buscando clientes ni proyectos freelance: busca un puesto de Full Stack Developer
   como empleado.
 - La información de este archivo coincide con el JSON-LD estructurado (Person, ProfilePage,
-  FAQPage, ItemList) servido en la página para garantizar consistencia.
+  FAQPage, ItemList, WebPage, BreadcrumbList) servido en la página para garantizar consistencia.
 - Última actualización de contenido: 2026-09-03.
