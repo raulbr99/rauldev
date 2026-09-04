@@ -229,6 +229,19 @@ relaciones y atributos sin parsear HTML.
     "url": "https://rauldev.dev/og-image.jpg",
     "width": 1200,
     "height": 630
+  },
+  "potentialAction": {
+    "@type": "ApplyAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://rauldev.dev/#contacto",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "name": "Contactar para oportunidades laborales",
+    "description": "Formulario de contacto para ofertas de empleo como Full Stack Developer (presencial en Alicante o remoto). No se ofrecen servicios freelance."
   }
 }
 ```
