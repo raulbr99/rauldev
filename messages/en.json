@@ -321,6 +321,9 @@
     "backHome": "Back to home",
     "lastUpdated": "Last updated",
     "breadcrumbHome": "Home",
+    "breadcrumbNotice": "LEGAL_NOTICE",
+    "breadcrumbPrivacy": "PRIVACY",
+    "breadcrumbCookies": "COOKIES",
     "notice": {
       "title": "Legal notice",
       "metaDescription": "Legal information for Raúl Berná's portfolio: site owner details, terms of use, intellectual property, and applicable law.",

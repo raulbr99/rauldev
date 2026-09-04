@@ -6,15 +6,15 @@ interface BreadcrumbProps {
   section: 'notice' | 'privacy' | 'cookies';
 }
 
-const SECTION_LABELS: Record<'notice' | 'privacy' | 'cookies', string> = {
-  notice: 'AVISO_LEGAL',
-  privacy: 'PRIVACIDAD',
-  cookies: 'COOKIES',
+const SECTION_KEYS: Record<'notice' | 'privacy' | 'cookies', string> = {
+  notice: 'breadcrumbNotice',
+  privacy: 'breadcrumbPrivacy',
+  cookies: 'breadcrumbCookies',
 };
 
 export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
   const t = useTranslations('legal');
-  const label = SECTION_LABELS[section];
+  const label = t(SECTION_KEYS[section]);
 
   return (
     <nav
