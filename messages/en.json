@@ -11,18 +11,17 @@
   "hero": {
     "name": "Raúl Berná",
     "role": "Full Stack Developer",
-    "availability": "Open to offers · Alicante or remote",
-    "description": "Full Stack Developer with over <strong>3 years of experience</strong> in <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong> and <strong>TypeScript</strong>, building e-commerce, multi-tenant SaaS and <strong>conversational AI</strong> (RAG, LangChain, voice agents). Currently at <strong>Nanonino SL</strong> building Talkrev (multi-tenant conversational SaaS with real-time chat and voice) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN). Looking for a team to keep building products with real impact.",
+    "description": "Full Stack Developer with <strong>3+ years of experience</strong> building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at <strong>Nanonino SL</strong> (Alicante) building <strong>Talkrev</strong> (multi-tenant conversational AI SaaS) and <strong>PartsNow.ai</strong> (agentic commerce 50k+ parts). Core stack: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>. Open to employment offers (on-site Alicante / remote).",
     "cta": {
-      "contact": "Let's Talk",
-      "projects": "View Projects",
+      "contact": "Tell me about your project",
+      "projects": "View my websites",
       "downloadCV": "Download CV"
     },
     "imageAlt": "Raúl Berná, Full Stack Developer in Alicante, Spain"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Full Stack Developer (React, Next.js, Node.js, TypeScript) building multi-tenant SaaS & conversational AI (RAG, LangChain, voice agents) with real impact. 3+ years in production. Alicante · On-site/Remote · Seeking employment, not freelance.",
+    "subtitle": "I create professional websites for businesses and bring over 3 years of experience building digital products in production.",
     "stats": {
       "years": "Years of experience",
       "projects": "Projects",
@@ -45,9 +44,9 @@
       "item3": "The discipline of running helps me keep a clear mind for solving complex problems"
     },
     "location": {
-      "title": "Why Alicante",
-      "description": "I live in Alicante because everything that matters is here: <strong>my family, my friends and an incredible climate</strong> that allows me to train outdoors all year round.",
-      "seeking": "I'm looking for opportunities in tech companies where I can add value, work in teams and continue growing professionally in a challenging environment."
+      "title": "Availability & contact",
+      "description": "Based in <strong>Alicante, Spain</strong> and seeking <strong>Full Stack Developer employee roles</strong> (on-site in Alicante or remote). No freelance or consulting services offered.",
+      "seeking": "Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, conversational AI (RAG, LangChain, voice agents). International team experience and agile methodologies."
     },
     "teamwork": {
       "title": "How I Work in Teams",
@@ -81,11 +80,11 @@
       }
     },
     "downloadCV": "Download Full CV",
-    "downloadCVHint": "Want to know more? Download my CV or let's talk directly"
+    "downloadCVHint": "See my full experience or tell me what you need"
   },
   "experience": {
     "title": "Professional Experience",
-    "subtitle": "Full Stack Developer with experience in tech companies across Alicante and Murcia. Specialized in React, Next.js, Node.js and applied AI — conversational agents and SaaS products — with a track record working in international teams.",
+    "subtitle": "The professional experience behind the websites and digital products I build.",
     "types": {
       "remote": "Remote",
       "onsite": "On-site",
@@ -144,10 +143,10 @@
     }
   },
   "projects": {
-    "title": "My Projects",
-    "subtitle": "A selection of my most recent projects and what's coming next",
+    "title": "Websites and real products",
+    "subtitle": "A selection of websites for businesses and digital products I have designed and developed",
     "loading": "Loading projects...",
-    "viewAll": "View All Projects",
+    "viewAll": "Tell me about your project",
     "code": "Code",
     "demo": "Demo",
     "categories": {
@@ -205,8 +204,8 @@
     "subtitle": "What people usually ask before reaching out",
     "items": [
       {
-        "q": "Is Raúl available to work?",
-        "a": "Yes, he's open to Full Stack Developer offers, on-site in Alicante or remote."
+        "q": "What kind of websites do you create?",
+        "a": "I create corporate websites, landing pages, portfolios, shops and websites for accommodation or service businesses. The scope adapts to the business, from a clear online presence to bookings, catalogues or custom functionality."
       },
       {
         "q": "What's his main stack?",
@@ -225,17 +224,17 @@
         "a": "He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai."
       },
       {
-        "q": "Why should we hire you?",
-        "a": "3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role."
+        "q": "Why work with you on my website?",
+        "a": "Because I do not stop at making a website look good: I also care about performance, SEO, accessibility and the technical foundation it needs to work. I have over 3 years of experience building real products with React, Next.js, Node.js and TypeScript, from business websites to e-commerce and SaaS platforms."
       }
     ]
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Got a Full Stack opening, or just want to reach out? Write to me and I'll reply within 24-48 h.",
+    "title": "Tell me about your project",
+    "subtitle": "Do you need a website for your business or want to improve the one you have? Write to me and I'll reply within 24-48 h.",
     "info": {
       "title": "Let's talk",
-      "description": "I'm open to Full Stack Developer roles, on-site in Alicante or remote. You can also reach me on LinkedIn.",
+      "description": "Tell me what your business does, what you need and what you want your website to achieve. You can also reach me on LinkedIn.",
       "location": "Alicante, Spain"
     },
     "form": {
@@ -285,7 +284,7 @@
     "title": "Raúl Berná",
     "status": "CHAT // AI_ASSISTANT_VERIFIED",
     "dialogLabel": "Chat with Raúl Berná's assistant",
-    "greeting": "Hello. I'm Raúl's AI assistant, speaking on his behalf with his verified professional profile: experience, tech stack, projects, and availability. How can I help?",
+    "greeting": "Hello. I'm Raúl's AI assistant. I can tell you what kind of websites he creates, show you projects and summarise his technical experience. How can I help?",
     "placeholder": "Type your question...",
     "send": "Send",
     "stop": "Stop response",
@@ -300,13 +299,13 @@
       "achievement": "What's your biggest technical achievement?",
       "challenge": "Tell me about a challenging project and how you solved it",
       "teamwork": "How do you work in a team?",
-      "availability": "What's your availability?",
+      "webServices": "What kind of websites do you create?",
       "aiExperience": "What's your experience with conversational AI and agents?",
-      "whyHire": "Why should we hire you?"
+      "whyWeb": "Why work with you on my website?"
     }
   },
   "footer": {
-    "tagline": "Full Stack Developer based in Alicante. Open to new opportunities.",
+    "tagline": "Professional websites for businesses. Full Stack experience in Alicante.",
     "sections": "Sections",
     "legal": "Legal",
     "elsewhere": "Elsewhere",

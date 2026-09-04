@@ -1,6 +1,6 @@
 # Portfolio de Raúl BR - Desarrollador Full Stack
 
-¡Bienvenido a mi portfolio personal! Este sitio web está diseñado para mostrar mis habilidades como desarrollador full stack y ayudarme a conseguir nuevas oportunidades laborales y proyectos freelance.
+¡Bienvenido a mi portfolio personal! Este sitio web presenta las webs que creo para negocios y la experiencia que he adquirido como desarrollador full stack.
 
 ## 🚀 Características
 
@@ -11,7 +11,7 @@
 - **Panel de Administración**: Formulario secreto para agregar/editar proyectos
 - **Secciones Completas**:
   - Presentación personal
-  - Servicios que ofrezco
+   - Webs y servicios que ofrezco
   - Portfolio de proyectos (dinámico)
   - Información de contacto
 - **SEO Optimizado**: Metadatos configurados para mejor posicionamiento
@@ -143,7 +143,7 @@ Personaliza los colores y estilos en:
 
 ## 📧 Contacto
 
-Si tienes preguntas sobre este portfolio o estás interesado en trabajar conmigo:
+Si tienes un proyecto web o preguntas sobre este portfolio:
 
 - **Email**: raul@ejemplo.com
 - **LinkedIn**: [linkedin.com/in/raulbr99](https://linkedin.com/in/raulbr99)

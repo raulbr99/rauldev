@@ -1,4 +1,4 @@
-import { Download, Code2, Heart, MapPin, GraduationCap, Languages } from 'lucide-react';
+import { Download, Code2, Heart, Globe2, GraduationCap, Languages } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Counter from '../anim/Counter';
 import SectionHeading from '../ui/SectionHeading';
@@ -91,7 +91,7 @@ export default function AboutSection() {
 
             <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-blue-400" />
+                <Globe2 className="w-5 h-5 text-blue-400" />
                 {t('location.title')}
               </h4>
               <div className="text-gray-300 space-y-3">

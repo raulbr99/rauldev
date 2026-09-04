@@ -1,7 +1,7 @@
 {
-  "name": "Raúl Berná — Full Stack Developer",
+  "name": "Raúl Berná — Webs para negocios",
   "short_name": "Raúl Berná",
-  "description": "Portfolio profesional de Raúl Berná, Full Stack Developer en Alicante especializado en React, Next.js, Node.js e IA conversacional. Abierto a ofertas de empleo.",
+  "description": "Webs profesionales para negocios y portfolio de Raúl Berná, desarrollador web y Full Stack Developer en Alicante.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
@@ -57,7 +57,7 @@
     {
       "name": "Contacto",
       "short_name": "Contacto",
-      "description": "Escríbeme para una vacante de Full Stack Developer",
+      "description": "Escríbeme para contarme tu proyecto web",
       "url": "/#contacto",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }

@@ -9,7 +9,7 @@ import { DefaultChatTransport } from 'ai';
 import { useTranslations, useLocale } from 'next-intl';
 import Markdown from './Markdown';
 
-const SUGGESTION_KEYS = ['achievement', 'challenge', 'teamwork', 'availability', 'aiExperience', 'whyHire'] as const;
+const SUGGESTION_KEYS = ['webServices', 'challenge', 'teamwork', 'achievement', 'aiExperience', 'whyWeb'] as const;
 
 export default function ChatWidget() {
   const t = useTranslations('chat');
@@ -114,7 +114,7 @@ export default function ChatWidget() {
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-white/10 bg-techgrid px-4 py-3">
               <div className="relative h-9 w-9 overflow-hidden border border-cyan-400/40">
-                <Image src="/me.png" alt="" fill sizes="36px" className="object-cover" />
+                 <Image src="/me.jpg" alt="" fill sizes="36px" className="object-cover" />
               </div>
               <div className="min-w-0">
                 <p className="truncate font-bold text-white">{t('title')}</p>

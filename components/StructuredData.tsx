@@ -36,10 +36,10 @@ export default async function StructuredData({ language }: StructuredDataProps) 
   const faqItems = tFaq.raw('items') as { q: string; a: string }[];
   const pageUrl = localeUrl(language);
 
-  const jobTitle = isSpanish ? 'Desarrollador Full Stack' : 'Full Stack Developer';
+  const jobTitle = isSpanish ? 'Full Stack Developer' : 'Full Stack Developer';
   const description = isSpanish
-    ? 'Full Stack Developer con más de 3 años de experiencia en React, Next.js, Node.js e IA conversacional. Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Abierto a ofertas como empleado, presencial en Alicante o en remoto.'
-    : 'Full Stack Developer with 3+ years of experience in React, Next.js, Node.js and conversational AI. Currently at Nanonino SL (Alicante, Spain) building Talkrev and PartsNow.ai. Open to employment offers, on-site in Alicante or remote.';
+    ? 'Full Stack Developer con 3+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Abierto a ofertas de empleo (presencial Alicante / remoto).'
+    : 'Full Stack Developer with 3+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Open to employment offers (on-site Alicante / remote).';
 
   const person = {
     '@type': 'Person',
@@ -53,7 +53,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     url: SITE_URL,
     image: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/me.png`,
+       url: `${SITE_URL}/me.jpg`,
       caption: SITE_OWNER,
     },
     sameAs: [
@@ -102,8 +102,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     alternateName: ['rauldev', 'rauldev.dev'],
     url: SITE_URL,
     description: isSpanish
-      ? `Portfolio profesional de ${SITE_OWNER}, Full Stack Developer en Alicante: experiencia, proyectos, habilidades y contacto.`
-      : `Professional portfolio of ${SITE_OWNER}, Full Stack Developer in Alicante, Spain: experience, projects, skills and contact.`,
+      ? `Portfolio profesional de ${SITE_OWNER}, Full Stack Developer en Alicante: experiencia, proyectos, habilidades y contacto. Abierto a ofertas de empleo.`
+      : `Professional portfolio of ${SITE_OWNER}, Full Stack Developer in Alicante: experience, projects, skills and contact. Open to employment offers.`,
     inLanguage: ['es', 'en'],
     publisher: { '@id': PERSON_ID },
     copyrightHolder: { '@id': PERSON_ID },
@@ -133,8 +133,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       width: 1200,
       height: 630,
     },
-    // Señal explícita para buscadores/IA: esta persona busca empleo.
-    // ApplyAction apunta al formulario de contacto (#contacto ancla en la home).
+    // El formulario es el siguiente paso para oportunidades laborales.
     potentialAction: {
       '@type': 'ApplyAction',
       target: {

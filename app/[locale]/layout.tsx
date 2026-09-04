@@ -36,15 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isSpanish = locale === 'es';
 
-  // Título ≤ 60 caracteres con el nombre real primero: es lo que se busca
-  // ("Raúl Berná"), y lo que un recruiter ve en la pestaña y en Google.
-  const title = `${SITE_OWNER} — Full Stack Developer | React, Next.js, Node.js`;
+  // El nombre se mantiene primero para reforzar la marca personal en buscadores.
+  const title = `${SITE_OWNER} — Webs para negocios | Full Stack Developer`;
   const description = isSpanish
-    ? 'Full Stack Developer con más de 3 años de experiencia en React, Next.js, Node.js e IA conversacional. Actualmente en Nanonino SL (Talkrev, PartsNow.ai). Abierto a ofertas en Alicante o en remoto.'
-    : 'Full Stack Developer with 3+ years of experience in React, Next.js, Node.js and conversational AI. Currently at Nanonino SL (Talkrev, PartsNow.ai). Open to roles in Alicante, Spain, or remote.';
+    ? 'Creo webs profesionales, rápidas y pensadas para conseguir contactos para negocios de cualquier sector. Más de 3 años de experiencia como Full Stack Developer.'
+    : 'I create professional, fast websites built to generate enquiries for businesses in any sector. Over 3 years of experience as a Full Stack Developer.';
   const ogImageAlt = isSpanish
-    ? `${SITE_OWNER}, Full Stack Developer en Alicante`
-    : `${SITE_OWNER}, Full Stack Developer in Alicante, Spain`;
+    ? `${SITE_OWNER}, desarrollador web para negocios en Alicante`
+    : `${SITE_OWNER}, web developer for businesses in Alicante, Spain`;
 
   return {
     metadataBase: new URL(SITE_URL),
