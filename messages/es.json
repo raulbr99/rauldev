@@ -285,7 +285,7 @@
     "title": "Raúl Berná",
     "status": "Asistente profesional · Datos verificados",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "Hola. Soy el asistente IA del portfolio de Raúl Berná. Tengo acceso a su perfil profesional verificado: experiencia, stack técnico, proyectos y disponibilidad. ¿En qué te ayudo?",
+    "greeting": "Hola. Soy el asistente IA de Raúl, hablando en su nombre con su perfil profesional verificado: experiencia, stack técnico, proyectos y disponibilidad. ¿En qué te ayudo?",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",
