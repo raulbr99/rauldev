@@ -230,11 +230,11 @@
     ]
   },
   "contact": {
-    "title": "Tell me about your project",
-    "subtitle": "Do you need a website for your business or want to improve the one you have? Write to me and I'll reply within 24-48 h.",
+    "title": "Job offers & contact",
+    "subtitle": "Do you have a Full Stack Developer role to fill? Looking to collaborate? Write to me and I'll reply within 24-48 h.",
     "info": {
-      "title": "Let's talk",
-      "description": "Tell me what your business does, what you need and what you want your website to achieve. You can also reach me on LinkedIn.",
+      "title": "Professional contact",
+      "description": "Looking for a Full Stack Developer for your team? Tell me about the role, the stack and the challenges. You can also reach me on LinkedIn or by email.",
       "location": "Alicante, Spain"
     },
     "form": {
@@ -243,8 +243,8 @@
       "email": "Email",
       "emailPlaceholder": "you@email.com",
       "message": "Message",
-      "messagePlaceholder": "How can I help you?",
-      "submit": "Send Message",
+      "messagePlaceholder": "Tell me about the role, position or collaboration you have in mind",
+      "submit": "Send application / message",
       "submitting": "Sending...",
       "success": "Message sent successfully! I'll get back to you soon.",
       "fillAllFields": "Please fill in all fields correctly",

@@ -230,11 +230,11 @@
     ]
   },
   "contact": {
-    "title": "Cuéntame tu proyecto",
-    "subtitle": "¿Necesitas una web para tu negocio o quieres mejorar la que ya tienes? Escríbeme y te respondo en 24-48 h.",
+    "title": "Ofertas de empleo y contacto",
+    "subtitle": "¿Tienes una oferta de trabajo como Full Stack Developer? ¿Quieres colaborar? Escríbeme y te respondo en 24-48 h.",
     "info": {
-      "title": "Hablemos",
-      "description": "Cuéntame qué hace tu negocio, qué necesitas y qué objetivo quieres conseguir con tu web. También puedes escribirme por LinkedIn.",
+      "title": "Contacto profesional",
+      "description": "¿Buscas un Full Stack Developer para tu equipo? Cuéntame el rol, el stack y los retos. También puedes escribirme por LinkedIn o email.",
       "location": "Alicante, España"
     },
     "form": {
@@ -243,8 +243,8 @@
       "email": "Email",
       "emailPlaceholder": "tu@email.com",
       "message": "Mensaje",
-      "messagePlaceholder": "¿En qué puedo ayudarte?",
-      "submit": "Enviar Mensaje",
+      "messagePlaceholder": "Cuéntame la oferta, el rol o la colaboración que tienes en mente",
+      "submit": "Enviar candidatura / mensaje",
       "submitting": "Enviando...",
       "success": "¡Mensaje enviado correctamente! Te responderé pronto.",
       "fillAllFields": "Por favor, completa todos los campos correctamente",
