@@ -22,7 +22,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "subtitle": "Más que código, creo soluciones que facilitan la vida de las personas",
+    "subtitle": "Full Stack Developer (React, Next.js, Node.js, TypeScript) construyendo SaaS multi-tenant e IA conversacional (RAG, LangChain, agentes de voz) con impacto real. 3+ años en producción. Alicante · Presencial/Remoto · Busco empleo, no freelance.",
     "stats": {
       "years": "Años de experiencia",
       "projects": "Proyectos",
@@ -31,12 +31,12 @@
     "history": {
       "title": "Mi Historia",
       "paragraph1": "Mi pasión por la programación comenzó en el instituto cuando descubrí <strong>Scratch</strong>. Ver cómo unas simples instrucciones cobraban vida y creaban algo funcional me fascinó desde el primer momento.",
-      "paragraph2": "Con más de <strong>3 años de experiencia profesional</strong>, he trabajado en proyectos de <strong>e-commerce, SaaS multi-tenant, IA conversacional y aplicaciones blockchain</strong>. Pero lo que realmente me motiva cada día no son las tecnologías en sí, sino el <strong>impacto real</strong> que tienen en las personas."
+      "paragraph2": "Con más de <strong>3 años de experiencia profesional</strong> como <strong>Full Stack Developer</strong>, he entregado <strong>e-commerce, SaaS multi-tenant, IA conversacional (RAG, LangChain, voz en tiempo real) y blockchain</strong> en <strong>Nanonino SL (Alicante)</strong> y <strong>Evvant SL</strong>. Stack principal: <strong>React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase</strong>. Lo que me motiva no es la tecnología en sí, sino el <strong>impacto real en usuarios finales</strong>."
     },
     "passion": {
       "title": "Lo Que Me Mueve",
-      "paragraph1": "Lo que más me apasiona es <strong>crear proyectos que la gente realmente use</strong>. No me conformo con que algo \"funcione\" técnicamente; quiero que haga la vida de las personas más fácil, más eficiente, más agradable.",
-      "paragraph2": "Cada vez que veo a usuarios finales interactuar con una aplicación que desarrollé y recibo feedback positivo del equipo, sé que estoy haciendo lo que me gusta. <strong>Ese es mi objetivo: resolver problemas reales con tecnología</strong>."
+      "paragraph1": "Lo que más me apasiona es <strong>crear productos que la gente realmente use</strong>: Talkrev (SaaS IA conversacional multi-tenant con chat, voz y RAG) y PartsNow.ai (agentic commerce 50k+ piezas, búsqueda por chat/voz/foto/VIN). No me conformo con que algo \"funcione\" técnicamente; busco <strong>impacto medible en usuarios y negocio</strong>.",
+      "paragraph2": "Cada vez que veo a usuarios finales interactuar con una aplicación que desarrollé y recibo feedback positivo del equipo, sé que estoy en el camino correcto. <strong>Mi objetivo: resolver problemas reales con código limpio, testeado y bien documentado</strong>. Experiencia en equipos internacionales (India, España) y metodologías ágiles."
     },
     "hobbies": {
       "title": "Fuera del Código",

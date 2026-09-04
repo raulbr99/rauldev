@@ -22,7 +22,7 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "More than code, I create solutions that make people's lives easier",
+    "subtitle": "Full Stack Developer (React, Next.js, Node.js, TypeScript) building multi-tenant SaaS & conversational AI (RAG, LangChain, voice agents) with real impact. 3+ years in production. Alicante · On-site/Remote · Seeking employment, not freelance.",
     "stats": {
       "years": "Years of experience",
       "projects": "Projects",
@@ -31,12 +31,12 @@
     "history": {
       "title": "My Story",
       "paragraph1": "My passion for programming started in high school when I discovered <strong>Scratch</strong>. Seeing how simple instructions came to life and created something functional fascinated me from the very first moment.",
-      "paragraph2": "With over <strong>3 years of professional experience</strong>, I have worked on <strong>e-commerce, multi-tenant SaaS, conversational AI and blockchain applications</strong>. But what really motivates me every day is not the technologies themselves, but the <strong>real impact</strong> they have on people."
+      "paragraph2": "With over <strong>3 years of professional experience</strong> as a <strong>Full Stack Developer</strong>, I've delivered <strong>e-commerce, multi-tenant SaaS, conversational AI (RAG, LangChain, real-time voice) and blockchain</strong> at <strong>Nanonino SL (Alicante)</strong> and <strong>Evvant SL</strong>. Core stack: <strong>React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase</strong>. What drives me isn't the tech itself, but the <strong>real impact on end users</strong>."
     },
     "passion": {
       "title": "What Drives Me",
-      "paragraph1": "What I'm most passionate about is <strong>creating projects that people actually use</strong>. I'm not satisfied with something that just \"works\" technically; I want it to make people's lives easier, more efficient, more enjoyable.",
-      "paragraph2": "Every time I see end users interact with an application I developed and receive positive feedback from the team, I know I'm doing what I love. <strong>That's my goal: solving real problems with technology</strong>."
+      "paragraph1": "What I'm most passionate about is <strong>building products people actually use</strong>: Talkrev (multi-tenant conversational AI SaaS with chat, voice & RAG) and PartsNow.ai (agentic commerce 50k+ parts, search by chat/voice/photo/VIN). I don't settle for \"it works\" technically; I aim for <strong>measurable impact on users and business</strong>.",
+      "paragraph2": "Every time I see end users interact with an application I built and get positive feedback from the team, I know I'm on the right track. <strong>My goal: solve real problems with clean, tested, well-documented code</strong>. Experience in international teams (India, Spain) and agile methodologies."
     },
     "hobbies": {
       "title": "Outside of Code",
