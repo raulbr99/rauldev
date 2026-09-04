@@ -302,7 +302,7 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
-### FAQPage (preguntas frecuentes)
+### FAQPage (preguntas frecuentes — ES)
 ```json
 {
   "@type": "FAQPage",
@@ -338,6 +338,47 @@ relaciones y atributos sin parsear HTML.
       "@type": "Question",
       "name": "¿Por qué deberían contratar a Raúl?",
       "acceptedAnswer": { "@type": "Answer", "text": "3+ años construyendo productos reales (e-commerce, SaaS multi-tenant, IA conversacional en producción). Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG) y PartsNow.ai (agentic commerce 50k+ piezas). Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain. Experiencia en equipos internacionales, metodologías ágiles, código limpio y orientado a impacto real. Alicante, presencial/remoto. No freelance: busca empleo." }
+    }
+  ]
+}
+```
+
+### FAQPage (frequently asked questions — EN)
+```json
+{
+  "@type": "FAQPage",
+  "@id": "https://rauldev.dev/en/#faq",
+  "isPartOf": { "@id": "https://rauldev.dev/en/#webpage" },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Raúl available to work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, he's open to Full Stack Developer offers, on-site in Alicante or remote." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's his main stack?",
+      "acceptedAnswer": { "@type": "Answer", "text": "React, Next.js and Node.js, with experience in TypeScript, PostgreSQL/Supabase, conversational AI (agents, RAG) and mobile apps with React Native." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many years of experience does he have?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Over 3 years of professional experience as a Full Stack Developer, working on e-commerce, multi-tenant SaaS and conversational AI." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is he based?",
+      "acceptedAnswer": { "@type": "Answer", "text": "He lives in Alicante, Spain, and can work either on-site or remote." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does he currently work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should we hire you?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role." }
     }
   ]
 }
