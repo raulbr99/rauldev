@@ -299,9 +299,9 @@
       "achievement": "What's your biggest technical achievement?",
       "challenge": "Tell me about a challenging project and how you solved it",
       "teamwork": "How do you work in a team?",
-      "webServices": "What products have you built?",
+      "whatIBuild": "What have you built in your roles?",
       "aiExperience": "What's your experience with conversational AI and agents?",
-      "whyWeb": "Why should I hire you?"
+      "whyHire": "Why should I hire you?"
     }
   },
   "footer": {

@@ -299,9 +299,9 @@
       "achievement": "¿Cuál ha sido tu mayor logro técnico?",
       "challenge": "Cuéntame un proyecto desafiante y cómo lo resolviste",
       "teamwork": "¿Cómo trabajas en equipo?",
-      "webServices": "¿Qué productos has construido?",
+      "whatIBuild": "¿Qué has desarrollado en tus roles?",
       "aiExperience": "¿Qué experiencia tienes con IA conversacional y agentes?",
-      "whyWeb": "¿Por qué contratarte?"
+      "whyHire": "¿Por qué contratarte?"
     }
   },
   "footer": {
