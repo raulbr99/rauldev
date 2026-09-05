@@ -1,5 +1,5 @@
 import { ArrowLeft } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
@@ -21,13 +21,14 @@ interface LegalPageProps {
 export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps) {
   const t = useTranslations(`legal.${section}`);
   const tl = useTranslations('legal');
+  const locale = useLocale();
 
   return (
     <div className="relative min-h-dvh bg-slate-950">
       <Navigation />
 
       <main className="mx-auto max-w-3xl px-4 pb-24 pt-32">
-        <LegalBreadcrumb section={section} />
+        <LegalBreadcrumb section={section} locale={locale as 'es' | 'en'} />
 
         <Link
           href="/"

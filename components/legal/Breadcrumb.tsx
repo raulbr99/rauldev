@@ -1,9 +1,10 @@
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface BreadcrumbProps {
   section: 'notice' | 'privacy' | 'cookies';
+  locale: 'es' | 'en';
 }
 
 const SECTION_KEYS: Record<'notice' | 'privacy' | 'cookies', string> = {
@@ -12,9 +13,10 @@ const SECTION_KEYS: Record<'notice' | 'privacy' | 'cookies', string> = {
   cookies: 'breadcrumbCookies',
 };
 
-export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
+export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
   const t = useTranslations('legal');
   const label = t(SECTION_KEYS[section]);
+  const homeHref = locale === 'es' ? '/' : `/${locale}/`;
 
   return (
     <nav
@@ -24,7 +26,7 @@ export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
       <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[#606060]">
         <li className="flex items-center gap-2">
           <Link
-            href="/"
+            href={homeHref}
             className="transition-colors hover:text-[#D1FF26]"
             aria-label={t('breadcrumbHome')}
           >
