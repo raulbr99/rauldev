@@ -13,7 +13,7 @@
     "role": "Full Stack Developer",
     "description": "Full Stack Developer con <strong>3+ años de experiencia</strong> construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en <strong>Nanonino SL</strong> (Alicante) desarrollando <strong>Talkrev</strong> (SaaS IA conversacional multi-tenant) y <strong>PartsNow.ai</strong> (agentic commerce 50k+ piezas). Stack principal: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>. Abierto a ofertas de empleo (presencial en Alicante / remoto).",
     "cta": {
-      "contact": "Cuéntame tu proyecto",
+      "contact": "Contactar para oportunidades",
       "projects": "Ver mis webs",
       "downloadCV": "Descargar CV"
     },
@@ -299,7 +299,7 @@
       "achievement": "¿Cuál ha sido tu mayor logro técnico?",
       "challenge": "Cuéntame un proyecto desafiante y cómo lo resolviste",
       "teamwork": "¿Cómo trabajas en equipo?",
-      "webServices": "¿Qué tipo de webs creas?",
+      "webServices": "¿Qué productos has construido?",
       "aiExperience": "¿Qué experiencia tienes con IA conversacional y agentes?",
       "whyWeb": "¿Por qué contratarte?"
     }
