@@ -142,6 +142,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Raúl Berná" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         <StructuredData language={locale as 'es' | 'en'} />
       </head>
       <body className="antialiased">
