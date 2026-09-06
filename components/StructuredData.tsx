@@ -191,9 +191,26 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     }),
   };
 
+  const breadcrumbList = {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'WebPage',
+          '@id': `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: isSpanish ? 'Inicio' : 'Home',
+        },
+      },
+    ],
+  };
+
   const graph = {
     '@context': 'https://schema.org',
-    '@graph': [person, website, profilePage, faqPage, projectList],
+    '@graph': [person, website, profilePage, faqPage, projectList, breadcrumbList],
   };
 
   return (
