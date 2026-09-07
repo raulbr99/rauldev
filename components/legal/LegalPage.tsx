@@ -22,6 +22,7 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
   const t = useTranslations(`legal.${section}`);
   const tl = useTranslations('legal');
   const locale = useLocale();
+  const homeHref = locale === 'es' ? '/' : `/${locale}/`;
 
   return (
     <div className="relative min-h-dvh bg-slate-950">
@@ -31,7 +32,7 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
         <LegalBreadcrumb section={section} locale={locale as 'es' | 'en'} />
 
         <Link
-          href="/"
+          href={homeHref}
           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-400 transition-colors hover:text-cyan-300"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
