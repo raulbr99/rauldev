@@ -266,6 +266,26 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
+### BreadcrumbList (página principal — ES)
+```json
+{
+  "@type": "BreadcrumbList",
+  "@id": "https://rauldev.dev/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://rauldev.dev/#webpage",
+        "url": "https://rauldev.dev/",
+        "name": "Inicio"
+      }
+    }
+  ]
+}
+```
+
 ### ProfilePage (página principal — EN)
 ```json
 {
@@ -299,6 +319,26 @@ relaciones y atributos sin parsear HTML.
     "name": "Contact for job opportunities",
     "description": "Contact form for Full Stack Developer job offers (on-site in Alicante or remote). No freelance services offered."
   }
+}
+```
+
+### BreadcrumbList (main page — EN)
+```json
+{
+  "@type": "BreadcrumbList",
+  "@id": "https://rauldev.dev/en/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://rauldev.dev/en/#webpage",
+        "url": "https://rauldev.dev/en/",
+        "name": "Home"
+      }
+    }
+  ]
 }
 ```
 
