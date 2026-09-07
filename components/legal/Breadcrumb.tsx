@@ -13,10 +13,18 @@ const SECTION_KEYS: Record<'notice' | 'privacy' | 'cookies', string> = {
   cookies: 'breadcrumbCookies',
 };
 
+const PAGE_HREF: Record<'notice' | 'privacy' | 'cookies', string> = {
+  notice: 'aviso-legal',
+  privacy: 'privacidad',
+  cookies: 'cookies',
+};
+
 export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
   const t = useTranslations('legal');
-  const label = t(SECTION_KEYS[section]);
+  const homeLabel = t('breadcrumbHome');
+  const pageLabel = t(SECTION_KEYS[section]);
   const homeHref = locale === 'es' ? '/' : `/${locale}/`;
+  const pageHref = locale === 'es' ? `/${PAGE_HREF[section]}` : `/${locale}/${PAGE_HREF[section]}`;
 
   return (
     <nav
@@ -28,9 +36,9 @@ export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
           <Link
             href={homeHref}
             className="transition-colors hover:text-[#D1FF26]"
-            aria-label={t('breadcrumbHome')}
+            aria-label={homeLabel}
           >
-            {t('breadcrumbHome')}
+            {homeLabel}
           </Link>
         </li>
         <li className="flex items-center gap-2">
@@ -38,9 +46,13 @@ export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
             className="h-3 w-3 flex-shrink-0 text-[#404040]"
             aria-hidden="true"
           />
-          <span className="text-[#505050]" aria-current="page">
-            LEGAL // {label}
-          </span>
+          <Link
+            href={pageHref}
+            className="text-[#505050] hover:text-[#D1FF26] transition-colors"
+            aria-current="page"
+          >
+            {pageLabel}
+          </Link>
         </li>
       </ol>
     </nav>
