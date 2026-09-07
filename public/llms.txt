@@ -178,10 +178,7 @@ relaciones y atributos sin parsear HTML.
   "jobTitle": "Full Stack Developer",
   "description": "Full Stack Developer con más de 3 años de experiencia en React, Next.js, Node.js e IA conversacional. Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Abierto a ofertas como empleado, presencial en Alicante o en remoto.",
   "worksFor": {
-    "@type": "Organization",
-    "name": "Nanonino SL",
-    "url": "https://talkrev.ai",
-    "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" }
+    "@id": "https://rauldev.dev/#organization"
   },
   "hasOccupation": {
     "@type": "Occupation",
@@ -211,6 +208,25 @@ relaciones y atributos sin parsear HTML.
   },
   "homeLocation": { "@type": "City", "name": "Alicante" },
   "nationality": { "@type": "Country", "name": "ES" }
+}
+```
+
+### Organization (Nanonino SL)
+```json
+{
+  "@type": "Organization",
+  "@id": "https://rauldev.dev/#organization",
+  "name": "Nanonino SL",
+  "url": "https://nanonino.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Alicante",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://talkrev.ai",
+    "https://partsnow.ai"
+  ]
 }
 ```
 

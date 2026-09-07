@@ -12,6 +12,7 @@ const CONTENT_UPDATED = '2026-09-07';
 
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
+const ORG_ID = `${SITE_URL}/#organization`;
 
 const SKILLS = [
   'React', 'Next.js', 'Node.js', 'TypeScript', 'JavaScript', 'React Native',
@@ -63,12 +64,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     ],
     jobTitle,
     description,
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Nanonino SL',
-      url: 'https://talkrev.ai',
-      address: { '@type': 'PostalAddress', addressLocality: 'Alicante', addressCountry: 'ES' },
-    },
+    worksFor: { '@id': ORG_ID },
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Full Stack Developer',
@@ -93,6 +89,22 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     },
     homeLocation: { '@type': 'City', name: 'Alicante' },
     nationality: { '@type': 'Country', name: 'ES' },
+  };
+
+  const organization = {
+    '@type': 'Organization',
+    '@id': ORG_ID,
+    name: 'Nanonino SL',
+    url: 'https://nanonino.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Alicante',
+      addressCountry: 'ES',
+    },
+    sameAs: [
+      'https://talkrev.ai',
+      'https://partsnow.ai',
+    ],
   };
 
   const website = {
@@ -210,7 +222,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
 
   const graph = {
     '@context': 'https://schema.org',
-    '@graph': [person, website, profilePage, faqPage, projectList, breadcrumbList],
+    '@graph': [person, organization, website, profilePage, faqPage, projectList, breadcrumbList],
   };
 
   return (
