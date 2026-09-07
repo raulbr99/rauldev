@@ -745,4 +745,4 @@ relaciones y atributos sin parsear HTML.
   como empleado.
 - La información de este archivo coincide con el JSON-LD estructurado (Person, ProfilePage,
   FAQPage, ItemList, WebPage, BreadcrumbList) servido en la página para garantizar consistencia.
-- Última actualización de contenido: 2026-09-03.
+- Última actualización de contenido: 2026-09-07.
