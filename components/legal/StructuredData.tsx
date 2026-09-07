@@ -7,7 +7,7 @@ interface LegalStructuredDataProps {
   locale: 'es' | 'en';
 }
 
-const CONTENT_UPDATED = '2026-09-03';
+const CONTENT_UPDATED = '2026-09-07';
 const SITE_URL = 'https://rauldev.dev';
 
 const SECTION_INFO: Record<LegalSection, { es: { title: string; description: string }; en: { title: string; description: string } }> = {

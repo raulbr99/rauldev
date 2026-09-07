@@ -6,7 +6,7 @@ import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: string }> };
 
-const UPDATED_AT = '2026-09-03';
+const UPDATED_AT = '2026-09-07';
 
 const BLOCKS = [
   { title: 'ownerTitle', body: 'ownerBody' },
