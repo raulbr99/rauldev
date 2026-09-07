@@ -296,12 +296,12 @@
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
-      "achievement": "What's your biggest technical achievement?",
+      "whatIBuild": "What real products have you built?",
       "challenge": "Tell me about a challenging project and how you solved it",
-      "teamwork": "How do you work in a team?",
-      "whatIBuild": "What have you built in your roles?",
+      "teamwork": "How do you collaborate in international/remote teams?",
       "aiExperience": "What's your experience with conversational AI and agents?",
-      "whyHire": "Why should I hire you?"
+      "availability": "What's your availability and contract preference?",
+      "whyHire": "Why hire you over other candidates?"
     }
   },
   "footer": {

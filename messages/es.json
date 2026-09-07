@@ -296,12 +296,12 @@
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
-      "achievement": "¿Cuál ha sido tu mayor logro técnico?",
+      "whatIBuild": "¿Qué productos reales has construido?",
       "challenge": "Cuéntame un proyecto desafiante y cómo lo resolviste",
-      "teamwork": "¿Cómo trabajas en equipo?",
-      "whatIBuild": "¿Qué has desarrollado en tus roles?",
+      "teamwork": "¿Cómo colaboras en equipos internacionales/remotos?",
       "aiExperience": "¿Qué experiencia tienes con IA conversacional y agentes?",
-      "whyHire": "¿Por qué contratarte?"
+      "availability": "¿Cuál es tu disponibilidad y tipo de contrato?",
+      "whyHire": "¿Por qué contratarte frente a otros candidatos?"
     }
   },
   "footer": {
