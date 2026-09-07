@@ -205,6 +205,16 @@ export default async function StructuredData({ language }: StructuredDataProps) 
           name: isSpanish ? 'Inicio' : 'Home',
         },
       },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'WebPage',
+          '@id': `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: isSpanish ? 'Portfolio' : 'Portfolio',
+        },
+      },
     ],
   };
 
