@@ -7,22 +7,22 @@ interface BreadcrumbProps {
   locale: 'es' | 'en';
 }
 
-const SECTION_KEYS: Record<'notice' | 'privacy' | 'cookies', string> = {
-  notice: 'breadcrumbNotice',
-  privacy: 'breadcrumbPrivacy',
-  cookies: 'breadcrumbCookies',
-};
-
 const PAGE_HREF: Record<'notice' | 'privacy' | 'cookies', string> = {
   notice: 'aviso-legal',
   privacy: 'privacidad',
   cookies: 'cookies',
 };
 
+const PAGE_TITLE_KEY: Record<'notice' | 'privacy' | 'cookies', string> = {
+  notice: 'notice.title',
+  privacy: 'privacy.title',
+  cookies: 'cookies.title',
+};
+
 export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
   const t = useTranslations('legal');
   const homeLabel = t('breadcrumbHome');
-  const pageLabel = t(SECTION_KEYS[section]);
+  const pageLabel = t(PAGE_TITLE_KEY[section]);
   const homeHref = locale === 'es' ? '/' : `/${locale}/`;
   const pageHref = locale === 'es' ? `/${PAGE_HREF[section]}` : `/${locale}/${PAGE_HREF[section]}`;
 
