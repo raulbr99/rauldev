@@ -8,7 +8,7 @@ interface StructuredDataProps {
 }
 
 /** Fecha de la última revisión de contenido (no cambia en cada build). */
-const CONTENT_UPDATED = '2026-09-03';
+const CONTENT_UPDATED = '2026-09-07';
 
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
