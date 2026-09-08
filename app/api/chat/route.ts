@@ -34,13 +34,22 @@ function candidateModels(): { id: string; model: LanguageModel }[] {
 
 /**
  * Espera a que el proveedor acepte la petición: true en cuanto llega
- * contenido, false si el primer evento sustantivo es un error. Lee de una
- * rama `tee` del stream, así que no le quita nada a la respuesta final.
+ * contenido (texto o razonamiento), false si el primer evento sustantivo es
+ * un error. Lee de una rama `tee` del stream, así que no le quita nada a la
+ * respuesta final.
  */
 async function providerAccepted(result: ReturnType<typeof streamText>): Promise<boolean> {
   for await (const part of result.fullStream) {
     if (part.type === 'error') return false;
-    if (part.type === 'text-start' || part.type === 'text-delta' || part.type === 'finish') return true;
+    if (
+      part.type === 'reasoning-start' ||
+      part.type === 'reasoning-delta' ||
+      part.type === 'text-start' ||
+      part.type === 'text-delta' ||
+      part.type === 'finish'
+    ) {
+      return true;
+    }
   }
   return false;
 }
@@ -106,9 +115,10 @@ export async function POST(req: Request) {
         system,
         messages: modelMessages,
         // Respuestas estables y ceñidas a los datos: es un asistente factual,
-        // no creativo. El tope de salida mantiene las respuestas breves.
+        // no creativo. El tope de salida mantiene las respuestas breves y
+        // paga también el preámbulo <think> que el widget enseña aparte.
         temperature: 0.4,
-        maxOutputTokens: 700,
+        maxOutputTokens: 800,
         // Un solo reintento por proveedor: si falla, mejor pasar al siguiente
         // que hacer esperar a la persona tres intentos con backoff.
         maxRetries: 1,

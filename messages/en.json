@@ -282,7 +282,8 @@
   },
   "chat": {
     "title": "Raúl Berná",
-    "status": "CHAT // AI_ASSISTANT_VERIFIED",
+    "status": "Verified AI assistant",
+    "typing": "Typing…",
     "dialogLabel": "Chat with Raúl Berná's assistant",
     "greeting": "Hello. I'm Raúl, a Full Stack Developer in Alicante with 3+ years in React, Next.js, Node.js and conversational AI (Talkrev, PartsNow.ai). I'm looking for employment offers — on-site or remote. How can I help?",
     "placeholder": "Type your question...",
@@ -292,6 +293,11 @@
     "close": "Close chat",
     "reset": "New conversation",
     "thinking": "Typing...",
+    "reasoningLive": "Thinking…",
+    "reasoningDone": "Reasoning · see process",
+    "copy": "Copy",
+    "copied": "Copied",
+    "suggestionsTitle": "Quick questions",
     "disclaimer": "AI-powered assistant based on Raúl's professional profile · No personal data stored · For formal inquiries, please use the contact form",
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
@@ -303,6 +309,15 @@
       "teamwork": "How do you work in international/remote teams?",
       "whyHire": "Why hire you over other candidates?",
       "stack": "Core stack and proficiency level in each?"
+    },
+    "suggestionLabels": {
+      "whatIBuild": "Real products",
+      "challenge": "Hardest challenge",
+      "availability": "Availability",
+      "aiExperience": "AI & agents",
+      "teamwork": "Remote teams",
+      "whyHire": "Why hire me",
+      "stack": "Tech stack"
     }
   },
   "footer": {
