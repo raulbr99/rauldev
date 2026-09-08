@@ -17,9 +17,6 @@
   "dependencies": {
     "@ai-sdk/openai": "^3.0.106",
     "@ai-sdk/react": "^3.0.195",
-    "@next/swc-darwin-arm64": "^16.3.4",
-    "@swc/core": "^1.16.2",
-    "@swc/core-darwin-arm64": "^1.16.2",
     "@upstash/ratelimit": "^2.0.8",
     "@upstash/redis": "^1.38.0",
     "@vercel/analytics": "^2.0.1",
