@@ -361,7 +361,7 @@
     },
     "cookies": {
       "title": "Cookie policy",
-      "metaDescription": "Cookie policy for Raúl Berná's portfolio: only a technical cookie (NEXT_LOCALE) is used to remember language preference, exempt from consent. No tracking, advertising or third-party analytics cookies.",
+      "metaDescription": "Cookie policy: only a technical NEXT_LOCALE cookie remembers language preference, exempt from consent. No tracking or third-party analytics cookies.",
       "intro": "Short version: this site uses no tracking, advertising or third-party analytics cookies, which is why no consent banner is shown.",
       "ownTitle": "First-party cookies",
       "ownBody": "A single technical cookie is used, NEXT_LOCALE, which remembers whether you prefer the site in Spanish or English. It is essential for the language switcher to work and is exempt from consent under article 22.2 of the LSSI-CE.",

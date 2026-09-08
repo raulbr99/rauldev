@@ -34,11 +34,11 @@ const SECTION_INFO: Record<LegalSection, { es: { title: string; description: str
   cookies: {
     es: {
       title: 'Política de cookies',
-      description: 'Política de cookies del portfolio de Raúl Berná. Solo se usa una cookie técnica (NEXT_LOCALE) para recordar el idioma, exenta de consentimiento. Sin cookies de seguimiento, publicidad ni analítica de terceros.',
+      description: 'Política de cookies: solo uso la cookie técnica NEXT_LOCALE para recordar el idioma, exenta de consentimiento. Sin cookies de seguimiento ni analítica de terceros.',
     },
     en: {
       title: 'Cookie policy',
-      description: 'Cookie policy for Raúl Berná portfolio. Only a single technical cookie (NEXT_LOCALE) is used to remember language preference, exempt from consent. No tracking, advertising or third-party analytics cookies.',
+      description: 'Cookie policy: only a technical NEXT_LOCALE cookie remembers language preference, exempt from consent. No tracking or third-party analytics cookies.',
     },
   },
 };
