@@ -297,11 +297,12 @@
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
       "whatIBuild": "What real products have you built?",
-      "challenge": "Tell me about a challenging project and how you solved it",
+      "challenge": "What was the most complex technical challenge (Talkrev multi-tenant RAG / PartsNow.ai 50k+ parts)?",
       "teamwork": "How do you collaborate in international/remote teams?",
       "aiExperience": "What's your experience with conversational AI and agents?",
       "availability": "What's your availability and contract preference?",
-      "whyHire": "Why hire you over other candidates?"
+      "whyHire": "Why hire you over other candidates?",
+      "stack": "What technologies do you master best?"
     }
   },
   "footer": {
