@@ -9,7 +9,7 @@ import { DefaultChatTransport } from 'ai';
 import { useTranslations, useLocale } from 'next-intl';
 import Markdown from './Markdown';
 
-const SUGGESTION_KEYS = ['whatIBuild', 'challenge', 'teamwork', 'aiExperience', 'availability', 'whyHire', 'stack'] as const;
+const SUGGESTION_KEYS = ['whatIBuild', 'challenge', 'availability', 'aiExperience', 'teamwork', 'whyHire', 'stack'] as const;
 
 export default function ChatWidget() {
   const t = useTranslations('chat');

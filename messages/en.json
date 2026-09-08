@@ -297,10 +297,10 @@
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
       "whatIBuild": "What real products have you built?",
-      "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k parts)?",
-      "teamwork": "How do you work in international/remote teams?",
+      "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k)?",
+      "availability": "Availability, notice period, contract type (employee)?",
       "aiExperience": "Experience with conversational AI and agents?",
-      "availability": "Availability and contract type (employee role)?",
+      "teamwork": "How do you work in international/remote teams?",
       "whyHire": "Why hire you over other candidates?",
       "stack": "Core stack and proficiency level in each?"
     }
