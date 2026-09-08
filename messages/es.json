@@ -297,12 +297,12 @@
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
       "whatIBuild": "¿Qué productos reales has construido?",
-      "challenge": "¿Cuál fue el reto técnico más complejo (Talkrev RAG multi-tenant / PartsNow.ai 50k+ piezas)?",
-      "teamwork": "¿Cómo colaboras en equipos internacionales/remotos?",
-      "aiExperience": "¿Qué experiencia tienes con IA conversacional y agentes?",
-      "availability": "¿Cuál es tu disponibilidad y tipo de contrato?",
-      "whyHire": "¿Por qué contratarte frente a otros candidatos?",
-      "stack": "¿Qué tecnologías dominas mejor?"
+      "challenge": "¿Reto técnico más complejo (Talkrev RAG / PartsNow 50k piezas)?",
+      "teamwork": "¿Cómo trabajas en equipos internacionales/remotos?",
+      "aiExperience": "¿Experiencia con IA conversacional y agentes?",
+      "availability": "¿Disponibilidad y tipo de contrato (empleado)?",
+      "whyHire": "¿Por qué contratarte frente a otros perfiles?",
+      "stack": "¿Stack principal y nivel en cada tecnología?"
     }
   },
   "footer": {
