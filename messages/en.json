@@ -307,9 +307,11 @@
       "availability": "Availability, notice period, contract type (employee)?",
       "aiExperience": "Experience with conversational AI and agents?",
       "teamwork": "How do you work in international/remote teams?",
-      "whyHire": "Why hire you over other candidates?",
-      "stack": "Core stack and proficiency level in each?"
-    },
+"whyHire": "Why hire you over other candidates?",
+      "stack": "Core stack and proficiency level in each?",
+      "contact": "I want to contact / view CV"
+    }
+  },
     "suggestionLabels": {
       "whatIBuild": "Real products",
       "challenge": "Hardest challenge",

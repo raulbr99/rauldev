@@ -307,9 +307,11 @@
       "availability": "¿Disponibilidad, preaviso y tipo de contrato (empleado)?",
       "aiExperience": "¿Experiencia con IA conversacional y agentes?",
       "teamwork": "¿Cómo trabajas en equipos internacionales/remotos?",
-      "whyHire": "¿Por qué contratarte frente a otros perfiles?",
-      "stack": "¿Stack principal y nivel en cada tecnología?"
-    },
+"whyHire": "¿Por qué contratarte frente a otros perfiles?",
+      "stack": "¿Stack principal y nivel en cada tecnología?",
+      "contact": "Quiero contactar / ver CV"
+    }
+  },
     "suggestionLabels": {
       "whatIBuild": "Productos reales",
       "challenge": "Reto técnico",
