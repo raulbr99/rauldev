@@ -310,8 +310,7 @@
 "whyHire": "Why hire you over other candidates?",
       "stack": "Core stack and proficiency level in each?",
       "contact": "I want to contact / view CV"
-    }
-  },
+    },
     "suggestionLabels": {
       "whatIBuild": "Real products",
       "challenge": "Hardest challenge",
@@ -319,7 +318,8 @@
       "aiExperience": "AI & agents",
       "teamwork": "Remote teams",
       "whyHire": "Why hire me",
-      "stack": "Tech stack"
+      "stack": "Tech stack",
+      "contact": "Contact / CV"
     }
   },
   "footer": {

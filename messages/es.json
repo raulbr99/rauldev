@@ -310,8 +310,7 @@
 "whyHire": "¿Por qué contratarte frente a otros perfiles?",
       "stack": "¿Stack principal y nivel en cada tecnología?",
       "contact": "Quiero contactar / ver CV"
-    }
-  },
+    },
     "suggestionLabels": {
       "whatIBuild": "Productos reales",
       "challenge": "Reto técnico",
@@ -319,7 +318,8 @@
       "aiExperience": "IA y agentes",
       "teamwork": "Equipos remotos",
       "whyHire": "Por qué contratarme",
-      "stack": "Stack técnico"
+      "stack": "Stack técnico",
+      "contact": "Contactar / CV"
     }
   },
   "footer": {
