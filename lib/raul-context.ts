@@ -38,10 +38,7 @@ export function buildSystemPrompt(locale?: string): string {
 - How many years of experience does he have? Over 3 years of professional experience as a Full Stack Developer, working on e-commerce, multi-tenant SaaS and conversational AI.
 - Where is he based? He lives in Alicante, Spain, and can work either on-site or remote.
 - Where does he currently work? He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai.
-- Why should we hire you? 3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role.
-
-# Contact / CV request (canonical response)
-- Contact / CV: "The contact form is in the Contact section (rauldev.dev/en/#contacto) and the CV can be downloaded directly from the hero or footer. LinkedIn: linkedin.com/in/raul-berna-riera · GitHub: github.com/raulbr99 · Email: raulbernariera99@gmail.com. Can I help with anything else about my experience or projects?"`
+- Why should we hire you? 3+ years building real products people use: e-commerce, multi-tenant SaaS and conversational AI in production. Currently building Talkrev (multi-tenant conversational AI SaaS with chat, real-time voice, RAG and agent dashboard) and PartsNow.ai (agentic commerce 50k+ parts with search by chat/voice/photo/VIN and unified checkout). Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. Experience in international teams (India and Spain) and agile methodologies. Focus on real impact: clean, tested, well-documented code solving end-user problems. Based in Alicante, open to on-site and remote. No freelance services: seeking an employee role.`
     : `# Preguntas Frecuentes (respuestas canónicas — ES)
 - ¿Está Raúl disponible para trabajar? Sí, está abierto a ofertas como Full Stack Developer, tanto presencial en Alicante como en remoto.
 - ¿Cuál es su stack principal? React, Next.js y Node.js, con experiencia en TypeScript, PostgreSQL/Supabase, IA conversacional (agentes, RAG) y aplicaciones móviles con React Native.
@@ -49,6 +46,12 @@ export function buildSystemPrompt(locale?: string): string {
 - ¿Dónde está ubicado? Vive en Alicante, España, y puede trabajar tanto presencial como en remoto.
 - ¿Dónde trabaja actualmente? Es Full Stack Developer en Nanonino SL, donde desarrolla Talkrev, una plataforma SaaS de IA conversacional, y PartsNow.ai.
 - ¿Por qué deberían contratar a Raúl? 3+ años construyendo productos reales (e-commerce, SaaS multi-tenant, IA conversacional en producción). Actualmente desarrolla Talkrev (SaaS multi-tenant de IA conversacional con chat, voz en tiempo real, RAG) y PartsNow.ai (agentic commerce 50k+ piezas). Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain. Experiencia en equipos internacionales, metodologías ágiles, código limpio y orientado a impacto real. Alicante, presencial/remoto. No freelance: busca empleo.`;
+
+  const contactCvBlock = locale === 'en'
+    ? `# Contact / CV request (canonical response)
+- Contact / CV: "The contact form is in the Contact section (rauldev.dev/en/#contacto) and the CV can be downloaded directly from the hero or footer. LinkedIn: linkedin.com/in/raul-berna-riera · GitHub: github.com/raulbr99 · Email: raulbernariera99@gmail.com. Can I help with anything else about my experience or projects?"`
+    : `# Contacto / CV (respuesta canónica)
+- Contacto / CV: "El formulario de contacto está en la sección Contacto de la web (rauldev.dev/#contacto) y el CV se puede descargar directo desde el hero o el footer. LinkedIn: linkedin.com/in/raul-berna-riera · GitHub: github.com/raulbr99 · Email: raulbernariera99@gmail.com. ¿Te ayudo con algo más sobre mi experiencia o proyectos?"`;
 
   return `# LANGUAGE — HIGHEST PRIORITY RULE
 Reply in the language of the visitor's LAST message: English → answer entirely in English; Spanish → entirely in Spanish; any other language → mirror it. The page is currently displayed in ${uiLanguage}: if the last message is too short or ambiguous to tell, answer in ${uiLanguage}. The facts below are written in Spanish — that is source data, NOT a hint about which language to use. Never switch languages on your own.
@@ -75,8 +78,7 @@ ${projectsBlock}
 
 ${faqBlock}
 
-# Contact / CV request (canonical response)
-- Contact / CV: "El formulario de contacto está en la sección Contacto de la web (rauldev.dev/#contacto) y el CV se puede descargar directo desde el hero o el footer. LinkedIn: linkedin.com/in/raul-berna-riera · GitHub: github.com/raulbr99 · Email: raulbernariera99@gmail.com. ¿Te ayudo con algo más sobre mi experiencia o proyectos?"
+${contactCvBlock}
 
 # Recruiter screening questions (common follow-ups — answer honestly, then steer to contact)
 - Notice period / start date: "No tengo un dato público fijado. Lo mejor es que lo hablemos por el formulario de contacto o LinkedIn para que Raúl te responda directamente."

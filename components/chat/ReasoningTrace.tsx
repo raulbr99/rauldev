@@ -44,7 +44,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
   }, [text, streaming]);
 
   return (
-    <div className="border border-white/10 bg-white/[0.02]">
+    <div className="border border-[#252525] bg-[#0A0A0A]">
       <button
         type="button"
         onClick={() => setUserToggled(!open)}
@@ -53,21 +53,21 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
       >
         <Sparkles
           aria-hidden
-          className={`h-3 w-3 shrink-0 text-cyan-300 ${streaming && !reduce ? 'animate-pulse' : ''}`}
+          className={`h-3 w-3 shrink-0 text-[#D1FF26] ${streaming && !reduce ? 'animate-pulse' : ''}`}
         />
         <span
           className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
-            streaming ? 'text-cyan-200/90' : 'text-gray-500 group-hover/trace:text-gray-400'
+            streaming ? 'text-[#D1FF26]/90' : 'text-[#606060] group-hover/trace:text-[#A0A0A0]'
           }`}
         >
           {streaming ? t('reasoningLive') : t('reasoningDone')}
         </span>
         {streaming && seconds > 0 && (
-          <span className="font-mono text-[10px] tabular-nums text-cyan-300/60">{seconds}s</span>
+          <span className="font-mono text-[10px] tabular-nums text-[#D1FF26]/60">{seconds}s</span>
         )}
         <ChevronDown
           aria-hidden
-          className={`ml-auto h-3 w-3 shrink-0 text-gray-600 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          className={`ml-auto h-3 w-3 shrink-0 text-[#606060] transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
         />
       </button>
 
@@ -83,7 +83,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
           >
             <div
               ref={bodyRef}
-              className="max-h-36 overflow-y-auto border-t border-white/10 px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-gray-500"
+              className="max-h-36 overflow-y-auto border-t border-[#252525] px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-[#606060]"
             >
               {clean(text)}
             </div>
