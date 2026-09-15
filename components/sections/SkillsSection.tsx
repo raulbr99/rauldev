@@ -3,10 +3,11 @@ import {
   SiReact, SiNextdotjs, SiTypescript, SiNodedotjs,
   SiPython, SiMongodb, SiPostgresql, SiTailwindcss,
   SiJavascript, SiNestjs, SiWordpress, SiGooglecloud,
-  SiAmazon, SiGithub, SiStrapi, SiSupabase,
-  SiOpenai, SiGoogle, SiFastapi, SiLangchain,
+  SiGithub, SiStrapi, SiSupabase,
+  SiOpenaigym, SiGoogle, SiFastapi, SiLangchain,
   SiStripe, SiShopify, SiVercel, SiDocker, SiRedis
 } from 'react-icons/si';
+import { FaAws } from 'react-icons/fa';
 import Reveal from '../anim/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -30,13 +31,13 @@ export default function SkillsSection() {
     { name: 'Redis', icon: <SiRedis className="text-red-500" />, categoryKey: 'database' },
     { name: 'Vercel', icon: <SiVercel className="text-white" />, categoryKey: 'cloud' },
     { name: 'Google Cloud', icon: <SiGooglecloud className="text-blue-500" />, categoryKey: 'cloud' },
-    { name: 'AWS', icon: <SiAmazon className="text-orange-500" />, categoryKey: 'cloud' },
+    { name: 'AWS', icon: <FaAws className="text-orange-500" />, categoryKey: 'cloud' },
     { name: 'Docker', icon: <SiDocker className="text-sky-400" />, categoryKey: 'cloud' },
     { name: 'GitHub', icon: <SiGithub className="text-white" />, categoryKey: 'cloud' },
     { name: 'Shopify', icon: <SiShopify className="text-green-500" />, categoryKey: 'cms' },
     { name: 'WordPress', icon: <SiWordpress className="text-blue-600" />, categoryKey: 'cms' },
     { name: 'Strapi', icon: <SiStrapi className="text-purple-500" />, categoryKey: 'cms' },
-    { name: 'OpenAI', icon: <SiOpenai className="text-green-400" />, categoryKey: 'ai' },
+    { name: 'OpenAI', icon: <SiOpenaigym className="text-green-400" />, categoryKey: 'ai' },
     { name: 'LangChain', icon: <SiLangchain className="text-emerald-400" />, categoryKey: 'ai' },
     { name: 'Dialogflow', icon: <SiGoogle className="text-blue-500" />, categoryKey: 'ai' },
   ];
