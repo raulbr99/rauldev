@@ -74,7 +74,7 @@ export default function ChatWidget() {
     el.style.height = `${Math.min(el.scrollHeight, INPUT_MAX_HEIGHT)}px`;
   }, []);
 
-  const submit = (text: string) => {
+  const submit = (text: string, options?: { scrollToContact?: boolean }) => {
     const value = text.trim();
     if (!value || busy) return;
     clearError();
@@ -82,6 +82,10 @@ export default function ChatWidget() {
     sendMessage({ text: value });
     setInput('');
     requestAnimationFrame(resizeInput);
+    if (options?.scrollToContact) {
+      const contactSection = document.getElementById('contacto');
+      contactSection?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
   };
 
   const reset = () => {
@@ -201,19 +205,22 @@ export default function ChatWidget() {
                       {t('suggestionsTitle')}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
-                      {SUGGESTION_KEYS.map((key) => (
-                        <button
-                          key={key}
-                          onClick={() => submit(t(`suggestions.${key}`))}
-                          title={t(`suggestions.${key}`)}
-                          className="group flex items-center gap-1.5 border border-[#252525] bg-[#0A0A0A] px-2.5 py-1.5 font-mono text-[11px] text-[#A0A0A0] transition-colors hover:border-[#D1FF26]/50 hover:bg-[#D1FF26]/10 hover:text-[#D1FF26]"
-                        >
-                          {t(`suggestionLabels.${key}`)}
-                          <span aria-hidden className="text-[#404040] transition-transform group-hover:translate-x-0.5 group-hover:text-[#D1FF26]">
-                            →
-                          </span>
-                        </button>
-                      ))}
+                      {SUGGESTION_KEYS.map((key) => {
+                        const isContact = key === 'contact';
+                        return (
+                          <button
+                            key={key}
+                            onClick={() => submit(t(`suggestions.${key}`), { scrollToContact: isContact })}
+                            title={t(`suggestions.${key}`)}
+                            className={`group flex items-center gap-1.5 border border-[#252525] bg-[#0A0A0A] px-2.5 py-1.5 font-mono text-[11px] text-[#A0A0A0] transition-colors hover:border-[#D1FF26]/50 hover:bg-[#D1FF26]/10 hover:text-[#D1FF26] ${isContact ? 'ring-1 ring-[#D1FF26]/30' : ''}`}
+                          >
+                            {t(`suggestionLabels.${key}`)}
+                            <span aria-hidden className="text-[#404040] transition-transform group-hover:translate-x-0.5 group-hover:text-[#D1FF26]">
+                              →
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
