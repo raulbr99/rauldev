@@ -35,7 +35,7 @@ export default async function Home({ params }: Props) {
         <Reveal><ExperienceSection /></Reveal>
         <Reveal><SkillsSection /></Reveal>
         <Reveal><ProjectsSection /></Reveal>
-        <Reveal><FAQSection /></Reveal>
+        <Reveal><FAQSection locale={locale as 'es' | 'en'} /></Reveal>
         <Reveal><ContactSection /></Reveal>
       </main>
       <Footer />
