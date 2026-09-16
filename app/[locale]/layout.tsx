@@ -121,7 +121,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   // viajan al cliente los espacios que usan componentes 'use client'. El resto
   // (hero, about, experience, skills, footer, legal…) se resuelve en servidor.
   const clientMessages = Object.fromEntries(
-    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error', 'a11y'] as const)
+    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error', 'a11y', 'legal', 'footer'] as const)
       .filter((ns) => ns in messages)
       .map((ns) => [ns, messages[ns]])
   );
