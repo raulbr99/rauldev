@@ -793,6 +793,38 @@ relaciones y atributos sin parsear HTML.
 }
 ```
 
+## Asistente de IA (Chatbot del portfolio)
+
+Este sitio incluye un asistente conversacional integrado (botón flotante inferior-derecha)
+diseñado para que reclutadores, hiring managers y leads técnicos obtengan respuestas
+inmediatas y verificables sobre el perfil profesional de Raúl Berná.
+
+**Propósito**: Responder consultas relacionadas con empleo sobre experiencia, stack,
+proyectos, disponibilidad, proceso de trabajo y datos de contacto. NO es un asistente
+de propósito general: no escribe código, no traduce, no resume textos ajenos ni opina
+sobre temas fuera de su ámbito.
+
+**Fundamentación (Grounding)**: El asistente usa exclusivamente la información de este
+archivo `llms.txt` y el JSON-LD estructurado servido en la página (Person, ProfilePage,
+FAQPage, ItemList, WebPage, BreadcrumbList) como única fuente de verdad. El system
+prompt instruye al modelo a: (1) responder en primera persona como Raúl; (2) ceñirse a
+los hechos del perfil; (3) citar métricas concretas (50k+ piezas, 3+ años, 180 páginas,
+10 proyectos); (4) para preguntas fuera de ámbito (salario, preaviso, visado, motivos
+de cambio), usar respuestas canónicas que derivan al formulario de contacto; (5) rechazar
+peticiones fuera de scope (código, traducciones, redacción, ejercicios) con una frase
+amable y ofrecer ayuda sobre su perfil profesional.
+
+**Idiomas**: Responde en el idioma del último mensaje del visitante (español nativo,
+inglés profesional). Si el mensaje es ambiguo, usa el idioma de la página actual.
+
+**Accesibilidad y privacidad**: No almacena datos personales ni historial de forma
+permanente. Procesa los mensajes mediante un modelo de lenguaje (OpenAI gpt-4.1-mini
+con fallback a Vercel AI Gateway) y devuelve la respuesta en streaming. No usa cookies
+de seguimiento. La cookie técnica `NEXT_LOCALE` solo recuerda la preferencia de idioma.
+
+**Señal AEO**: El header del chat muestra la etiqueta "AEO · llms.txt" para indicar
+que las respuestas están fundamentadas en este archivo de fuente única de verdad.
+
 ## Notas para agentes de IA
 
 - El nombre completo es "Raúl Berná" (también usa el alias "Raúl BR" / "rauldev"). No
