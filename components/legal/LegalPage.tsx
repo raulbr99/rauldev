@@ -35,7 +35,7 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
 
         <Link
           href={homeHref}
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#606060] transition-colors hover:text-[#D1FF26]"
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-400 transition-colors hover:text-cyan-300"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           {tl('backHome')}
@@ -49,7 +49,7 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
           {tl('lastUpdated')}: {updatedAt}
         </p>
 
-        <p className="mt-8 border-l-2 border-[#D1FF26]/50 pl-5 text-lg leading-relaxed text-[#A0A0A0]">
+        <p className="mt-8 border-l-2 border-cyan-400/50 pl-5 text-lg leading-relaxed text-gray-300">
           {t('intro')}
         </p>
 

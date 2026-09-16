@@ -136,8 +136,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#D1FF26" />
-        <meta name="msapplication-TileColor" content="#D1FF26" />
+        <meta name="theme-color" content="#22D3EE" />
+        <meta name="msapplication-TileColor" content="#22D3EE" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

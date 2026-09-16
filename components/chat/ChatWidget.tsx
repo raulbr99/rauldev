@@ -116,7 +116,7 @@ export default function ChatWidget() {
         aria-label={open ? t('close') : t('open')}
         aria-expanded={open}
         aria-controls="chat-dialog"
-        className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center bg-[#D1FF26] text-[#0A0A0A] shadow-[0_0_0_1px_rgba(209,255,38,0.5),0_14px_40px_-12px_rgba(209,255,38,0.75)] transition-transform hover:scale-105 active:scale-95"
+        className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center bg-cyan-400 text-slate-950 shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_14px_40px_-12px_rgba(34,211,238,0.75)] transition-transform hover:scale-105 active:scale-95"
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
@@ -131,8 +131,8 @@ export default function ChatWidget() {
         </AnimatePresence>
         {!open && (
           <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3" aria-hidden>
-            <span className="absolute inline-flex h-full w-full animate-ping bg-[#D1FF26] opacity-75" />
-            <span className="relative inline-flex h-3 w-3 bg-[#D1FF26]" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
           </span>
         )}
       </button>
@@ -149,25 +149,25 @@ export default function ChatWidget() {
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
             style={{ transformOrigin: 'bottom right' }}
-            className="fixed inset-x-3 bottom-24 z-[90] flex h-[min(36rem,calc(100dvh-8rem))] flex-col border border-[#252525] bg-[#0F0F0F] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:inset-x-auto sm:right-5 sm:w-[25rem]"
+            className="fixed inset-x-3 bottom-24 z-[90] flex h-[min(36rem,calc(100dvh-8rem))] flex-col border border-white/12 bg-slate-950/95 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:inset-x-auto sm:right-5 sm:w-[25rem]"
           >
             {/* Filo superior: el acento de la marca antes que nada */}
-            <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-[#D1FF26]/70 to-transparent" />
+            <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent" />
 
             {/* Header */}
-            <header className="flex items-center gap-3 border-b border-[#252525] bg-[#1A1A1A] px-3.5 py-3">
+            <header className="flex items-center gap-3 border-b border-white/10 bg-techgrid px-3.5 py-3">
               <div className="relative shrink-0">
-                <div className="relative h-10 w-10 overflow-hidden border border-[#D1FF26]/40">
+                <div className="relative h-10 w-10 overflow-hidden border border-cyan-400/40">
                   <Image src="/me.jpg" alt="" fill sizes="40px" className="object-cover" />
                 </div>
-                <span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 border-2 border-[#0F0F0F] bg-[#D1FF26]" />
+                <span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 border-2 border-slate-950 bg-green-400" />
               </div>
               <div className="min-w-0">
                 <p className="truncate text-sm font-bold leading-tight text-white">{t('title')}</p>
-                <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#606060]">
-                  <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-[#D1FF26]' : 'bg-[#D1FF26]'}`} aria-hidden />
-                  <span className={`truncate ${busy ? 'text-[#D1FF26]/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
-                  <span className="ml-2 px-1.5 py-0.5 border border-[#252525] text-[9px] uppercase tracking-[0.15em] text-[#505050]">AEO · llms.txt</span>
+                <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-500">
+                  <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-cyan-300' : 'bg-green-400'}`} aria-hidden />
+                  <span className={`truncate ${busy ? 'text-cyan-200/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
+                  <span className="ml-2 px-1.5 py-0.5 border border-white/12 text-[9px] uppercase tracking-[0.15em] text-gray-600">AEO · llms.txt</span>
                 </p>
               </div>
               <div className="ml-auto flex items-center gap-0.5">
@@ -176,7 +176,7 @@ export default function ChatWidget() {
                     onClick={reset}
                     aria-label={t('reset')}
                     title={t('reset')}
-                    className="flex h-8 w-8 items-center justify-center text-[#606060] transition-colors hover:bg-white/5 hover:text-[#D1FF26]"
+                    className="flex h-8 w-8 items-center justify-center text-gray-500 transition-colors hover:bg-white/5 hover:text-white"
                   >
                     <RotateCcw className="h-4 w-4" />
                   </button>
@@ -184,7 +184,7 @@ export default function ChatWidget() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label={t('close')}
-                  className="flex h-8 w-8 items-center justify-center text-[#606060] transition-colors hover:bg-white/5 hover:text-[#D1FF26]"
+                  className="flex h-8 w-8 items-center justify-center text-gray-500 transition-colors hover:bg-white/5 hover:text-white"
                 >
                   <X className="h-4.5 w-4.5" />
                 </button>
@@ -195,14 +195,14 @@ export default function ChatWidget() {
             <div ref={scrollRef} onScroll={onScroll} className="flex-1 overflow-y-auto" aria-live="polite">
               <div className="flex min-h-full flex-col justify-end space-y-3.5 px-3.5 py-4">
                 {/* Saludo */}
-                <div className="border-l-2 border-[#D1FF26]/50 bg-white/[0.035] px-3.5 py-2.5 text-sm leading-relaxed text-[#A0A0A0]">
+                <div className="border-l-2 border-cyan-400/50 bg-white/[0.035] px-3.5 py-2.5 text-sm leading-relaxed text-gray-200">
                   {t('greeting')}
                 </div>
 
                 {/* Sugerencias: etiqueta corta a la vista, pregunta completa al modelo */}
                 {messages.length === 0 && (
                   <div className="pt-1">
-                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[#606060]">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
                       {t('suggestionsTitle')}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -213,10 +213,10 @@ export default function ChatWidget() {
                             key={key}
                             onClick={() => submit(t(`suggestions.${key}`), { scrollToContact: isContact })}
                             title={t(`suggestions.${key}`)}
-                            className={`group flex items-center gap-1.5 border border-[#252525] bg-[#0A0A0A] px-2.5 py-1.5 font-mono text-[11px] text-[#A0A0A0] transition-colors hover:border-[#D1FF26]/50 hover:bg-[#D1FF26]/10 hover:text-[#D1FF26] ${isContact ? 'ring-1 ring-[#D1FF26]/30' : ''}`}
+                            className={`group flex items-center gap-1.5 border border-white/12 bg-white/[0.02] px-2.5 py-1.5 font-mono text-[11px] text-gray-400 transition-colors hover:border-cyan-400/50 hover:bg-cyan-400/[0.06] hover:text-cyan-200 ${isContact ? 'ring-1 ring-cyan-400/30' : ''}`}
                           >
                             {t(`suggestionLabels.${key}`)}
-                            <span aria-hidden className="text-[#404040] transition-transform group-hover:translate-x-0.5 group-hover:text-[#D1FF26]">
+                            <span aria-hidden className="text-gray-700 transition-transform group-hover:translate-x-0.5 group-hover:text-cyan-300">
                               →
                             </span>
                           </button>
@@ -256,7 +256,7 @@ export default function ChatWidget() {
                         transition={{ duration: 0.18 }}
                         className="flex justify-end"
                       >
-                        <p className="max-w-[85%] whitespace-pre-wrap bg-[#D1FF26] px-3.5 py-2 text-sm font-medium leading-relaxed text-[#0A0A0A]">
+                        <p className="max-w-[85%] whitespace-pre-wrap bg-cyan-400 px-3.5 py-2 text-sm font-medium leading-relaxed text-slate-950">
                           {text}
                         </p>
                       </motion.div>
@@ -274,7 +274,7 @@ export default function ChatWidget() {
                       {reasoning && <ReasoningTrace text={reasoning} streaming={reasoningLive} />}
 
                       {text && (
-                        <div className="border-l-2 border-[#D1FF26]/50 bg-white/[0.035] px-3.5 py-2.5 text-sm text-[#A0A0A0]">
+                        <div className="border-l-2 border-cyan-400/50 bg-white/[0.035] px-3.5 py-2.5 text-sm text-gray-200">
                           <Markdown>{text}</Markdown>
                         </div>
                       )}
@@ -283,7 +283,7 @@ export default function ChatWidget() {
                         <button
                           onClick={() => copy(m.id, text)}
                           aria-label={t('copy')}
-                          className="ml-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[#606060] opacity-0 transition-opacity hover:text-[#D1FF26] focus-visible:opacity-100 group-hover:opacity-100"
+                          className="ml-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-600 opacity-0 transition-opacity hover:text-cyan-300 focus-visible:opacity-100 group-hover:opacity-100"
                         >
                           {copiedId === m.id ? (
                             <>
@@ -302,10 +302,10 @@ export default function ChatWidget() {
 
                 {status === 'submitted' && (
                   <div className="flex" aria-label={t('thinking')}>
-                    <div className="flex gap-1 border-l-2 border-[#D1FF26]/50 bg-white/[0.035] px-3.5 py-3.5">
-                      <span className="h-1.5 w-1.5 animate-bounce bg-[#D1FF26] [animation-delay:-0.3s]" />
-                      <span className="h-1.5 w-1.5 animate-bounce bg-[#D1FF26] [animation-delay:-0.15s]" />
-                      <span className="h-1.5 w-1.5 animate-bounce bg-[#D1FF26]" />
+                    <div className="flex gap-1 border-l-2 border-cyan-400/50 bg-white/[0.035] px-3.5 py-3.5">
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400 [animation-delay:-0.3s]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400 [animation-delay:-0.15s]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400" />
                     </div>
                   </div>
                 )}
@@ -324,12 +324,12 @@ export default function ChatWidget() {
                 e.preventDefault();
                 submit(input);
               }}
-              className="border-t border-[#252525] p-2.5"
+              className="border-t border-white/10 p-2.5"
             >
               <label htmlFor="chat-input" className="sr-only">
                 {t('placeholder')}
               </label>
-              <div className="flex items-end gap-2 border border-[#252525] bg-[#0A0A0A] px-2.5 py-1 transition-colors focus-within:border-[#D1FF26]/70 focus-within:bg-white/[0.05]">
+              <div className="flex items-end gap-2 border border-white/12 bg-white/[0.03] px-2.5 py-1 transition-colors focus-within:border-cyan-400/70 focus-within:bg-white/[0.05]">
                 <textarea
                   id="chat-input"
                   ref={inputRef}
@@ -349,14 +349,14 @@ export default function ChatWidget() {
                   maxLength={MAX_CHARS}
                   autoComplete="off"
                   enterKeyHint="send"
-                  className="max-h-28 min-w-0 flex-1 resize-none bg-transparent py-2 font-mono text-sm leading-relaxed text-white outline-none placeholder:text-[#606060]"
+                  className="max-h-28 min-w-0 flex-1 resize-none bg-transparent py-2 font-mono text-sm leading-relaxed text-white outline-none placeholder:text-gray-600"
                 />
                 {busy ? (
                   <button
                     type="button"
                     onClick={() => stop()}
                     aria-label={t('stop')}
-                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center border border-[#252525] text-white transition-colors hover:border-[#D1FF26]/60 hover:text-[#D1FF26]"
+                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center border border-white/20 text-white transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
                   >
                     <Square className="h-3.5 w-3.5" />
                   </button>
@@ -365,7 +365,7 @@ export default function ChatWidget() {
                     type="submit"
                     aria-label={t('send')}
                     disabled={!input.trim()}
-                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center bg-[#D1FF26] text-[#0A0A0A] transition-colors hover:bg-[#D1FF26]/90 disabled:cursor-not-allowed disabled:bg-[#252525] disabled:text-[#606060]"
+                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center bg-cyan-400 text-slate-950 transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-gray-600"
                   >
                     <ArrowUp className="h-4 w-4" />
                   </button>
@@ -373,9 +373,9 @@ export default function ChatWidget() {
               </div>
 
               <div className="mt-2 flex items-start gap-2 px-0.5">
-                <p className="min-w-0 flex-1 font-mono text-[10px] leading-snug text-[#606060]">{t('disclaimer')}</p>
+                <p className="min-w-0 flex-1 font-mono text-[10px] leading-snug text-gray-600">{t('disclaimer')}</p>
                 {input.length > MAX_CHARS * 0.8 && (
-                  <span className="shrink-0 font-mono text-[10px] text-[#606060]">
+                  <span className="shrink-0 font-mono text-[10px] text-gray-600">
                     {input.length}/{MAX_CHARS}
                   </span>
                 )}

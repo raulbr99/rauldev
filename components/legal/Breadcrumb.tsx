@@ -33,11 +33,11 @@ export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
       className="mb-6 flex flex-wrap items-center gap-2"
       aria-label="Breadcrumb"
     >
-      <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[#606060]">
+      <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
         <li className="flex items-center gap-2">
           <Link
             href={homeHref}
-            className="transition-colors hover:text-[#D1FF26]"
+            className="transition-colors hover:text-cyan-300"
             aria-label={homeLabel}
           >
             {homeLabel}
@@ -45,12 +45,12 @@ export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
         </li>
         <li className="flex items-center gap-2">
           <ChevronRight
-            className="h-3 w-3 flex-shrink-0 text-[#404040]"
+            className="h-3 w-3 flex-shrink-0 text-gray-700"
             aria-hidden="true"
           />
           <Link
             href={pageHref}
-            className="text-[#505050] hover:text-[#D1FF26] transition-colors"
+            className="text-gray-400 hover:text-cyan-300 transition-colors"
             aria-current="page"
           >
             {pageLabel}
