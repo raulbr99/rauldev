@@ -36,13 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isSpanish = locale === 'es';
 
-  // El nombre se mantiene primero para reforzar la marca personal en buscadores.
   const title = isSpanish
     ? `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, IA) | Alicante`
     : `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, AI) | Alicante, Spain`;
   const description = isSpanish
-    ? 'Full Stack Developer 3+ años (React, Next.js, Node.js, IA conversacional/RAG). Actual: Nanonino SL (Talkrev, PartsNow.ai 50k+ piezas). Busco empleo Alicante/remoto. No freelance.'
-    : 'Full Stack Developer 3+ years (React, Next.js, Node.js, Conversational AI/RAG). Current: Nanonino SL (Talkrev, PartsNow.ai 50k+ parts). Seeking Alicante/remote roles. No freelance.';
+    ? 'Full Stack Developer 3+ años: React, Next.js, Node.js, TypeScript, IA conversacional (RAG, LangChain). Actual: Nanonino SL (Talkrev, PartsNow.ai 50k+ piezas). Busco empleo Alicante/remoto. No freelance.'
+    : 'Full Stack Developer 3+ years: React, Next.js, Node.js, TypeScript, Conversational AI (RAG, LangChain). Current: Nanonino SL (Talkrev, PartsNow.ai 50k+ parts). Seeking Alicante/remote roles. No freelance.';
   const ogImageAlt = isSpanish
     ? `${SITE_OWNER}, desarrollador web para negocios en Alicante`
     : `${SITE_OWNER}, web developer for businesses in Alicante, Spain`;
