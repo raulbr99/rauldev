@@ -224,9 +224,55 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     ],
   };
 
+  const chatAssistant = {
+    '@type': 'SoftwareApplication',
+    '@id': `${pageUrl}#chat-assistant`,
+    name: isSpanish ? 'Asistente IA de Raúl Berná' : "Raúl Berná's AI Assistant",
+    applicationCategory: 'ConversationalAIApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+    },
+    description: isSpanish
+      ? 'Asistente conversacional integrado en el portfolio para responder consultas sobre la experiencia, stack, proyectos y disponibilidad laboral de Raúl Berná. Fundamentado en llms.txt y datos estructurados (Person, FAQPage, ItemList). Responde en español e inglés. No almacena datos personales. Modelo: OpenAI gpt-4.1-mini con fallback a Vercel AI Gateway.'
+      : 'Conversational assistant embedded in the portfolio to answer queries about Raúl Berná\'s experience, stack, projects and job availability. Grounded in llms.txt and structured data (Person, FAQPage, ItemList). Replies in Spanish and English. No personal data stored. Model: OpenAI gpt-4.1-mini with Vercel AI Gateway fallback.',
+    featureList: [
+      isSpanish ? 'Respuestas basadas en fuente única de verdad (llms.txt)' : 'Answers grounded in single source of truth (llms.txt)',
+      isSpanish ? 'Métricas concretas: 50k+ piezas, 3+ años, 180 páginas, 10 proyectos' : 'Concrete metrics: 50k+ parts, 3+ years, 180 pages, 10 projects',
+      isSpanish ? 'Idiomas: español nativo, inglés profesional' : 'Languages: native Spanish, professional English',
+      isSpanish ? 'Privacidad: sin almacenamiento permanente, sin cookies de seguimiento' : 'Privacy: no permanent storage, no tracking cookies',
+      isSpanish ? 'Accesibilidad: panel de razonamiento visible, copia de respuestas' : 'Accessibility: visible reasoning panel, copy answers',
+      isSpanish ? 'Scope estricto: solo perfil profesional, nada de código/traducciones/ejercicios' : 'Strict scope: professional profile only, no code/translations/exercises',
+    ],
+    publisher: { '@id': PERSON_ID },
+    author: { '@id': PERSON_ID },
+    dateCreated: '2025-10-01',
+    dateModified: CONTENT_UPDATED,
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntity: { '@id': PERSON_ID },
+    potentialAction: {
+      '@type': 'InteractAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: pageUrl,
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+      name: isSpanish ? 'Chatear con el asistente' : 'Chat with assistant',
+      description: isSpanish
+        ? 'Abre el chat flotante en la esquina inferior derecha para consultar experiencia, stack, proyectos o disponibilidad.'
+        : 'Open the floating chat in the bottom-right corner to ask about experience, stack, projects or availability.',
+    },
+  };
+
   const graph = {
     '@context': 'https://schema.org',
-    '@graph': [person, organization, website, profilePage, faqPage, projectList, breadcrumbList],
+    '@graph': [person, organization, website, profilePage, faqPage, projectList, breadcrumbList, chatAssistant],
   };
 
   return (
