@@ -167,6 +167,7 @@ export default function ChatWidget() {
                 <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#606060]">
                   <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-[#D1FF26]' : 'bg-[#D1FF26]'}`} aria-hidden />
                   <span className={`truncate ${busy ? 'text-[#D1FF26]/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
+                  <span className="ml-2 px-1.5 py-0.5 border border-[#252525] text-[9px] uppercase tracking-[0.15em] text-[#505050]">AEO · llms.txt</span>
                 </p>
               </div>
               <div className="ml-auto flex items-center gap-0.5">
