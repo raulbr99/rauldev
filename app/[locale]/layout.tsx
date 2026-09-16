@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, IA) | Alicante`
     : `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, AI) | Alicante, Spain`;
   const description = isSpanish
-    ? 'Full Stack Developer 3+ años: React, Next.js, Node.js, IA conversacional. Nanonino SL (Talkrev, PartsNow.ai 50k+ piezas). Empleo Alicante/remoto. No freelance.'
-    : 'Full Stack Developer 3+ years: React, Next.js, Node.js, Conversational AI. Nanonino SL (Talkrev, PartsNow.ai 50k+ parts). Alicante/remote. No freelance.';
+    ? 'Full Stack Developer 3+ años: React, Next.js, Node.js, IA conversacional. Talkrev y PartsNow.ai (50k+ piezas). Empleo Alicante/remoto. No freelance.'
+    : 'Full Stack Developer 3+ years: React, Next.js, Node.js, Conversational AI. Talkrev & PartsNow.ai (50k+ parts). Alicante/remote. No freelance.';
   const ogImageAlt = isSpanish
     ? `${SITE_OWNER}, desarrollador web para negocios en Alicante`
     : `${SITE_OWNER}, web developer for businesses in Alicante, Spain`;
@@ -136,8 +136,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#22D3EE" />
-        <meta name="msapplication-TileColor" content="#22D3EE" />
+        <meta name="theme-color" content="#D1FF26" />
+        <meta name="msapplication-TileColor" content="#D1FF26" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
