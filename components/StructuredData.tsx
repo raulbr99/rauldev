@@ -145,6 +145,10 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       width: 1200,
       height: 630,
     },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#inicio .max-w-xl', '#faq'],
+    },
     // El formulario es el siguiente paso para oportunidades laborales.
     potentialAction: {
       '@type': 'ApplyAction',
