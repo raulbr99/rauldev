@@ -13,6 +13,7 @@ import AuroraBackground from '@/components/anim/AuroraBackground';
 import ScrollProgress from '@/components/anim/ScrollProgress';
 import Reveal from '@/components/anim/Reveal';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
+import StructuredData from '@/components/StructuredData';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -21,10 +22,12 @@ type Props = {
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const legalLocale = locale as 'es' | 'en';
   const t = await getTranslations({ locale, namespace: 'a11y' });
 
   return (
     <div className="relative min-h-dvh overflow-x-clip">
+      <StructuredData language={legalLocale} />
       <SkipLink label={t('skipToContent')} />
       <AuroraBackground />
       <ScrollProgress />
