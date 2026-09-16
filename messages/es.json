@@ -301,14 +301,17 @@
     "disclaimer": "Asistente con IA basado en el perfil profesional de Raúl · No almacena datos personales · Para consultas formales, usa el formulario de contacto",
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
-    "suggestions": {
+"suggestions": {
       "whatIBuild": "¿Qué productos reales has construido?",
       "challenge": "¿Reto técnico más complejo (Talkrev RAG / PartsNow 50k)?",
       "availability": "¿Disponibilidad, preaviso y tipo de contrato (empleado)?",
       "aiExperience": "¿Experiencia con IA conversacional y agentes?",
       "teamwork": "¿Cómo trabajas en equipos internacionales/remotos?",
-"whyHire": "¿Por qué contratarte frente a otros perfiles?",
+      "whyHire": "¿Por qué contratarte frente a otros perfiles?",
       "stack": "¿Stack principal y nivel en cada tecnología?",
+      "notice": "¿Preaviso y fecha de incorporación?",
+      "salary": "¿Expectativas salariales?",
+      "visa": "¿Visado / reubicación (UE)?",
       "contact": "Quiero contactar / ver CV"
     },
     "suggestionLabels": {
@@ -319,6 +322,9 @@
       "teamwork": "Equipos remotos",
       "whyHire": "Por qué contratarme",
       "stack": "Stack técnico",
+      "notice": "Preaviso",
+      "salary": "Salario",
+      "visa": "Visado / UE",
       "contact": "Contactar / CV"
     }
   },

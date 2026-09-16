@@ -301,14 +301,17 @@
     "disclaimer": "AI-powered assistant based on Raúl's professional profile · No personal data stored · For formal inquiries, please use the contact form",
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
-    "suggestions": {
+"suggestions": {
       "whatIBuild": "What real products have you built?",
       "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k)?",
       "availability": "Availability, notice period, contract type (employee)?",
       "aiExperience": "Experience with conversational AI and agents?",
       "teamwork": "How do you work in international/remote teams?",
-"whyHire": "Why hire you over other candidates?",
+      "whyHire": "Why hire you over other candidates?",
       "stack": "Core stack and proficiency level in each?",
+      "notice": "Notice period and start date?",
+      "salary": "Salary expectations?",
+      "visa": "Visa / relocation (EU)?",
       "contact": "I want to contact / view CV"
     },
     "suggestionLabels": {
@@ -319,6 +322,9 @@
       "teamwork": "Remote teams",
       "whyHire": "Why hire me",
       "stack": "Tech stack",
+      "notice": "Notice period",
+      "salary": "Salary",
+      "visa": "Visa / EU",
       "contact": "Contact / CV"
     }
   },
