@@ -5,7 +5,6 @@ import { ExternalLink, Github, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Project } from '../../hooks/useProjects';
 import { projectKeyMap } from '@/lib/project-keys';
-import TiltCard from '../anim/TiltCard';
 
 interface ProjectCardProps {
     project: Project;
@@ -32,15 +31,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const category = categoryKey ? t(`categories.${categoryKey}`) : project.category;
 
     return (
-        <TiltCard className="h-full">
-            <div className="group flex h-full flex-col overflow-hidden border border-white/15 bg-white/[0.04] backdrop-blur-md transition-colors hover:border-cyan-400/30">
+            <div className="group flex h-full flex-col overflow-hidden border border-white/15 bg-white/[0.03] transition-colors hover:border-cyan-400/30">
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={project.image}
                     alt={title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover"
                 />
                 <div className="absolute top-4 right-4">
                     <span className="bg-cyan-400 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-slate-950">
@@ -96,7 +94,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         {project.demo && (
                             <a
                                 href={project.demo}
-                                className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                                className="flex items-center gap-1 text-cyan-300 hover:text-cyan-200 transition-colors text-sm"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -113,6 +111,5 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
             </div>
             </div>
-        </TiltCard>
     );
 }

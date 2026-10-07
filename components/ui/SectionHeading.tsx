@@ -38,7 +38,7 @@ export default function SectionHeading({
         {!center && <span className="h-px flex-1 bg-gradient-to-r from-white/15 to-transparent" />}
       </div>
 
-      <h2 className="text-4xl font-bold uppercase leading-[0.95] text-white sm:text-5xl md:text-6xl">
+      <h2 className="text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
         {title}
       </h2>
 

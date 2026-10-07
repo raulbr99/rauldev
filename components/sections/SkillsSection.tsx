@@ -15,31 +15,31 @@ export default function SkillsSection() {
   const t = useTranslations('skills');
 
   const skills = [
-    { name: 'React', icon: <SiReact className="text-cyan-400" />, categoryKey: 'frontend' },
-    { name: 'Next.js', icon: <SiNextdotjs className="text-white" />, categoryKey: 'frontend' },
-    { name: 'TypeScript', icon: <SiTypescript className="text-blue-500" />, categoryKey: 'frontend' },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-500" />, categoryKey: 'frontend' },
-    { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" />, categoryKey: 'frontend' },
-    { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" />, categoryKey: 'backend' },
-    { name: 'NestJS', icon: <SiNestjs className="text-red-500" />, categoryKey: 'backend' },
-    { name: 'Python', icon: <SiPython className="text-yellow-400" />, categoryKey: 'backend' },
-    { name: 'FastAPI', icon: <SiFastapi className="text-teal-400" />, categoryKey: 'backend' },
-    { name: 'Stripe', icon: <SiStripe className="text-indigo-400" />, categoryKey: 'backend' },
-    { name: 'PostgreSQL', icon: <SiPostgresql className="text-sky-500" />, categoryKey: 'database' },
-    { name: 'Supabase', icon: <SiSupabase className="text-green-500" />, categoryKey: 'database' },
-    { name: 'MongoDB', icon: <SiMongodb className="text-green-400" />, categoryKey: 'database' },
-    { name: 'Redis', icon: <SiRedis className="text-red-500" />, categoryKey: 'database' },
-    { name: 'Vercel', icon: <SiVercel className="text-white" />, categoryKey: 'cloud' },
-    { name: 'Google Cloud', icon: <SiGooglecloud className="text-blue-500" />, categoryKey: 'cloud' },
-    { name: 'AWS', icon: <FaAws className="text-orange-500" />, categoryKey: 'cloud' },
-    { name: 'Docker', icon: <SiDocker className="text-sky-400" />, categoryKey: 'cloud' },
-    { name: 'GitHub', icon: <SiGithub className="text-white" />, categoryKey: 'cloud' },
-    { name: 'Shopify', icon: <SiShopify className="text-green-500" />, categoryKey: 'cms' },
-    { name: 'WordPress', icon: <SiWordpress className="text-blue-600" />, categoryKey: 'cms' },
-    { name: 'Strapi', icon: <SiStrapi className="text-purple-500" />, categoryKey: 'cms' },
-    { name: 'OpenAI', icon: <SiOpenaigym className="text-green-400" />, categoryKey: 'ai' },
-    { name: 'LangChain', icon: <SiLangchain className="text-emerald-400" />, categoryKey: 'ai' },
-    { name: 'Dialogflow', icon: <SiGoogle className="text-blue-500" />, categoryKey: 'ai' },
+    { name: 'React', icon: <SiReact />, categoryKey: 'frontend' },
+    { name: 'Next.js', icon: <SiNextdotjs />, categoryKey: 'frontend' },
+    { name: 'TypeScript', icon: <SiTypescript />, categoryKey: 'frontend' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss />, categoryKey: 'frontend' },
+    { name: 'JavaScript', icon: <SiJavascript />, categoryKey: 'frontend' },
+    { name: 'Node.js', icon: <SiNodedotjs />, categoryKey: 'backend' },
+    { name: 'NestJS', icon: <SiNestjs />, categoryKey: 'backend' },
+    { name: 'Python', icon: <SiPython />, categoryKey: 'backend' },
+    { name: 'FastAPI', icon: <SiFastapi />, categoryKey: 'backend' },
+    { name: 'Stripe', icon: <SiStripe />, categoryKey: 'backend' },
+    { name: 'PostgreSQL', icon: <SiPostgresql />, categoryKey: 'database' },
+    { name: 'Supabase', icon: <SiSupabase />, categoryKey: 'database' },
+    { name: 'MongoDB', icon: <SiMongodb />, categoryKey: 'database' },
+    { name: 'Redis', icon: <SiRedis />, categoryKey: 'database' },
+    { name: 'Vercel', icon: <SiVercel />, categoryKey: 'cloud' },
+    { name: 'Google Cloud', icon: <SiGooglecloud />, categoryKey: 'cloud' },
+    { name: 'AWS', icon: <FaAws />, categoryKey: 'cloud' },
+    { name: 'Docker', icon: <SiDocker />, categoryKey: 'cloud' },
+    { name: 'GitHub', icon: <SiGithub />, categoryKey: 'cloud' },
+    { name: 'Shopify', icon: <SiShopify />, categoryKey: 'cms' },
+    { name: 'WordPress', icon: <SiWordpress />, categoryKey: 'cms' },
+    { name: 'Strapi', icon: <SiStrapi />, categoryKey: 'cms' },
+    { name: 'OpenAI', icon: <SiOpenaigym />, categoryKey: 'ai' },
+    { name: 'LangChain', icon: <SiLangchain />, categoryKey: 'ai' },
+    { name: 'Dialogflow', icon: <SiGoogle />, categoryKey: 'ai' },
   ];
 
   const categoryKeys = ['frontend', 'backend', 'database', 'cloud', 'cms', 'ai'];
@@ -69,7 +69,7 @@ export default function SkillsSection() {
                         key={skill.name}
                         className="flex items-center gap-2 border border-white/10 px-3 py-2 transition-all hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/5"
                       >
-                        <span className="text-xl">{skill.icon}</span>
+                        <span className="text-xl text-gray-400">{skill.icon}</span>
                         <span className="font-mono text-xs text-gray-300">{skill.name}</span>
                       </div>
                     ))}

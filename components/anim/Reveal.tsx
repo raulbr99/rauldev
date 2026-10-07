@@ -6,10 +6,10 @@ import type { ReactNode } from 'react';
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 
 const offsets: Record<Direction, { x?: number; y?: number }> = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
+  up: { y: 12 },
+  down: { y: -12 },
+  left: { x: 12 },
+  right: { x: -12 },
   none: {},
 };
 
@@ -38,7 +38,7 @@ export default function Reveal({
   scale = false,
   className,
   amount = 0.25,
-  duration = 0.7,
+  duration = 0.5,
 }: RevealProps) {
   const reduce = useReducedMotion();
   const o = offsets[direction];

@@ -75,7 +75,7 @@ export default async function BlogIndex({ params }: Props) {
         <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">
           {t('eyebrow')}
         </p>
-        <h1 className="mt-3 text-4xl font-bold uppercase leading-[0.95] text-white sm:text-5xl">
+        <h1 className="mt-3 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
           {t('heading')}
         </h1>
         <p className="mt-6 border-l-2 border-cyan-400/50 pl-5 text-lg leading-relaxed text-gray-300">
@@ -83,7 +83,7 @@ export default async function BlogIndex({ params }: Props) {
         </p>
 
         {posts.length === 0 ? (
-          <p className="mt-16 font-mono text-sm uppercase tracking-widest text-gray-500">
+          <p className="mt-16 font-mono text-sm uppercase tracking-widest text-gray-400">
             {t('empty')}
           </p>
         ) : (
@@ -94,7 +94,7 @@ export default async function BlogIndex({ params }: Props) {
                   href={`/blog/${post.slug}`}
                   className="group block py-8 transition-colors hover:bg-white/[0.03] sm:px-4"
                 >
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
+                  <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
                     <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
                     {' · '}
                     {t('readingTime', { minutes: post.readingMinutes })}

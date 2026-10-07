@@ -1,6 +1,5 @@
-import { Download, Code2, Heart, Globe2, GraduationCap, Languages } from 'lucide-react';
+import { Download, Code2, Heart, Globe2, GraduationCap, Languages, Activity, MessageSquare, Target, Handshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Counter from '../anim/Counter';
 import SectionHeading from '../ui/SectionHeading';
 
 export default function AboutSection() {
@@ -16,7 +15,7 @@ export default function AboutSection() {
       <div className="max-w-5xl mx-auto">
         <SectionHeading number="01" label="ABOUT" title={t('title')} subtitle={t('subtitle')} />
 
-        {/* Stats con contadores animados */}
+        {/* Cifras */}
         <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10 mb-14">
           {[
             { to: 3, suffix: '+', label: t('stats.years') },
@@ -27,21 +26,19 @@ export default function AboutSection() {
               key={i}
               className="bg-slate-950/60 p-6 transition-colors hover:bg-cyan-950/20"
             >
-              <Counter
-                to={s.to}
-                suffix={s.suffix}
-                className="block text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
-              />
+              <span className="block text-4xl font-semibold text-white md:text-5xl">
+                {s.to}{s.suffix}
+              </span>
               <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-gray-400">{s.label}</div>
             </div>
           ))}
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md p-8 mb-10 border border-white/10">
+          <div className="bg-white/[0.03] p-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="bg-blue-500/20 p-3 rounded-full">
-                <Code2 className="w-6 h-6 text-blue-400" />
+              <div className="border border-cyan-400/30 p-3">
+                <Code2 className="w-6 h-6 text-cyan-300" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">{t('history.title')}</h3>
@@ -53,10 +50,10 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md p-8 mb-10 border border-white/10">
+          <div className="bg-white/[0.03] p-8 mb-10 border border-white/10">
             <div className="flex items-start gap-4">
-              <div className="bg-red-500/20 p-3 rounded-full">
-                <Heart className="w-6 h-6 text-red-400" />
+              <div className="border border-cyan-400/30 p-3">
+                <Heart className="w-6 h-6 text-cyan-300" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">{t('passion.title')}</h3>
@@ -69,29 +66,30 @@ export default function AboutSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/[0.03] p-6 border border-white/10 hover:border-white/20 transition-colors">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                🏃‍♂️ {t('hobbies.title')}
+                <Activity className="w-5 h-5 text-cyan-300" />
+                {t('hobbies.title')}
               </h4>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
+                  <span className="text-cyan-300 mt-1">•</span>
                   <span dangerouslySetInnerHTML={{ __html: t.raw('hobbies.item1') }} />
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
+                  <span className="text-cyan-300 mt-1">•</span>
                   <span dangerouslySetInnerHTML={{ __html: t.raw('hobbies.item2') }} />
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
+                  <span className="text-cyan-300 mt-1">•</span>
                   <span>{t('hobbies.item3')}</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/[0.03] p-6 border border-white/10 hover:border-white/20 transition-colors">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <Globe2 className="w-5 h-5 text-blue-400" />
+                <Globe2 className="w-5 h-5 text-cyan-300" />
                 {t('location.title')}
               </h4>
               <div className="text-gray-300 space-y-3">
@@ -104,9 +102,9 @@ export default function AboutSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/[0.03] p-6 border border-white/10 hover:border-white/20 transition-colors">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <GraduationCap className="w-5 h-5 text-blue-400" />
+                <GraduationCap className="w-5 h-5 text-cyan-300" />
                 {t('education.title')}
               </h4>
               <div className="text-gray-300">
@@ -115,9 +113,9 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
+            <div className="bg-white/[0.03] p-6 border border-white/10 hover:border-white/20 transition-colors">
               <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <Languages className="w-5 h-5 text-blue-400" />
+                <Languages className="w-5 h-5 text-cyan-300" />
                 {t('languages.title')}
               </h4>
               <ul className="space-y-3 text-gray-300">
@@ -133,21 +131,21 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-sm p-6 mb-10 border border-blue-500/20">
+          <div className="bg-white/[0.03] p-6 mb-10 border border-white/10">
             <h4 className="text-xl font-bold text-white mb-4 text-center">{t('teamwork.title')}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-3xl mb-2">💬</div>
+                <MessageSquare className="mx-auto mb-3 h-7 w-7 text-cyan-300" aria-hidden />
                 <h5 className="text-white font-semibold mb-1">{t('teamwork.communication.title')}</h5>
                 <p className="text-gray-400 text-sm">{t('teamwork.communication.description')}</p>
               </div>
               <div>
-                <div className="text-3xl mb-2">🎯</div>
+                <Target className="mx-auto mb-3 h-7 w-7 text-cyan-300" aria-hidden />
                 <h5 className="text-white font-semibold mb-1">{t('teamwork.quality.title')}</h5>
                 <p className="text-gray-400 text-sm">{t('teamwork.quality.description')}</p>
               </div>
               <div>
-                <div className="text-3xl mb-2">🤝</div>
+                <Handshake className="mx-auto mb-3 h-7 w-7 text-cyan-300" aria-hidden />
                 <h5 className="text-white font-semibold mb-1">{t('teamwork.collaboration.title')}</h5>
                 <p className="text-gray-400 text-sm">{t('teamwork.collaboration.description')}</p>
               </div>

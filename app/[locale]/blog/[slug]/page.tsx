@@ -113,19 +113,19 @@ export default async function BlogPost({ params }: Props) {
 
         <article className="mt-8">
           <header>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
               <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
               {' · '}
               {t('readingTime', { minutes: post.readingMinutes })}
             </p>
-            <h1 className="mt-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
               {post.title}
             </h1>
             <p className="mt-6 border-l-2 border-cyan-400/50 pl-5 text-lg leading-relaxed text-gray-300">
               {post.description}
             </p>
             {post.updated && (
-              <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-gray-500">
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-gray-400">
                 {t('updatedOn', { date: dateFormat.format(new Date(post.updated)) })}
               </p>
             )}

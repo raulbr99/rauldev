@@ -9,7 +9,7 @@
 /* Prevenir overscroll bounce y fondo blanco en móvil */
 html, body {
   overscroll-behavior: none;
-  background: #020617; /* slate-950, el mismo que pinta AuroraBackground */
+  background: #020617; /* slate-950, fondo único del sitio */
 }
 
 /* Anclas de sección: el header fijo mide 70px, así que el scroll nativo debe
@@ -123,27 +123,6 @@ h1, h2, h3, h4 {
 .delay-1200 {
   animation-delay: 1.2s;
   animation-fill-mode: both;
-}
-
-/* ── Reforma animaciones ───────────────────────────────────────────── */
-
-/* Shimmer del gradiente (rol del hero, acentos) */
-@keyframes gradient-pan {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-.animate-gradient-pan {
-  background-size: 200% auto;
-  animation: gradient-pan 6s ease infinite;
-}
-
-/* Brillo de borde para cards destacadas */
-@keyframes border-glow {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.10); }
-  50% { box-shadow: 0 0 0 1px rgba(56,189,248,0.35), 0 0 40px rgba(56,189,248,0.22); }
-}
-.animate-border-glow {
-  animation: border-glow 4s ease-in-out infinite;
 }
 
 /* Respeta a quien prefiere menos movimiento */

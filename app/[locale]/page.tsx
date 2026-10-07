@@ -9,7 +9,6 @@ import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import Footer from '@/components/layout/Footer';
-import AuroraBackground from '@/components/anim/AuroraBackground';
 import ScrollProgress from '@/components/anim/ScrollProgress';
 import Reveal from '@/components/anim/Reveal';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
@@ -29,7 +28,6 @@ export default async function Home({ params }: Props) {
     <div className="relative min-h-dvh overflow-x-clip">
       <StructuredData language={legalLocale} />
       <SkipLink label={t('skipToContent')} />
-      <AuroraBackground />
       <ScrollProgress />
       <Navigation />
       <main id="contenido">

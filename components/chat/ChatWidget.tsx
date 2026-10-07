@@ -8,6 +8,7 @@ import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import { useTranslations, useLocale } from 'next-intl';
 import Markdown from './Markdown';
+import { OPEN_CHAT_EVENT, consumePendingOpen } from '@/lib/chat-events';
 import ReasoningTrace from './ReasoningTrace';
 import { splitReply } from './thinking';
 
@@ -21,7 +22,7 @@ export default function ChatWidget() {
   const t = useTranslations('chat');
   const locale = useLocale();
   const reduce = useReducedMotion();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(() => consumePendingOpen());
   const [input, setInput] = useState('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -51,6 +52,16 @@ export default function ChatWidget() {
     if (!el) return;
     stickToBottom.current = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
   };
+
+  // Los botones externos (hero) abren el chat con un evento.
+  useEffect(() => {
+    const onOpen = () => {
+      consumePendingOpen();
+      setOpen(true);
+    };
+    window.addEventListener(OPEN_CHAT_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, onOpen);
+  }, []);
 
   // Al abrir, el foco va al campo de texto; Escape cierra y devuelve el foco
   // al botón flotante (patrón de diálogo accesible).
@@ -164,10 +175,10 @@ export default function ChatWidget() {
               </div>
               <div className="min-w-0">
                 <p className="truncate text-sm font-bold leading-tight text-white">{t('title')}</p>
-                <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-500">
+                <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
                   <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-cyan-300' : 'bg-green-400'}`} aria-hidden />
                   <span className={`truncate ${busy ? 'text-cyan-200/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
-                  <span className="ml-2 px-1.5 py-0.5 border border-white/12 text-[9px] uppercase tracking-[0.15em] text-gray-600">AEO · llms.txt</span>
+                  <span className="ml-2 px-1.5 py-0.5 border border-white/12 text-[9px] uppercase tracking-[0.15em] text-gray-400">AEO · llms.txt</span>
                 </p>
               </div>
               <div className="ml-auto flex items-center gap-0.5">
@@ -176,7 +187,7 @@ export default function ChatWidget() {
                     onClick={reset}
                     aria-label={t('reset')}
                     title={t('reset')}
-                    className="flex h-8 w-8 items-center justify-center text-gray-500 transition-colors hover:bg-white/5 hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
                   >
                     <RotateCcw className="h-4 w-4" />
                   </button>
@@ -184,7 +195,7 @@ export default function ChatWidget() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label={t('close')}
-                  className="flex h-8 w-8 items-center justify-center text-gray-500 transition-colors hover:bg-white/5 hover:text-white"
+                  className="flex h-8 w-8 items-center justify-center text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
                 >
                   <X className="h-4.5 w-4.5" />
                 </button>
@@ -202,7 +213,7 @@ export default function ChatWidget() {
                 {/* Sugerencias: etiqueta corta a la vista, pregunta completa al modelo */}
                 {messages.length === 0 && (
                   <div className="pt-1">
-                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400">
                       {t('suggestionsTitle')}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -216,7 +227,7 @@ export default function ChatWidget() {
                             className={`group flex items-center gap-1.5 border border-white/12 bg-white/[0.02] px-2.5 py-1.5 font-mono text-[11px] text-gray-400 transition-colors hover:border-cyan-400/50 hover:bg-cyan-400/[0.06] hover:text-cyan-200 ${isContact ? 'ring-1 ring-cyan-400/30' : ''}`}
                           >
                             {t(`suggestionLabels.${key}`)}
-                            <span aria-hidden className="text-gray-700 transition-transform group-hover:translate-x-0.5 group-hover:text-cyan-300">
+                            <span aria-hidden className="text-gray-500 transition-transform group-hover:translate-x-0.5 group-hover:text-cyan-300">
                               →
                             </span>
                           </button>
@@ -283,7 +294,7 @@ export default function ChatWidget() {
                         <button
                           onClick={() => copy(m.id, text)}
                           aria-label={t('copy')}
-                          className="ml-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-600 opacity-0 transition-opacity hover:text-cyan-300 focus-visible:opacity-100 group-hover:opacity-100"
+                          className="ml-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-400 opacity-0 transition-opacity hover:text-cyan-300 focus-visible:opacity-100 group-hover:opacity-100"
                         >
                           {copiedId === m.id ? (
                             <>
@@ -349,7 +360,7 @@ export default function ChatWidget() {
                   maxLength={MAX_CHARS}
                   autoComplete="off"
                   enterKeyHint="send"
-                  className="max-h-28 min-w-0 flex-1 resize-none bg-transparent py-2 font-mono text-sm leading-relaxed text-white outline-none placeholder:text-gray-600"
+                  className="max-h-28 min-w-0 flex-1 resize-none bg-transparent py-2 font-mono text-sm leading-relaxed text-white outline-none placeholder:text-gray-400"
                 />
                 {busy ? (
                   <button
@@ -365,7 +376,7 @@ export default function ChatWidget() {
                     type="submit"
                     aria-label={t('send')}
                     disabled={!input.trim()}
-                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center bg-cyan-400 text-slate-950 transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-gray-600"
+                    className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center bg-cyan-400 text-slate-950 transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-gray-400"
                   >
                     <ArrowUp className="h-4 w-4" />
                   </button>
@@ -373,9 +384,9 @@ export default function ChatWidget() {
               </div>
 
               <div className="mt-2 flex items-start gap-2 px-0.5">
-                <p className="min-w-0 flex-1 font-mono text-[10px] leading-snug text-gray-600">{t('disclaimer')}</p>
+                <p className="min-w-0 flex-1 font-mono text-[10px] leading-snug text-gray-400">{t('disclaimer')}</p>
                 {input.length > MAX_CHARS * 0.8 && (
-                  <span className="shrink-0 font-mono text-[10px] text-gray-600">
+                  <span className="shrink-0 font-mono text-[10px] text-gray-400">
                     {input.length}/{MAX_CHARS}
                   </span>
                 )}

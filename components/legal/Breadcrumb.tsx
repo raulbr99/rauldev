@@ -33,7 +33,7 @@ export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
       className="mb-6 flex flex-wrap items-center gap-2"
       aria-label="Breadcrumb"
     >
-      <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
+      <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
         <li className="flex items-center gap-2">
           <Link
             href={homeHref}

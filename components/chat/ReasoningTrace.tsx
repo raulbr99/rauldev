@@ -57,7 +57,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
         />
         <span
           className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
-            streaming ? 'text-cyan-200/90' : 'text-gray-500 group-hover/trace:text-gray-400'
+            streaming ? 'text-cyan-200/90' : 'text-gray-400 group-hover/trace:text-gray-300'
           }`}
         >
           {streaming ? t('reasoningLive') : t('reasoningDone')}
@@ -67,7 +67,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
         )}
         <ChevronDown
           aria-hidden
-          className={`ml-auto h-3 w-3 shrink-0 text-gray-600 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          className={`ml-auto h-3 w-3 shrink-0 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
         />
       </button>
 
@@ -83,7 +83,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
           >
             <div
               ref={bodyRef}
-              className="max-h-36 overflow-y-auto border-t border-white/10 px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-gray-500"
+              className="max-h-36 overflow-y-auto border-t border-white/10 px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-gray-400"
             >
               {clean(text)}
             </div>

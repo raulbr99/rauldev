@@ -1,9 +1,11 @@
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MessageSquare, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Reveal from '../anim/Reveal';
-import WordReveal from '../anim/WordReveal';
-import MagneticButton from '../anim/MagneticButton';
+import OpenChatButton from '../chat/OpenChatButton';
+
+const textLink =
+  'inline-flex items-center gap-2 py-2 font-mono text-sm uppercase tracking-wider text-gray-300 transition-colors hover:text-cyan-300';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
@@ -17,54 +19,48 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
         <div>
-          <h1 className="mb-3 text-6xl font-bold uppercase leading-[0.88] text-white sm:text-7xl xl:text-8xl">
-            <WordReveal text={t('name')} className="block" />
-          </h1>
+          <Reveal>
+            <h1 className="mb-3 text-6xl font-semibold leading-[0.95] text-white sm:text-7xl xl:text-8xl">
+              {t('name')}
+            </h1>
+            <p className="mb-8 text-2xl font-medium tracking-tight text-cyan-300 sm:text-3xl">
+              {t('role')}
+            </p>
+          </Reveal>
 
-          <div className="mb-8 text-2xl font-bold uppercase tracking-tight sm:text-4xl">
-            <WordReveal
-              text={t('role')}
-              delay={0.4}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 animate-gradient-pan"
-            />
-          </div>
-
-          <Reveal delay={0.9}>
+          <Reveal delay={0.1}>
             <p
               className="mb-8 max-w-xl text-lg leading-relaxed text-gray-300/90"
               dangerouslySetInnerHTML={{ __html: t.raw('description') }}
             />
           </Reveal>
 
-          <Reveal delay={1.05}>
-            <div className="mb-9 flex flex-wrap gap-3">
-              <MagneticButton
+          <Reveal delay={0.2}>
+            {/* Una acción principal; el resto, enlaces de texto. */}
+            <div className="mb-9 flex flex-wrap items-center gap-x-7 gap-y-2">
+              <a
                 href="#contacto"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-400 px-7 py-3.5 font-mono text-sm font-medium uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-300"
               >
                 {t('cta.contact')}
-              </MagneticButton>
-              <MagneticButton
-                href="#proyectos"
-                className="inline-flex items-center justify-center gap-2 border border-white/25 px-7 py-3.5 font-mono text-sm font-medium uppercase tracking-wider text-white transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
-              >
+              </a>
+              <a href="#proyectos" className={textLink}>
                 {t('cta.projects')}
-              </MagneticButton>
-              <MagneticButton
-                href="/cv-raul.pdf"
-                download
-                className="inline-flex items-center justify-center gap-2 border border-white/25 px-7 py-3.5 font-mono text-sm font-medium uppercase tracking-wider text-white transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
-              >
-                <Download className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </a>
+              <OpenChatButton className={textLink}>
+                <MessageSquare className="h-4 w-4" aria-hidden />
+                {t('cta.askAssistant')}
+              </OpenChatButton>
+              <a href="/cv-raul.pdf" download className={textLink}>
+                <Download className="h-4 w-4" aria-hidden />
                 {t('cta.downloadCV')}
-              </MagneticButton>
+              </a>
             </div>
           </Reveal>
 
-          <Reveal delay={1.2}>
+          <Reveal delay={0.3}>
             <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-400">
-              <span className="hidden sm:inline">FOLLOW</span>
-              <span className="hidden h-px w-8 bg-white/15 sm:inline-block" />
               <a href="https://github.com/raulbr99" aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Github className="h-5 w-5" />
               </a>
@@ -79,12 +75,11 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT — framed "spec card" */}
-        <Reveal direction="left" delay={0.6} className="order-first lg:order-last">
+        <Reveal direction="left" delay={0.15} className="order-first lg:order-last">
           <div className="relative mx-auto max-w-[9.5rem] sm:max-w-[14rem] lg:max-w-sm">
             {/* accent corner brackets */}
             <span className="absolute -left-2 -top-2 h-6 w-6 border-l-2 border-t-2 border-cyan-400" />
             <span className="absolute -bottom-2 -right-2 h-6 w-6 border-b-2 border-r-2 border-cyan-400" />
-            <span className="absolute -inset-3 -z-10 bg-cyan-500/15 blur-2xl" />
 
             <div className="border border-white/15 bg-white/[0.03] p-2 backdrop-blur-sm">
               <div className="relative aspect-square overflow-hidden">

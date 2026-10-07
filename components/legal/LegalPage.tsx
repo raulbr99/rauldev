@@ -41,7 +41,7 @@ export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps
           {tl('backHome')}
         </Link>
 
-        <h1 className="mt-6 text-4xl font-bold uppercase leading-[0.95] text-white sm:text-5xl">
+        <h1 className="mt-6 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
           {t('title')}
         </h1>
 
