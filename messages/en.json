@@ -6,7 +6,8 @@
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact",
-    "toggleMenu": "Toggle mobile menu"
+    "toggleMenu": "Toggle mobile menu",
+    "blog": "Blog"
   },
   "hero": {
     "name": "Raúl Berná",
@@ -301,7 +302,7 @@
     "disclaimer": "AI-powered assistant based on Raúl's professional profile · No personal data stored · For formal inquiries, please use the contact form",
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
-"suggestions": {
+    "suggestions": {
       "whatIBuild": "What real products have you built?",
       "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k)?",
       "availability": "Availability, notice period, contract type (employee)?",
@@ -412,5 +413,19 @@
     "closeMenu": "Close menu",
     "mainNav": "Main navigation",
     "currentSection": "Current section"
+  },
+  "blog": {
+    "title": "Blog",
+    "metaDescription": "Articles by Raúl Berná on AI, agents and new technology: what I build, what breaks and what I learn.",
+    "eyebrow": "BLOG // AI_AND_TECH",
+    "heading": "Blog",
+    "intro": "Notes on AI, agents and new technology, written from what I build: what works, what breaks and what it costs.",
+    "empty": "No articles published yet.",
+    "readingTime": "{minutes} min read",
+    "updatedOn": "Updated on {date}",
+    "backToBlog": "Back to blog",
+    "ctaEyebrow": "CONTACT // LET'S TALK",
+    "ctaText": "Interested in something I write about here, or want to discuss it? Get in touch.",
+    "ctaButton": "Go to contact"
   }
 }

@@ -1,8 +1,9 @@
 'use client';
 
-import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin } from 'lucide-react';
+import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin, BookOpen } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/navigation';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -24,11 +25,15 @@ const socialItems = [
     { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
 ] as const;
 
+const itemClass =
+    'flex items-center gap-4 border border-transparent px-4 py-3 font-mono text-sm uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/30 hover:bg-white/5 hover:text-cyan-300';
+
 const FOCUSABLE = 'a[href], button:not([disabled])';
 
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const t = useTranslations('navigation');
     const ta = useTranslations('a11y');
+    const isHome = usePathname() === '/';
     const panelRef = useRef<HTMLDivElement>(null);
     const openerRef = useRef<Element | null>(null);
 
@@ -110,16 +115,25 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     <ul className="space-y-3">
                         {menuItems.map(({ href, key, Icon }) => (
                             <li key={href}>
-                                <a
-                                    href={href}
-                                    className="flex items-center gap-4 border border-transparent px-4 py-3 font-mono text-sm uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/30 hover:bg-white/5 hover:text-cyan-300"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    <Icon className="h-5 w-5 text-cyan-400" />
-                                    <span>{t(key)}</span>
-                                </a>
+                                {isHome ? (
+                                    <a href={href} className={itemClass} onClick={() => setIsOpen(false)}>
+                                        <Icon className="h-5 w-5 text-cyan-400" />
+                                        <span>{t(key)}</span>
+                                    </a>
+                                ) : (
+                                    <Link href={`/${href}`} className={itemClass} onClick={() => setIsOpen(false)}>
+                                        <Icon className="h-5 w-5 text-cyan-400" />
+                                        <span>{t(key)}</span>
+                                    </Link>
+                                )}
                             </li>
                         ))}
+                        <li>
+                            <Link href="/blog" className={itemClass} onClick={() => setIsOpen(false)}>
+                                <BookOpen className="h-5 w-5 text-cyan-400" />
+                                <span>{t('blog')}</span>
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
 

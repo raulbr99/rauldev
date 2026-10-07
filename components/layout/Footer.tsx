@@ -67,6 +67,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/blog" className={columnLink}>
+                  {tn('blog')}
+                </Link>
+              </li>
             </ul>
           </nav>
 

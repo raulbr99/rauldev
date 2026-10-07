@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import MobileMenu from './MobileMenu';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { Link, usePathname } from '@/i18n/navigation';
 
 export const navItems = [
     { href: '#inicio', key: 'home' },
@@ -19,6 +20,9 @@ export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeId, setActiveId] = useState<string>('inicio');
     const t = useTranslations('navigation');
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+    const inBlog = pathname.startsWith('/blog');
     const ta = useTranslations('a11y');
 
     // Scroll-spy: marca en la navegación la sección que se está leyendo, para
@@ -61,23 +65,43 @@ export default function Navigation() {
 
                         <div className="hidden md:flex items-center space-x-7">
                             {navItems.map((item) => {
-                                const isActive = activeId === item.href.slice(1);
-                                return (
+                                const isActive = isHome && activeId === item.href.slice(1);
+                                const className = `font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
+                                    isActive ? 'text-cyan-300' : 'text-gray-300'
+                                }`;
+                                const label = (
+                                    <>
+                                        {isActive && (
+                                            <span className="sr-only">{ta('currentSection')}: </span>
+                                        )}
+                                        {t(item.key)}
+                                    </>
+                                );
+                                // Fuera de la portada las secciones viven en `/#id`.
+                                return isHome ? (
                                     <a
                                         key={item.href}
                                         href={item.href}
                                         aria-current={isActive ? 'true' : undefined}
-                                        className={`font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
-                                            isActive ? 'text-cyan-300' : 'text-gray-300'
-                                        }`}
+                                        className={className}
                                     >
-                                        {item.href === `#${activeId}` && (
-                                            <span className="sr-only">{ta('currentSection')}: </span>
-                                        )}
-                                        {t(item.key)}
+                                        {label}
                                     </a>
+                                ) : (
+                                    <Link key={item.href} href={`/${item.href}`} className={className}>
+                                        {label}
+                                    </Link>
                                 );
                             })}
+                            <Link
+                                href="/blog"
+                                aria-current={inBlog ? 'page' : undefined}
+                                className={`font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
+                                    inBlog ? 'text-cyan-300' : 'text-gray-300'
+                                }`}
+                            >
+                                {t('blog')}
+                            </Link>
                             <LanguageSwitcher />
                         </div>
 

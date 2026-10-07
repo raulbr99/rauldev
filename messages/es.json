@@ -6,7 +6,8 @@
     "skills": "Habilidades",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "toggleMenu": "Abrir menú móvil"
+    "toggleMenu": "Abrir menú móvil",
+    "blog": "Blog"
   },
   "hero": {
     "name": "Raúl Berná",
@@ -301,7 +302,7 @@
     "disclaimer": "Asistente con IA basado en el perfil profesional de Raúl · No almacena datos personales · Para consultas formales, usa el formulario de contacto",
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
-"suggestions": {
+    "suggestions": {
       "whatIBuild": "¿Qué productos reales has construido?",
       "challenge": "¿Reto técnico más complejo (Talkrev RAG / PartsNow 50k)?",
       "availability": "¿Disponibilidad, preaviso y tipo de contrato (empleado)?",
@@ -412,5 +413,19 @@
     "closeMenu": "Cerrar menú",
     "mainNav": "Navegación principal",
     "currentSection": "Sección actual"
+  },
+  "blog": {
+    "title": "Blog",
+    "metaDescription": "Artículos de Raúl Berná sobre IA, agentes y nuevas tecnologías: lo que construyo, lo que falla y lo que aprendo.",
+    "eyebrow": "BLOG // IA_Y_TECNOLOGÍA",
+    "heading": "Blog",
+    "intro": "Notas sobre IA, agentes y nuevas tecnologías, escritas desde lo que construyo: qué funciona, qué falla y cuánto cuesta.",
+    "empty": "Aún no hay artículos publicados.",
+    "readingTime": "{minutes} min de lectura",
+    "updatedOn": "Actualizado el {date}",
+    "backToBlog": "Volver al blog",
+    "ctaEyebrow": "CONTACTO // HABLEMOS",
+    "ctaText": "¿Te interesa algo de lo que cuento aquí o quieres comentarlo? Escríbeme.",
+    "ctaButton": "Ir a contacto"
   }
 }
