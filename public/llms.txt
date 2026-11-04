@@ -83,21 +83,9 @@
 3. **Cuotia** — Calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA,
    modelo 130, neto/bruto). Datos 2026, SEO programático (~180 páginas), newsletter,
    alertas BOE. Sin registros. [Demo](https://cuotia.es)
-4. **Clínica Dental Marina** — Web bilingüe (ES/EN), SEO local (schema.org Dentist),
-   FAQ accesible con `<details>` nativo. [Demo](https://clinica-dental-marina.vercel.app)
-5. **Estudio Aire** — Web bilingüe para pilates/yoga, horario semanal como tabla semántica,
-   identidad tipográfica editorial. [Demo](https://estudio-aire.vercel.app)
-6. **Gestoría Llobet** — Landing corporativa asesoría fiscal/laboral, paquetes de precios
-   comparativos, hero con métricas. [Demo](https://gestoria-llobet.vercel.app)
-7. **Taller Bernabéu** — Web taller mecánico, identidad industrial (cuñas diagonales CSS),
-   proceso de reparación paso a paso, tipografía condensada. [Demo](https://taller-bernabeu.vercel.app)
-8. **Casa Ribes** — Alojamiento turístico con motor de reserva directa (fechas/huéspedes →
-   precio por temporada → WhatsApp). [Demo](https://casa-ribes.vercel.app)
-9. **Altea Suite Vault** — Suites turísticas alta gama, mismo motor de reserva, estética
-   oscura con acentos dorados. [Demo](https://altea-suite-vault.vercel.app)
-10. **Portfolio Personal** — Este sitio (Next.js 15, Tailwind, SEO optimizado, chat IA,
+4. **Portfolio Personal** — Este sitio (Next.js 15, Tailwind, SEO optimizado, chat IA,
     contacto Resend). [Demo](https://rauldev.dev) · [Código](https://github.com/raulbr99/rauldev)
-11. **Alicante en vóxeles** — Alicante reconstruida en cubos de 1 m en el navegador (Three.js) con datos abiertos
+5. **Alicante en vóxeles** — Alicante reconstruida en cubos de 1 m en el navegador (Three.js) con datos abiertos
     del IGN, el Catastro y OpenStreetMap, sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).
     [Demo](https://raulbr99.github.io/alicante-voxels/)
 
@@ -453,19 +441,13 @@ relaciones y atributos sin parsear HTML.
   "@id": "https://rauldev.dev/#projects",
   "name": "Proyectos de Raúl Berná",
   "itemListOrder": "https://schema.org/ItemListOrderAscending",
-  "numberOfItems": 10,
+  "numberOfItems": 5,
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "BomkAI - Generador de Libros con IA", "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Neon, PostgreSQL, Claude AI, OpenRouter, Vercel", "dateCreated": "2025-01-10", "image": "https://rauldev.dev/projects/bomkai.png", "url": "https://bomkai.vercel.app/" } },
     { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Fadesso - SaaS para Barberías", "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Supabase, PostgreSQL, Tailwind CSS, Stripe", "dateCreated": "2025-01-15", "image": "https://rauldev.dev/projects/fadesso-black.png", "url": "https://fadesso.com" } },
     { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Cuotia - Calculadoras Fiscales para Autónomos", "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Supabase, Vercel", "dateCreated": "2026-05-01", "image": "https://rauldev.dev/projects/cuotia.png", "url": "https://cuotia.es" } },
     { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Portfolio Personal", "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Resend", "dateCreated": "2025-10-01", "image": "https://rauldev.dev/projects/portfolio.svg", "url": "https://rauldev.dev", "codeRepository": "https://github.com/raulbr99/rauldev" } },
-    { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Clínica Dental Marina", "description": "Web bilingüe (ES/EN) para una clínica dental, con SEO local (schema.org Dentist), FAQ accesible con <details> nativo y tipografía propia vía Google Fonts.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/clinica-dental-marina.jpg", "url": "https://clinica-dental-marina.vercel.app" } },
-    { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Estudio Aire", "description": "Web bilingüe para un estudio de pilates y yoga, con el horario semanal de clases renderizado como tabla semántica y una identidad tipográfica editorial propia.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/estudio-aire.jpg", "url": "https://estudio-aire.vercel.app" } },
-    { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Gestoría Llobet", "description": "Landing corporativa para una asesoría fiscal y laboral, con paquetes de precios comparativos y un hero con métricas en lugar de fotografía de stock.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/gestoria-llobet.jpg", "url": "https://gestoria-llobet.vercel.app" } },
-    { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Taller Bernabéu", "description": "Web de taller mecánico con identidad industrial: hero con cuñas diagonales en CSS puro, sección de proceso de reparación paso a paso y tipografía condensada.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/taller-bernabeu.jpg", "url": "https://taller-bernabeu.vercel.app" } },
-    { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Casa Ribes", "description": "Web de alojamiento turístico real con motor de reserva directa: selector de fechas y huéspedes que calcula el precio según temporada y arma el mensaje de WhatsApp al propietario.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/casa-ribes.jpg", "url": "https://casa-ribes.vercel.app" } },
-    { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Altea Suite Vault", "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/altea-suite-vault.jpg", "url": "https://altea-suite-vault.vercel.app" } },
-    { "@type": "ListItem", "position": 11, "item": { "@type": "CreativeWork", "name": "Alicante en vóxeles", "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Three.js, TypeScript, Vite, Python, OpenStreetMap", "dateCreated": "2026-11-03", "image": "https://rauldev.dev/projects/alicante-voxels.jpg", "url": "https://raulbr99.github.io/alicante-voxels/" } }
+    { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Alicante en vóxeles", "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Three.js, TypeScript, Vite, Python, OpenStreetMap", "dateCreated": "2026-11-03", "image": "https://rauldev.dev/projects/alicante-voxels.jpg", "url": "https://raulbr99.github.io/alicante-voxels/" } }
   ]
 }
 ```

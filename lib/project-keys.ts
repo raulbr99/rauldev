@@ -9,10 +9,4 @@ export const projectKeyMap: Record<string, string> = {
   cuotia: 'cuotia',
   'alicante-voxels': 'alicanteVoxels',
   'portfolio-website': 'portfolio',
-  'clinica-dental-marina': 'clinicaDentalMarina',
-  'estudio-aire': 'estudioAire',
-  'gestoria-llobet': 'gestoriaLlobet',
-  'taller-bernabeu': 'tallerBernabeu',
-  'casa-ribes': 'casaRibes',
-  'altea-suite-vault': 'alteaSuiteVault',
 };
