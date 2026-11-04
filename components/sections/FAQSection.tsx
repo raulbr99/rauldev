@@ -14,7 +14,7 @@ export default function FAQSection({ locale }: FAQSectionProps) {
     <section id="faq" className="py-20 px-4">
       <FAQStructuredData locale={locale} />
       <div className="max-w-3xl mx-auto">
-        <SectionHeading number="05" label="FAQ" title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading number="06" label="FAQ" title={t('title')} subtitle={t('subtitle')} />
 
         <div className="divide-y divide-white/10 border border-white/10">
           {items.map((item, i) => (

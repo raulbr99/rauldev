@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
+import BlogSection from '@/components/sections/BlogSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
@@ -13,6 +14,7 @@ import ScrollProgress from '@/components/anim/ScrollProgress';
 import Reveal from '@/components/anim/Reveal';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import StructuredData from '@/components/StructuredData';
+import type { Locale } from '@/i18n/config';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -36,6 +38,7 @@ export default async function Home({ params }: Props) {
         <Reveal><ExperienceSection /></Reveal>
         <Reveal><SkillsSection /></Reveal>
         <Reveal><ProjectsSection /></Reveal>
+        <Reveal><BlogSection locale={locale as Locale} /></Reveal>
         <Reveal><FAQSection locale={locale as 'es' | 'en'} /></Reveal>
         <Reveal><ContactSection /></Reveal>
       </main>

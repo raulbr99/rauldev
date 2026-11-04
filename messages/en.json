@@ -389,6 +389,9 @@
     "backToBlog": "Back to blog",
     "ctaEyebrow": "CONTACT // LET'S TALK",
     "ctaText": "Interested in something I write about here, or want to discuss it? Get in touch.",
-    "ctaButton": "Go to contact"
+    "ctaButton": "Go to contact",
+    "homeTitle": "Latest from the blog",
+    "homeSubtitle": "What I test in AI and what I build, with what worked and what didn't.",
+    "homeViewAll": "See all posts"
   }
 }

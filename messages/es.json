@@ -389,6 +389,9 @@
     "backToBlog": "Volver al blog",
     "ctaEyebrow": "CONTACTO // HABLEMOS",
     "ctaText": "¿Te interesa algo de lo que cuento aquí o quieres comentarlo? Escríbeme.",
-    "ctaButton": "Ir a contacto"
+    "ctaButton": "Ir a contacto",
+    "homeTitle": "Lo último del blog",
+    "homeSubtitle": "Lo que pruebo de IA y lo que construyo, con lo que funcionó y lo que no.",
+    "homeViewAll": "Ver todos los artículos"
   }
 }
