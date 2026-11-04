@@ -15,14 +15,14 @@
     "description": "Full Stack Developer con <strong>4+ años de experiencia</strong> construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en <strong>Nanonino SL</strong> (Alicante) desarrollando <strong>Talkrev</strong> (SaaS IA conversacional multi-tenant) y <strong>PartsNow.ai</strong> (agentic commerce 50k+ piezas). Stack principal: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>.",
     "cta": {
       "contact": "Contactar",
-      "projects": "Ver mis webs",
+      "projects": "Ver proyectos",
       "askAssistant": "Pregúntale a mi asistente"
     },
     "imageAlt": "Raúl Berná, Full Stack Developer en Alicante"
   },
   "about": {
     "title": "Sobre Mí",
-    "subtitle": "Creo webs profesionales para negocios y cuento con más de 4 años de experiencia construyendo productos digitales en producción.",
+    "subtitle": "Construyo apps web, bots y herramientas de IA. Pruebo lo nuevo que sale en IA y cuento qué funcionó y qué no.",
     "stats": {
       "years": "Años de experiencia",
       "projects": "Proyectos",
@@ -290,7 +290,7 @@
     }
   },
   "footer": {
-    "tagline": "Webs profesionales para negocios. Experiencia Full Stack en Alicante.",
+    "tagline": "Apps web, bots y herramientas de IA. Full Stack en Alicante.",
     "sections": "Secciones",
     "legal": "Legal",
     "elsewhere": "En otros sitios",

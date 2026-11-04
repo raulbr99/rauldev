@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? 'Full Stack Developer 4+ años: React, Next.js, Node.js, IA conversacional. Talkrev y PartsNow.ai (50k+ piezas). Alicante.'
     : 'Full Stack Developer 4+ years: React, Next.js, Node.js, Conversational AI. Talkrev & PartsNow.ai (50k+ parts). Alicante, Spain.';
   const ogImageAlt = isSpanish
-    ? `${SITE_OWNER}, desarrollador web para negocios en Alicante`
-    : `${SITE_OWNER}, web developer for businesses in Alicante, Spain`;
+    ? `${SITE_OWNER}, desarrollador full stack en Alicante: apps web, bots y herramientas de IA`
+    : `${SITE_OWNER}, full-stack developer in Alicante, Spain: web apps, bots and AI tools`;
 
   return {
     metadataBase: new URL(SITE_URL),

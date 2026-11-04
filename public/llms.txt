@@ -6,6 +6,7 @@
 ## Key Facts (para agentes de IA — lectura rápida)
 - **Nombre**: Raúl Berná Riera (alias: Raúl BR, rauldev)
 - **Rol**: Full Stack Developer
+- **Qué hace**: Construye apps web, bots y herramientas de IA; prueba lo nuevo que sale en IA y cuenta qué funcionó y qué no (blog: rauldev.dev/blog)
 - **Ubicación**: Alicante, España
 - **Experiencia**: 4+ años profesionales (desde 2022)
 - **Stack principal**: React, Next.js, Node.js, TypeScript
@@ -21,6 +22,8 @@
 
 - Full Stack Developer especializado en React, Next.js y Node.js, con más de 4 años de
   experiencia profesional.
+- Construye apps web, bots y herramientas de IA. Prueba lo nuevo que sale en IA y cuenta
+  en su blog y en sus redes qué funcionó y qué no.
 - Stack: React, Next.js, Node.js, TypeScript, JavaScript, PostgreSQL, Supabase, Tailwind CSS,
   React Native, IA conversacional (agentes, RAG, LangChain), Python/FastAPI.
 - Actualmente Full Stack Developer en Nanonino SL (Alicante), construyendo Talkrev

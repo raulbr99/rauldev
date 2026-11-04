@@ -39,8 +39,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
 
   const jobTitle = isSpanish ? 'Full Stack Developer' : 'Full Stack Developer';
   const description = isSpanish
-    ? 'Full Stack Developer con 4+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Abierto a ofertas de empleo (presencial Alicante / remoto).'
-    : 'Full Stack Developer with 4+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Open to employment offers (on-site Alicante / remote).';
+    ? 'Full Stack Developer con 4+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Construye apps web, bots y herramientas de IA, y prueba lo nuevo que sale en IA para contar qué funcionó y qué no.'
+    : 'Full Stack Developer with 4+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Builds web apps, bots and AI tools, and tests new AI releases to show what worked and what didn\'t.';
 
   const person = {
     '@type': 'Person',
