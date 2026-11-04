@@ -260,7 +260,7 @@
     "status": "Asistente IA verificado",
     "typing": "Escribiendo…",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "Hola. Soy Raúl, Full Stack Developer en Alicante con 4+ años en React, Next.js, Node.js e IA conversacional (Talkrev, PartsNow.ai). ¿En qué te ayudo?",
+    "greeting": "Hola. Soy Raúl, Full Stack Developer en Alicante. Construyo apps web, bots y herramientas de IA, y pruebo lo nuevo que sale en IA. Pregúntame por mis proyectos, por lo que he probado o por el blog.",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",
@@ -277,18 +277,18 @@
     "error": "No he podido responder. Inténtalo de nuevo en unos segundos.",
     "rateLimited": "Demasiados mensajes seguidos. Espera un minuto e inténtalo de nuevo.",
     "suggestions": {
-      "whatIBuild": "¿Qué productos reales has construido?",
+      "whatIBuild": "¿Qué has construido?",
+      "testing": "¿Qué has probado últimamente de IA?",
+      "blog": "¿De qué has escrito en el blog?",
       "challenge": "¿Reto técnico más complejo (Talkrev RAG / PartsNow 50k)?",
-      "aiExperience": "¿Experiencia con IA conversacional y agentes?",
-      "teamwork": "¿Cómo trabajas en equipos internacionales/remotos?",
       "stack": "¿Stack principal y nivel en cada tecnología?",
       "contact": "Quiero contactar"
     },
     "suggestionLabels": {
-      "whatIBuild": "Productos reales",
+      "whatIBuild": "Proyectos",
+      "testing": "Lo que pruebo",
+      "blog": "Blog",
       "challenge": "Reto técnico",
-      "aiExperience": "IA y agentes",
-      "teamwork": "Equipos remotos",
       "stack": "Stack técnico",
       "contact": "Contactar"
     }

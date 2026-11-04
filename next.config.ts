@@ -31,6 +31,13 @@ const nextConfig: NextConfig = {
   // Turbopack falla el build. Dejándolo fuera del bundle se resuelve en runtime
   // desde node_modules y la rama que lo necesita nunca se ejecuta.
   serverExternalPackages: ['resend'],
+
+  // El chat lee la lista de artículos de `content/blog` con fs en cada petición.
+  // Las páginas del blog se generan en el build, pero la función del chat es
+  // serverless y solo lleva los ficheros que el trazado detecta: se los pedimos aquí.
+  outputFileTracingIncludes: {
+    '/api/chat': ['./content/blog/**/*'],
+  },
   
   // Image optimization. Sin minimumCacheTTL: el default de Next 16 son 4 h,
   // y forzarlo a 60 s revalidaba cada minuto (más CPU y más factura). Tampoco

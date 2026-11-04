@@ -260,7 +260,7 @@
     "status": "Verified AI assistant",
     "typing": "Typing…",
     "dialogLabel": "Chat with Raúl Berná's assistant",
-    "greeting": "Hello. I'm Raúl, a Full Stack Developer in Alicante with 4+ years in React, Next.js, Node.js and conversational AI (Talkrev, PartsNow.ai). How can I help?",
+    "greeting": "Hi. I'm Raúl, a Full Stack Developer in Alicante. I build web apps, bots and AI tools, and I test the new AI releases. Ask me about my projects, what I've tested or the blog.",
     "placeholder": "Type your question...",
     "send": "Send",
     "stop": "Stop response",
@@ -277,18 +277,18 @@
     "error": "I couldn't answer that. Please try again in a few seconds.",
     "rateLimited": "Too many messages in a row. Please wait a minute and try again.",
     "suggestions": {
-      "whatIBuild": "What real products have you built?",
+      "whatIBuild": "What have you built?",
+      "testing": "What AI tools have you tested lately?",
+      "blog": "What have you written about on the blog?",
       "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k)?",
-      "aiExperience": "Experience with conversational AI and agents?",
-      "teamwork": "How do you work in international/remote teams?",
       "stack": "Core stack and proficiency level in each?",
       "contact": "I want to get in touch"
     },
     "suggestionLabels": {
-      "whatIBuild": "Real products",
+      "whatIBuild": "Projects",
+      "testing": "What I test",
+      "blog": "Blog",
       "challenge": "Hardest challenge",
-      "aiExperience": "AI & agents",
-      "teamwork": "Remote teams",
       "stack": "Tech stack",
       "contact": "Contact"
     }
