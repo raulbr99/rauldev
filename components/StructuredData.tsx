@@ -39,8 +39,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
 
   const jobTitle = isSpanish ? 'Full Stack Developer' : 'Full Stack Developer';
   const description = isSpanish
-    ? 'Full Stack Developer con 3+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Abierto a ofertas de empleo (presencial Alicante / remoto).'
-    : 'Full Stack Developer with 3+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Open to employment offers (on-site Alicante / remote).';
+    ? 'Full Stack Developer con 4+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Abierto a ofertas de empleo (presencial Alicante / remoto).'
+    : 'Full Stack Developer with 4+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Open to employment offers (on-site Alicante / remote).';
 
   const person = {
     '@type': 'Person',
@@ -242,7 +242,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       : 'Conversational assistant embedded in the portfolio to answer queries about Raúl Berná\'s experience, stack and projects. Grounded in llms.txt and structured data (Person, FAQPage, ItemList). Replies in Spanish and English. No personal data stored. Model: OpenAI gpt-4.1-mini with Vercel AI Gateway fallback.',
     featureList: [
       isSpanish ? 'Respuestas basadas en fuente única de verdad (llms.txt)' : 'Answers grounded in single source of truth (llms.txt)',
-      isSpanish ? 'Métricas concretas: 50k+ piezas, 3+ años, 180 páginas, 5 proyectos' : 'Concrete metrics: 50k+ parts, 3+ years, 180 pages, 5 projects',
+      isSpanish ? 'Métricas concretas: 50k+ piezas, 4+ años, 180 páginas, 5 proyectos' : 'Concrete metrics: 50k+ parts, 4+ years, 180 pages, 5 projects',
       isSpanish ? 'Idiomas: español nativo, inglés profesional' : 'Languages: native Spanish, professional English',
       isSpanish ? 'Privacidad: sin almacenamiento permanente, sin cookies de seguimiento' : 'Privacy: no permanent storage, no tracking cookies',
       isSpanish ? 'Accesibilidad: panel de razonamiento visible, copia de respuestas' : 'Accessibility: visible reasoning panel, copy answers',

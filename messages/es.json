@@ -12,7 +12,7 @@
   "hero": {
     "name": "Raúl Berná",
     "role": "Full Stack Developer",
-    "description": "Full Stack Developer con <strong>3+ años de experiencia</strong> construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en <strong>Nanonino SL</strong> (Alicante) desarrollando <strong>Talkrev</strong> (SaaS IA conversacional multi-tenant) y <strong>PartsNow.ai</strong> (agentic commerce 50k+ piezas). Stack principal: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>.",
+    "description": "Full Stack Developer con <strong>4+ años de experiencia</strong> construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en <strong>Nanonino SL</strong> (Alicante) desarrollando <strong>Talkrev</strong> (SaaS IA conversacional multi-tenant) y <strong>PartsNow.ai</strong> (agentic commerce 50k+ piezas). Stack principal: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>.",
     "cta": {
       "contact": "Contactar",
       "projects": "Ver mis webs",
@@ -22,7 +22,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "subtitle": "Creo webs profesionales para negocios y cuento con más de 3 años de experiencia construyendo productos digitales en producción.",
+    "subtitle": "Creo webs profesionales para negocios y cuento con más de 4 años de experiencia construyendo productos digitales en producción.",
     "stats": {
       "years": "Años de experiencia",
       "projects": "Proyectos",
@@ -174,7 +174,7 @@
       },
       "portfolio": {
         "title": "Portfolio Personal",
-        "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."
+        "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."
       }
     }
   },
@@ -188,7 +188,7 @@
       },
       {
         "q": "¿Cuántos años de experiencia tiene?",
-        "a": "Más de 3 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional."
+        "a": "Más de 4 años de experiencia profesional como Full Stack Developer, trabajando en e-commerce, SaaS multi-tenant e IA conversacional."
       },
       {
         "q": "¿Dónde está ubicado?",
@@ -256,7 +256,7 @@
     "status": "Asistente IA verificado",
     "typing": "Escribiendo…",
     "dialogLabel": "Chat con el asistente de Raúl Berná",
-    "greeting": "Hola. Soy Raúl, Full Stack Developer en Alicante con 3+ años en React, Next.js, Node.js e IA conversacional (Talkrev, PartsNow.ai). ¿En qué te ayudo?",
+    "greeting": "Hola. Soy Raúl, Full Stack Developer en Alicante con 4+ años en React, Next.js, Node.js e IA conversacional (Talkrev, PartsNow.ai). ¿En qué te ayudo?",
     "placeholder": "Escribe tu pregunta...",
     "send": "Enviar",
     "stop": "Detener respuesta",

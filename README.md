@@ -20,7 +20,7 @@
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Next.js 15** - Framework de React
+- **Next.js 16** - Framework de React
 - **TypeScript** - Tipado estático
 - **Tailwind CSS** - Estilos utilitarios
 - **Supabase** - Base de datos y backend
