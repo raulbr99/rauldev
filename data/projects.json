@@ -1,6 +1,19 @@
 {
   "projects": [
       {
+        "id": "turno",
+        "title": "Turno - Agente de IA para restaurantes",
+        "description": "Agente de IA para restaurantes que atiende por mensaje y por teléfono: coge reservas, responde dudas, organiza cenas de grupo y deja que el equipo dicte las comandas con una nota de voz. Producto de Talkrev.",
+        "tech": ["AI agents", "Voice AI", "Messaging", "Bookings"],
+        "image": "/projects/turno.jpg",
+        "github": null,
+        "demo": "https://turno.ai",
+        "featured": true,
+        "category": "IA/ML",
+        "createdAt": "2026-09-01",
+        "status": "production"
+      },
+      {
         "id": "bomkai-generator",
         "title": "BomkAI - Generador de Libros con IA",
         "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.",
@@ -67,8 +80,8 @@
       }
   ],
   "stats": {
-    "totalProjects": 5,
-    "featuredProjects": 5,
+    "totalProjects": 6,
+    "featuredProjects": 6,
     "inDevelopment": 0,
     "categories": ["IA/ML", "SaaS", "Web App", "Portfolio"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Three.js"]

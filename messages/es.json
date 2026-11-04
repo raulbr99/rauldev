@@ -142,8 +142,8 @@
     }
   },
   "projects": {
-    "title": "Webs y productos reales",
-    "subtitle": "Una selección de productos digitales y proyectos propios que he diseñado y desarrollado",
+    "title": "Productos y proyectos",
+    "subtitle": "Productos en los que trabajo y proyectos propios que he diseñado y desarrollado",
     "loading": "Cargando proyectos...",
     "viewAll": "Contactar",
     "code": "Código",
@@ -167,6 +167,10 @@
       "cuotia": {
         "title": "Cuotia - Calculadoras Fiscales para Autónomos",
         "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails."
+      },
+      "turno": {
+        "title": "Turno - Agente de IA para restaurantes",
+        "description": "Agente de IA para restaurantes que atiende por mensaje y por teléfono: coge reservas, responde dudas, organiza cenas de grupo y deja que el equipo dicte las comandas con una nota de voz. Producto de Talkrev."
       },
       "alicanteVoxels": {
         "title": "Alicante en vóxeles",

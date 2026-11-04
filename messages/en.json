@@ -142,8 +142,8 @@
     }
   },
   "projects": {
-    "title": "Websites and real products",
-    "subtitle": "A selection of digital products and personal projects I have designed and developed",
+    "title": "Products and projects",
+    "subtitle": "Products I work on and personal projects I have designed and developed",
     "loading": "Loading projects...",
     "viewAll": "Contact",
     "code": "Code",
@@ -167,6 +167,10 @@
       "cuotia": {
         "title": "Cuotia - Tax Calculators for the Self-Employed",
         "description": "Tax-calculator platform for self-employed workers in Spain (social-security fee, regional income tax, modelo 130, net/gross…) updated to 2026 regulations. Includes programmatic SEO with ~180 pages, a newsletter and official-gazette (BOE) alerts. No sign-up, no emails."
+      },
+      "turno": {
+        "title": "Turno - AI agent for restaurants",
+        "description": "AI agent for restaurants that works by text and by phone: it takes bookings, answers questions, runs group dinners and lets staff dictate orders as a voice note. A Talkrev product."
       },
       "alicanteVoxels": {
         "title": "Alicante in voxels",

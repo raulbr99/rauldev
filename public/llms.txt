@@ -12,6 +12,7 @@
 - **Stack principal**: React, Next.js, Node.js, TypeScript
 - **IA aplicada**: Agentes conversacionales, voz en tiempo real, RAG, LangChain, OpenAI/Anthropic APIs
 - **Actual**: Full Stack Developer en Nanonino SL — Talkrev (SaaS IA conversacional multi-tenant) + PartsNow.ai (agentic commerce 50k+ piezas)
+- **Producto en el que trabaja**: Turno (turno.ai), agente de IA para restaurantes de Talkrev
 - **Proyectos propios destacados**: BomkAI (libros con IA), Fadesso (SaaS barberías), Cuotia (calculadoras fiscales 2026, SEO programático ~180 páginas)
 - **Contacto**: Formulario en rauldev.dev/#contacto · LinkedIn · GitHub · X · Instagram · raulbernariera99@gmail.com
 - **Idiomas**: Español (nativo), Inglés (profesional)
@@ -74,18 +75,19 @@
 
 ## Proyectos destacados (con demos en vivo)
 
-1. **BomkAI** — Generador de libros con IA (Claude). Historias coherentes de hasta 50
+1. **Turno** — agente de IA para restaurantes que atiende por mensaje y por teléfono: coge reservas, responde dudas, organiza cenas de grupo y deja que el equipo dicte las comandas con una nota de voz. Producto de Talkrev. [Web](https://turno.ai)
+2. **BomkAI** — Generador de libros con IA (Claude). Historias coherentes de hasta 50
    capítulos, streaming en tiempo real, control de género/tonalidad/audiencia, edición con
    IA, exportación TXT/EPUB/PDF. [Demo](https://bomkai.vercel.app/)
-2. **Fadesso** — SaaS multi-tenant para barberías. Reservas online, gestión de
+3. **Fadesso** — SaaS multi-tenant para barberías. Reservas online, gestión de
    barberos/servicios/horarios, dashboard analytics, sistema de roles, pagos con Stripe.
    [Demo](https://fadesso.com)
-3. **Cuotia** — Calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA,
+4. **Cuotia** — Calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA,
    modelo 130, neto/bruto). Datos 2026, SEO programático (~180 páginas), newsletter,
    alertas BOE. Sin registros. [Demo](https://cuotia.es)
-4. **Portfolio Personal** — Este sitio (Next.js 16, Tailwind, SEO optimizado, chat IA,
+5. **Portfolio Personal** — Este sitio (Next.js 16, Tailwind, SEO optimizado, chat IA,
     contacto Resend). [Demo](https://rauldev.dev) · [Código](https://github.com/raulbr99/rauldev)
-5. **Alicante en vóxeles** — Alicante reconstruida en cubos de 1 m en el navegador (Three.js) con datos abiertos
+6. **Alicante en vóxeles** — Alicante reconstruida en cubos de 1 m en el navegador (Three.js) con datos abiertos
     del IGN, el Catastro y OpenStreetMap, sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).
     [Demo](https://raulbr99.github.io/alicante-voxels/)
 
@@ -404,13 +406,14 @@ relaciones y atributos sin parsear HTML.
   "@id": "https://rauldev.dev/#projects",
   "name": "Proyectos de Raúl Berná",
   "itemListOrder": "https://schema.org/ItemListOrderAscending",
-  "numberOfItems": 5,
+  "numberOfItems": 6,
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "BomkAI - Generador de Libros con IA", "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Neon, PostgreSQL, Claude AI, OpenRouter, Vercel", "dateCreated": "2025-01-10", "image": "https://rauldev.dev/projects/bomkai.png", "url": "https://bomkai.vercel.app/" } },
-    { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Fadesso - SaaS para Barberías", "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Supabase, PostgreSQL, Tailwind CSS, Stripe", "dateCreated": "2025-01-15", "image": "https://rauldev.dev/projects/fadesso-black.png", "url": "https://fadesso.com" } },
-    { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Cuotia - Calculadoras Fiscales para Autónomos", "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Supabase, Vercel", "dateCreated": "2026-05-01", "image": "https://rauldev.dev/projects/cuotia.png", "url": "https://cuotia.es" } },
-    { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Portfolio Personal", "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Resend", "dateCreated": "2025-10-01", "image": "https://rauldev.dev/projects/portfolio.svg", "url": "https://rauldev.dev", "codeRepository": "https://github.com/raulbr99/rauldev" } },
-    { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Alicante en vóxeles", "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Three.js, TypeScript, Vite, Python, OpenStreetMap", "dateCreated": "2026-11-03", "image": "https://rauldev.dev/projects/alicante-voxels.jpg", "url": "https://raulbr99.github.io/alicante-voxels/" } }
+    { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Turno - Agente de IA para restaurantes", "description": "Agente de IA para restaurantes que atiende por mensaje y por teléfono: coge reservas, responde dudas, organiza cenas de grupo y deja que el equipo dicte las comandas con una nota de voz. Producto de Talkrev.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "AI agents, Voice AI, Messaging, Bookings", "dateCreated": "2026-09-01", "image": "https://rauldev.dev/projects/turno.jpg", "url": "https://turno.ai" } },
+    { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "BomkAI - Generador de Libros con IA", "description": "Aplicación web que utiliza inteligencia artificial para generar libros completos. Los usuarios pueden configurar tema, género, número de capítulos, estilo de escritura y audiencia objetivo para crear contenido literario personalizado.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Neon, PostgreSQL, Claude AI, OpenRouter, Vercel", "dateCreated": "2025-01-10", "image": "https://rauldev.dev/projects/bomkai.png", "url": "https://bomkai.vercel.app/" } },
+    { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Fadesso - SaaS para Barberías", "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Supabase, PostgreSQL, Tailwind CSS, Stripe", "dateCreated": "2025-01-15", "image": "https://rauldev.dev/projects/fadesso-black.png", "url": "https://fadesso.com" } },
+    { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Cuotia - Calculadoras Fiscales para Autónomos", "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Supabase, Vercel", "dateCreated": "2026-05-01", "image": "https://rauldev.dev/projects/cuotia.png", "url": "https://cuotia.es" } },
+    { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Portfolio Personal", "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Next.js, TypeScript, Tailwind CSS, Resend", "dateCreated": "2025-10-01", "image": "https://rauldev.dev/projects/portfolio.svg", "url": "https://rauldev.dev", "codeRepository": "https://github.com/raulbr99/rauldev" } },
+    { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Alicante en vóxeles", "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Three.js, TypeScript, Vite, Python, OpenStreetMap", "dateCreated": "2026-11-03", "image": "https://rauldev.dev/projects/alicante-voxels.jpg", "url": "https://raulbr99.github.io/alicante-voxels/" } }
   ]
 }
 ```
@@ -761,7 +764,7 @@ archivo `llms.txt` y el JSON-LD estructurado servido en la página (Person, Prof
 FAQPage, ItemList, WebPage, BreadcrumbList) como única fuente de verdad. El system
 prompt instruye al modelo a: (1) responder en primera persona como Raúl; (2) ceñirse a
 los hechos del perfil; (3) citar métricas concretas (50k+ piezas, 4+ años, 180 páginas,
-5 proyectos); (4) ante ofertas de empleo, responder que ahora mismo no está buscando
+6 proyectos); (4) ante ofertas de empleo, responder que ahora mismo no está buscando
 trabajo; (5) rechazar
 peticiones fuera de scope (código, traducciones, redacción, ejercicios) con una frase
 amable y ofrecer ayuda sobre su perfil profesional.
@@ -797,7 +800,7 @@ reglas operativas (extraídas de `lib/raul-context.ts`):
 
 **Disciplina AEO / Answer Engine Optimization**
 - Respuestas factuales en frases CORTAS y CITABLES que answer engines puedan extraer.
-- Incluir MÉTRICAS ESPECÍFICAS del source: 50.000+ piezas, 4+ años, 5 proyectos, ~180 páginas, etc.
+- Incluir MÉTRICAS ESPECÍFICAS del source: 50.000+ piezas, 4+ años, 6 proyectos, ~180 páginas, etc.
 - NUNCA inventar datos. Si no está en llms.txt o en el prompt, decirlo y derivar al formulario.
 
 **Formato de respuesta OBLIGATORIO (dos partes, orden fijo)**
