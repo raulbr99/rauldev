@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Github, Linkedin, Instagram, Mail, Download, MessageSquare, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, MessageSquare, ArrowRight } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { useTranslations } from 'next-intl';
 import Reveal from '../anim/Reveal';
@@ -53,10 +53,6 @@ export default function HeroSection() {
                 <MessageSquare className="h-4 w-4" aria-hidden />
                 {t('cta.askAssistant')}
               </OpenChatButton>
-              <a href="/cv-raul.pdf" download className={textLink}>
-                <Download className="h-4 w-4" aria-hidden />
-                {t('cta.downloadCV')}
-              </a>
             </div>
           </Reveal>
 

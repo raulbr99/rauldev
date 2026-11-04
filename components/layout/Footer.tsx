@@ -1,4 +1,4 @@
-import { Github, Linkedin, Instagram, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -49,14 +49,6 @@ export default function Footer() {
               Raúl <span className="text-cyan-400">Dev</span>
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-400">{t('tagline')}</p>
-            <a
-              href="/cv-raul.pdf"
-              download
-              className="mt-5 inline-flex items-center gap-2 border border-white/20 px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-white transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
-            >
-              <Download className="h-3.5 w-3.5" />
-              {t('downloadCV')}
-            </a>
           </div>
 
           {/* Secciones */}

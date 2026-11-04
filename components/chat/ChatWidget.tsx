@@ -12,7 +12,7 @@ import { OPEN_CHAT_EVENT, consumePendingOpen } from '@/lib/chat-events';
 import ReasoningTrace from './ReasoningTrace';
 import { splitReply } from './thinking';
 
-const SUGGESTION_KEYS = ['whatIBuild', 'challenge', 'availability', 'aiExperience', 'teamwork', 'whyHire', 'stack', 'notice', 'salary', 'visa', 'contact'] as const;
+const SUGGESTION_KEYS = ['whatIBuild', 'challenge', 'aiExperience', 'teamwork', 'stack', 'contact'] as const;
 
 const MAX_CHARS = 500;
 /** Altura máxima del campo antes de hacerse scrollable (unas 4 líneas). */

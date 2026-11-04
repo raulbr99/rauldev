@@ -115,8 +115,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     alternateName: ['rauldev', 'rauldev.dev'],
     url: SITE_URL,
     description: isSpanish
-      ? `Portfolio profesional de ${SITE_OWNER}, Full Stack Developer en Alicante: experiencia, proyectos, habilidades y contacto. Abierto a ofertas de empleo.`
-      : `Professional portfolio of ${SITE_OWNER}, Full Stack Developer in Alicante: experience, projects, skills and contact. Open to employment offers.`,
+      ? `Portfolio profesional de ${SITE_OWNER}, Full Stack Developer en Alicante: experiencia, proyectos, habilidades, blog y contacto.`
+      : `Professional portfolio of ${SITE_OWNER}, Full Stack Developer in Alicante: experience, projects, skills, blog and contact.`,
     inLanguage: ['es', 'en'],
     publisher: { '@id': PERSON_ID },
     copyrightHolder: { '@id': PERSON_ID },
@@ -150,9 +150,9 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       '@type': 'SpeakableSpecification',
       cssSelector: ['#inicio .max-w-xl', '#faq'],
     },
-    // El formulario es el siguiente paso para oportunidades laborales.
+    // El formulario de contacto es el siguiente paso.
     potentialAction: {
-      '@type': 'ApplyAction',
+      '@type': 'CommunicateAction',
       target: {
         '@type': 'EntryPoint',
         urlTemplate: `${pageUrl}#contacto`,
@@ -161,10 +161,10 @@ export default async function StructuredData({ language }: StructuredDataProps) 
           'http://schema.org/MobileWebPlatform',
         ],
       },
-      name: isSpanish ? 'Contactar para oportunidades laborales' : 'Contact for job opportunities',
+      name: isSpanish ? 'Contactar' : 'Contact',
       description: isSpanish
-        ? 'Formulario de contacto para ofertas de empleo como Full Stack Developer (presencial en Alicante o remoto). No se ofrecen servicios freelance.'
-        : 'Contact form for Full Stack Developer job offers (on-site in Alicante or remote). No freelance services offered.',
+        ? 'Formulario de contacto para escribir a Raúl Berná.'
+        : 'Contact form to write to Raúl Berná.',
     },
   };
 
@@ -238,11 +238,11 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       availability: 'https://schema.org/InStock',
     },
     description: isSpanish
-      ? 'Asistente conversacional integrado en el portfolio para responder consultas sobre la experiencia, stack, proyectos y disponibilidad laboral de Raúl Berná. Fundamentado en llms.txt y datos estructurados (Person, FAQPage, ItemList). Responde en español e inglés. No almacena datos personales. Modelo: OpenAI gpt-4.1-mini con fallback a Vercel AI Gateway.'
-      : 'Conversational assistant embedded in the portfolio to answer queries about Raúl Berná\'s experience, stack, projects and job availability. Grounded in llms.txt and structured data (Person, FAQPage, ItemList). Replies in Spanish and English. No personal data stored. Model: OpenAI gpt-4.1-mini with Vercel AI Gateway fallback.',
+      ? 'Asistente conversacional integrado en el portfolio para responder consultas sobre la experiencia, stack y proyectos de Raúl Berná. Fundamentado en llms.txt y datos estructurados (Person, FAQPage, ItemList). Responde en español e inglés. No almacena datos personales. Modelo: OpenAI gpt-4.1-mini con fallback a Vercel AI Gateway.'
+      : 'Conversational assistant embedded in the portfolio to answer queries about Raúl Berná\'s experience, stack and projects. Grounded in llms.txt and structured data (Person, FAQPage, ItemList). Replies in Spanish and English. No personal data stored. Model: OpenAI gpt-4.1-mini with Vercel AI Gateway fallback.',
     featureList: [
       isSpanish ? 'Respuestas basadas en fuente única de verdad (llms.txt)' : 'Answers grounded in single source of truth (llms.txt)',
-      isSpanish ? 'Métricas concretas: 50k+ piezas, 3+ años, 180 páginas, 10 proyectos' : 'Concrete metrics: 50k+ parts, 3+ years, 180 pages, 10 projects',
+      isSpanish ? 'Métricas concretas: 50k+ piezas, 3+ años, 180 páginas, 5 proyectos' : 'Concrete metrics: 50k+ parts, 3+ years, 180 pages, 5 projects',
       isSpanish ? 'Idiomas: español nativo, inglés profesional' : 'Languages: native Spanish, professional English',
       isSpanish ? 'Privacidad: sin almacenamiento permanente, sin cookies de seguimiento' : 'Privacy: no permanent storage, no tracking cookies',
       isSpanish ? 'Accesibilidad: panel de razonamiento visible, copia de respuestas' : 'Accessibility: visible reasoning panel, copy answers',
@@ -266,8 +266,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       },
       name: isSpanish ? 'Chatear con el asistente' : 'Chat with assistant',
       description: isSpanish
-        ? 'Abre el chat flotante en la esquina inferior derecha para consultar experiencia, stack, proyectos o disponibilidad.'
-        : 'Open the floating chat in the bottom-right corner to ask about experience, stack, projects or availability.',
+        ? 'Abre el chat flotante en la esquina inferior derecha para consultar experiencia, stack o proyectos.'
+        : 'Open the floating chat in the bottom-right corner to ask about experience, stack or projects.',
     },
   };
 

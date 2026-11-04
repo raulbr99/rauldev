@@ -12,11 +12,10 @@
   "hero": {
     "name": "Raúl Berná",
     "role": "Full Stack Developer",
-    "description": "Full Stack Developer with <strong>3+ years of experience</strong> building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at <strong>Nanonino SL</strong> (Alicante) building <strong>Talkrev</strong> (multi-tenant conversational AI SaaS) and <strong>PartsNow.ai</strong> (agentic commerce 50k+ parts). Core stack: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>. Open to employment offers (on-site Alicante / remote).",
+    "description": "Full Stack Developer with <strong>3+ years of experience</strong> building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at <strong>Nanonino SL</strong> (Alicante) building <strong>Talkrev</strong> (multi-tenant conversational AI SaaS) and <strong>PartsNow.ai</strong> (agentic commerce 50k+ parts). Core stack: <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Python/FastAPI</strong>.",
     "cta": {
-      "contact": "Contact for job opportunities",
+      "contact": "Contact",
       "projects": "View my websites",
-      "downloadCV": "Download CV",
       "askAssistant": "Ask my assistant"
     },
     "imageAlt": "Raúl Berná, Full Stack Developer in Alicante, Spain"
@@ -46,8 +45,8 @@
       "item3": "The discipline of running helps me keep a clear mind for solving complex problems"
     },
     "location": {
-      "title": "Availability & contact",
-      "description": "Based in <strong>Alicante, Spain</strong> and seeking <strong>Full Stack Developer employee roles</strong> (on-site in Alicante or remote). No freelance or consulting services offered.",
+      "title": "Where I am",
+      "description": "I live in <strong>Alicante, Spain</strong> and work as a Full Stack Developer at <strong>Nanonino SL</strong>.",
       "seeking": "Stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, conversational AI (RAG, LangChain, voice agents). International team experience and agile methodologies."
     },
     "teamwork": {
@@ -80,9 +79,7 @@
         "name": "English",
         "level": "Professional"
       }
-    },
-    "downloadCV": "Download Full CV",
-    "downloadCVHint": "See my full experience or tell me what you need"
+    }
   },
   "experience": {
     "title": "Professional Experience",
@@ -148,7 +145,7 @@
     "title": "Websites and real products",
     "subtitle": "A selection of digital products and personal projects I have designed and developed",
     "loading": "Loading projects...",
-    "viewAll": "Contact for job opportunities",
+    "viewAll": "Contact",
     "code": "Code",
     "demo": "Demo",
     "categories": {
@@ -186,10 +183,6 @@
     "subtitle": "What people usually ask before reaching out",
     "items": [
       {
-        "q": "Is Raúl available to work?",
-        "a": "Yes, he's open to Full Stack Developer offers, on-site in Alicante or remote."
-      },
-      {
         "q": "What's his main stack?",
         "a": "React, Next.js and Node.js, with experience in TypeScript, PostgreSQL/Supabase, conversational AI (agents, RAG) and mobile apps with React Native."
       },
@@ -199,24 +192,20 @@
       },
       {
         "q": "Where is he based?",
-        "a": "He lives in Alicante, Spain, and can work either on-site or remote."
+        "a": "He lives in Alicante, Spain."
       },
       {
         "q": "Where does he currently work?",
         "a": "He's a Full Stack Developer at Nanonino SL, building Talkrev, a conversational AI SaaS platform, and PartsNow.ai."
-      },
-      {
-        "q": "Why should we hire you?",
-        "a": "3+ years shipping production products: e-commerce, multi-tenant SaaS and conversational AI. Currently at Nanonino SL building Talkrev (multi-tenant conversational AI SaaS: chat, real-time voice, RAG, agent dashboard, booking suite) and PartsNow.ai (agentic commerce 50,000+ parts, search by chat/voice/photo/VIN, unified checkout). Verified stack: React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase, LangChain, OpenAI/Anthropic APIs. International team experience (India, Spain) and agile methodologies. Clean, tested, documented code focused on measurable impact. Alicante (on-site/remote). No freelance: seeking an employee role."
       }
     ]
   },
   "contact": {
-    "title": "Job offers & contact",
-    "subtitle": "Do you have a Full Stack Developer role to fill? Looking to collaborate? Write to me and I'll reply within 24-48 h.",
+    "title": "Contact",
+    "subtitle": "Want to tell me something or collaborate? Write to me and I'll reply within 24-48 h.",
     "info": {
-      "title": "Professional contact",
-      "description": "Looking for a Full Stack Developer for your team? Tell me about the role, the stack and the challenges. You can also reach me on LinkedIn or by email.",
+      "title": "Contact",
+      "description": "Write to me through the form, on LinkedIn or by email.",
       "location": "Alicante, Spain"
     },
     "form": {
@@ -225,8 +214,8 @@
       "email": "Email",
       "emailPlaceholder": "you@email.com",
       "message": "Message",
-      "messagePlaceholder": "Tell me about the role, position or collaboration you have in mind",
-      "submit": "Send application / message",
+      "messagePlaceholder": "Tell me what you have in mind",
+      "submit": "Send message",
       "submitting": "Sending...",
       "success": "Message sent successfully! I'll get back to you soon.",
       "fillAllFields": "Please fill in all fields correctly",
@@ -267,7 +256,7 @@
     "status": "Verified AI assistant",
     "typing": "Typing…",
     "dialogLabel": "Chat with Raúl Berná's assistant",
-    "greeting": "Hello. I'm Raúl, a Full Stack Developer in Alicante with 3+ years in React, Next.js, Node.js and conversational AI (Talkrev, PartsNow.ai). I'm looking for employment offers — on-site or remote. How can I help?",
+    "greeting": "Hello. I'm Raúl, a Full Stack Developer in Alicante with 3+ years in React, Next.js, Node.js and conversational AI (Talkrev, PartsNow.ai). How can I help?",
     "placeholder": "Type your question...",
     "send": "Send",
     "stop": "Stop response",
@@ -286,28 +275,18 @@
     "suggestions": {
       "whatIBuild": "What real products have you built?",
       "challenge": "Most complex challenge (Talkrev RAG / PartsNow 50k)?",
-      "availability": "Availability, notice period, contract type (employee)?",
       "aiExperience": "Experience with conversational AI and agents?",
       "teamwork": "How do you work in international/remote teams?",
-      "whyHire": "Why hire you over other candidates?",
       "stack": "Core stack and proficiency level in each?",
-      "notice": "Notice period and start date?",
-      "salary": "Salary expectations?",
-      "visa": "Visa / relocation (EU)?",
-      "contact": "I want to contact / view CV"
+      "contact": "I want to get in touch"
     },
     "suggestionLabels": {
       "whatIBuild": "Real products",
       "challenge": "Hardest challenge",
-      "availability": "Availability",
       "aiExperience": "AI & agents",
       "teamwork": "Remote teams",
-      "whyHire": "Why hire me",
       "stack": "Tech stack",
-      "notice": "Notice period",
-      "salary": "Salary",
-      "visa": "Visa / EU",
-      "contact": "Contact / CV"
+      "contact": "Contact"
     }
   },
   "footer": {
@@ -318,7 +297,6 @@
     "legalNotice": "Legal notice",
     "privacy": "Privacy policy",
     "cookies": "Cookie policy",
-    "downloadCV": "Download CV",
     "rights": "All rights reserved.",
     "builtWith": "Built with Next.js and Tailwind"
   },

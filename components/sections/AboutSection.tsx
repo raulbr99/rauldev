@@ -1,4 +1,4 @@
-import { Download, Code2, Heart, Globe2, GraduationCap, Languages, Activity, MessageSquare, Target, Handshake } from 'lucide-react';
+import { Code2, Heart, Globe2, GraduationCap, Languages, Activity, MessageSquare, Target, Handshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -150,20 +150,6 @@ export default function AboutSection() {
                 <p className="text-gray-400 text-sm">{t('teamwork.collaboration.description')}</p>
               </div>
             </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="/cv-raul.pdf"
-              download
-              className="inline-flex items-center gap-2 bg-cyan-400 text-slate-950 px-8 py-4 font-mono text-sm font-medium uppercase tracking-wider hover:bg-cyan-300 transition-colors"
-            >
-              <Download className="w-5 h-5" />
-              {t('downloadCV')}
-            </a>
-            <p className="text-gray-400 text-sm mt-3">
-              {t('downloadCVHint')}
-            </p>
           </div>
         </div>
       </div>
