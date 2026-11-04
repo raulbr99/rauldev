@@ -60,7 +60,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     sameAs: [
       'https://github.com/raulbr99',
       'https://www.linkedin.com/in/raul-berna-riera',
-      'https://twitter.com/raulbr99',
+      'https://x.com/sr_rauldev',
+      'https://www.instagram.com/raulberna.dev/',
     ],
     jobTitle,
     description,

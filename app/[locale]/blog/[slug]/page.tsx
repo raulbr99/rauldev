@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      creator: '@raulbr99',
+      creator: '@sr_rauldev',
       images: [{ url: `${SITE_URL}/og-image.jpg`, alt: post.title }],
     },
     // Solo canonical: un artículo puede no existir en el otro idioma, así que

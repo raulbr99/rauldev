@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: t('title'),
       description: t('metaDescription'),
-      creator: '@raulbr99',
+      creator: '@sr_rauldev',
       images: [{ url: `${SITE_URL}/og-image.jpg`, alt: t('title') }],
     },
     alternates: alternatesFor(locale, '/blog'),
