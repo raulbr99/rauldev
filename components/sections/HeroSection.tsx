@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MessageSquare, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, Download, MessageSquare, ArrowRight } from 'lucide-react';
+import { SiX } from 'react-icons/si';
 import { useTranslations } from 'next-intl';
 import Reveal from '../anim/Reveal';
 import OpenChatButton from '../chat/OpenChatButton';
@@ -66,6 +67,12 @@ export default function HeroSection() {
               </a>
               <a href="https://www.linkedin.com/in/raul-berna-riera" aria-label="LinkedIn" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://x.com/sr_rauldev" aria-label="X" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+                <SiX className="h-5 w-5" />
+              </a>
+              <a href="https://www.instagram.com/raulberna.dev/" aria-label="Instagram" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+                <Instagram className="h-5 w-5" />
               </a>
               <a href="mailto:raulbernariera99@gmail.com" aria-label="Email" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Mail className="h-5 w-5" />

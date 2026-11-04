@@ -1,6 +1,7 @@
 'use client';
 
-import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin, BookOpen } from 'lucide-react';
+import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin, Instagram, BookOpen } from 'lucide-react';
+import { SiX } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
@@ -22,6 +23,8 @@ const menuItems = [
 const socialItems = [
     { href: 'https://github.com/raulbr99', label: 'GitHub', Icon: Github },
     { href: 'https://www.linkedin.com/in/raul-berna-riera', label: 'LinkedIn', Icon: Linkedin },
+    { href: 'https://x.com/sr_rauldev', label: 'X', Icon: SiX },
+    { href: 'https://www.instagram.com/raulberna.dev/', label: 'Instagram', Icon: Instagram },
     { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
 ] as const;
 
