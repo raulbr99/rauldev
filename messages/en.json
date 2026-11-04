@@ -171,6 +171,10 @@
         "title": "Cuotia - Tax Calculators for the Self-Employed",
         "description": "Tax-calculator platform for self-employed workers in Spain (social-security fee, regional income tax, modelo 130, net/gross…) updated to 2026 regulations. Includes programmatic SEO with ~180 pages, a newsletter and official-gazette (BOE) alerts. No sign-up, no emails."
       },
+      "alicanteVoxels": {
+        "title": "Alicante in voxels",
+        "description": "Alicante rebuilt in 1 m cubes that you explore in the browser: fly over the Explanada, the Postiguet, the marina and the castle, change the day, the hour and the weather, or follow a tram. Built from open data (IGN, Catastro, OpenStreetMap) on Piotr Migdał's open-source Warsaw in voxels engine (MIT)."
+      },
       "portfolio": {
         "title": "Personal Portfolio",
         "description": "This very portfolio developed with Next.js 15, modern design, SEO optimized, contact system with Resend and scalable architecture."

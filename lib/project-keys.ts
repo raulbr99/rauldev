@@ -7,6 +7,7 @@ export const projectKeyMap: Record<string, string> = {
   'bomkai-generator': 'bomkai',
   'fadesso-saas': 'fadesso',
   cuotia: 'cuotia',
+  'alicante-voxels': 'alicanteVoxels',
   'portfolio-website': 'portfolio',
   'clinica-dental-marina': 'clinicaDentalMarina',
   'estudio-aire': 'estudioAire',

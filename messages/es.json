@@ -171,6 +171,10 @@
         "title": "Cuotia - Calculadoras Fiscales para Autónomos",
         "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails."
       },
+      "alicanteVoxels": {
+        "title": "Alicante en vóxeles",
+        "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT)."
+      },
       "portfolio": {
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."

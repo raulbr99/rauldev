@@ -97,6 +97,9 @@
    oscura con acentos dorados. [Demo](https://altea-suite-vault.vercel.app)
 10. **Portfolio Personal** — Este sitio (Next.js 15, Tailwind, SEO optimizado, chat IA,
     contacto Resend). [Demo](https://rauldev.dev) · [Código](https://github.com/raulbr99/rauldev)
+11. **Alicante en vóxeles** — Alicante reconstruida en cubos de 1 m en el navegador (Three.js) con datos abiertos
+    del IGN, el Catastro y OpenStreetMap, sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).
+    [Demo](https://raulbr99.github.io/alicante-voxels/)
 
 ## Habilidades técnicas (fuente única para schema.org y chatbot)
 
@@ -461,7 +464,8 @@ relaciones y atributos sin parsear HTML.
     { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Gestoría Llobet", "description": "Landing corporativa para una asesoría fiscal y laboral, con paquetes de precios comparativos y un hero con métricas en lugar de fotografía de stock.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/gestoria-llobet.jpg", "url": "https://gestoria-llobet.vercel.app" } },
     { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Taller Bernabéu", "description": "Web de taller mecánico con identidad industrial: hero con cuñas diagonales en CSS puro, sección de proceso de reparación paso a paso y tipografía condensada.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-29", "image": "https://rauldev.dev/projects/taller-bernabeu.jpg", "url": "https://taller-bernabeu.vercel.app" } },
     { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Casa Ribes", "description": "Web de alojamiento turístico real con motor de reserva directa: selector de fechas y huéspedes que calcula el precio según temporada y arma el mensaje de WhatsApp al propietario.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/casa-ribes.jpg", "url": "https://casa-ribes.vercel.app" } },
-    { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Altea Suite Vault", "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/altea-suite-vault.jpg", "url": "https://altea-suite-vault.vercel.app" } }
+    { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Altea Suite Vault", "description": "Web de suites turísticas de alta gama con el mismo motor de reserva directa que Casa Ribes, en una estética oscura y elegante con acentos dorados.", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Astro, TypeScript, Vercel", "dateCreated": "2026-08-24", "image": "https://rauldev.dev/projects/altea-suite-vault.jpg", "url": "https://altea-suite-vault.vercel.app" } },
+    { "@type": "ListItem", "position": 11, "item": { "@type": "CreativeWork", "name": "Alicante en vóxeles", "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).", "author": { "@id": "https://rauldev.dev/#person" }, "keywords": "Three.js, TypeScript, Vite, Python, OpenStreetMap", "dateCreated": "2026-11-03", "image": "https://rauldev.dev/projects/alicante-voxels.jpg", "url": "https://raulbr99.github.io/alicante-voxels/" } }
   ]
 }
 ```

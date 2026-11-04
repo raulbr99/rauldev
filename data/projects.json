@@ -40,6 +40,19 @@
         "status": "production"
       },
       {
+        "id": "alicante-voxels",
+        "title": "Alicante en vóxeles",
+        "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).",
+        "tech": ["Three.js", "TypeScript", "Vite", "Python", "OpenStreetMap", "Claude Code"],
+        "image": "/projects/alicante-voxels.jpg",
+        "github": null,
+        "demo": "https://raulbr99.github.io/alicante-voxels/",
+        "featured": true,
+        "category": "Web App",
+        "createdAt": "2026-11-03",
+        "status": "production"
+      },
+      {
         "id": "portfolio-website",
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 15, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
@@ -138,10 +151,10 @@
       }
   ],
   "stats": {
-    "totalProjects": 10,
-    "featuredProjects": 10,
+    "totalProjects": 11,
+    "featuredProjects": 11,
     "inDevelopment": 0,
     "categories": ["IA/ML", "SaaS", "Web App", "Portfolio", "Web Design"],
-    "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Astro"]
+    "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Astro", "Three.js"]
   }
 }
