@@ -129,3 +129,27 @@ export function getPosts(locale: Locale): PostMeta[] {
 export function getPost(locale: Locale, slug: string): Post | undefined {
   return loadAll(locale).find((post) => post.slug === slug);
 }
+
+/**
+ * Artículos para «Sigue leyendo»: primero los que comparten más etiquetas con
+ * el actual y, a igualdad, los más recientes. Nunca el propio artículo.
+ */
+export function pickRelated(posts: PostMeta[], current: PostMeta, count = 2): PostMeta[] {
+  const tags = new Set(current.tags);
+  return posts
+    .filter((post) => post.slug !== current.slug)
+    .map((post) => ({ post, shared: post.tags.filter((tag) => tags.has(tag)).length }))
+    .sort((a, b) => b.shared - a.shared || b.post.date.localeCompare(a.post.date))
+    .slice(0, count)
+    .map(({ post }) => post);
+}
+
+/** `Lo que cambia respecto a Alicante` → `lo-que-cambia-respecto-a-alicante` (id de un apartado). */
+export function headingId(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}

@@ -406,7 +406,9 @@
     "shareNative": "More options",
     "followEyebrow": "Follow",
     "followText": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
-    "rssHint": "new articles"
+    "rssHint": "new articles",
+    "keepReading": "Keep reading",
+    "anchorLabel": "Link to this section"
   },
   "social": {
     "title": "Latest on social",

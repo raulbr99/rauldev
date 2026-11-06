@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildPost, parseFrontmatter, parseTags, readingMinutes } from '@/lib/blog';
+import { buildPost, headingId, parseFrontmatter, parseTags, pickRelated, readingMinutes, type PostMeta } from '@/lib/blog';
 
 const valid = `---
 title: "Mi artículo: con dos puntos"
@@ -72,5 +72,37 @@ describe('buildPost', () => {
     ['updated mal formada', 'a', valid.replace('tags:', 'updated: ayer\ntags:')],
   ])('rechaza: %s', (_name, slug, source) => {
     expect(() => buildPost(slug, source)).toThrow(/Artículo/);
+  });
+});
+
+const meta = (slug: string, date: string, tags: string[]): PostMeta => ({
+  slug, title: slug, description: slug, date, tags, readingMinutes: 1,
+});
+
+describe('pickRelated', () => {
+  const current = meta('callosa', '2026-11-06', ['3d', 'lidar', 'datos-abiertos']);
+  const posts = [
+    current,
+    meta('alicante', '2026-11-05', ['3d', 'datos-abiertos']),
+    meta('advisor', '2026-11-05', ['claude-code']),
+    meta('machine', '2026-11-04', ['3d']),
+    meta('stack', '2026-11-02', []),
+  ];
+
+  it('ordena por etiquetas en común y luego por fecha, sin el propio artículo', () => {
+    expect(pickRelated(posts, current).map((p) => p.slug)).toEqual(['alicante', 'machine']);
+  });
+
+  it('sin etiquetas en común, los más recientes', () => {
+    const lone = meta('nuevo', '2026-11-07', ['otra']);
+    expect(pickRelated([lone, ...posts.slice(1)], lone, 3).map((p) => p.slug)).toEqual(['alicante', 'advisor', 'machine']);
+  });
+});
+
+describe('headingId', () => {
+  it('quita tildes y signos y une con guiones', () => {
+    expect(headingId('Lo que cambia respecto a Alicante')).toBe('lo-que-cambia-respecto-a-alicante');
+    expect(headingId('¿Qué se puede hacer en la web?')).toBe('que-se-puede-hacer-en-la-web');
+    expect(headingId('De dónde sale cada cubo')).toBe('de-donde-sale-cada-cubo');
   });
 });

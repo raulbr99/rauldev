@@ -1,25 +1,54 @@
+import { isValidElement, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { headingId } from '@/lib/blog';
+
+/** Texto plano de lo que react-markdown pasa como hijos (cadenas, <strong>, <code>…). */
+function textOf(node: ReactNode): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(textOf).join('');
+  if (isValidElement(node)) return textOf((node.props as { children?: ReactNode }).children);
+  return '';
+}
+
+/**
+ * Apartado con id estable y un «#» que enlaza a él (visible al pasar el ratón o
+ * al llegar con el teclado), para poder compartir un trozo concreto. `scroll-mt`
+ * deja sitio a la barra fija al saltar al ancla.
+ */
+function Heading({ level, children, anchorLabel }: { level: 2 | 3; children: ReactNode; anchorLabel: string }) {
+  const id = headingId(textOf(children));
+  const Tag = level === 2 ? 'h2' : 'h3';
+  const size = level === 2 ? 'mb-4 mt-12 text-3xl' : 'mb-3 mt-8 text-xl';
+  return (
+    <Tag id={id || undefined} className={`group scroll-mt-28 font-bold text-white ${size}`}>
+      {children}
+      {id && (
+        <a
+          href={`#${id}`}
+          aria-label={`${anchorLabel}: ${textOf(children)}`}
+          className="ml-3 font-mono text-[0.7em] text-cyan-400/0 transition-colors group-hover:text-cyan-400/70 focus-visible:text-cyan-400"
+        >
+          #
+        </a>
+      )}
+    </Tag>
+  );
+}
 
 /**
  * Cuerpo de un artículo. Sin `rehype-raw`: el HTML dentro del Markdown no se
  * interpreta, así que un artículo no puede inyectar marcado.
  */
-export default function PostBody({ children }: { children: string }) {
+export default function PostBody({ children, anchorLabel }: { children: string; anchorLabel: string }) {
   return (
     <div className="text-lg leading-relaxed text-gray-300">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ children }) => (
-            <h2 className="mb-4 mt-12 text-3xl font-bold text-white">{children}</h2>
-          ),
-          h2: ({ children }) => (
-            <h2 className="mb-4 mt-12 text-3xl font-bold text-white">{children}</h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="mb-3 mt-8 text-xl font-bold text-white">{children}</h3>
-          ),
+          h1: ({ children }) => <Heading level={2} anchorLabel={anchorLabel}>{children}</Heading>,
+          h2: ({ children }) => <Heading level={2} anchorLabel={anchorLabel}>{children}</Heading>,
+          h3: ({ children }) => <Heading level={3} anchorLabel={anchorLabel}>{children}</Heading>,
           p: ({ children }) => <p className="mb-5">{children}</p>,
           strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
           a: ({ href, children }) => {

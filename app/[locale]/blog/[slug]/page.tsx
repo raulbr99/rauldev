@@ -11,7 +11,7 @@ import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
 import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import ShareButtons from '@/components/blog/ShareButtons';
-import { getPost, getPosts } from '@/lib/blog';
+import { getPost, getPosts, pickRelated } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, feedPath, feedTypes, postImageUrl } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
@@ -74,6 +74,7 @@ export default async function BlogPost({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: 'blog' });
   const ta = await getTranslations({ locale, namespace: 'a11y' });
+  const related = pickRelated(getPosts(locale as Locale), post);
   const url = localeUrl(locale, `/blog/${slug}`);
   const dateFormat = new Intl.DateTimeFormat(locale === 'es' ? 'es-ES' : 'en-GB', {
     day: 'numeric',
@@ -161,7 +162,7 @@ export default async function BlogPost({ params }: Props) {
           </header>
 
           <div className="mt-12">
-            <PostBody>{post.body}</PostBody>
+            <PostBody anchorLabel={t('anchorLabel')}>{post.body}</PostBody>
           </div>
         </article>
 
@@ -226,6 +227,34 @@ export default async function BlogPost({ params }: Props) {
             </Link>
           </p>
         </aside>
+
+        {related.length > 0 && (
+          <section aria-labelledby="sigue-leyendo" className="mt-16">
+            <h2 id="sigue-leyendo" className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">
+              {t('keepReading')}
+            </h2>
+            <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+              {related.map((item) => (
+                <li key={item.slug}>
+                  <Link
+                    href={`/blog/${item.slug}`}
+                    className="group flex h-full flex-col border border-white/10 p-5 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.03]"
+                  >
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
+                      <time dateTime={item.date}>{dateFormat.format(new Date(item.date))}</time>
+                    </p>
+                    <PostTitleTransition slug={item.slug}>
+                      <h3 className="mt-2 text-lg font-bold leading-snug text-white transition-colors group-hover:text-cyan-300">
+                        {item.title}
+                      </h3>
+                    </PostTitleTransition>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">{item.description}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
 
       <Footer />

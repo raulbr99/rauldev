@@ -406,7 +406,9 @@
     "shareNative": "Más opciones",
     "followEyebrow": "Seguir",
     "followText": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
-    "rssHint": "los artículos nuevos"
+    "rssHint": "los artículos nuevos",
+    "keepReading": "Sigue leyendo",
+    "anchorLabel": "Enlace a este apartado"
   },
   "social": {
     "title": "Lo último en redes",
