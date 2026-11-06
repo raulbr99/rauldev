@@ -9,6 +9,7 @@ const sectionLinks = [
   { href: '#experiencia', key: 'experience' },
   { href: '#habilidades', key: 'skills' },
   { href: '#proyectos', key: 'projects' },
+  { href: '#redes', key: 'social' },
   { href: '#contacto', key: 'contact' },
 ] as const;
 

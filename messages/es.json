@@ -7,7 +7,8 @@
     "projects": "Proyectos",
     "contact": "Contacto",
     "toggleMenu": "Abrir menú móvil",
-    "blog": "Blog"
+    "blog": "Blog",
+    "social": "En redes"
   },
   "hero": {
     "name": "Raúl Berná",
@@ -406,5 +407,11 @@
     "followEyebrow": "Seguir",
     "followText": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
     "rssHint": "los artículos nuevos"
+  },
+  "social": {
+    "title": "Lo último en redes",
+    "subtitle": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
+    "seeOn": "Ver en {network}",
+    "follow": "Seguir en {network}"
   }
 }

@@ -7,7 +7,8 @@
     "projects": "Projects",
     "contact": "Contact",
     "toggleMenu": "Toggle mobile menu",
-    "blog": "Blog"
+    "blog": "Blog",
+    "social": "Social"
   },
   "hero": {
     "name": "Raúl Berná",
@@ -406,5 +407,11 @@
     "followEyebrow": "Follow",
     "followText": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
     "rssHint": "new articles"
+  },
+  "social": {
+    "title": "Latest on social",
+    "subtitle": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
+    "seeOn": "See on {network}",
+    "follow": "Follow on {network}"
   }
 }

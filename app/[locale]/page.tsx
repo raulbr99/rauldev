@@ -6,6 +6,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import BlogSection from '@/components/sections/BlogSection';
+import SocialSection from '@/components/sections/SocialSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
@@ -94,6 +95,7 @@ export default async function Home({ params }: Props) {
         <Reveal><SkillsSection /></Reveal>
         <Reveal><ProjectsSection /></Reveal>
         <Reveal><BlogSection locale={locale as Locale} /></Reveal>
+        <Reveal><SocialSection locale={locale as Locale} /></Reveal>
         <Reveal><FAQSection /></Reveal>
         <Reveal><ContactSection /></Reveal>
       </main>
