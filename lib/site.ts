@@ -42,6 +42,11 @@ export function feedTypes(locale: string): NonNullable<NonNullable<Metadata['alt
   return { 'application/rss+xml': [{ url: feedUrl(locale), title: FEED_TITLE }] };
 }
 
+/** Imagen para compartir un artículo, generada en el build por `app/og/[locale]/[slug]`. */
+export function postImageUrl(locale: string, slug: string): string {
+  return `${SITE_URL}/og/${locale === 'en' ? 'en' : 'es'}/${slug}.png`;
+}
+
 /** Absolute URL for a path in a given locale (`es` is the default, unprefixed). */
 export function localeUrl(locale: string, path = ''): string {
   return `${SITE_URL}${locale === 'en' ? '/en' : ''}${path}`;

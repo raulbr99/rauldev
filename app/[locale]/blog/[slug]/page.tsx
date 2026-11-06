@@ -10,7 +10,7 @@ import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
 import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
-import { SITE_URL, SITE_OWNER, localeUrl, feedTypes } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, localeUrl, feedTypes, postImageUrl } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
 import { blogAlternates } from '@/lib/blog-alternates';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, webPageId } from '@/lib/structured-data';
@@ -47,14 +47,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.updated ?? post.date,
       authors: [SITE_OWNER],
       tags: post.tags,
-      images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630, alt: post.title, type: 'image/jpeg' }],
+      images: [{ url: postImageUrl(locale, slug), width: 1200, height: 630, alt: post.title, type: 'image/png' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
       creator: '@sr_rauldev',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, alt: post.title }],
+      images: [{ url: postImageUrl(locale, slug), alt: post.title }],
     },
     // hreflang solo si el artículo existe en los dos idiomas: si no, apuntaría
     // a una página inexistente.
@@ -91,7 +91,7 @@ export default async function BlogPost({ params }: Props) {
     keywords: post.tags.join(', '),
     mainEntityOfPage: { '@id': webPageId(locale, path) },
     url,
-    image: `${SITE_URL}/og-image.jpg`,
+    image: postImageUrl(locale, slug),
     author: { '@id': PERSON_ID },
     publisher: { '@id': PERSON_ID },
     isPartOf: { '@id': WEBSITE_ID },
