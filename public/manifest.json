@@ -1,7 +1,7 @@
 {
-  "name": "Raúl Berná — Webs para negocios",
+  "name": "Raúl Berná — Portfolio",
   "short_name": "Raúl Berná",
-  "description": "Webs profesionales para negocios y portfolio de Raúl Berná, desarrollador web y Full Stack Developer en Alicante.",
+  "description": "Construyo apps web, bots y herramientas de IA. Pruebo lo nuevo que sale en IA y cuento qué funcionó y qué no.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
@@ -10,7 +10,7 @@
   "scope": "/",
   "lang": "es",
   "dir": "ltr",
-  "categories": ["business", "productivity"],
+  "categories": ["productivity"],
   "screenshots": [
     {
       "src": "/og-image.jpg",
@@ -57,7 +57,7 @@
     {
       "name": "Contacto",
       "short_name": "Contacto",
-      "description": "Escríbeme para contarme tu proyecto web",
+      "description": "Escríbeme por el formulario, por LinkedIn o por email.",
       "url": "/#contacto",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
