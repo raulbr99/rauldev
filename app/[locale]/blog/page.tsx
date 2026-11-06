@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { ArrowLeft, Rss } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import Navigation from '@/components/layout/Navigation';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
@@ -144,9 +145,11 @@ export default async function BlogIndex({ params }: Props) {
                     {' · '}
                     {t('readingTime', { minutes: post.readingMinutes })}
                   </p>
-                  <h2 className="mt-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-300">
-                    {post.title}
-                  </h2>
+                  <PostTitleTransition slug={post.slug}>
+                    <h2 className="mt-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-300">
+                      {post.title}
+                    </h2>
+                  </PostTitleTransition>
                   <p className="mt-3 leading-relaxed text-gray-400">{post.description}</p>
                   {post.tags.length > 0 && (
                     <p className="mt-4 flex flex-wrap gap-2">

@@ -9,6 +9,7 @@ import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
+import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import ShareButtons from '@/components/blog/ShareButtons';
 import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
@@ -144,9 +145,11 @@ export default async function BlogPost({ params }: Props) {
               {' · '}
               {t('readingTime', { minutes: post.readingMinutes })}
             </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
-              {post.title}
-            </h1>
+            <PostTitleTransition slug={slug}>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
+                {post.title}
+              </h1>
+            </PostTitleTransition>
             <p className="mt-6 border-l-2 border-cyan-400/50 pl-5 text-lg leading-relaxed text-gray-300">
               {post.description}
             </p>

@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { getPosts } from '@/lib/blog';
 import type { Locale } from '@/i18n/config';
@@ -44,9 +45,11 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
                   {' · '}
                   {t('readingTime', { minutes: post.readingMinutes })}
                 </p>
-                <h3 className="mt-3 text-xl font-bold leading-snug text-white transition-colors group-hover:text-cyan-300">
-                  {post.title}
-                </h3>
+                <PostTitleTransition slug={post.slug}>
+                  <h3 className="mt-3 text-xl font-bold leading-snug text-white transition-colors group-hover:text-cyan-300">
+                    {post.title}
+                  </h3>
+                </PostTitleTransition>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">{post.description}</p>
               </Link>
             </li>
