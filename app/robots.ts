@@ -32,13 +32,9 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Perplexity-User', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
     ],
-    sitemap: [
-      `${SITE_URL}/sitemap.xml`,
-      // llms.txt: fuente única de verdad para agentes de IA (AEO).
-      // Perfil, experiencia, proyectos, FAQ y schema.org estructurado.
-      // https://github.com/llms-txt/llms-txt
-      `${SITE_URL}/llms.txt`,
-    ],
+    // Solo el sitemap: llms.txt no es un sitemap (los buscadores esperan XML
+    // o una lista de URLs) y ya se anuncia con <link rel="alternate"> en el <head>.
+    sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   }
 }

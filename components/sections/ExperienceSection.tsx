@@ -94,10 +94,15 @@ export default function ExperienceSection() {
                                                             aria-label={proj.name}
                                                             className="flex items-center rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-cyan-400/50 hover:bg-white/[0.06]"
                                                         >
+                                                            {/* lazy: sin él React precarga los logos en el HTML y en
+                                                                los datos que Next adelanta al resto de páginas, y el
+                                                                navegador avisa de una precarga que no se usa. */}
                                                             {/* eslint-disable-next-line @next/next/no-img-element */}
                                                             <img
                                                                 src={proj.logo}
                                                                 alt={proj.name}
+                                                                loading="lazy"
+                                                                decoding="async"
                                                                 className="h-7 w-auto opacity-80 brightness-0 invert transition-opacity group-hover:opacity-100"
                                                             />
                                                         </a>
