@@ -22,8 +22,14 @@ interface RevealProps {
   /** Pop-in from a slightly smaller scale. */
   scale?: boolean;
   className?: string;
-  /** Fraction of the element that must be visible to trigger (0-1). */
-  amount?: number;
+  /**
+   * Cuánto del elemento tiene que verse para que aparezca: 'some' (cualquier
+   * parte), 'all' o una fracción 0-1. Por defecto 'some': con una fracción,
+   * una sección más alta que la pantalla dividida por esa fracción (p. ej.
+   * «Proyectos» en un móvil, más de 4 pantallas con 0.25) nunca llega a
+   * mostrarse.
+   */
+  amount?: 'some' | 'all' | number;
   duration?: number;
 }
 
@@ -37,7 +43,7 @@ export default function Reveal({
   direction = 'up',
   scale = false,
   className,
-  amount = 0.25,
+  amount = 'some',
   duration = 0.5,
 }: RevealProps) {
   const reduce = useReducedMotion();
