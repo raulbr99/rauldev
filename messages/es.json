@@ -31,7 +31,7 @@
     "history": {
       "title": "Mi Historia",
       "paragraph1": "Mi pasión por la programación comenzó en el instituto cuando descubrí <strong>Scratch</strong>. Ver cómo unas simples instrucciones cobraban vida y creaban algo funcional me fascinó desde el primer momento.",
-      "paragraph2": "Con más de <strong>3 años de experiencia profesional</strong> como <strong>Full Stack Developer</strong>, he entregado <strong>e-commerce, SaaS multi-tenant, IA conversacional (RAG, LangChain, voz en tiempo real) y blockchain</strong> en <strong>Nanonino SL (Alicante)</strong> y <strong>Evvant SL</strong>. Stack principal: <strong>React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase</strong>. Lo que me motiva no es la tecnología en sí, sino el <strong>impacto real en usuarios finales</strong>."
+      "paragraph2": "Con más de <strong>4 años de experiencia profesional</strong> como <strong>Full Stack Developer</strong>, he entregado <strong>e-commerce, SaaS multi-tenant, IA conversacional (RAG, LangChain, voz en tiempo real) y blockchain</strong> en <strong>Nanonino SL (Alicante)</strong> y <strong>Evvant SL</strong>. Stack principal: <strong>React, Next.js, Node.js, TypeScript, Python/FastAPI, PostgreSQL/Supabase</strong>. Lo que me motiva no es la tecnología en sí, sino el <strong>impacto real en usuarios finales</strong>."
     },
     "passion": {
       "title": "Lo Que Me Mueve",
@@ -152,8 +152,7 @@
       "ai": "IA/ML",
       "saas": "SaaS",
       "webapp": "Web App",
-      "portfolio": "Portfolio",
-      "webdesign": "Diseño Web"
+      "portfolio": "Portfolio"
     },
     "data": {
       "bomkai": {

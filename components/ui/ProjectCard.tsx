@@ -16,7 +16,6 @@ const categoryKeyMap: Record<string, string> = {
     'SaaS': 'saas',
     'Web App': 'webapp',
     'Portfolio': 'portfolio',
-    'Web Design': 'webdesign',
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
