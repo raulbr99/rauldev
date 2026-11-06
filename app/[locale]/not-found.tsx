@@ -1,5 +1,14 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { notFoundMetadata } from '@/lib/not-found-metadata';
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return notFoundMetadata(locale);
+}
 
 export default function NotFound() {
   const t = useTranslations('notFound');

@@ -29,3 +29,22 @@ export function alternatesFor(locale: string, path = ''): NonNullable<Metadata['
     },
   };
 }
+
+/**
+ * Título, descripción y texto alternativo de la imagen social de la portada.
+ * El layout los usa como valores por defecto y la portada para su Open Graph.
+ */
+export function homeSeo(locale: string): { title: string; description: string; ogImageAlt: string } {
+  const isSpanish = locale !== 'en';
+  return {
+    title: isSpanish
+      ? `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, IA) | Alicante`
+      : `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, AI) | Alicante, Spain`,
+    description: isSpanish
+      ? 'Full Stack Developer 4+ años: React, Next.js, Node.js, IA conversacional. Talkrev y PartsNow.ai (50k+ piezas). Alicante.'
+      : 'Full Stack Developer 4+ years: React, Next.js, Node.js, Conversational AI. Talkrev & PartsNow.ai (50k+ parts). Alicante, Spain.',
+    ogImageAlt: isSpanish
+      ? `${SITE_OWNER}, desarrollador full stack en Alicante: apps web, bots y herramientas de IA`
+      : `${SITE_OWNER}, full-stack developer in Alicante, Spain: web apps, bots and AI tools`,
+  };
+}

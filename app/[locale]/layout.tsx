@@ -1,12 +1,13 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales, type Locale } from '@/i18n/config';
+import { locales, defaultLocale, type Locale } from '@/i18n/config';
 import StructuredData from '@/components/StructuredData';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, homeSeo } from '@/lib/site';
+import { notFoundMetadata } from '@/lib/not-found-metadata';
 import type { Metadata } from 'next';
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,19 +33,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+/**
+ * Metadatos comunes a todas las páginas del idioma. Lo que es solo de la
+ * portada (canonical, hreflang, robots, Open Graph) vive en `page.tsx`: si
+ * estuviera aquí, la 404 heredaría el canonical de la portada.
+ */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const isSpanish = locale === 'es';
-
-  const title = isSpanish
-    ? `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, IA) | Alicante`
-    : `${SITE_OWNER} — Full Stack Developer (React, Next.js, Node.js, AI) | Alicante, Spain`;
-  const description = isSpanish
-    ? 'Full Stack Developer 4+ años: React, Next.js, Node.js, IA conversacional. Talkrev y PartsNow.ai (50k+ piezas). Alicante.'
-    : 'Full Stack Developer 4+ years: React, Next.js, Node.js, Conversational AI. Talkrev & PartsNow.ai (50k+ parts). Alicante, Spain.';
-  const ogImageAlt = isSpanish
-    ? `${SITE_OWNER}, desarrollador full stack en Alicante: apps web, bots y herramientas de IA`
-    : `${SITE_OWNER}, full-stack developer in Alicante, Spain: web apps, bots and AI tools`;
+  // `/algo.pdf` llega aquí como locale 'algo.pdf' y acaba en la 404.
+  if (!locales.includes(locale as Locale)) {
+    return { metadataBase: new URL(SITE_URL), ...(await notFoundMetadata(defaultLocale)) };
+  }
+  const { title, description } = homeSeo(locale);
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -60,49 +60,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Sin autodetección de email/teléfono/dirección en iOS: evita que Safari
     // convierta texto suelto en enlaces y rompa el diseño.
     formatDetection: { email: false, address: false, telephone: false },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    openGraph: {
-      type: 'profile',
-      firstName: 'Raúl',
-      lastName: 'Berná',
-      username: 'raulbr99',
-      locale: isSpanish ? 'es_ES' : 'en_US',
-      alternateLocale: isSpanish ? ['en_US'] : ['es_ES'],
-      url: localeUrl(locale),
-      siteName: `${SITE_OWNER} — Portfolio`,
-      title,
-      description,
-      images: [
-        {
-          url: `${SITE_URL}/og-image.jpg`,
-          width: 1200,
-          height: 630,
-          alt: ogImageAlt,
-          type: 'image/jpeg',
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      creator: '@sr_rauldev',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, alt: ogImageAlt }],
-    },
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
-    alternates: alternatesFor(locale),
     category: 'technology',
   };
 }

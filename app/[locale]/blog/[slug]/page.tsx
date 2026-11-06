@@ -11,6 +11,7 @@ import PostBody from '@/components/blog/PostBody';
 import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, localeUrl } from '@/lib/site';
+import { notFoundMetadata } from '@/lib/not-found-metadata';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -21,7 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = getPost(locale as Locale, slug);
-  if (!post) return {};
+  if (!post) return notFoundMetadata(locale);
 
   const isSpanish = locale === 'es';
   const url = localeUrl(locale, `/blog/${slug}`);
