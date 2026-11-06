@@ -45,6 +45,8 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
 
         openerRef.current = document.activeElement;
         document.body.style.overflow = 'hidden';
+        // Oculta el chat flotante mientras el menú esté abierto (ver globals.css).
+        document.documentElement.dataset.menuOpen = 'true';
 
         // El foco entra en el panel y queda atrapado dentro mientras esté abierto:
         // sin esto se puede tabular por la página de detrás sin verla.
@@ -78,6 +80,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
         return () => {
             document.removeEventListener('keydown', onKeyDown);
             document.body.style.overflow = '';
+            delete document.documentElement.dataset.menuOpen;
             // Devuelve el foco al botón que lo abrió.
             (openerRef.current as HTMLElement | null)?.focus?.();
         };

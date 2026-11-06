@@ -123,6 +123,7 @@ export default function ChatWidget() {
       {/* Botón flotante */}
       <button
         ref={toggleRef}
+        data-chat-ui
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t('close') : t('open')}
         aria-expanded={open}
@@ -153,6 +154,7 @@ export default function ChatWidget() {
         {open && (
           <motion.section
             id="chat-dialog"
+            data-chat-ui
             role="dialog"
             aria-label={t('dialogLabel')}
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
@@ -173,12 +175,17 @@ export default function ChatWidget() {
                 </div>
                 <span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 border-2 border-slate-950 bg-green-400" />
               </div>
+              {/* La etiqueta AEO va junto al nombre y el estado tiene su línea
+                  entera: compartiendo línea, en un móvil el estado salía
+                  cortado («ASISTENTE IA VER…»). */}
               <div className="min-w-0">
-                <p className="truncate text-sm font-bold leading-tight text-white">{t('title')}</p>
-                <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
+                <p className="flex items-center gap-2 text-sm font-bold leading-tight text-white">
+                  <span className="truncate">{t('title')}</span>
+                  <span className="shrink-0 whitespace-nowrap border border-white/12 px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-[0.15em] text-gray-400">AEO · llms.txt</span>
+                </p>
+                <p className="mt-1 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
                   <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-cyan-300' : 'bg-green-400'}`} aria-hidden />
                   <span className={`truncate ${busy ? 'text-cyan-200/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
-                  <span className="ml-2 px-1.5 py-0.5 border border-white/12 text-[9px] uppercase tracking-[0.15em] text-gray-400">AEO · llms.txt</span>
                 </p>
               </div>
               <div className="ml-auto flex items-center gap-0.5">

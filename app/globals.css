@@ -134,3 +134,9 @@ h1, h2, h3, h4 {
     scroll-behavior: auto !important;
   }
 }
+/* Con el menú móvil abierto, el chat (botón y panel) se aparta: el botón
+   flotante caía encima del icono de Email del menú. MobileMenu pone el
+   atributo en <html> mientras está abierto. */
+html[data-menu-open] [data-chat-ui] {
+  display: none;
+}
