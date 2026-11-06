@@ -1,158 +1,75 @@
-# Portfolio de Raúl BR - Desarrollador Full Stack
+# rauldev.dev
 
-¡Bienvenido a mi portfolio personal! Este sitio web presenta las webs que creo para negocios y la experiencia que he adquirido como desarrollador full stack.
+Portfolio personal de Raúl Berná, Full Stack Developer en Alicante. Cuenta qué construyo (apps web, bots y herramientas de IA), dónde trabajo, mis proyectos y lo que pruebo de IA en el blog, con un chat que responde sobre todo eso.
 
-## 🚀 Características
+En producción en [rauldev.dev](https://rauldev.dev): español en `/` e inglés en `/en`.
 
-- **Diseño Moderno**: Interfaz elegante con gradientes y efectos glassmorphism
-- **Responsive**: Optimizado para todos los dispositivos
-- **Gestión Dinámica de Proyectos**: Integración con Supabase para administrar proyectos
-- **Subida de Imágenes**: Sube imágenes de proyectos directamente a Supabase Storage o usa URLs externas
-- **Panel de Administración**: Formulario secreto para agregar/editar proyectos
-- **Secciones Completas**:
-  - Presentación personal
-   - Webs y servicios que ofrezco
-  - Portfolio de proyectos (dinámico)
-  - Información de contacto
-- **SEO Optimizado**: Metadatos configurados para mejor posicionamiento
-- **Navegación Suave**: Scroll suave entre secciones
-- **Integración Directa con Supabase**: Proyectos cargados directamente desde la base de datos
+## Qué hay en la web
 
-## 🛠️ Tecnologías Utilizadas
+- **Portada**: presentación, sobre mí, experiencia, habilidades, proyectos, últimos artículos del blog, preguntas frecuentes y formulario de contacto.
+- **Blog** (`/blog`): artículos en Markdown, en español y en inglés.
+- **Chat con IA**: responde en primera persona sobre mi experiencia, mis proyectos y el blog. Usa OpenAI (gpt-4.1-mini) y, si no responde, Vercel AI Gateway. Sus instrucciones y datos están en `lib/raul-context.ts` y salen de los mismos datos que pinta la web.
+- **Contacto**: el formulario envía un correo con Resend.
+- **Páginas legales**: aviso legal, privacidad y cookies.
+- **SEO**: metadatos, canonical y hreflang por página, un bloque JSON-LD por página, `sitemap.xml`, `robots.txt` y `public/llms.txt` para agentes de IA.
 
-- **Next.js 16** - Framework de React
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** - Estilos utilitarios
-- **Supabase** - Base de datos y backend
-- **Supabase Storage** - Almacenamiento de imágenes
-- **Lucide React** - Iconos modernos
-- **Vercel** - Deployment (recomendado)
+## Stack
 
-## 📦 Instalación y Uso
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, next-intl 4, Motion, AI SDK, Resend, Upstash Redis y Vercel Analytics / Speed Insights. Tests con Vitest. Se despliega en Vercel.
 
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/raulbr99/rauldev.git
-   cd rauldev
-   ```
+## Estructura
 
-2. **Instala las dependencias**:
-   ```bash
-   npm install
-   ```
-
-3. **Configura las variables de entorno**:
-   ```bash
-   cp .env.example .env.local
-   ```
-   Edita `.env.local` con tus credenciales de Supabase
-
-4. **Configura Supabase** (opcional):
-   - Crea un proyecto en [Supabase](https://supabase.com)
-   - Ejecuta el script SQL de `supabase-setup.sql`
-   - Configura las variables de entorno
-   - Ver `SUPABASE_SETUP.md` para instrucciones detalladas
-
-5. **Ejecuta el servidor de desarrollo**:
-   ```bash
-   npm run dev
-   ```
-
-6. **Abre tu navegador** en `http://localhost:3000`
-
-## ✏️ Personalización
-
-### Información Personal
-Edita el archivo `src/app/page.tsx` para actualizar:
-- Tu nombre y título
-- Descripción personal
-- Enlaces a redes sociales
-- Email de contacto
-
-### Proyectos
-**Opción 1: Panel de Administración (Recomendado)**
-- Accede a `/admin` en tu aplicación
-- Usa la clave secreta configurada en `ADMIN_SECRET_KEY`
-- Agrega, edita o elimina proyectos desde la interfaz
-
-**Opción 2: Datos de Fallback**
-Modifica el array `fallbackProjects` en `src/data/projects.ts`:
-```typescript
-export const fallbackProjects: Project[] = [
-  {
-    id: "tu-proyecto",
-    titleKey: "projects.tu-proyecto.title",
-    descriptionKey: "projects.tu-proyecto.description",
-    tech: ["React", "Node.js", "MongoDB"],
-    image: "/imagen.jpg",
-    github: "https://github.com/tu-usuario/proyecto",
-    demo: "https://tu-proyecto.com",
-    featured: true
-  }
-];
+```
+app/
+  [locale]/            páginas por idioma (portada, blog, legales, 404)
+  api/chat/            chat con IA (streaming)
+  api/contact/         formulario de contacto
+  sitemap.ts, robots.ts
+components/            secciones, layout, chat, blog y legales
+content/blog/es|en/    artículos en Markdown (el nombre del fichero es la URL)
+data/                  proyectos (projects.json) y experiencia (experience.ts)
+messages/              textos en español e inglés
+i18n/                  idiomas y rutas de next-intl
+lib/                   blog, contexto del chat, JSON-LD, límite de peticiones
+proxy.ts               middleware de next-intl (el idioma lo decide la URL)
+public/                imágenes, manifest y llms.txt
+tests/                 tests de Vitest
 ```
 
-### Servicios
-Actualiza el array `services` en `src/app/page.tsx` para reflejar los servicios que ofreces.
+## Desarrollo
 
-### Estilos
-Personaliza los colores y estilos en:
-- `src/app/globals.css` - Estilos globales
-- `tailwind.config.js` - Configuración de Tailwind
+Requiere Node 24.
 
-## 🚀 Deployment
+```bash
+npm install
+npm run dev         # http://localhost:3000
+npm run typecheck   # tsc --noEmit
+npm run lint
+npm test            # vitest
+npm run build
+```
 
-### Vercel (Recomendado)
-1. Conecta tu repositorio a Vercel
-2. El deployment será automático con cada push
+`npm run build` descarga las fuentes de Google Fonts, así que necesita red.
 
-### Netlify
-1. Conecta tu repositorio a Netlify
-2. Configura el comando de build: `npm run build`
-3. Directorio de publicación: `out`
+## Variables de entorno
 
-## 🔧 Gestión de Proyectos
+| Variable | Para qué | Si falta |
+| --- | --- | --- |
+| `OPENAI_API_KEY` | Chat con OpenAI directamente | El chat va solo por Vercel AI Gateway |
+| `AI_GATEWAY_API_KEY` | Vercel AI Gateway fuera de Vercel (en Vercel se autentica solo) | En local, el respaldo del chat no funciona |
+| `RESEND_API_KEY` | Envío del formulario de contacto | El formulario no puede enviar |
+| `KV_REST_API_URL` y `KV_REST_API_TOKEN` (o `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN`) | Límite de peticiones del chat y del formulario en Upstash Redis | Se cuenta en memoria, por instancia |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Verificación de Google Search Console | No se pinta la etiqueta |
 
-### Panel de Administración
-- **URL**: `/admin`
-- **Autenticación**: Clave secreta configurada en `ADMIN_SECRET_KEY`
-- **Funciones**:
-  - Crear nuevos proyectos
-  - 🖼️ Subir imágenes de proyectos o usar URLs externas
-  - Editar proyectos existentes
-  - Eliminar proyectos (elimina automáticamente las imágenes asociadas)
-  - Marcar proyectos como destacados
-  - 👀 Vista previa en tiempo real con previsualización de imágenes
+## Contenido
 
-### Gestión de Imágenes
+- **Artículo nuevo**: copia `content/blog/es/plantilla-de-articulo.md`, cambia el nombre del fichero (será la URL) y rellena la cabecera. Con `draft: true` solo se ve en `npm run dev`. Para la versión en inglés, el mismo nombre en `content/blog/en/`: así los dos idiomas se enlazan con hreflang.
+- **Proyectos**: `data/projects.json`, sus textos traducidos en `messages/*.json` (`projects.data.<clave>`) y la clave en `lib/project-keys.ts`. El número de proyectos de la web sale de este fichero.
+- **Experiencia**: `data/experience.ts` y sus textos en `messages/*.json` (`experience.data.<clave>`).
+- Si cambian datos de perfil, revisa también `public/llms.txt`.
 
-- **Subida**: Arrastra y suelta o selecciona imágenes directamente desde tu dispositivo
-- **Formatos**: JPEG, PNG, WebP, GIF, SVG soportados
-- **Límite de Tamaño**: 50MB máximo por imagen
-- **Almacenamiento**: Imágenes almacenadas de forma segura en Supabase Storage
-- **Auto-limpieza**: Las imágenes se eliminan automáticamente cuando se eliminan los proyectos
+## Contacto
 
-### API Endpoints
-- `GET /api/projects` - Obtener todos los proyectos
-- `GET /api/projects/[id]` - Obtener proyecto específico
-- `POST /api/projects` - Crear proyecto (requiere auth)
-- `PUT /api/projects/[id]` - Actualizar proyecto (requiere auth)
-- `DELETE /api/projects/[id]` - Eliminar proyecto (requiere auth)
-- `POST /api/upload` - Subir imagen (requiere auth)
-- `DELETE /api/upload` - Eliminar imagen (requiere auth)
-
-## 📧 Contacto
-
-Si tienes un proyecto web o preguntas sobre este portfolio:
-
-- **Email**: raul@ejemplo.com
-- **LinkedIn**: [linkedin.com/in/raulbr99](https://linkedin.com/in/raulbr99)
-- **GitHub**: [github.com/raulbr99](https://github.com/raulbr99)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Siéntete libre de usarlo como base para tu propio portfolio.
-
----
-
-**¿Te gusta este portfolio?** ¡Dale una estrella ⭐ al repositorio y compártelo con otros desarrolladores!
+- Formulario: [rauldev.dev/#contacto](https://rauldev.dev/#contacto)
+- LinkedIn: [linkedin.com/in/raul-berna-riera](https://www.linkedin.com/in/raul-berna-riera)
+- GitHub: [github.com/raulbr99](https://github.com/raulbr99)
