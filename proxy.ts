@@ -1,12 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './i18n/config';
+import { routing } from './i18n/routing';
 
 // Next 16 renombra middleware a proxy. El runtime es Node (no edge).
-const proxy = createMiddleware({
-  locales,
-  defaultLocale,
-  localePrefix: 'as-needed'
-});
+const proxy = createMiddleware(routing);
 
 export default proxy;
 
