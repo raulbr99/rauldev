@@ -6,7 +6,6 @@
 export const projectKeyMap: Record<string, string> = {
   turno: 'turno',
   'bomkai-generator': 'bomkai',
-  'fadesso-saas': 'fadesso',
   cuotia: 'cuotia',
   'alicante-voxels': 'alicanteVoxels',
   'callosa-voxels': 'callosaVoxels',

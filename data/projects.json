@@ -27,19 +27,6 @@
         "status": "production"
       },
       {
-        "id": "fadesso-saas",
-        "title": "Fadesso - SaaS para Barberías",
-        "description": "Sistema de reservas online multi-tenant para barberías. Incluye gestión de barberos, servicios, horarios, dashboard analytics y sistema de roles. Desarrollado con arquitectura escalable y diseño moderno.",
-        "tech": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Stripe"],
-        "image": "/projects/fadesso-black.png",
-        "github": null,
-        "demo": "https://fadesso.com",
-        "featured": true,
-        "category": "SaaS",
-        "createdAt": "2025-01-15",
-        "status": "production"
-      },
-      {
         "id": "cuotia",
         "title": "Cuotia - Calculadoras Fiscales para Autónomos",
         "description": "Plataforma de calculadoras fiscales para autónomos en España (cuota, IRPF por CCAA, modelo 130, neto/bruto…) con datos actualizados a la normativa 2026. Incluye SEO programático con ~180 páginas, newsletter y alertas del BOE. Sin registros ni emails.",
@@ -93,10 +80,10 @@
       }
   ],
   "stats": {
-    "totalProjects": 7,
-    "featuredProjects": 7,
+    "totalProjects": 6,
+    "featuredProjects": 6,
     "inDevelopment": 0,
-    "categories": ["IA/ML", "SaaS", "Web App", "Portfolio"],
+    "categories": ["IA/ML", "Web App", "Portfolio"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Three.js"]
   }
 }

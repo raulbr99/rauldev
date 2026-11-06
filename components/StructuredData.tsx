@@ -242,7 +242,9 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       : 'Conversational assistant embedded in the portfolio to answer queries about Raúl Berná\'s experience, stack and projects. Grounded in llms.txt and structured data (Person, FAQPage, ItemList). Replies in Spanish and English. No personal data stored. Model: OpenAI gpt-4.1-mini with Vercel AI Gateway fallback.',
     featureList: [
       isSpanish ? 'Respuestas basadas en fuente única de verdad (llms.txt)' : 'Answers grounded in single source of truth (llms.txt)',
-      isSpanish ? 'Métricas concretas: 50k+ piezas, 4+ años, 180 páginas, 7 proyectos' : 'Concrete metrics: 50k+ parts, 4+ years, 180 pages, 7 projects',
+      isSpanish
+        ? `Métricas concretas: 50k+ piezas, 4+ años, 180 páginas, ${projectsData.projects.length} proyectos`
+        : `Concrete metrics: 50k+ parts, 4+ years, 180 pages, ${projectsData.projects.length} projects`,
       isSpanish ? 'Idiomas: español nativo, inglés profesional' : 'Languages: native Spanish, professional English',
       isSpanish ? 'Privacidad: sin almacenamiento permanente, sin cookies de seguimiento' : 'Privacy: no permanent storage, no tracking cookies',
       isSpanish ? 'Accesibilidad: panel de razonamiento visible, copia de respuestas' : 'Accessibility: visible reasoning panel, copy answers',

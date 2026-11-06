@@ -1,5 +1,6 @@
 import { Code2, Heart, Globe2, GraduationCap, Languages, Activity, MessageSquare, Target, Handshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import projectsData from '@/data/projects.json';
 import SectionHeading from '../ui/SectionHeading';
 
 export default function AboutSection() {
@@ -19,7 +20,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10 mb-14">
           {[
             { to: 4, suffix: '+', label: t('stats.years') },
-            { to: 7, suffix: '', label: t('stats.projects') },
+            { to: projectsData.projects.length, suffix: '', label: t('stats.projects') },
             { to: 18, suffix: '+', label: t('stats.technologies') },
           ].map((s, i) => (
             <div
