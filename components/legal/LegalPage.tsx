@@ -1,10 +1,11 @@
 'use client';
 
 import { ArrowLeft } from 'lucide-react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import SkipLink from '@/components/layout/SkipLink';
 import LegalBreadcrumb from '@/components/legal/Breadcrumb';
 
 interface LegalPageProps {
@@ -23,18 +24,20 @@ interface LegalPageProps {
 export default function LegalPage({ section, blocks, updatedAt }: LegalPageProps) {
   const t = useTranslations(`legal.${section}`);
   const tl = useTranslations('legal');
-  const locale = useLocale();
-  const homeHref = locale === 'es' ? '/' : `/${locale}/`;
+  const ta = useTranslations('a11y');
 
+  // El Link de next-intl añade él solo el prefijo del idioma: las rutas van
+  // sin él ('/', no '/en/'), o saldría '/en/en'.
   return (
     <div className="relative min-h-dvh bg-slate-950">
+      <SkipLink label={ta('skipToContent')} />
       <Navigation />
 
-      <main className="mx-auto max-w-3xl px-4 pb-24 pt-32">
-        <LegalBreadcrumb section={section} locale={locale as 'es' | 'en'} />
+      <main id="contenido" className="mx-auto max-w-3xl px-4 pb-24 pt-32">
+        <LegalBreadcrumb section={section} />
 
         <Link
-          href={homeHref}
+          href="/"
           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-400 transition-colors hover:text-cyan-300"
         >
           <ArrowLeft className="h-3.5 w-3.5" />

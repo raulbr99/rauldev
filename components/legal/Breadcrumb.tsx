@@ -6,7 +6,6 @@ import { Link } from '@/i18n/navigation';
 
 interface BreadcrumbProps {
   section: 'notice' | 'privacy' | 'cookies';
-  locale: 'es' | 'en';
 }
 
 const PAGE_HREF: Record<'notice' | 'privacy' | 'cookies', string> = {
@@ -21,17 +20,21 @@ const PAGE_TITLE_KEY: Record<'notice' | 'privacy' | 'cookies', string> = {
   cookies: 'cookies.title',
 };
 
-export default function LegalBreadcrumb({ section, locale }: BreadcrumbProps) {
+/**
+ * Rutas sin prefijo de idioma: el Link de next-intl ya lo añade según el
+ * idioma de la página (con '/en/…' aquí salía '/en/en/…').
+ */
+export default function LegalBreadcrumb({ section }: BreadcrumbProps) {
   const t = useTranslations('legal');
   const homeLabel = t('breadcrumbHome');
   const pageLabel = t(PAGE_TITLE_KEY[section]);
-  const homeHref = locale === 'es' ? '/' : `/${locale}/`;
-  const pageHref = locale === 'es' ? `/${PAGE_HREF[section]}` : `/${locale}/${PAGE_HREF[section]}`;
+  const homeHref = '/';
+  const pageHref = `/${PAGE_HREF[section]}`;
 
   return (
     <nav
       className="mb-6 flex flex-wrap items-center gap-2"
-      aria-label="Breadcrumb"
+      aria-label={t('breadcrumbLabel')}
     >
       <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
         <li className="flex items-center gap-2">
