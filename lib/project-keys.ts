@@ -4,7 +4,6 @@
  * ambos muestren el mismo título/descripción traducidos.
  */
 export const projectKeyMap: Record<string, string> = {
-  turno: 'turno',
   'bomkai-generator': 'bomkai',
   cuotia: 'cuotia',
   'alicante-voxels': 'alicanteVoxels',

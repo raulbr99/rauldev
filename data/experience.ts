@@ -23,9 +23,10 @@ export const experiences: ExperienceItem[] = [
         period: 'Oct 2025 - Actualidad',
         location: 'Alicante, España',
         type: 'Presencial',
-        description: 'Segunda etapa en la empresa, desarrollando Talkrev, una plataforma SaaS de IA conversacional multi-tenant (chat, voz en tiempo real y reservas), y PartsNow.ai, su producto de agentic commerce para piezas de camión y tráiler.',
+        description: 'Segunda etapa en la empresa, desarrollando Talkrev, una plataforma SaaS de IA conversacional multi-tenant (chat, voz en tiempo real y reservas), Turno, su agente de IA para restaurantes, y PartsNow.ai, su producto de agentic commerce para piezas de camión y tráiler.',
         achievements: [
-            'Desarrollé Talkrev, una plataforma SaaS de IA conversacional multi-tenant con chat y voz en tiempo real, incluyendo el dashboard del agente y la suite de reservas "Turno"',
+            'Desarrollé Talkrev, una plataforma SaaS de IA conversacional multi-tenant con chat y voz en tiempo real, incluyendo el dashboard del agente',
+            'Con el equipo de Talkrev estamos construyendo Turno, un agente de IA para restaurantes que atiende por mensaje y por teléfono: coge reservas, responde dudas, organiza cenas de grupo y deja que el equipo dicte las comandas con una nota de voz',
             'Construí un pipeline RAG para dar contexto a los agentes sobre la base de conocimiento de cada cliente',
             'Implementé los agentes conversacionales y de voz en tiempo real, además de integraciones con otros agentes de IA',
             'Construí PartsNow.ai: comercio con IA para piezas de camión con búsqueda por chat, voz, foto o VIN sobre un catálogo de +50.000 piezas y checkout unificado',
@@ -35,6 +36,7 @@ export const experiences: ExperienceItem[] = [
         highlight: true,
         projects: [
             { name: 'Talkrev', logo: '/logos/talkrev.svg', url: 'https://talkrev.ai' },
+            { name: 'Turno', logo: '/logos/turno.svg', url: 'https://turno.ai' },
             { name: 'PartsNow.ai', logo: '/logos/partsnow.svg', url: 'https://partsnow.ai' }
         ]
     },

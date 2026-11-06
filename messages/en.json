@@ -98,9 +98,10 @@
         "role": "Fullstack Developer",
         "period": "Oct 2025 - Present",
         "location": "Alicante, Spain",
-        "description": "Second stage at the company, building Talkrev, a multi-tenant conversational AI SaaS platform (chat, real-time voice and bookings), and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
+        "description": "Second stage at the company, building Talkrev, a multi-tenant conversational AI SaaS platform (chat, real-time voice and bookings), Turno, its AI agent for restaurants, and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
         "achievements": [
-          "Built Talkrev, a multi-tenant conversational AI SaaS platform with chat and real-time voice, including the agent dashboard and the \"Turno\" booking suite",
+          "Built Talkrev, a multi-tenant conversational AI SaaS platform with chat and real-time voice, including the agent dashboard",
+          "With the Talkrev team we're building Turno, an AI agent for restaurants that works by text and by phone: it takes bookings, answers questions, runs group dinners and lets staff dictate orders as a voice note",
           "Built a RAG pipeline to ground the agents on each client's knowledge base",
           "Implemented the conversational and real-time voice agents, plus integrations with other AI agents",
           "Built PartsNow.ai: AI commerce for truck parts with search by chat, voice, photo or VIN over a 50,000+ parts catalog with unified checkout",
@@ -148,8 +149,8 @@
     }
   },
   "projects": {
-    "title": "Products and projects",
-    "subtitle": "Products I work on and personal projects I have designed and developed",
+    "title": "Projects",
+    "subtitle": "Personal projects I have designed and developed",
     "loading": "Loading projects...",
     "viewAll": "Contact",
     "code": "Code",
@@ -168,10 +169,6 @@
       "cuotia": {
         "title": "Cuotia - Tax Calculators for the Self-Employed",
         "description": "Tax-calculator platform for self-employed workers in Spain (social-security fee, regional income tax, modelo 130, net/gross…) updated to 2026 regulations. Includes programmatic SEO with ~180 pages, a newsletter and official-gazette (BOE) alerts. No sign-up, no emails."
-      },
-      "turno": {
-        "title": "Turno - AI agent for restaurants",
-        "description": "AI agent for restaurants that works by text and by phone: it takes bookings, answers questions, runs group dinners and lets staff dictate orders as a voice note. A Talkrev product."
       },
       "alicanteVoxels": {
         "title": "Alicante in voxels",
