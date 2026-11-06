@@ -1,4 +1,5 @@
-import { localeUrl } from '@/lib/site';
+import { CONTENT_UPDATED } from '@/lib/site';
+import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, pageUrl, webPageId } from '@/lib/structured-data';
 
 type LegalSection = 'notice' | 'privacy' | 'cookies';
 
@@ -7,8 +8,12 @@ interface LegalStructuredDataProps {
   locale: 'es' | 'en';
 }
 
-const CONTENT_UPDATED = '2026-09-16';
-const SITE_URL = 'https://rauldev.dev';
+/** Ruta real de cada página legal (la de privacidad es /privacidad, no /privacy). */
+const SECTION_PATH: Record<LegalSection, string> = {
+  notice: '/aviso-legal',
+  privacy: '/privacidad',
+  cookies: '/cookies',
+};
 
 const SECTION_INFO: Record<LegalSection, { es: { title: string; description: string }; en: { title: string; description: string } }> = {
   notice: {
@@ -48,71 +53,46 @@ const BREADCRUMB_HOME: Record<'es' | 'en', string> = {
   en: 'Home',
 };
 
-function buildBreadcrumbList(pageUrl: string, title: string, locale: 'es' | 'en') {
-  return {
-    '@type': 'BreadcrumbList',
-    '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          '@type': 'WebPage',
-          '@id': `${SITE_URL}/#webpage`,
-          url: localeUrl(locale),
-          name: BREADCRUMB_HOME[locale],
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        item: {
-          '@type': 'WebPage',
-          '@id': `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-        },
-      },
-    ],
-  };
-}
-
 export default async function LegalStructuredData({ section, locale }: LegalStructuredDataProps) {
-  const pageUrl = localeUrl(locale, `/${section === 'notice' ? 'aviso-legal' : section}`);
+  const path = SECTION_PATH[section];
+  const url = pageUrl(locale, path);
   const info = SECTION_INFO[section][locale];
 
   const webPage = {
     '@type': 'WebPage',
-    '@id': `${pageUrl}#webpage`,
-    url: pageUrl,
+    '@id': webPageId(locale, path),
+    url,
     name: info.title,
     description: info.description,
     inLanguage: locale,
-    isPartOf: { '@id': `${SITE_URL}/#website` },
-    about: { '@id': `${SITE_URL}/#person` },
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': PERSON_ID },
     datePublished: '2024-01-01',
     dateModified: CONTENT_UPDATED,
-    publisher: { '@id': `${SITE_URL}/#person` },
+    publisher: { '@id': PERSON_ID },
+    breadcrumb: { '@id': `${url}#breadcrumb` },
     mainEntity: {
       '@type': 'CreativeWork',
       name: info.title,
       description: info.description,
-      author: { '@id': `${SITE_URL}/#person` },
+      author: { '@id': PERSON_ID },
       inLanguage: locale,
     },
   };
 
-  const breadcrumbList = buildBreadcrumbList(pageUrl, info.title, locale);
-
-  const graph = {
-    '@context': 'https://schema.org',
-    '@graph': [webPage, breadcrumbList],
+  const breadcrumbList = {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      crumb(1, locale, '', BREADCRUMB_HOME[locale]),
+      crumb(2, locale, path, info.title),
+    ],
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph).replace(/</g, '\\u003c') }}
+      dangerouslySetInnerHTML={{ __html: jsonLdHtml([...baseNodes(locale), webPage, breadcrumbList]) }}
     />
   );
 }

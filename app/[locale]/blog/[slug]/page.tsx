@@ -12,6 +12,7 @@ import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, localeUrl } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
+import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, webPageId } from '@/lib/structured-data';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -77,28 +78,49 @@ export default async function BlogPost({ params }: Props) {
     timeZone: 'UTC',
   });
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  const path = `/blog/${slug}`;
+  const blogPosting = {
     '@type': 'BlogPosting',
+    '@id': `${url}#article`,
     headline: post.title,
     description: post.description,
     inLanguage: locale,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     keywords: post.tags.join(', '),
-    mainEntityOfPage: url,
+    mainEntityOfPage: { '@id': webPageId(locale, path) },
     url,
     image: `${SITE_URL}/og-image.jpg`,
-    author: { '@type': 'Person', name: SITE_OWNER, url: SITE_URL },
-    publisher: { '@type': 'Person', name: SITE_OWNER, url: SITE_URL },
+    author: { '@id': PERSON_ID },
+    publisher: { '@id': PERSON_ID },
+    isPartOf: { '@id': WEBSITE_ID },
+  };
+  const webPage = {
+    '@type': 'WebPage',
+    '@id': webPageId(locale, path),
+    url,
+    name: post.title,
+    inLanguage: locale,
+    isPartOf: { '@id': WEBSITE_ID },
+    breadcrumb: { '@id': `${url}#breadcrumb` },
+  };
+  const breadcrumbList = {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      crumb(1, locale, '', locale === 'en' ? 'Home' : 'Inicio'),
+      crumb(2, locale, '/blog', t('title')),
+      crumb(3, locale, path, post.title),
+    ],
   };
 
   return (
     <div className="relative min-h-dvh bg-slate-950">
       <script
         type="application/ld+json"
-        // `<` escapado para que un título no pueda cerrar el <script>.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLdHtml([...baseNodes(locale), webPage, blogPosting, breadcrumbList]),
+        }}
       />
       <SkipLink label={ta('skipToContent')} />
       <Navigation />

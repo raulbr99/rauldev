@@ -1,134 +1,43 @@
 import { getTranslations } from 'next-intl/server';
 import projectsData from '@/data/projects.json';
 import { projectKeyMap } from '@/lib/project-keys';
-import { SITE_URL, SITE_OWNER, localeUrl } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, CONTENT_UPDATED } from '@/lib/site';
+import {
+  PERSON_ID,
+  WEBSITE_ID,
+  baseNodes,
+  crumb,
+  jsonLdHtml,
+  pageUrl as jsonLdPageUrl,
+  personDescription,
+  webPageId,
+} from '@/lib/structured-data';
 
 interface StructuredDataProps {
   language: 'es' | 'en';
 }
 
-/** Fecha de la última revisión de contenido (no cambia en cada build). */
-const CONTENT_UPDATED = '2026-09-16';
-
-const PERSON_ID = `${SITE_URL}/#person`;
-const WEBSITE_ID = `${SITE_URL}/#website`;
-const ORG_ID = `${SITE_URL}/#organization`;
-
-const SKILLS = [
-  'React', 'Next.js', 'Node.js', 'TypeScript', 'JavaScript', 'React Native',
-  'Python', 'FastAPI', 'LangChain', 'Conversational AI', 'RAG', 'LLM agents',
-  'PostgreSQL', 'Supabase', 'MongoDB', 'Tailwind CSS', 'Vercel', 'Git',
-];
-
 /**
- * Un único bloque JSON-LD con `@graph`: la entidad Person es el nodo central
- * y el resto (WebSite, ProfilePage, FAQPage, lista de proyectos) la referencia
- * por `@id`. Así Google y los motores de respuesta (ChatGPT, Perplexity,
- * Claude) reciben una sola entidad coherente en vez de cuatro sueltas.
- *
- * Sin email ni teléfono: en texto plano dentro del HTML son cosecha directa
- * para los scrapers de spam. Los canales reales son el formulario y los
- * enlaces de la página.
+ * JSON-LD de la portada, en un único bloque `@graph`: la entidad Person es el
+ * nodo central y el resto (WebSite, ProfilePage, FAQPage, lista de proyectos)
+ * la referencia por `@id`. Así Google y los motores de respuesta (ChatGPT,
+ * Perplexity, Claude) reciben una sola entidad coherente en vez de varias
+ * sueltas. El FAQ y la lista de proyectos solo van aquí, en la portada.
  */
 export default async function StructuredData({ language }: StructuredDataProps) {
   const isSpanish = language === 'es';
   const tFaq = await getTranslations({ locale: language, namespace: 'faq' });
   const tProjects = await getTranslations({ locale: language, namespace: 'projects' });
   const faqItems = tFaq.raw('items') as { q: string; a: string }[];
-  const pageUrl = localeUrl(language);
-
-  const jobTitle = isSpanish ? 'Full Stack Developer' : 'Full Stack Developer';
-  const description = isSpanish
-    ? 'Full Stack Developer con 4+ años de experiencia construyendo productos reales: e-commerce, SaaS multi-tenant e IA conversacional (RAG, LangChain, voz en tiempo real). Actualmente en Nanonino SL (Alicante) desarrollando Talkrev y PartsNow.ai. Stack principal: React, Next.js, Node.js, TypeScript, Python/FastAPI. Construye apps web, bots y herramientas de IA, y prueba lo nuevo que sale en IA para contar qué funcionó y qué no.'
-    : 'Full Stack Developer with 4+ years of experience building real products: e-commerce, multi-tenant SaaS and conversational AI (RAG, LangChain, real-time voice). Currently at Nanonino SL (Alicante) building Talkrev and PartsNow.ai. Core stack: React, Next.js, Node.js, TypeScript, Python/FastAPI. Builds web apps, bots and AI tools, and tests new AI releases to show what worked and what didn\'t.';
-
-  const person = {
-    '@type': 'Person',
-    '@id': PERSON_ID,
-    name: SITE_OWNER,
-    givenName: 'Raúl',
-    familyName: 'Berná',
-    // sameAs vincula la entidad: los perfiles deben existir y coincidir
-    // exactamente con los que enlaza la web.
-    alternateName: ['Raúl Berná Riera', 'Raúl BR', 'rauldev'],
-    url: SITE_URL,
-    image: {
-      '@type': 'ImageObject',
-       url: `${SITE_URL}/me.jpg`,
-      caption: SITE_OWNER,
-    },
-    sameAs: [
-      'https://github.com/raulbr99',
-      'https://www.linkedin.com/in/raul-berna-riera',
-      'https://x.com/sr_rauldev',
-      'https://www.instagram.com/raulberna.dev/',
-    ],
-    jobTitle,
-    description,
-    worksFor: { '@id': ORG_ID },
-    hasOccupation: {
-      '@type': 'Occupation',
-      name: 'Full Stack Developer',
-      occupationLocation: { '@type': 'City', name: 'Alicante' },
-      skills: SKILLS.join(', '),
-    },
-    alumniOf: {
-      '@type': 'CollegeOrUniversity',
-      name: 'Universidad de Alicante',
-      sameAs: 'https://www.ua.es',
-    },
-    knowsLanguage: [
-      { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
-      { '@type': 'Language', name: 'English', alternateName: 'en' },
-    ],
-    knowsAbout: SKILLS,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Alicante',
-      addressRegion: 'Comunidad Valenciana',
-      addressCountry: 'ES',
-    },
-    homeLocation: { '@type': 'City', name: 'Alicante' },
-    nationality: { '@type': 'Country', name: 'ES' },
-  };
-
-  const organization = {
-    '@type': 'Organization',
-    '@id': ORG_ID,
-    name: 'Nanonino SL',
-    url: 'https://nanonino.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Alicante',
-      addressCountry: 'ES',
-    },
-    sameAs: [
-      'https://talkrev.ai',
-      'https://partsnow.ai',
-    ],
-  };
-
-  const website = {
-    '@type': 'WebSite',
-    '@id': WEBSITE_ID,
-    name: `${SITE_OWNER} — Portfolio`,
-    alternateName: ['rauldev', 'rauldev.dev'],
-    url: SITE_URL,
-    description: isSpanish
-      ? `Portfolio profesional de ${SITE_OWNER}, Full Stack Developer en Alicante: experiencia, proyectos, habilidades, blog y contacto.`
-      : `Professional portfolio of ${SITE_OWNER}, Full Stack Developer in Alicante: experience, projects, skills, blog and contact.`,
-    inLanguage: ['es', 'en'],
-    publisher: { '@id': PERSON_ID },
-    copyrightHolder: { '@id': PERSON_ID },
-    copyrightYear: 2026,
-  };
+  const pageUrl = jsonLdPageUrl(language);
+  const description = personDescription(language);
 
   // ProfilePage es el tipo que Google reconoce para páginas "sobre una
   // persona" (perfiles, portfolios) y el que mejor enlaza el WebPage con la
   // entidad Person.
   const profilePage = {
     '@type': 'ProfilePage',
-    '@id': `${pageUrl}#webpage`,
+    '@id': webPageId(language),
     url: pageUrl,
     name: isSpanish
       ? `${SITE_OWNER} — Full Stack Developer | React, Next.js, Node.js`
@@ -173,7 +82,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
   const faqPage = {
     '@type': 'FAQPage',
     '@id': `${pageUrl}#faq`,
-    isPartOf: { '@id': `${pageUrl}#webpage` },
+    isPartOf: { '@id': webPageId(language) },
     mainEntity: faqItems.map(({ q, a }) => ({
       '@type': 'Question',
       name: q,
@@ -211,18 +120,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
   const breadcrumbList = {
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          '@type': 'WebPage',
-          '@id': `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: isSpanish ? 'Inicio' : 'Home',
-        },
-      },
-    ],
+    itemListElement: [crumb(1, language, '', isSpanish ? 'Inicio' : 'Home')],
   };
 
   const chatAssistant = {
@@ -273,17 +171,12 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     },
   };
 
-  const graph = {
-    '@context': 'https://schema.org',
-    '@graph': [person, organization, website, profilePage, faqPage, projectList, breadcrumbList, chatAssistant],
-  };
-
   return (
     <script
       type="application/ld+json"
-      // JSON.stringify escapa las comillas del contenido; se protege además
-      // el cierre de etiqueta por si algún texto lo incluyera.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph).replace(/</g, '\\u003c') }}
+      dangerouslySetInnerHTML={{
+        __html: jsonLdHtml([...baseNodes(language), profilePage, faqPage, projectList, breadcrumbList, chatAssistant]),
+      }}
     />
   );
 }

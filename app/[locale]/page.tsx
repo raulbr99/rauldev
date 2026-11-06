@@ -94,7 +94,7 @@ export default async function Home({ params }: Props) {
         <Reveal><SkillsSection /></Reveal>
         <Reveal><ProjectsSection /></Reveal>
         <Reveal><BlogSection locale={locale as Locale} /></Reveal>
-        <Reveal><FAQSection locale={locale as 'es' | 'en'} /></Reveal>
+        <Reveal><FAQSection /></Reveal>
         <Reveal><ContactSection /></Reveal>
       </main>
       <Footer />

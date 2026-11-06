@@ -1,18 +1,13 @@
 import { useTranslations } from 'next-intl';
 import SectionHeading from '../ui/SectionHeading';
-import FAQStructuredData from './FAQStructuredData';
 
-interface FAQSectionProps {
-  locale: 'es' | 'en';
-}
-
-export default function FAQSection({ locale }: FAQSectionProps) {
+/** El marcado FAQPage de estas preguntas va en el JSON-LD de la portada. */
+export default function FAQSection() {
   const t = useTranslations('faq');
   const items = t.raw('items') as { q: string; a: string }[];
 
   return (
     <section id="faq" className="py-20 px-4">
-      <FAQStructuredData locale={locale} />
       <div className="max-w-3xl mx-auto">
         <SectionHeading number="06" label="FAQ" title={t('title')} subtitle={t('subtitle')} />
 

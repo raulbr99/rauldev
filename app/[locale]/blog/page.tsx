@@ -9,6 +9,7 @@ import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import { getPosts } from '@/lib/blog';
 import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
 import type { Locale } from '@/i18n/config';
+import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, pageUrl, webPageId } from '@/lib/structured-data';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -58,8 +59,42 @@ export default async function BlogIndex({ params }: Props) {
     timeZone: 'UTC',
   });
 
+  const url = pageUrl(locale, '/blog');
+  const collectionPage = {
+    '@type': 'CollectionPage',
+    '@id': webPageId(locale, '/blog'),
+    url,
+    name: t('title'),
+    description: t('metaDescription'),
+    inLanguage: locale,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': PERSON_ID },
+    breadcrumb: { '@id': `${url}#breadcrumb` },
+    hasPart: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      '@id': `${pageUrl(locale, `/blog/${post.slug}`)}#article`,
+      headline: post.title,
+      url: pageUrl(locale, `/blog/${post.slug}`),
+      datePublished: post.date,
+    })),
+  };
+  const breadcrumbList = {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      crumb(1, locale, '', locale === 'en' ? 'Home' : 'Inicio'),
+      crumb(2, locale, '/blog', t('title')),
+    ],
+  };
+
   return (
     <div className="relative min-h-dvh bg-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdHtml([...baseNodes(locale), collectionPage, breadcrumbList]),
+        }}
+      />
       <SkipLink label={ta('skipToContent')} />
       <Navigation />
 

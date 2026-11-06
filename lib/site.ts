@@ -6,6 +6,12 @@ import type { Metadata } from 'next';
  */
 export const SITE_URL = 'https://rauldev.dev';
 
+/**
+ * Fecha de la última revisión del contenido (no cambia en cada build). La
+ * usan el sitemap y el JSON-LD (`dateModified`).
+ */
+export const CONTENT_UPDATED = '2026-09-16';
+
 /** Nombre real del titular: el mismo en <title>, JSON-LD, manifest y pie. */
 export const SITE_OWNER = 'Raúl Berná';
 
