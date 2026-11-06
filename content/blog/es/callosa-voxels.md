@@ -5,7 +5,7 @@ date: 2026-11-06
 tags: [datos-abiertos, 3d, lidar, claude-code]
 ---
 
-Hace unos días reconstruí [Alicante en cubos de 1 metro](/blog/alicante-voxels). Ahora le ha tocado a Callosa de Segura, la ciudad donde nací. El vuelo entero, desde la huerta hasta el Pico del Águila, está en vídeo [en X](https://x.com/sr_rauldev/status/2118725316088643693).
+Hace unos días reconstruí [Alicante en cubos de 1 metro](/blog/alicante-voxels). Ahora le ha tocado a Callosa de Segura, la ciudad donde nací, y también se puede recorrer en el navegador: [raulbr99.github.io/callosa-voxels](https://raulbr99.github.io/callosa-voxels/). Se ve mejor en un ordenador. El vuelo entero, desde la huerta hasta el Pico del Águila, está en vídeo [en X](https://x.com/sr_rauldev/status/2118725316088643693).
 
 ![El casco antiguo de Callosa de Segura en cubos de 1 metro](/blog/callosa-voxels/casco.jpg)
 
@@ -31,7 +31,13 @@ El motor es el mismo que usé para Alicante: [Warsaw in voxels](https://github.c
 
 ![El mapa entero: la sierra de Callosa a la izquierda y el pueblo y la huerta a la derecha](/blog/callosa-voxels/mapa.jpg)
 
+## Qué se puede hacer en la web
+
+- Volar sobre el pueblo, el castillo y la sierra con el teclado, como en un videojuego.
+- Cambiar el día, la hora y el tiempo. Las sombras se mueven con el sol.
+- Buscar un sitio por su nombre, como la iglesia de San Martín, el santuario de San Roque o el Pico del Águila.
+
 ## Créditos
 
 - Motor: [Warsaw in voxels](https://github.com/stared/warsaw-vibe-voxel), de Piotr Migdał (MIT).
-- Datos: © IGN/CNIG (PNOA-LiDAR y MDT05), Institut Cartogràfic Valencià (ortofoto de 2024, CC BY 4.0), Dirección General del Catastro y © colaboradores de OpenStreetMap (ODbL).
+- Datos: © IGN/CNIG (PNOA-LiDAR y MDT05), Institut Cartogràfic Valencià (ortofoto de 2024, CC BY 4.0), Dirección General del Catastro y © colaboradores de OpenStreetMap (ODbL). El clima, de Open-Meteo.

@@ -72,7 +72,7 @@
         "tech": ["Three.js", "TypeScript", "Vite", "Python", "LiDAR", "Claude Code"],
         "image": "/projects/callosa-voxels.jpg",
         "github": null,
-        "demo": null,
+        "demo": "https://raulbr99.github.io/callosa-voxels/",
         "featured": true,
         "category": "Web App",
         "createdAt": "2026-11-05",

@@ -5,7 +5,7 @@ date: 2026-11-06
 tags: [open-data, 3d, lidar, claude-code]
 ---
 
-A few days ago I rebuilt [Alicante in 1 m cubes](/en/blog/alicante-voxels). Now it's Callosa de Segura, the city where I was born. The whole flight, from the huerta up to the Pico del Águila, is on video [on X](https://x.com/sr_rauldev/status/2118725316088643693).
+A few days ago I rebuilt [Alicante in 1 m cubes](/en/blog/alicante-voxels). Now it's Callosa de Segura, the city where I was born, and you can explore it in your browser too: [raulbr99.github.io/callosa-voxels](https://raulbr99.github.io/callosa-voxels/). It works best on a computer. The whole flight, from the huerta up to the Pico del Águila, is on video [on X](https://x.com/sr_rauldev/status/2118725316088643693).
 
 ![The old town of Callosa de Segura in 1 m cubes](/blog/callosa-voxels/casco.jpg)
 
@@ -31,7 +31,13 @@ The engine is the same one I used for Alicante: [Warsaw in voxels](https://githu
 
 ![The whole map: the Callosa sierra on the left, the town and the huerta on the right](/blog/callosa-voxels/mapa.jpg)
 
+## What you can do on the page
+
+- Fly over the town, the castle and the sierra with the keyboard, like in a video game.
+- Change the day, the hour and the weather. The shadows move with the sun.
+- Search for a place by name, like the church of San Martín, the sanctuary of San Roque or the Pico del Águila.
+
 ## Credits
 
 - Engine: [Warsaw in voxels](https://github.com/stared/warsaw-vibe-voxel), by Piotr Migdał (MIT).
-- Data: © IGN/CNIG (PNOA-LiDAR and MDT05), Institut Cartogràfic Valencià (2024 orthophoto, CC BY 4.0), Dirección General del Catastro and © OpenStreetMap contributors (ODbL).
+- Data: © IGN/CNIG (PNOA-LiDAR and MDT05), Institut Cartogràfic Valencià (2024 orthophoto, CC BY 4.0), Dirección General del Catastro and © OpenStreetMap contributors (ODbL). Climate data from Open-Meteo.
