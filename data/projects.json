@@ -70,7 +70,7 @@
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
-        "image": "/projects/portfolio.svg",
+        "image": "/projects/portfolio.jpg",
         "github": "https://github.com/raulbr99/rauldev",
         "demo": "https://rauldev.dev",
         "featured": true,
