@@ -4,6 +4,7 @@ import { SiX } from 'react-icons/si';
 import { useTranslations } from 'next-intl';
 import Reveal from '../anim/Reveal';
 import OpenChatButton from '../chat/OpenChatButton';
+import { SOCIAL_URLS } from '@/lib/site';
 
 const textLink =
   'inline-flex items-center gap-2 py-2 font-mono text-sm uppercase tracking-wider text-gray-300 transition-colors hover:text-cyan-300';
@@ -58,16 +59,16 @@ export default function HeroSection() {
 
           <Reveal delay={0.3}>
             <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-400">
-              <a href="https://github.com/raulbr99" aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+              <a href={SOCIAL_URLS.github} aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/in/raul-berna-riera" aria-label="LinkedIn" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+              <a href={SOCIAL_URLS.linkedin} aria-label="LinkedIn" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://x.com/sr_rauldev" aria-label="X" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+              <a href={SOCIAL_URLS.x} aria-label="X" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <SiX className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/raulberna.dev/" aria-label="Instagram" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
+              <a href={SOCIAL_URLS.instagram} aria-label="Instagram" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="mailto:raulbernariera99@gmail.com" aria-label="Email" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">

@@ -15,6 +15,33 @@ export const CONTENT_UPDATED = '2026-11-06';
 /** Nombre real del titular: el mismo en <title>, JSON-LD, manifest y pie. */
 export const SITE_OWNER = 'Raúl Berná';
 
+/** Perfiles públicos de Raúl: los mismos en la portada, el blog y el pie. */
+export const SOCIAL_URLS = {
+  x: 'https://x.com/sr_rauldev',
+  instagram: 'https://www.instagram.com/raulberna.dev/',
+  linkedin: 'https://www.linkedin.com/in/raul-berna-riera',
+  github: 'https://github.com/raulbr99',
+} as const;
+
+/** RSS del blog de cada idioma: `/feed.xml` (español) y `/en/feed.xml`. */
+export function feedPath(locale: string): string {
+  return locale === 'en' ? '/en/feed.xml' : '/feed.xml';
+}
+
+export function feedUrl(locale: string): string {
+  return `${SITE_URL}${feedPath(locale)}`;
+}
+
+export const FEED_TITLE = `${SITE_OWNER}: blog`;
+
+/**
+ * `<link rel="alternate" type="application/rss+xml">` para que navegadores y
+ * lectores de feeds encuentren el RSS desde cualquier página.
+ */
+export function feedTypes(locale: string): NonNullable<NonNullable<Metadata['alternates']>['types']> {
+  return { 'application/rss+xml': [{ url: feedUrl(locale), title: FEED_TITLE }] };
+}
+
 /** Absolute URL for a path in a given locale (`es` is the default, unprefixed). */
 export function localeUrl(locale: string, path = ''): string {
   return `${SITE_URL}${locale === 'en' ? '/en' : ''}${path}`;
@@ -33,6 +60,7 @@ export function alternatesFor(locale: string, path = ''): NonNullable<Metadata['
       en: localeUrl('en', path),
       'x-default': localeUrl('es', path),
     },
+    types: feedTypes(locale),
   };
 }
 

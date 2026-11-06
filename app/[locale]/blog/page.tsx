@@ -1,13 +1,13 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Rss } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import { getPosts } from '@/lib/blog';
-import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, alternatesFor, feedPath } from '@/lib/site';
 import type { Locale } from '@/i18n/config';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, pageUrl, webPageId } from '@/lib/structured-data';
 
@@ -115,6 +115,16 @@ export default async function BlogIndex({ params }: Props) {
         </h1>
         <p className="mt-6 border-l-2 border-cyan-400/50 pl-5 text-lg leading-relaxed text-gray-300">
           {t('intro')}
+        </p>
+        <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-[11px] uppercase tracking-widest text-gray-400">
+          <span>{t('follow')}</span>
+          <a href={feedPath(locale)} className="inline-flex items-center gap-1.5 py-1 text-cyan-300 transition-colors hover:text-cyan-200">
+            <Rss className="h-3.5 w-3.5" aria-hidden />
+            RSS
+          </a>
+          <a href={SOCIAL_URLS.x} target="_blank" rel="noopener noreferrer" className="py-1 transition-colors hover:text-cyan-300">X</a>
+          <a href={SOCIAL_URLS.instagram} target="_blank" rel="noopener noreferrer" className="py-1 transition-colors hover:text-cyan-300">Instagram</a>
+          <a href={SOCIAL_URLS.linkedin} target="_blank" rel="noopener noreferrer" className="py-1 transition-colors hover:text-cyan-300">LinkedIn</a>
         </p>
 
         {posts.length === 0 ? (

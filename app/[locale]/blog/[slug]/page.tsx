@@ -10,7 +10,7 @@ import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
 import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
-import { SITE_URL, SITE_OWNER, localeUrl } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, localeUrl, feedTypes } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
 import { blogAlternates } from '@/lib/blog-alternates';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, webPageId } from '@/lib/structured-data';
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     // hreflang solo si el artículo existe en los dos idiomas: si no, apuntaría
     // a una página inexistente.
-    alternates: { canonical: url, languages: blogAlternates(slug) },
+    alternates: { canonical: url, languages: blogAlternates(slug), types: feedTypes(locale) },
   };
 }
 

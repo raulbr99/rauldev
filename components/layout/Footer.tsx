@@ -1,7 +1,8 @@
-import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, Rss } from 'lucide-react';
 import { SiX } from 'react-icons/si';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { SOCIAL_URLS, feedPath } from '@/lib/site';
 
 const sectionLinks = [
   { href: '#sobre-mi', key: 'about' },
@@ -18,10 +19,10 @@ const legalLinks = [
 ] as const;
 
 const socialLinks = [
-  { href: 'https://github.com/raulbr99', label: 'GitHub', Icon: Github },
-  { href: 'https://www.linkedin.com/in/raul-berna-riera', label: 'LinkedIn', Icon: Linkedin },
-  { href: 'https://x.com/sr_rauldev', label: 'X', Icon: SiX },
-  { href: 'https://www.instagram.com/raulberna.dev/', label: 'Instagram', Icon: Instagram },
+  { href: SOCIAL_URLS.github, label: 'GitHub', Icon: Github },
+  { href: SOCIAL_URLS.linkedin, label: 'LinkedIn', Icon: Linkedin },
+  { href: SOCIAL_URLS.x, label: 'X', Icon: SiX },
+  { href: SOCIAL_URLS.instagram, label: 'Instagram', Icon: Instagram },
   { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
 ] as const;
 
@@ -33,6 +34,9 @@ const socialLinks = [
 export default function Footer() {
   const t = useTranslations('footer');
   const tn = useTranslations('navigation');
+  const locale = useLocale();
+  // El RSS depende del idioma: `/feed.xml` o `/en/feed.xml`.
+  const profiles = [...socialLinks, { href: feedPath(locale), label: 'RSS', Icon: Rss }];
   const year = new Date().getFullYear();
 
   const columnTitle = 'mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400';
@@ -88,7 +92,7 @@ export default function Footer() {
           <div>
             <h2 className={columnTitle}>{t('elsewhere')}</h2>
             <ul>
-              {socialLinks.map(({ href, label, Icon }) => (
+              {profiles.map(({ href, label, Icon }) => (
                 <li key={label}>
                   <a
                     href={href}
