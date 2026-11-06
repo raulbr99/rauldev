@@ -66,6 +66,19 @@
         "status": "production"
       },
       {
+        "id": "callosa-voxels",
+        "title": "Callosa de Segura en vóxeles",
+        "description": "Callosa de Segura, la ciudad donde nací, reconstruida en cubos de 1 m. Con el LiDAR del IGN (26 millones de puntos láser), cada tejado, cada árbol y la sierra tienen su altura real. Con datos abiertos del IGN/CNIG, el Institut Cartogràfic Valencià, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT).",
+        "tech": ["Three.js", "TypeScript", "Vite", "Python", "LiDAR", "Claude Code"],
+        "image": "/projects/callosa-voxels.jpg",
+        "github": null,
+        "demo": null,
+        "featured": true,
+        "category": "Web App",
+        "createdAt": "2026-11-05",
+        "status": "production"
+      },
+      {
         "id": "portfolio-website",
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
@@ -80,8 +93,8 @@
       }
   ],
   "stats": {
-    "totalProjects": 6,
-    "featuredProjects": 6,
+    "totalProjects": 7,
+    "featuredProjects": 7,
     "inDevelopment": 0,
     "categories": ["IA/ML", "SaaS", "Web App", "Portfolio"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Three.js"]

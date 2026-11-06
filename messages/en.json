@@ -176,6 +176,10 @@
         "title": "Alicante in voxels",
         "description": "Alicante rebuilt in 1 m cubes that you explore in the browser: fly over the Explanada, the Postiguet, the marina and the castle, change the day, the hour and the weather, or follow a tram. Built from open data (IGN, Catastro, OpenStreetMap) on Piotr Migdał's open-source Warsaw in voxels engine (MIT)."
       },
+      "callosaVoxels": {
+        "title": "Callosa de Segura in voxels",
+        "description": "Callosa de Segura, the city where I was born, rebuilt in 1 m cubes. With IGN's LiDAR (26 million laser points), every roof, every tree and the sierra have their real height. Built from open data (IGN/CNIG, the Valencian Cartographic Institute, Catastro, OpenStreetMap) on Piotr Migdał's open-source Warsaw in voxels engine (MIT)."
+      },
       "portfolio": {
         "title": "Personal Portfolio",
         "description": "This very portfolio developed with Next.js 16, modern design, SEO optimized, contact system with Resend and scalable architecture."

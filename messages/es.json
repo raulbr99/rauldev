@@ -176,6 +176,10 @@
         "title": "Alicante en vóxeles",
         "description": "Alicante reconstruida en cubos de 1 m que se explora en el navegador: sobrevuela la Explanada, el Postiguet, el puerto y el castillo, cambia el día, la hora y el tiempo, o sigue un tranvía. Con datos abiertos del IGN, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT)."
       },
+      "callosaVoxels": {
+        "title": "Callosa de Segura en vóxeles",
+        "description": "Callosa de Segura, la ciudad donde nací, reconstruida en cubos de 1 m. Con el LiDAR del IGN (26 millones de puntos láser), cada tejado, cada árbol y la sierra tienen su altura real. Con datos abiertos del IGN/CNIG, el Institut Cartogràfic Valencià, el Catastro y OpenStreetMap sobre el motor libre Warsaw in voxels de Piotr Migdał (MIT)."
+      },
       "portfolio": {
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."

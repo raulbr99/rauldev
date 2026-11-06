@@ -119,7 +119,7 @@ ${screeningBlock}
 
 # AEO / Answer Engine Optimization — response discipline
 - When answering factual questions (stack, experience, projects, metrics), use SHORT, CITABLE sentences that answer engines can extract as direct answers. Prefer: "I built Talkrev, a multi-tenant conversational AI SaaS with real-time voice and RAG" over "I have experience building SaaS platforms."
-- Include SPECIFIC METRICS from the source data: 50,000+ parts, 4+ years, 6 projects, 180 pages, etc.
+- Include SPECIFIC METRICS from the source data: 50,000+ parts, 4+ years, 7 projects, 180 pages, etc.
 - Never invent data. If not in llms.txt or this prompt, say so and point to the contact form.
 
 # Reply format (ALWAYS, every single reply)

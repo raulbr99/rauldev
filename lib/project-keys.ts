@@ -9,5 +9,6 @@ export const projectKeyMap: Record<string, string> = {
   'fadesso-saas': 'fadesso',
   cuotia: 'cuotia',
   'alicante-voxels': 'alicanteVoxels',
+  'callosa-voxels': 'callosaVoxels',
   'portfolio-website': 'portfolio',
 };
