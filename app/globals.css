@@ -29,10 +29,15 @@ html {
   }
 }
 
-/* Display font para todos los titulares */
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  letter-spacing: -0.02em;
+/* Display font para todos los titulares. En la capa base para que las
+   utilidades (`font-mono`, `tracking-*`) puedan cambiarlo: fuera de capa, esta
+   regla ganaba siempre y los títulos mono del pie y de habilidades salían en la
+   fuente de display. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
 
 /* Patrón de grid visible para fondos de sección (estética brutalista) */

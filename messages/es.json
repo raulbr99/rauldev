@@ -391,11 +391,20 @@
     "updatedOn": "Actualizado el {date}",
     "follow": "Sigue el blog",
     "backToBlog": "Volver al blog",
-    "ctaEyebrow": "CONTACTO // HABLEMOS",
-    "ctaText": "¿Te interesa algo de lo que cuento aquí o quieres comentarlo? Escríbeme.",
-    "ctaButton": "Ir a contacto",
+    "ctaText": "¿Quieres comentarlo conmigo?",
+    "ctaButton": "Escríbeme",
     "homeTitle": "Lo último del blog",
     "homeSubtitle": "Lo que pruebo de IA y lo que construyo, con lo que funcionó y lo que no.",
-    "homeViewAll": "Ver todos los artículos"
+    "homeViewAll": "Ver todos los artículos",
+    "shareEyebrow": "Compartir",
+    "shareText": "Si te ha servido, pásaselo a quien le pueda interesar.",
+    "shareX": "En X",
+    "shareLinkedin": "En LinkedIn",
+    "copyLink": "Copiar enlace",
+    "copied": "Copiado",
+    "shareNative": "Más opciones",
+    "followEyebrow": "Seguir",
+    "followText": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
+    "rssHint": "los artículos nuevos"
   }
 }

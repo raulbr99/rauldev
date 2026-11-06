@@ -42,6 +42,10 @@ export default function Footer() {
   const columnTitle = 'mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400';
   const columnLink =
     'inline-block py-1 text-sm text-gray-400 transition-colors hover:text-cyan-300';
+  // Sin `inline-block`: junto a `flex` ganaba él y el icono (un svg, que el
+  // preflight hace `block`) quedaba encima del nombre en vez de a su lado.
+  const profileLink =
+    'flex items-center gap-2.5 py-1 text-sm text-gray-400 transition-colors hover:text-cyan-300';
 
   return (
     <footer className="border-t border-white/10 bg-slate-950/60 px-4 py-16">
@@ -98,7 +102,7 @@ export default function Footer() {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className={`${columnLink} flex items-center gap-2.5`}
+                    className={profileLink}
                   >
                     <Icon className="h-4 w-4 text-cyan-400" />
                     {label}

@@ -1,16 +1,18 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Instagram, Linkedin, Rss } from 'lucide-react';
+import { SiX } from 'react-icons/si';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
+import ShareButtons from '@/components/blog/ShareButtons';
 import { getPost, getPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
-import { SITE_URL, SITE_OWNER, localeUrl, feedTypes, postImageUrl } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, feedPath, feedTypes, postImageUrl } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
 import { blogAlternates } from '@/lib/blog-alternates';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, webPageId } from '@/lib/structured-data';
@@ -160,17 +162,66 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </article>
 
-        <aside className="mt-16 border border-white/10 bg-slate-900/60 p-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">
-            {t('ctaEyebrow')}
+        <aside aria-label={t('shareEyebrow')} className="mt-16 border border-white/10 bg-slate-900/60">
+          <div className="grid gap-8 p-6 sm:grid-cols-2">
+            <section>
+              <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">{t('shareEyebrow')}</h2>
+              <p className="mt-3 text-gray-300">{t('shareText')}</p>
+              <div className="mt-5">
+                <ShareButtons
+                  url={url}
+                  title={post.title}
+                  labels={{
+                    x: t('shareX'),
+                    linkedin: t('shareLinkedin'),
+                    copy: t('copyLink'),
+                    copied: t('copied'),
+                    native: t('shareNative'),
+                  }}
+                />
+              </div>
+            </section>
+            <section>
+              <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">{t('followEyebrow')}</h2>
+              <p className="mt-3 text-gray-300">{t('followText')}</p>
+              <ul className="mt-4">
+                {[
+                  { href: SOCIAL_URLS.x, label: 'X', handle: '@sr_rauldev', Icon: SiX },
+                  { href: SOCIAL_URLS.instagram, label: 'Instagram', handle: '@raulberna.dev', Icon: Instagram },
+                  { href: SOCIAL_URLS.linkedin, label: 'LinkedIn', handle: SITE_OWNER, Icon: Linkedin },
+                ].map(({ href, label, handle, Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 py-1.5 text-gray-200 transition-colors hover:text-cyan-300"
+                    >
+                      <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
+                      {label}
+                      <span className="font-mono text-xs text-gray-400 group-hover:text-cyan-300/80">{handle}</span>
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a
+                    href={feedPath(locale)}
+                    className="group flex items-center gap-3 py-1.5 text-gray-200 transition-colors hover:text-cyan-300"
+                  >
+                    <Rss className="h-4 w-4 text-cyan-400" aria-hidden />
+                    RSS
+                    <span className="font-mono text-xs text-gray-400 group-hover:text-cyan-300/80">{t('rssHint')}</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <p className="border-t border-white/10 px-6 py-4 text-sm text-gray-400">
+            {t('ctaText')}{' '}
+            <Link href="/#contacto" className="text-cyan-300 underline-offset-4 hover:underline">
+              {t('ctaButton')}
+            </Link>
           </p>
-          <p className="mt-3 text-gray-300">{t('ctaText')}</p>
-          <Link
-            href="/#contacto"
-            className="mt-5 inline-flex items-center border border-cyan-400/60 px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-cyan-300 transition-colors hover:bg-cyan-400/10"
-          >
-            {t('ctaButton')}
-          </Link>
         </aside>
       </main>
 
