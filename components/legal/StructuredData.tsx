@@ -24,11 +24,11 @@ const SECTION_INFO: Record<LegalSection, { es: { title: string; description: str
   privacy: {
     es: {
       title: 'Política de privacidad',
-      description: 'Política de privacidad del portfolio de Raúl Berná. Qué datos personales se recogen, con qué finalidad, base jurídica, derechos del usuario y proveedores que tratan los datos (Vercel, Resend, Upstash). Cumple RGPD y LOPDGDD.',
+      description: 'Política de privacidad del portfolio de Raúl Berná. Qué datos personales se recogen, con qué finalidad, base jurídica, derechos del usuario y proveedores que tratan los datos (Vercel, Resend, Upstash, OpenAI). Cumple RGPD y LOPDGDD.',
     },
     en: {
       title: 'Privacy policy',
-      description: 'Privacy policy for Raúl Berná portfolio. What personal data is collected, for what purpose, legal basis, user rights and processors (Vercel, Resend, Upstash). GDPR and LOPDGDD compliant.',
+      description: 'Privacy policy for Raúl Berná portfolio. What personal data is collected, for what purpose, legal basis, user rights and processors (Vercel, Resend, Upstash, OpenAI). GDPR and LOPDGDD compliant.',
     },
   },
   cookies: {
