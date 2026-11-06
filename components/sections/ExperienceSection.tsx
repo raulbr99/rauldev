@@ -32,6 +32,10 @@ export default function ExperienceSection() {
                     {experiences.map((exp, index) => {
                         const expKey = experienceKeyMap[exp.id];
                         const role = expKey ? t(`data.${expKey}.role`) : exp.role;
+                        // Periodo y ubicación traducidos: los de data/experience.ts
+                        // son el dato en español (los lee también el chat).
+                        const period = expKey && t.has(`data.${expKey}.period`) ? t(`data.${expKey}.period`) : exp.period;
+                        const location = expKey && t.has(`data.${expKey}.location`) ? t(`data.${expKey}.location`) : exp.location;
                         const description = expKey ? t(`data.${expKey}.description`) : exp.description;
                         const achievements = expKey
                             ? (t.raw(`data.${expKey}.achievements`) as string[])
@@ -45,8 +49,8 @@ export default function ExperienceSection() {
                                         <span className="font-mono text-5xl font-bold leading-none text-white/25 transition-colors group-hover:text-cyan-400/50">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
-                                        {exp.period && (
-                                            <span className="font-mono text-xs text-gray-400">{exp.period}</span>
+                                        {period && (
+                                            <span className="font-mono text-xs text-gray-400">{period}</span>
                                         )}
                                     </div>
 
@@ -64,10 +68,10 @@ export default function ExperienceSection() {
                                         <p className="mb-3 font-mono text-sm text-cyan-400">{exp.company}</p>
 
                                         <div className="mb-4 flex flex-wrap gap-4 font-mono text-xs text-gray-400">
-                                            {exp.location && (
+                                            {location && (
                                                 <span className="inline-flex items-center gap-1.5">
                                                     <MapPin className="h-3.5 w-3.5" />
-                                                    {exp.location}
+                                                    {location}
                                                 </span>
                                             )}
                                             <span className="uppercase tracking-wider">{getTypeLabel(exp.type)}</span>

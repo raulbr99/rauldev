@@ -96,6 +96,8 @@
     "data": {
       "nanoninoCurrent": {
         "role": "Fullstack Developer",
+        "period": "Oct 2025 - Actualidad",
+        "location": "Alicante, España",
         "description": "Segunda etapa en la empresa, desarrollando Talkrev, una plataforma SaaS de IA conversacional multi-tenant (chat, voz en tiempo real y reservas), y PartsNow.ai, su producto de agentic commerce para piezas de camión y tráiler.",
         "achievements": [
           "Desarrollé Talkrev, una plataforma SaaS de IA conversacional multi-tenant con chat y voz en tiempo real, incluyendo el dashboard del agente y la suite de reservas \"Turno\"",
@@ -107,6 +109,8 @@
       },
       "nanonino": {
         "role": "Fullstack Developer",
+        "period": "Sep 2022 - Jun 2024",
+        "location": "Alicante, España",
         "description": "Desarrollo de aplicaciones web y blockchain, trabajando con equipos internacionales en India y España.",
         "achievements": [
           "Desarrollé aplicaciones web progresivas con buen rendimiento gestionando grandes volúmenes de datos",
@@ -118,6 +122,8 @@
       },
       "evvant": {
         "role": "Fullstack Developer",
+        "period": "Ene 2022 - May 2022",
+        "location": "Murcia, España",
         "description": "Desarrollo de sistema de reservas completo, garantizando escalabilidad y seguridad con mejoras continuas de rendimiento.",
         "achievements": [
           "Creé sistema de reservas completo con ReactJS y NodeJS optimizado para escalabilidad y seguridad",
