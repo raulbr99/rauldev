@@ -124,19 +124,23 @@ export default function ContactSection() {
               )}
             </div>
 
-            {submitStatus === 'success' && (
-              <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 text-green-300 animate-fade-in">
-                <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                <span>{t('form.success')}</span>
-              </div>
-            )}
+            {/* Región viva fija: existe antes de que llegue el mensaje, así el lector
+                de pantalla dice «enviado» o el error al aparecer. Vacía no ocupa sitio. */}
+            <div aria-live="polite" aria-atomic="true" className="empty:mb-0">
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-2 p-4 bg-green-500/20 border border-green-500/30 text-green-300 animate-fade-in">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" aria-hidden />
+                  <span>{t('form.success')}</span>
+                </div>
+              )}
 
-            {submitStatus === 'error' && (
-              <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 text-red-300 animate-fade-in">
-                <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                <span>{errorMessage}</span>
-              </div>
-            )}
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-2 p-4 bg-red-500/20 border border-red-500/30 text-red-300 animate-fade-in">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" aria-hidden />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+            </div>
 
             <button
               type="submit"
