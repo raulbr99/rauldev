@@ -6,7 +6,7 @@ import { SiX } from 'react-icons/si';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { requestOpenChat } from '@/lib/chat-events';
-import { OPEN_PALETTE_EVENT, matchesQuery } from '@/lib/palette-events';
+import { OPEN_PALETTE_EVENT, matchesQuery, postSearchText } from '@/lib/palette-events';
 import { SOCIAL_URLS, feedPath } from '@/lib/site';
 
 type Group = 'sections' | 'posts' | 'social' | 'actions';
@@ -38,7 +38,11 @@ const icon = 'h-4 w-4 shrink-0 text-cyan-400';
  * dentro, bloquea el resto de la página y lo cierra con Esc. La lista sigue el
  * patrón combobox + listbox de ARIA para lectores de pantalla.
  */
-export default function CommandPalette({ posts }: { posts: { slug: string; title: string; tags: string[] }[] }) {
+export default function CommandPalette({
+  posts,
+}: {
+  posts: { slug: string; title: string; description: string; tags: string[] }[];
+}) {
   const t = useTranslations('palette');
   const tn = useTranslations('navigation');
   const locale = useLocale();
@@ -65,7 +69,7 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
         id: `p-${post.slug}`,
         group: 'posts' as const,
         label: post.title,
-        hint: post.tags.join(' '),
+        hint: postSearchText(post),
         icon: <FileText className={icon} aria-hidden />,
         run: go(`/blog/${post.slug}`),
       })),
@@ -170,7 +174,7 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
           onKeyDown={onInputKey}
           placeholder={t('placeholder')}
           role="combobox"
-          aria-expanded="true"
+          aria-expanded={results.length > 0}
           aria-controls={listId}
           aria-activedescendant={results.length ? `${listId}-${current}` : undefined}
           aria-autocomplete="list"
@@ -179,8 +183,18 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
         <kbd className="hidden shrink-0 border border-white/15 px-1.5 py-0.5 font-mono text-[10px] text-gray-400 sm:block">esc</kbd>
       </div>
 
-      <ul id={listId} role="listbox" aria-label={t('title')} className="max-h-[min(60vh,26rem)] overflow-y-auto py-2">
-        {results.length === 0 && <li className="px-4 py-6 text-sm text-gray-400">{t('empty', { query })}</li>}
+      {/* Sin resultados: aviso fuera de la lista (una lista de opciones vacía no es
+          válida) y en una región viva, para que el lector de pantalla lo diga. */}
+      <p role="status" className={results.length ? 'sr-only' : 'px-4 py-6 text-sm text-gray-400'}>
+        {results.length ? '' : t('empty', { query })}
+      </p>
+      <ul
+        id={listId}
+        role="listbox"
+        aria-label={t('title')}
+        hidden={results.length === 0}
+        className="max-h-[min(60vh,26rem)] overflow-y-auto py-2"
+      >
         {results.map((item, index) => {
           const header = item.group !== lastGroup ? t(`groups.${item.group}`) : null;
           lastGroup = item.group;

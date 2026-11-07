@@ -126,7 +126,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={clientMessages}>
           {children}
           <CommandPalette
-            posts={getPosts(locale as Locale).map(({ slug, title, tags }) => ({ slug, title, tags }))}
+            posts={getPosts(locale as Locale).map(({ slug, title, description, tags }) => ({ slug, title, description, tags }))}
           />
         </NextIntlClientProvider>
         <Analytics />

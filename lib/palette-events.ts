@@ -16,3 +16,12 @@ export function matchesQuery(haystack: string, query: string): boolean {
   const text = normalizeQuery(haystack);
   return words.every((word) => text.includes(word));
 }
+
+/**
+ * Texto en el que se busca un artículo: título, etiquetas, dirección y entradilla.
+ * Sin la dirección y la entradilla, «voxels» o «LiDAR» no encontraban los
+ * artículos que tratan justo de eso.
+ */
+export function postSearchText(post: { slug: string; title: string; description: string; tags: string[] }): string {
+  return [post.title, post.tags.join(' '), post.slug.replace(/-/g, ' '), post.description].join(' ');
+}

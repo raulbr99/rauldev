@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { Check, Copy } from 'lucide-react';
 
 interface CodeBlockProps {
@@ -22,6 +22,19 @@ const noop = () => () => {};
  */
 export default function CodeBlock({ language, code, labels, children }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
+  // Si la línea no cabe y el bloque hace scroll lateral, tiene que poder
+  // enfocarse para moverlo con las flechas (WCAG 2.1.1). Solo entonces: un
+  // bloque corto no debe ser una parada más del tabulador.
+  const preRef = useRef<HTMLPreElement>(null);
+  const [scrollable, setScrollable] = useState(false);
+  useEffect(() => {
+    const pre = preRef.current;
+    if (!pre) return;
+    // El observador avisa también al empezar, así que mide la primera vez.
+    const observer = new ResizeObserver(() => setScrollable(pre.scrollWidth > pre.clientWidth));
+    observer.observe(pre);
+    return () => observer.disconnect();
+  }, []);
   const canCopy = useSyncExternalStore(
     noop,
     () => typeof navigator.clipboard?.writeText === 'function',
@@ -54,7 +67,13 @@ export default function CodeBlock({ language, code, labels, children }: CodeBloc
           </button>
         )}
       </div>
-      <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-gray-200">{children}</pre>
+      <pre
+        ref={preRef}
+        tabIndex={scrollable ? 0 : undefined}
+        className="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-gray-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-cyan-400"
+      >
+        {children}
+      </pre>
     </div>
   );
 }
