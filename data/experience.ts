@@ -15,6 +15,13 @@ export interface ExperienceItem {
     projects?: { name: string; logo: string; url: string; /** Proporción del SVG (su viewBox), para reservar el hueco. */ width: number; height: number }[];
 }
 
+/** id de experiencia → clave de `experience.data` en messages (textos traducidos). */
+export const experienceKeyMap: Record<string, string> = {
+    'nanonino-sl-2': 'nanoninoCurrent',
+    'nanonino-sl': 'nanonino',
+    'evvant-sl': 'evvant',
+};
+
 export const experiences: ExperienceItem[] = [
     {
         id: 'nanonino-sl-2',

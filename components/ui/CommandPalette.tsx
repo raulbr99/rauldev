@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
-import { ArrowUpRight, FileText, FolderOpen, Hash, Instagram, Linkedin, Github, MessageSquare, Rss, Search } from 'lucide-react';
+import { ArrowUpRight, Briefcase, FileText, FolderOpen, Hash, Instagram, Linkedin, Github, MessageSquare, Rss, Search } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
@@ -11,7 +11,7 @@ import { SITE_URL, SOCIAL_URLS, feedPath } from '@/lib/site';
 import { projectKeyMap } from '@/lib/project-keys';
 import projectsData from '@/data/projects.json';
 
-type Group = 'sections' | 'posts' | 'projects' | 'social' | 'actions';
+type Group = 'sections' | 'posts' | 'projects' | 'experience' | 'social' | 'actions';
 
 interface Item {
   id: string;
@@ -44,8 +44,11 @@ const icon = 'h-4 w-4 shrink-0 text-cyan-400';
  */
 export default function CommandPalette({
   posts,
+  experience,
 }: {
   posts: { slug: string; title: string; description: string; tags: string[] }[];
+  /** Productos y empresas de la sección Experiencia (`target` = id de la tarjeta). */
+  experience: { id: string; target: string; label: string; hint: string }[];
 }) {
   const t = useTranslations('palette');
   const tn = useTranslations('navigation');
@@ -94,6 +97,14 @@ export default function CommandPalette({
           run: href ? open(href) : go('/#proyectos'),
         };
       }),
+      ...experience.map((item) => ({
+        id: `e-${item.id}`,
+        group: 'experience' as const,
+        label: item.label,
+        hint: item.hint,
+        icon: <Briefcase className={icon} aria-hidden />,
+        run: go(`/#exp-${item.target}`),
+      })),
       { id: 'r-x', group: 'social' as const, label: 'X', hint: '@sr_rauldev twitter', icon: <SiX className={icon} aria-hidden />, run: open(SOCIAL_URLS.x) },
       { id: 'r-ig', group: 'social' as const, label: 'Instagram', hint: '@raulberna.dev', icon: <Instagram className={icon} aria-hidden />, run: open(SOCIAL_URLS.instagram) },
       { id: 'r-li', group: 'social' as const, label: 'LinkedIn', hint: 'Raúl Berná', icon: <Linkedin className={icon} aria-hidden />, run: open(SOCIAL_URLS.linkedin) },
@@ -108,7 +119,7 @@ export default function CommandPalette({
         run: () => window.location.assign(feedPath(locale)),
       },
     ];
-  }, [posts, router, t, tn, tp, locale]);
+  }, [posts, experience, router, t, tn, tp, locale]);
 
   const results = useMemo(
     () => items.filter((item) => matchesQuery(`${item.label} ${item.hint ?? ''}`, query)),

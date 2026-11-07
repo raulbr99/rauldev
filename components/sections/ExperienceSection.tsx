@@ -1,15 +1,8 @@
 import { MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { experiences } from '../../data/experience';
+import { experienceKeyMap, experiences } from '../../data/experience';
 import Reveal from '../anim/Reveal';
 import SectionHeading from '../ui/SectionHeading';
-
-// Mapeo de IDs de experiencia a claves de traducción
-const experienceKeyMap: Record<string, string> = {
-    'nanonino-sl-2': 'nanoninoCurrent',
-    'nanonino-sl': 'nanonino',
-    'evvant-sl': 'evvant',
-};
 
 export default function ExperienceSection() {
     const t = useTranslations('experience');
@@ -43,7 +36,7 @@ export default function ExperienceSection() {
 
                         return (
                             <Reveal key={exp.id} delay={index * 0.05}>
-                                <article className="group grid gap-6 border-b border-white/10 py-10 transition-colors hover:bg-white/[0.02] md:grid-cols-[10rem_1fr] md:gap-10">
+                                <article id={`exp-${exp.id}`} className="group grid scroll-mt-28 gap-6 border-b border-white/10 py-10 transition-colors hover:bg-white/[0.02] md:grid-cols-[10rem_1fr] md:gap-10">
                                     {/* índice + periodo */}
                                     <div className="flex items-baseline gap-4 md:flex-col md:gap-2">
                                         <span className="font-mono text-5xl font-bold leading-none text-white/25 transition-colors group-hover:text-cyan-400/50">

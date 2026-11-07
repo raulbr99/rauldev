@@ -1,7 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import CommandPalette from '@/components/ui/CommandPalette';
 import { getPosts } from '@/lib/blog';
+import { experienceKeyMap, experiences } from '@/data/experience';
 import { notFound } from 'next/navigation';
 import { locales, defaultLocale, type Locale } from '@/i18n/config';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
@@ -97,6 +98,23 @@ export default async function LocaleLayout({ children, params }: Props) {
       .map((ns) => [ns, messages[ns]])
   );
 
+  // Experiencia para el buscador: textos ya traducidos aquí, en el servidor, para no
+  // mandar al navegador todo el namespace `experience`. Cada producto (Talkrev,
+  // Turno, PartsNow.ai) y cada empresa llevan a su tarjeta (`/#exp-<id>`).
+  const tExp = await getTranslations({ locale, namespace: 'experience' });
+  const experienceIndex = experiences.flatMap((exp) => {
+    const key = experienceKeyMap[exp.id];
+    const period = key && tExp.has(`data.${key}.period`) ? tExp(`data.${key}.period`) : (exp.period ?? '');
+    const role = key ? tExp(`data.${key}.role`) : exp.role;
+    const description = key ? tExp(`data.${key}.description`) : exp.description;
+    const hint = [role, description, exp.tech.join(' '), (exp.projects ?? []).map((p) => p.name).join(' ')].join(' ');
+    return [
+      // Cada producto solo por su nombre (la descripción nombra a los tres y «turno» los sacaría todos).
+      ...(exp.projects ?? []).map((p) => ({ id: `${exp.id}-${p.name}`, target: exp.id, label: `${p.name} · ${exp.company}`, hint: role })),
+      { id: exp.id, target: exp.id, label: period ? `${exp.company} · ${period}` : exp.company, hint },
+    ];
+  });
+
   return (
     // data-scroll-behavior: desde Next 16 hay que declararlo para que el
     // router siga saltando al instante entre rutas pese al smooth global.
@@ -128,6 +146,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           {children}
           <CommandPalette
             posts={getPosts(locale as Locale).map(({ slug, title, description, tags }) => ({ slug, title, description, tags }))}
+            experience={experienceIndex}
           />
         </NextIntlClientProvider>
         <Analytics />
