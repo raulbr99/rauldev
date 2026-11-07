@@ -19,7 +19,9 @@
       "projects": "View projects",
       "askAssistant": "Ask my assistant"
     },
-    "imageAlt": "Raúl Berná, Full Stack Developer in Alicante, Spain"
+    "imageAlt": "Raúl Berná, Full Stack Developer in Alicante, Spain",
+    "latestNew": "New",
+    "latestPost": "Latest post"
   },
   "about": {
     "title": "About Me",

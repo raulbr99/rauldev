@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import { Github, Linkedin, Instagram, Mail, MessageSquare, ArrowRight } from 'lucide-react';
 import { SiX } from 'react-icons/si';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { getPosts } from '@/lib/blog';
+import type { Locale } from '@/i18n/config';
 import Reveal from '../anim/Reveal';
 import OpenChatButton from '../chat/OpenChatButton';
 import { SOCIAL_URLS } from '@/lib/site';
@@ -9,8 +12,18 @@ import { SOCIAL_URLS } from '@/lib/site';
 const textLink =
   'inline-flex items-center gap-2 py-2 font-mono text-sm uppercase tracking-wider text-gray-300 transition-colors hover:text-cyan-300';
 
+/** Un artículo cuenta como «nuevo» durante estos días desde su fecha. */
+const NEW_FOR_DAYS = 21;
+/** Momento del build: la portada es estática y se rehace en cada despliegue. */
+const BUILT_AT = Date.now();
+
 export default function HeroSection() {
   const t = useTranslations('hero');
+  const locale = useLocale() as Locale;
+  // El último artículo, anunciado encima del nombre: lo primero que se ve.
+  // La página se genera en cada despliegue, así que «nuevo» se recalcula solo.
+  const latest = getPosts(locale)[0];
+  const isNew = !!latest && BUILT_AT - Date.parse(`${latest.date}T00:00:00Z`) < NEW_FOR_DAYS * 86_400_000;
 
   return (
     <section
@@ -21,6 +34,21 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
         <div>
+          {latest && (
+            <Reveal trigger="load">
+              <Link
+                href={`/blog/${latest.slug}`}
+                className="group mb-7 inline-flex max-w-full items-center gap-3 border border-cyan-400/30 bg-cyan-400/[0.06] py-1.5 pl-1.5 pr-3 transition-colors hover:border-cyan-400/60 hover:bg-cyan-400/[0.1]"
+              >
+                <span className="shrink-0 bg-cyan-400 px-1.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-widest text-slate-950">
+                  {isNew ? t('latestNew') : t('latestPost')}
+                </span>
+                <span className="sr-only">: </span>
+                <span className="truncate text-sm text-gray-200 transition-colors group-hover:text-cyan-200">{latest.title}</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-cyan-300 transition-transform group-hover:translate-x-0.5" aria-hidden />
+              </Link>
+            </Reveal>
+          )}
           <Reveal trigger="load">
             <h1 className="mb-3 text-6xl font-semibold leading-[0.95] text-white sm:text-7xl xl:text-8xl">
               {t('name')}

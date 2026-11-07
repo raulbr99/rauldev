@@ -19,7 +19,9 @@
       "projects": "Ver proyectos",
       "askAssistant": "Pregúntale a mi asistente"
     },
-    "imageAlt": "Raúl Berná, Full Stack Developer en Alicante"
+    "imageAlt": "Raúl Berná, Full Stack Developer en Alicante",
+    "latestNew": "Nuevo",
+    "latestPost": "Último artículo"
   },
   "about": {
     "title": "Sobre Mí",
