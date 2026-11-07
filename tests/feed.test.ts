@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildFeed, escapeXml, rfc822 } from '@/lib/feed';
+import { buildFeed, cdata, escapeXml, markdownToHtml, rfc822 } from '@/lib/feed';
 import type { PostMeta } from '@/lib/blog';
 
 const post = (over: Partial<PostMeta> = {}): PostMeta => ({
@@ -51,5 +51,39 @@ describe('buildFeed', () => {
     expect(xml).not.toContain('lastBuildDate');
     expect(xml).not.toContain('<item>');
     expect(xml.trim().endsWith('</rss>')).toBe(true);
+  });
+});
+
+describe('markdownToHtml', () => {
+  it('convierte el Markdown y deja absolutas las rutas de la web', () => {
+    const html = markdownToHtml('Hola [Alicante](/en/blog/alicante-voxels).\n\n![Mapa](/blog/a/mapa.jpg)\n\n[fuera](https://x.com/sr_rauldev)');
+    expect(html).toContain('<a href="https://rauldev.dev/en/blog/alicante-voxels">Alicante</a>');
+    expect(html).toContain('<img src="https://rauldev.dev/blog/a/mapa.jpg" alt="Mapa">');
+    expect(html).toContain('<a href="https://x.com/sr_rauldev">fuera</a>');
+  });
+
+  it('descarta el HTML escrito dentro del Markdown, como la web', () => {
+    expect(markdownToHtml('Antes <script>alert(1)</script> después')).not.toContain('<script');
+  });
+
+  it('entiende las tablas de GFM', () => {
+    expect(markdownToHtml('| a | b |\n|---|---|\n| 1 | 2 |')).toContain('<table>');
+  });
+});
+
+describe('cdata', () => {
+  it('parte el bloque si el texto contiene ]]>', () => {
+    expect(cdata('a]]>b')).toBe('<![CDATA[a]]]]><![CDATA[>b]]>');
+  });
+});
+
+describe('buildFeed con el artículo entero', () => {
+  it('añade content:encoded y la miniatura solo con cuerpo; la miniatura siempre', () => {
+    const conCuerpo = buildFeed('en', [{ ...post(), body: '## Hola\n\nTexto.' }], 'Articles');
+    expect(conCuerpo).toContain('xmlns:content="http://purl.org/rss/1.0/modules/content/"');
+    expect(conCuerpo).toContain('<content:encoded><![CDATA[<h2>Hola</h2>');
+    expect(conCuerpo).toContain('<media:content url="https://rauldev.dev/og/en/callosa-voxels.png" medium="image"');
+    const sinCuerpo = buildFeed('es', [post()], 'Artículos');
+    expect(sinCuerpo).not.toContain('<content:encoded>');
   });
 });

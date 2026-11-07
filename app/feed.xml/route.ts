@@ -1,4 +1,4 @@
-import { getPosts } from '@/lib/blog';
+import { getPost, getPosts } from '@/lib/blog';
 import { buildFeed } from '@/lib/feed';
 import es from '@/messages/es.json';
 
@@ -6,7 +6,9 @@ import es from '@/messages/es.json';
 export const dynamic = 'force-static';
 
 export function GET() {
-  return new Response(buildFeed('es', getPosts('es'), es.blog.metaDescription), {
+  // Con el cuerpo: el feed lleva cada artículo entero.
+  const posts = getPosts('es').map((post) => ({ ...post, body: getPost('es', post.slug)?.body }));
+  return new Response(buildFeed('es', posts, es.blog.metaDescription), {
     headers: { 'Content-Type': 'application/rss+xml; charset=utf-8' },
   });
 }
