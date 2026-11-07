@@ -13,8 +13,8 @@ export default function FAQSection() {
 
         <div className="divide-y divide-white/10 border border-white/10">
           {items.map((item, i) => (
-            <details key={i} className="group px-6 py-5 open:bg-white/[0.03]">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-white marker:content-none">
+            <details key={i} className="faq-item group px-6 py-5 transition-colors open:bg-white/[0.03]">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-white marker:content-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400">
                 {item.q}
                 <span
                   aria-hidden
