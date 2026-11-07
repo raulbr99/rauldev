@@ -366,7 +366,10 @@
     "code": "404",
     "title": "Esta página no existe",
     "description": "El enlace que has seguido no lleva a ninguna parte, o la página ha cambiado de sitio.",
-    "cta": "Volver al inicio"
+    "cta": "Volver al inicio",
+    "search": "Buscar en la web",
+    "latest": "Lo último del blog",
+    "follow": "También en"
   },
   "error": {
     "code": "500",

@@ -366,7 +366,10 @@
     "code": "404",
     "title": "This page doesn't exist",
     "description": "The link you followed leads nowhere, or the page has moved.",
-    "cta": "Back to home"
+    "cta": "Back to home",
+    "search": "Search the site",
+    "latest": "Latest from the blog",
+    "follow": "Also on"
   },
   "error": {
     "code": "500",
