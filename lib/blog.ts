@@ -144,6 +144,13 @@ export function pickRelated(posts: PostMeta[], current: PostMeta, count = 2): Po
     .map(({ post }) => post);
 }
 
+const LOCAL_IMAGE_RE = /!\[[^\]]*\]\((\/blog\/[^)\s]+\.(?:jpe?g|png|webp|avif|gif))(?:\s+"[^"]*")?\)/gi;
+
+/** Imágenes locales del cuerpo (`![…](/blog/…)`), en orden de aparición y sin repetir. */
+export function localImages(body: string): string[] {
+  return [...new Set(Array.from(body.matchAll(LOCAL_IMAGE_RE), (match) => match[1]))];
+}
+
 /** `Lo que cambia respecto a Alicante` → `lo-que-cambia-respecto-a-alicante` (id de un apartado). */
 export function headingId(text: string): string {
   return text

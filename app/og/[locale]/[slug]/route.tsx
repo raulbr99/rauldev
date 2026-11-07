@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
-import { getPost, getPosts } from '@/lib/blog';
+import { getPost, getPosts, localImages } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_OWNER } from '@/lib/site';
 
@@ -31,7 +31,8 @@ function font(file: string): Buffer {
 
 /** Primera imagen local del artículo (`![…](/blog/…)`) como data URL, si la hay. */
 function firstImage(body: string): string | undefined {
-  const src = body.match(/!\[[^\]]*\]\((\/blog\/[^)\s]+\.(?:jpe?g|png))\)/i)?.[1];
+  // next/og solo dibuja JPEG y PNG.
+  const src = localImages(body).find((image) => /\.(?:jpe?g|png)$/i.test(image));
   if (!src) return undefined;
   const file = path.join(ROOT, 'public', src);
   if (!file.startsWith(path.join(ROOT, 'public')) || !fs.existsSync(file)) return undefined;

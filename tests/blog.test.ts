@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildPost, headingId, parseFrontmatter, parseTags, pickRelated, readingMinutes, type PostMeta } from '@/lib/blog';
+import { buildPost, headingId, localImages, parseFrontmatter, parseTags, pickRelated, readingMinutes, type PostMeta } from '@/lib/blog';
 
 const valid = `---
 title: "Mi artículo: con dos puntos"
@@ -104,5 +104,22 @@ describe('headingId', () => {
     expect(headingId('Lo que cambia respecto a Alicante')).toBe('lo-que-cambia-respecto-a-alicante');
     expect(headingId('¿Qué se puede hacer en la web?')).toBe('que-se-puede-hacer-en-la-web');
     expect(headingId('De dónde sale cada cubo')).toBe('de-donde-sale-cada-cubo');
+  });
+});
+
+describe('localImages', () => {
+  it('devuelve las imágenes locales en orden, sin repetir y sin las externas', () => {
+    const body = [
+      '![Uno](/blog/a/uno.jpg)',
+      'Texto con [un enlace](/blog/otro-articulo) que no es imagen.',
+      '![Dos](/blog/a/dos.png "con título")',
+      '![Externa](https://example.com/x.jpg)',
+      '![Uno otra vez](/blog/a/uno.jpg)',
+    ].join('\n\n');
+    expect(localImages(body)).toEqual(['/blog/a/uno.jpg', '/blog/a/dos.png']);
+  });
+
+  it('da una lista vacía si no hay imágenes', () => {
+    expect(localImages('Solo texto.')).toEqual([]);
   });
 });
