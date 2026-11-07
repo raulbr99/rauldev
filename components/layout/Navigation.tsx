@@ -63,8 +63,10 @@ export default function Navigation() {
                 {/* Mismo ancho y margen que las secciones y el pie (px-4 fuera, max-w-7xl dentro):
                     el logo queda encima de los títulos. */}
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex justify-between items-center gap-4 py-4">
-                        <div className="whitespace-nowrap text-xl font-bold uppercase tracking-tight text-white">
+                    {/* Por debajo de 360 px (p. ej. 320, el mínimo de WCAG 1.4.10) logo, buscador,
+                        idioma y menú no cabían: menos hueco y logo algo menor. */}
+                    <div className="flex justify-between items-center gap-4 py-4 max-[359px]:gap-2">
+                        <div className="whitespace-nowrap text-xl font-bold uppercase tracking-tight text-white max-[359px]:text-lg">
                             <Link href="/" className="transition-colors hover:text-cyan-100">
                                 Raúl <span className="text-cyan-400">Dev</span>
                             </Link>
@@ -125,7 +127,7 @@ export default function Navigation() {
                             <LanguageSwitcher />
                         </div>
 
-                        <div className="flex items-center gap-2 lg:hidden">
+                        <div className="flex items-center gap-2 lg:hidden max-[359px]:gap-1">
                             <button
                                 type="button"
                                 onClick={requestOpenPalette}

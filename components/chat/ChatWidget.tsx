@@ -180,9 +180,10 @@ export default function ChatWidget() {
               <div className="min-w-0">
                 <p className="flex items-center gap-2 text-sm font-bold leading-tight text-white">
                   <span className="truncate">{t('title')}</span>
-                  <span className="shrink-0 whitespace-nowrap border border-white/12 px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-[0.15em] text-gray-400">AEO · llms.txt</span>
+                  {/* Por debajo de 360 px no cabe con el nombre: se oculta antes que cortar «Raúl Berná». */}
+                  <span className="shrink-0 whitespace-nowrap border border-white/12 px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-[0.15em] text-gray-400 max-[359px]:hidden">AEO · llms.txt</span>
                 </p>
-                <p className="mt-1 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
+                <p className="mt-1 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400 max-[359px]:tracking-[0.06em]">
                   <span className={`h-1 w-1 shrink-0 ${busy ? 'animate-pulse bg-cyan-300' : 'bg-green-400'}`} aria-hidden />
                   <span className={`truncate ${busy ? 'text-cyan-200/90' : ''}`}>{busy ? t('typing') : t('status')}</span>
                 </p>
