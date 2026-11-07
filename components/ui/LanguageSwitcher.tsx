@@ -18,7 +18,9 @@ const base = 'flex min-h-11 min-w-11 items-center justify-center px-2 font-mono 
  * Va con el Link de Next y la URL de `getPathname`, no con el de next-intl:
  * ese fuerza el prefijo al cambiar de idioma (`/es/blog/x`), que el proxy
  * redirige con un 307 a `/blog/x`. La cookie NEXT_LOCALE la sigue poniendo el
- * proxy en cada respuesta, como hasta ahora. Sin prefetch: no hace falta
+ * proxy en cada carga completa; tras un cambio sin recarga puede seguir con el
+ * idioma anterior, pero nada la lee (`localeDetection: false` en
+ * i18n/routing.ts: el idioma lo decide solo la URL). Sin prefetch: no hace falta
  * descargar la otra versión de cada página que alguien abre.
  */
 export default function LanguageSwitcher() {
