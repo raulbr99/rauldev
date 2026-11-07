@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight, Instagram, Linkedin, Rss } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { Link } from '@/i18n/navigation';
@@ -158,10 +159,25 @@ export default async function BlogPost({ params }: Props) {
 
         <article className="mt-8">
           <header>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
-              <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
-              {' · '}
-              {t('readingTime', { minutes: post.readingMinutes })}
+            {/* Firma: quién lo escribe, con foto y enlace a «Sobre mí» (rel="author").
+                En móvil, la fecha y el tiempo de lectura bajan a su propia línea (sin un «·» colgando). */}
+            <p className="flex flex-wrap items-center gap-x-2.5 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-gray-400">
+              <Image
+                src="/me.jpg"
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6 border border-cyan-400/60 object-cover"
+              />
+              <Link href="/#sobre-mi" rel="author" className="py-1 text-gray-200 transition-colors hover:text-cyan-300">
+                {SITE_OWNER}
+              </Link>
+              <span aria-hidden className="hidden sm:inline">·</span>
+              <span className="w-full sm:w-auto">
+                <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
+                {' · '}
+                {t('readingTime', { minutes: post.readingMinutes })}
+              </span>
             </p>
             <PostTitleTransition slug={slug}>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl">
