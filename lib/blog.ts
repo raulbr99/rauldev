@@ -177,3 +177,50 @@ export function headingId(text: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+export interface PostHeading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+/** Texto de un título de Markdown tal como lo pinta react-markdown: sin `**`, `_`, comillas de código ni enlaces. */
+function headingText(markdown: string): string {
+  // El código en línea va tal cual (un `mi_var` conserva su guion bajo); el resto pierde las marcas.
+  return markdown
+    .split(/(`[^`]*`)/)
+    .map((part) =>
+      part.startsWith('`') && part.endsWith('`') && part.length > 1
+        ? part.slice(1, -1)
+        : part
+            .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+            .replace(/(\*\*|__)(.+?)\1/g, '$2')
+            .replace(/\*(.+?)\*/g, '$1')
+            .replace(/(^|[^\p{L}\p{N}])_(.+?)_(?=[^\p{L}\p{N}]|$)/gu, '$1$2'),
+    )
+    .join('')
+    .trim();
+}
+
+/**
+ * Apartados de un artículo (`#`/`##` → nivel 2, `###` → nivel 3) con el mismo
+ * id que les pone PostBody al pintarlos, para el índice de arriba. Lo que va
+ * dentro de un bloque de código no cuenta.
+ */
+export function postHeadings(body: string): PostHeading[] {
+  const headings: PostHeading[] = [];
+  let inFence = false;
+  for (const line of body.split(/\r?\n/)) {
+    if (/^\s{0,3}(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const match = line.match(/^\s{0,3}(#{1,3})\s+(.+?)(?:\s+#+)?\s*$/);
+    if (!match) continue;
+    const text = headingText(match[2]);
+    const id = headingId(text);
+    if (id) headings.push({ id, text, level: match[1].length === 3 ? 3 : 2 });
+  }
+  return headings;
+}

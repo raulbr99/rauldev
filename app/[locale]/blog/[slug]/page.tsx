@@ -13,7 +13,8 @@ import PostBody from '@/components/blog/PostBody';
 import PostCover from '@/components/blog/PostCover';
 import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import ShareButtons from '@/components/blog/ShareButtons';
-import { getPost, getPosts, pickRelated, postCover } from '@/lib/blog';
+import TableOfContents from '@/components/blog/TableOfContents';
+import { getPost, getPosts, pickRelated, postCover, postHeadings } from '@/lib/blog';
 import articleSocial from '@/data/article-social.json';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, feedPath, feedTypes, postImageUrl } from '@/lib/site';
@@ -176,6 +177,8 @@ export default async function BlogPost({ params }: Props) {
               </p>
             )}
           </header>
+
+          <TableOfContents headings={postHeadings(post.body)} title={t('tocTitle')} />
 
           <div className="mt-12">
             <PostBody anchorLabel={t('anchorLabel')} codeLabels={{ copy: t('copyCode'), copied: t('copied') }}
