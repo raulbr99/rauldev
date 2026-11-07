@@ -1,4 +1,5 @@
-import { Github, Linkedin, Instagram, Mail, Rss } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, Rss, type LucideIcon } from 'lucide-react';
+import type { IconType } from 'react-icons';
 import { SiX } from 'react-icons/si';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -19,13 +20,15 @@ const legalLinks = [
   { href: '/cookies', key: 'cookies' },
 ] as const;
 
-const socialLinks = [
-  { href: SOCIAL_URLS.github, label: 'GitHub', Icon: Github },
+// Con usuario (`handle`), se ve el usuario, que es lo que se busca en la app, y
+// el nombre de la red queda para los lectores de pantalla («X: @sr_rauldev»).
+const socialLinks: { href: string; label: string; handle?: string; Icon: IconType | LucideIcon }[] = [
+  { href: SOCIAL_URLS.github, label: 'GitHub', handle: 'raulbr99', Icon: Github },
   { href: SOCIAL_URLS.linkedin, label: 'LinkedIn', Icon: Linkedin },
-  { href: SOCIAL_URLS.x, label: 'X', Icon: SiX },
-  { href: SOCIAL_URLS.instagram, label: 'Instagram', Icon: Instagram },
+  { href: SOCIAL_URLS.x, label: 'X', handle: '@sr_rauldev', Icon: SiX },
+  { href: SOCIAL_URLS.instagram, label: 'Instagram', handle: '@raulberna.dev', Icon: Instagram },
   { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
-] as const;
+];
 
 /**
  * Pie de página: cierra el sitio con los enlaces legales exigidos por la LSSI
@@ -37,7 +40,7 @@ export default function Footer() {
   const tn = useTranslations('navigation');
   const locale = useLocale();
   // El RSS depende del idioma: `/feed.xml` o `/en/feed.xml`.
-  const profiles = [...socialLinks, { href: feedPath(locale), label: 'RSS', Icon: Rss }];
+  const profiles: typeof socialLinks = [...socialLinks, { href: feedPath(locale), label: 'RSS', Icon: Rss }];
   const year = new Date().getFullYear();
 
   const columnTitle = 'mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400';
@@ -97,7 +100,7 @@ export default function Footer() {
           <div>
             <h2 className={columnTitle}>{t('elsewhere')}</h2>
             <ul>
-              {profiles.map(({ href, label, Icon }) => (
+              {profiles.map(({ href, label, handle, Icon }) => (
                 <li key={label}>
                   <a
                     href={href}
@@ -105,8 +108,15 @@ export default function Footer() {
                     rel={href.startsWith('http') ? 'me noopener noreferrer' : undefined}
                     className={profileLink}
                   >
-                    <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
-                    {label}
+                    <Icon className="h-4 w-4 shrink-0 text-cyan-400" aria-hidden />
+                    {handle ? (
+                      <span>
+                        <span className="sr-only">{label}: </span>
+                        {handle}
+                      </span>
+                    ) : (
+                      label
+                    )}
                   </a>
                 </li>
               ))}
