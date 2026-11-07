@@ -416,7 +416,11 @@
     "keepReading": "Keep reading",
     "anchorLabel": "Link to this section",
     "onSocial": "This article on social",
-    "seeOn": "See on {network}"
+    "seeOn": "See on {network}",
+    "filterAll": "All",
+    "filterLabel": "Filter by tag",
+    "filterShowing": "{shown} of {total} articles tagged “{tag}”",
+    "filterClear": "Clear filter"
   },
   "social": {
     "title": "Latest on social",

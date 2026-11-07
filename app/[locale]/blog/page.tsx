@@ -1,8 +1,9 @@
+import { Suspense } from 'react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { BlogList, BlogListFromUrl, type BlogListPost } from '@/components/blog/BlogList';
 import type { Metadata } from 'next';
 import { ArrowLeft, Rss } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import Navigation from '@/components/layout/Navigation';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
@@ -60,6 +61,22 @@ export default async function BlogIndex({ params }: Props) {
     timeZone: 'UTC',
   });
 
+  const listPosts: BlogListPost[] = posts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    dateLabel: dateFormat.format(new Date(post.date)),
+    readingLabel: t('readingTime', { minutes: post.readingMinutes }),
+    tags: post.tags,
+  }));
+  const listLabels = {
+    all: t('filterAll'),
+    filter: t('filterLabel'),
+    // Plantilla: la rellena el componente de cliente.
+    showing: t.raw('filterShowing') as string,
+    clear: t('filterClear'),
+  };
   const url = pageUrl(locale, '/blog');
   const collectionPage = {
     '@type': 'CollectionPage',
@@ -133,40 +150,9 @@ export default async function BlogIndex({ params }: Props) {
             {t('empty')}
           </p>
         ) : (
-          <ul className="mt-14 divide-y divide-white/10 border-y border-white/10">
-            {posts.map((post) => (
-              <li key={post.slug}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group block py-8 transition-colors hover:bg-white/[0.03] sm:px-4"
-                >
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
-                    <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
-                    {' · '}
-                    {t('readingTime', { minutes: post.readingMinutes })}
-                  </p>
-                  <PostTitleTransition slug={post.slug}>
-                    <h2 className="mt-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-300">
-                      {post.title}
-                    </h2>
-                  </PostTitleTransition>
-                  <p className="mt-3 leading-relaxed text-gray-400">{post.description}</p>
-                  {post.tags.length > 0 && (
-                    <p className="mt-4 flex flex-wrap gap-2">
-                      {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="border border-white/10 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-gray-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Suspense fallback={<BlogList posts={listPosts} labels={listLabels} />}>
+            <BlogListFromUrl posts={listPosts} labels={listLabels} />
+          </Suspense>
         )}
       </main>
 

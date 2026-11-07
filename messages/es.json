@@ -416,7 +416,11 @@
     "keepReading": "Sigue leyendo",
     "anchorLabel": "Enlace a este apartado",
     "onSocial": "Este artículo en redes",
-    "seeOn": "Ver en {network}"
+    "seeOn": "Ver en {network}",
+    "filterAll": "Todos",
+    "filterLabel": "Filtrar por etiqueta",
+    "filterShowing": "{shown} de {total} artículos con «{tag}»",
+    "filterClear": "Quitar filtro"
   },
   "social": {
     "title": "Lo último en redes",

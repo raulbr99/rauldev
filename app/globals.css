@@ -275,3 +275,13 @@ html[data-menu-open] [data-chat-ui] {
     scale: none;
   }
 }
+
+/* Filas de /blog que aparecen al quitar o cambiar el filtro: entran con un fundido. */
+.blog-row {
+  transition: opacity 0.25s ease-out;
+}
+@starting-style {
+  .blog-row {
+    opacity: 0;
+  }
+}
