@@ -34,14 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: `${SITE_OWNER} — Portfolio`,
       title: t('title'),
       description: t('metaDescription'),
-      images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630, alt: t('title'), type: 'image/jpeg' }],
+      // Imagen propia del blog (últimos artículos), generada en el build: app/og/[locale]/blog.png.
+      images: [{ url: `${SITE_URL}/og/${isSpanish ? 'es' : 'en'}/blog.png`, width: 1200, height: 630, alt: t('metaDescription'), type: 'image/png' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
       description: t('metaDescription'),
       creator: '@sr_rauldev',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, alt: t('title') }],
+      images: [{ url: `${SITE_URL}/og/${isSpanish ? 'es' : 'en'}/blog.png`, alt: t('metaDescription') }],
     },
     alternates: alternatesFor(locale, '/blog'),
   };

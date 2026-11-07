@@ -1,8 +1,7 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { getPost, getPosts, localImages } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
+import { OG_CYAN as CYAN, OG_GRID, OG_INK as INK, OG_SIZE as SIZE, clip, ogFonts, publicDataUrl } from '@/lib/og';
 import { SITE_OWNER } from '@/lib/site';
 
 /**
@@ -14,35 +13,16 @@ import { SITE_OWNER } from '@/lib/site';
 export const dynamic = 'force-static';
 export const dynamicParams = false;
 
-const SIZE = { width: 1200, height: 630 };
-const ROOT = process.cwd();
-const CYAN = '#22d3ee';
-const INK = '#020617';
-
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     getPosts(locale).map((post) => ({ locale, slug: `${post.slug}.png` })),
   );
 }
 
-function font(file: string): Buffer {
-  return fs.readFileSync(path.join(ROOT, 'assets', 'og', file));
-}
-
-/** Primera imagen local del artículo (`![…](/blog/…)`) como data URL, si la hay. */
+/** Primera imagen JPEG o PNG del artículo como data URL (next/og solo dibuja esas dos). */
 function firstImage(body: string): string | undefined {
-  // next/og solo dibuja JPEG y PNG.
   const src = localImages(body).find((image) => /\.(?:jpe?g|png)$/i.test(image));
-  if (!src) return undefined;
-  const file = path.join(ROOT, 'public', src);
-  if (!file.startsWith(path.join(ROOT, 'public')) || !fs.existsSync(file)) return undefined;
-  const type = /\.png$/i.test(src) ? 'image/png' : 'image/jpeg';
-  return `data:${type};base64,${fs.readFileSync(file).toString('base64')}`;
-}
-
-function clip(text: string, max: number): string {
-  if (text.length <= max) return text;
-  return `${text.slice(0, max).replace(/\s+\S*$/, '')}…`;
+  return src ? publicDataUrl(src) : undefined;
 }
 
 export async function GET(_req: Request, { params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -59,7 +39,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ locale:
   }).format(new Date(post.date));
   const minutes = isSpanish ? `${post.readingMinutes} min de lectura` : `${post.readingMinutes} min read`;
   const image = firstImage(post.body);
-  const avatar = `data:image/jpeg;base64,${fs.readFileSync(path.join(ROOT, 'public', 'me.jpg')).toString('base64')}`;
+  // Siempre existe; si faltara, mejor que el build falle que una imagen sin foto.
+  const avatar = publicDataUrl('/me.jpg') as string;
   // Con foto, el texto ocupa la mitad izquierda y la foto se funde con el fondo por debajo.
   const titleSize = image ? (post.title.length > 40 ? 50 : 56) : post.title.length > 48 ? 54 : 64;
   const textWidth = image ? 650 : 1072;
@@ -72,10 +53,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ locale:
           height: '100%',
           display: 'flex',
           position: 'relative',
-          backgroundColor: INK,
-          backgroundImage:
-            'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
+          ...OG_GRID,
           fontFamily: 'Space Grotesk',
           color: 'white',
         }}
@@ -154,11 +132,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ locale:
     ),
     {
       ...SIZE,
-      fonts: [
-        { name: 'Space Grotesk', data: font('space-grotesk-latin-400-normal.woff'), weight: 400, style: 'normal' },
-        { name: 'Space Grotesk', data: font('space-grotesk-latin-600-normal.woff'), weight: 600, style: 'normal' },
-        { name: 'JetBrains Mono', data: font('jetbrains-mono-latin-400-normal.woff'), weight: 400, style: 'normal' },
-      ],
+      fonts: ogFonts(),
     },
   );
 }
