@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
+import PostCover from '@/components/blog/PostCover';
 import PostTitleTransition from '@/components/blog/PostTitleTransition';
 
 export interface BlogListPost {
@@ -13,6 +14,8 @@ export interface BlogListPost {
   dateLabel: string;
   readingLabel: string;
   tags: string[];
+  /** Primera imagen del artículo, o null. */
+  cover: string | null;
 }
 
 interface Labels {
@@ -89,33 +92,42 @@ export function BlogList({ posts, labels, activeTag = null }: BlogListProps) {
           <li key={post.slug} className="blog-row">
             <Link
               href={`/blog/${post.slug}`}
-              className="group block py-8 transition-colors hover:bg-white/[0.03] sm:px-4"
+              className="group grid gap-6 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[minmax(0,1fr)_11rem] sm:items-start sm:px-4"
             >
-              <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
-                <time dateTime={post.date}>{post.dateLabel}</time>
-                {' · '}
-                {post.readingLabel}
-              </p>
-              <PostTitleTransition slug={post.slug}>
-                <h2 className="mt-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-300">
-                  {post.title}
-                </h2>
-              </PostTitleTransition>
-              <p className="mt-3 leading-relaxed text-gray-400">{post.description}</p>
-              {post.tags.length > 0 && (
-                <p className="mt-4 flex flex-wrap gap-2">
-                  {post.tags.map((name) => (
-                    <span
-                      key={name}
-                      className={`border px-2 py-1 font-mono text-[10px] uppercase tracking-widest ${
-                        name === tag ? 'border-cyan-400/60 text-cyan-300' : 'border-white/10 text-gray-400'
-                      }`}
-                    >
-                      {name}
-                    </span>
-                  ))}
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
+                  <time dateTime={post.date}>{post.dateLabel}</time>
+                  {' · '}
+                  {post.readingLabel}
                 </p>
-              )}
+                <PostTitleTransition slug={post.slug}>
+                  <h2 className="mt-3 text-2xl font-bold text-white transition-colors group-hover:text-cyan-300">
+                    {post.title}
+                  </h2>
+                </PostTitleTransition>
+                <p className="mt-3 leading-relaxed text-gray-400">{post.description}</p>
+                {post.tags.length > 0 && (
+                  <p className="mt-4 flex flex-wrap gap-2">
+                    {post.tags.map((name) => (
+                      <span
+                        key={name}
+                        className={`border px-2 py-1 font-mono text-[10px] uppercase tracking-widest ${
+                          name === tag ? 'border-cyan-400/60 text-cyan-300' : 'border-white/10 text-gray-400'
+                        }`}
+                      >
+                        {name}
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </div>
+              {/* En el móvil la lista va sin fotos: más artículos a la vista. */}
+              <PostCover
+                src={post.cover}
+                tag={post.tags[0]}
+                sizes="176px"
+                className="hidden aspect-[4/3] border border-white/10 sm:block"
+              />
             </Link>
           </li>
         ))}

@@ -8,7 +8,7 @@ import Navigation from '@/components/layout/Navigation';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
-import { getPosts } from '@/lib/blog';
+import { getPosts, postCover } from '@/lib/blog';
 import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, alternatesFor, feedPath } from '@/lib/site';
 import type { Locale } from '@/i18n/config';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, pageUrl, webPageId } from '@/lib/structured-data';
@@ -68,6 +68,7 @@ export default async function BlogIndex({ params }: Props) {
     date: post.date,
     dateLabel: dateFormat.format(new Date(post.date)),
     readingLabel: t('readingTime', { minutes: post.readingMinutes }),
+    cover: postCover(locale as Locale, post.slug),
     tags: post.tags,
   }));
   const listLabels = {

@@ -151,6 +151,11 @@ export function localImages(body: string): string[] {
   return [...new Set(Array.from(body.matchAll(LOCAL_IMAGE_RE), (match) => match[1]))];
 }
 
+/** Portada de un artículo en las listas: su primera imagen local, o null. */
+export function postCover(locale: Locale, slug: string): string | null {
+  return localImages(getPost(locale, slug)?.body ?? '')[0] ?? null;
+}
+
 /** `Lo que cambia respecto a Alicante` → `lo-que-cambia-respecto-a-alicante` (id de un apartado). */
 export function headingId(text: string): string {
   return text
