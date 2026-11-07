@@ -95,9 +95,12 @@ const nextConfig: NextConfig = {
             key: 'Content-Type',
             value: 'application/manifest+json',
           },
+          // Sin «immutable»: la URL no cambia nunca, así que con un año de caché
+          // un cambio del manifest (accesos directos, iconos) no llegaría a quien
+          // ya lo tuviera. Un día y revalidar es suficiente.
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'public, max-age=86400, must-revalidate',
           },
         ],
       },
