@@ -1,7 +1,9 @@
 import { getTranslations } from 'next-intl/server';
-import { ArrowUpRight, Instagram, Linkedin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Instagram, Linkedin } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { Link } from '@/i18n/navigation';
+import { getPosts } from '@/lib/blog';
 import { SOCIAL_URLS } from '@/lib/site';
 import type { Locale } from '@/i18n/config';
 import socialPosts from '@/data/social-posts.json';
@@ -23,6 +25,15 @@ const NETWORKS: Record<Network, { label: string; Icon: typeof Linkedin | typeof 
   instagram: { label: 'Instagram', Icon: Instagram },
 };
 
+/**
+ * Artículo del blog que cuenta lo mismo que el post, si lo hay: el id del post
+ * es `AAAA-MM-DD-<slug>` o `AAAA-MM-DD-<slug>-…` (igual que en sync-redes.py).
+ */
+function articleFor(postId: string, slugs: string[]): string | undefined {
+  const rest = postId.slice(11);
+  return slugs.find((slug) => rest === slug || rest.startsWith(`${slug}-`));
+}
+
 const PROFILES = [
   { network: 'x', href: SOCIAL_URLS.x, handle: '@sr_rauldev' },
   { network: 'instagram', href: SOCIAL_URLS.instagram, handle: '@raulberna.dev' },
@@ -41,6 +52,7 @@ export default async function SocialSection({ locale }: { locale: Locale }) {
   if (posts.length === 0) return null;
 
   const t = await getTranslations({ locale, namespace: 'social' });
+  const slugs = getPosts(locale).map((post) => post.slug);
   const dateFormat = new Intl.DateTimeFormat(locale === 'es' ? 'es-ES' : 'en-GB', {
     day: 'numeric',
     month: 'short',
@@ -57,6 +69,7 @@ export default async function SocialSection({ locale }: { locale: Locale }) {
             const lang: Locale = post.text[locale] ? locale : locale === 'es' ? 'en' : 'es';
             const text = post.text[lang];
             if (!text) return null;
+            const article = articleFor(post.id, slugs);
             return (
               // En móvil bastan 3: la lista entera está en los perfiles.
               <li key={post.id} className={`flex-col bg-slate-950 p-6 ${i >= 3 ? 'hidden md:flex' : 'flex'}`}>
@@ -73,6 +86,15 @@ export default async function SocialSection({ locale }: { locale: Locale }) {
                   {text}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-x-5 gap-y-1">
+                  {article && (
+                    <Link
+                      href={`/blog/${article}`}
+                      className="inline-flex items-center gap-1 py-1 font-mono text-[11px] uppercase tracking-widest text-white transition-colors hover:text-cyan-300"
+                    >
+                      {t('readArticle')}
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                    </Link>
+                  )}
                   {post.links.map(({ network, url }) => (
                     <a
                       key={network}

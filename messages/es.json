@@ -427,6 +427,7 @@
   "social": {
     "title": "Lo último en redes",
     "subtitle": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
+    "readArticle": "Leer el artículo",
     "seeOn": "Ver en {network}",
     "follow": "Seguir en {network}"
   },

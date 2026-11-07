@@ -427,6 +427,7 @@
   "social": {
     "title": "Latest on social",
     "subtitle": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
+    "readArticle": "Read the article",
     "seeOn": "See on {network}",
     "follow": "Follow on {network}"
   },
