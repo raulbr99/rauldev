@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_URL, SITE_OWNER, homeSeo, SOCIAL_URLS } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -39,6 +39,16 @@ export function generateStaticParams() {
  * portada (canonical, hreflang, robots, Open Graph) vive en `page.tsx`: si
  * estuviera aquí, la 404 heredaría el canonical de la portada.
  */
+/**
+ * El sitio es solo oscuro: `colorScheme` pinta en oscuro lo que dibuja el
+ * navegador (barras de scroll, controles de formulario, el fondo antes de que
+ * llegue el CSS). `themeColor` es la barra del navegador en móvil.
+ */
+export const viewport: Viewport = {
+  themeColor: '#22D3EE',
+  colorScheme: 'dark',
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   // `/algo.pdf` llega aquí como locale 'algo.pdf' y acaba en la 404.
@@ -97,7 +107,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#22D3EE" />
         <meta name="msapplication-TileColor" content="#22D3EE" />
         {/* Sin browserconfig.xml: que Edge/IE antiguos no lo pidan (daba 404). */}
         <meta name="msapplication-config" content="none" />

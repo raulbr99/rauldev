@@ -37,7 +37,25 @@ html {
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    /* Líneas de largo parecido: nada de una palabra sola en la última línea. */
+    text-wrap: balance;
   }
+
+  /* En párrafos, evita que la última línea quede con una palabra suelta. */
+  p, li, blockquote, figcaption {
+    text-wrap: pretty;
+  }
+}
+
+/* Todo es oscuro: barras de scroll, autocompletado y controles nativos también. */
+:root {
+  color-scheme: dark;
+  accent-color: #22d3ee;
+}
+
+::selection {
+  background: rgb(34 211 238 / 0.3);
+  color: #fff;
 }
 
 /* Patrón de grid visible para fondos de sección (estética brutalista) */
