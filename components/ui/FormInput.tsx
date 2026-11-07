@@ -42,7 +42,10 @@ export default function FormInput({
     const hasError = touched && error;
     const isValid = touched && !error && value;
 
-    const inputClasses = `w-full px-4 py-3 bg-white/[0.04] border text-white placeholder-gray-500 font-mono text-sm focus:outline-none transition-colors ${hasError
+    // Foco: anillo cian por fuera del borde (como el resto de la web). Antes era solo el
+    // borde de 1 px y, con el campo en rojo o en verde, el foco no se veía (WCAG 2.4.7).
+    // Sin `outline-none`: en Tailwind 4 anula el estilo de `outline-2` (misma variable).
+    const inputClasses = `w-full px-4 py-3 bg-white/[0.04] border text-white placeholder-gray-500 font-mono text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 transition-colors ${hasError
         ? 'border-red-500 focus:border-red-500'
         : isValid
             ? 'border-green-500 focus:border-green-500'
