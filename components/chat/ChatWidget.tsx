@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ArrowUp, Check, Copy, MessageSquare, RotateCcw, Square, X } from 'lucide-react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useTranslations, useLocale } from 'next-intl';
 import Markdown from './Markdown';
 import { OPEN_CHAT_EVENT, consumePendingOpen } from '@/lib/chat-events';
@@ -130,17 +130,17 @@ export default function ChatWidget() {
         aria-controls="chat-dialog"
         className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center bg-cyan-400 text-slate-950 shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_14px_40px_-12px_rgba(34,211,238,0.75)] transition-transform hover:scale-105 active:scale-95"
       >
-        <AnimatePresence mode="wait" initial={false}>
-          {open ? (
-            <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="h-6 w-6" />
-            </motion.span>
-          ) : (
-            <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <MessageSquare className="h-6 w-6" />
-            </motion.span>
-          )}
-        </AnimatePresence>
+        {/* Los dos iconos están siempre; el CSS gira y funde uno sobre el otro. */}
+        <span className="relative h-6 w-6">
+          <X
+            aria-hidden
+            className={`absolute inset-0 h-6 w-6 transition-[rotate,opacity] duration-150 motion-reduce:transition-none ${open ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'}`}
+          />
+          <MessageSquare
+            aria-hidden
+            className={`absolute inset-0 h-6 w-6 transition-[rotate,opacity] duration-150 motion-reduce:transition-none ${open ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`}
+          />
+        </span>
         {!open && (
           <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3" aria-hidden>
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -150,19 +150,16 @@ export default function ChatWidget() {
       </button>
 
       {/* Panel de chat */}
-      <AnimatePresence>
-        {open && (
-          <motion.section
+      {/* Siempre montado: abrir y cerrar es CSS (`.chat-panel` en globals.css,
+          con @starting-style y transición de display), con animación de
+          entrada y de salida sin librería. */}
+      <section
             id="chat-dialog"
             data-chat-ui
+            data-open={open}
             role="dialog"
             aria-label={t('dialogLabel')}
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'bottom right' }}
-            className="fixed inset-x-3 bottom-24 z-[90] flex h-[min(36rem,calc(100dvh-8rem))] flex-col border border-white/12 bg-slate-950/95 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:inset-x-auto sm:right-5 sm:w-[25rem]"
+            className="chat-panel fixed inset-x-3 bottom-24 z-[90] h-[min(36rem,calc(100dvh-8rem))] flex-col border border-white/12 bg-slate-950/95 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:inset-x-auto sm:right-5 sm:w-[25rem]"
           >
             {/* Filo superior: el acento de la marca antes que nada */}
             <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent" />
@@ -267,28 +264,16 @@ export default function ChatWidget() {
 
                   if (isUser) {
                     return (
-                      <motion.div
-                        key={m.id}
-                        initial={reduce ? false : { opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.18 }}
-                        className="flex justify-end"
-                      >
+                      <div key={m.id} className="chat-msg flex justify-end">
                         <p className="max-w-[85%] whitespace-pre-wrap bg-cyan-400 px-3.5 py-2 text-sm font-medium leading-relaxed text-slate-950">
                           {text}
                         </p>
-                      </motion.div>
+                      </div>
                     );
                   }
 
                   return (
-                    <motion.div
-                      key={m.id}
-                      initial={reduce ? false : { opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.18 }}
-                      className="group space-y-1.5"
-                    >
+                    <div key={m.id} className="chat-msg group space-y-1.5">
                       {reasoning && <ReasoningTrace text={reasoning} streaming={reasoningLive} />}
 
                       {text && (
@@ -314,7 +299,7 @@ export default function ChatWidget() {
                           )}
                         </button>
                       )}
-                    </motion.div>
+                    </div>
                   );
                 })}
 
@@ -399,9 +384,7 @@ export default function ChatWidget() {
                 )}
               </div>
             </form>
-          </motion.section>
-        )}
-      </AnimatePresence>
+      </section>
     </>
   );
 }

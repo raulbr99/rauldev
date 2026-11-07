@@ -230,3 +230,48 @@ html[data-menu-open] [data-chat-ui] {
     scale: 0 1;
   }
 }
+
+/* ── Chat sin librería de animación ──
+   El panel está siempre montado: cerrado es display:none y la transición de
+   display (allow-discrete) más @starting-style dan entrada y salida en CSS. */
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  transform-origin: bottom right;
+  transition:
+    opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    scale 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    display 0.2s allow-discrete;
+}
+.chat-panel[data-open='false'] {
+  display: none;
+  opacity: 0;
+  translate: 0 24px;
+  scale: 0.96;
+}
+@starting-style {
+  .chat-panel[data-open='true'] {
+    opacity: 0;
+    translate: 0 24px;
+    scale: 0.96;
+  }
+}
+@keyframes chat-msg-in {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chat-msg {
+    animation: chat-msg-in 0.18s ease-out both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-panel,
+  .chat-panel[data-open='false'] {
+    translate: none;
+    scale: none;
+  }
+}

@@ -23,7 +23,6 @@
     "@vercel/speed-insights": "^2.0.0",
     "ai": "^6.0.277",
     "lucide-react": "^0.532.0",
-    "motion": "^12.40.0",
     "next": "16.4.5",
     "next-intl": "^4.6.1",
     "react": "19.3.1",

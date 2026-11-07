@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Sparkles } from 'lucide-react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 /**
@@ -21,7 +20,6 @@ function clean(text: string) {
  */
 export default function ReasoningTrace({ text, streaming }: { text: string; streaming: boolean }) {
   const t = useTranslations('chat');
-  const reduce = useReducedMotion();
   // Abierto mientras piensa y plegado al terminar, salvo que la persona haya
   // decidido lo contrario a mano.
   const [userToggled, setUserToggled] = useState<boolean | null>(null);
@@ -53,7 +51,7 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
       >
         <Sparkles
           aria-hidden
-          className={`h-3 w-3 shrink-0 text-cyan-300 ${streaming && !reduce ? 'animate-pulse' : ''}`}
+          className={`h-3 w-3 shrink-0 text-cyan-300 ${streaming ? 'motion-safe:animate-pulse' : ''}`}
         />
         <span
           className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
@@ -71,25 +69,24 @@ export default function ReasoningTrace({ text, streaming }: { text: string; stre
         />
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="body"
-            initial={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            animate={reduce ? { opacity: 1 } : { height: 'auto', opacity: 1 }}
-            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
+      {/* Plegable en CSS: la fila del grid pasa de 0fr a 1fr (anima hasta la
+          altura real sin medirla). Plegado, `inert` lo saca del foco y de los
+          lectores de pantalla. */}
+      <div
+        inert={!open}
+        className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out motion-reduce:transition-none ${
+          open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div
+            ref={bodyRef}
+            className="max-h-36 overflow-y-auto border-t border-white/10 px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-gray-400"
           >
-            <div
-              ref={bodyRef}
-              className="max-h-36 overflow-y-auto border-t border-white/10 px-2.5 py-2 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-gray-400"
-            >
-              {clean(text)}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {clean(text)}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
