@@ -16,7 +16,7 @@ import Reveal from '@/components/anim/Reveal';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import StructuredData from '@/components/StructuredData';
 import { locales, type Locale } from '@/i18n/config';
-import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor, homeSeo } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor, homeSeo, homeImageUrl } from '@/lib/site';
 import type { Metadata } from 'next';
 
 type Props = {
@@ -57,11 +57,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [
         {
-          url: `${SITE_URL}/og-image.jpg`,
+          url: homeImageUrl(locale),
           width: 1200,
           height: 630,
           alt: ogImageAlt,
-          type: 'image/jpeg',
+          type: 'image/png',
         },
       ],
     },
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       creator: '@sr_rauldev',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, alt: ogImageAlt }],
+      images: [{ url: homeImageUrl(locale), alt: ogImageAlt }],
     },
     alternates: alternatesFor(locale),
   };

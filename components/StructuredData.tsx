@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import projectsData from '@/data/projects.json';
 import { projectKeyMap } from '@/lib/project-keys';
 import { latestUpdate } from '@/lib/blog';
-import { SITE_URL, SITE_OWNER, CONTENT_UPDATED, localeUrl } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, CONTENT_UPDATED, homeImageUrl, localeUrl } from '@/lib/site';
 import {
   PERSON_ID,
   WEBSITE_ID,
@@ -53,7 +53,7 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     dateModified: latestUpdate(language),
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/og-image.jpg`,
+      url: homeImageUrl(language),
       width: 1200,
       height: 630,
     },

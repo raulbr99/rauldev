@@ -44,6 +44,11 @@ export function feedTypes(locale: string): NonNullable<NonNullable<Metadata['alt
   return { 'application/rss+xml': [{ url: feedUrl(locale), title: FEED_TITLE }] };
 }
 
+/** Imagen para compartir la portada (y las páginas legales), generada en el build por `app/og/[locale]/home.png`. */
+export function homeImageUrl(locale: string): string {
+  return `${SITE_URL}/og/${locale === 'en' ? 'en' : 'es'}/home.png`;
+}
+
 /** Imagen para compartir un artículo, generada en el build por `app/og/[locale]/[slug]`. */
 export function postImageUrl(locale: string, slug: string): string {
   return `${SITE_URL}/og/${locale === 'en' ? 'en' : 'es'}/${slug}.png`;

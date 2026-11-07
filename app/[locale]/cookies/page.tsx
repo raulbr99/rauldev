@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/LegalPage';
 import LegalStructuredData from '@/components/legal/StructuredData';
-import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor, homeImageUrl } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -39,11 +39,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t('metaDescription'),
       images: [
         {
-          url: `${SITE_URL}/og-image.jpg`,
+          url: homeImageUrl(locale),
           width: 1200,
           height: 630,
           alt: ogImageAlt,
-          type: 'image/jpeg',
+          type: 'image/png',
         },
       ],
     },
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('title'),
       description: t('metaDescription'),
       creator: '@sr_rauldev',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, alt: ogImageAlt }],
+      images: [{ url: homeImageUrl(locale), alt: ogImageAlt }],
     },
     alternates: alternatesFor(locale, '/cookies'),
   };
