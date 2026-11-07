@@ -178,7 +178,9 @@ export default async function BlogPost({ params }: Props) {
           </header>
 
           <div className="mt-12">
-            <PostBody anchorLabel={t('anchorLabel')} codeLabels={{ copy: t('copyCode'), copied: t('copied') }}>
+            <PostBody anchorLabel={t('anchorLabel')} codeLabels={{ copy: t('copyCode'), copied: t('copied') }}
+              imageLabels={{ zoom: t('zoomImage'), close: t('closeImage') }}
+            >
               {post.body}
             </PostBody>
           </div>

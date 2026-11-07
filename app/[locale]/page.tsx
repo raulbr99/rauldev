@@ -16,7 +16,7 @@ import Reveal from '@/components/anim/Reveal';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import StructuredData from '@/components/StructuredData';
 import { locales, type Locale } from '@/i18n/config';
-import { SITE_URL, SITE_OWNER, localeUrl, alternatesFor, homeSeo, homeImageUrl } from '@/lib/site';
+import { SITE_OWNER, localeUrl, alternatesFor, homeSeo, homeImageUrl } from '@/lib/site';
 import type { Metadata } from 'next';
 
 type Props = {

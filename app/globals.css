@@ -351,3 +351,56 @@ html:has(#menu-movil[open]) [data-chat-ui] {
     opacity: 0;
   }
 }
+
+/* Imagen ampliada de un artículo (<dialog>, ver ZoomableImage): aparece con un
+   fundido y un pequeño acercamiento; la página de detrás no hace scroll. */
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+.lightbox {
+  opacity: 0;
+  scale: 0.96;
+  transition:
+    opacity 0.2s ease,
+    scale 0.2s ease,
+    overlay 0.2s allow-discrete,
+    display 0.2s allow-discrete;
+}
+
+.lightbox[open] {
+  opacity: 1;
+  scale: 1;
+}
+
+@starting-style {
+  .lightbox[open] {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+.lightbox::backdrop {
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    overlay 0.2s allow-discrete,
+    display 0.2s allow-discrete;
+}
+
+.lightbox[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .lightbox[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox::backdrop {
+    transition: none;
+  }
+}

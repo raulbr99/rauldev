@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import CodeBlock from '@/components/blog/CodeBlock';
+import ZoomableImage from '@/components/blog/ZoomableImage';
 import { headingId } from '@/lib/blog';
 import { publicImageSize } from '@/lib/image-size';
 
@@ -47,9 +48,10 @@ interface PostBodyProps {
   children: string;
   anchorLabel: string;
   codeLabels: { copy: string; copied: string };
+  imageLabels: { zoom: string; close: string };
 }
 
-export default function PostBody({ children, anchorLabel, codeLabels }: PostBodyProps) {
+export default function PostBody({ children, anchorLabel, codeLabels, imageLabels }: PostBodyProps) {
   return (
     <div className="text-lg leading-relaxed text-gray-300">
       <ReactMarkdown
@@ -58,7 +60,14 @@ export default function PostBody({ children, anchorLabel, codeLabels }: PostBody
           h1: ({ children }) => <Heading level={2} anchorLabel={anchorLabel}>{children}</Heading>,
           h2: ({ children }) => <Heading level={2} anchorLabel={anchorLabel}>{children}</Heading>,
           h3: ({ children }) => <Heading level={3} anchorLabel={anchorLabel}>{children}</Heading>,
-          p: ({ children }) => <p className="mb-5">{children}</p>,
+          // Un párrafo que solo trae una imagen va como <div>: la imagen ampliable
+          // lleva un <dialog>, que no puede ir dentro de un <p>.
+          p: ({ node, children }) =>
+            node?.children.length === 1 && node.children[0].type === 'element' && node.children[0].tagName === 'img' ? (
+              <div className="mb-5">{children}</div>
+            ) : (
+              <p className="mb-5">{children}</p>
+            ),
           strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
           a: ({ href, children }) => {
             const external = !!href && /^https?:\/\//.test(href);
@@ -124,14 +133,16 @@ export default function PostBody({ children, anchorLabel, codeLabels }: PostBody
             // AVIF/WebP al ancho de la columna en vez del JPEG de 1600 px.
             if (url && size) {
               return (
-                <Image
-                  src={url}
-                  alt={alt ?? ''}
-                  width={size.width}
-                  height={size.height}
-                  sizes="(max-width: 800px) calc(100vw - 2rem), 736px"
-                  className="mb-5 h-auto w-full border border-white/10"
-                />
+                <ZoomableImage src={url} alt={alt ?? ''} width={size.width} height={size.height} labels={imageLabels}>
+                  <Image
+                    src={url}
+                    alt={alt ?? ''}
+                    width={size.width}
+                    height={size.height}
+                    sizes="(max-width: 800px) calc(100vw - 2rem), 736px"
+                    className="mb-5 h-auto w-full border border-white/10"
+                  />
+                </ZoomableImage>
               );
             }
             // eslint-disable-next-line @next/next/no-img-element
