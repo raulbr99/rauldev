@@ -1,19 +1,8 @@
-'use client';
-
-import { motion, useScroll, useSpring } from 'motion/react';
-
 /**
- * Thin bar pinned to the top of the viewport that fills as the page
- * scrolls. Spring-smoothed for a premium feel.
+ * Barra fina arriba del todo que se llena según se baja por la página. Es CSS
+ * puro (`animation-timeline: scroll()`, en globals.css): sin JS ni listeners de
+ * scroll. Donde el navegador no lo soporta, no se pinta.
  */
 export default function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
-
-  return (
-    <motion.div
-      style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[100] h-0.5 origin-left bg-cyan-400"
-    />
-  );
+  return <div aria-hidden className="scroll-progress" />;
 }

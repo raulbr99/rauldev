@@ -184,3 +184,49 @@ html[data-menu-open] [data-chat-ui] {
     animation-delay: 0s !important;
   }
 }
+
+/* ── Entradas y barra de progreso en CSS puro (Reveal, ScrollProgress) ──
+   Sin soporte o con «reducir movimiento», todo se ve tal cual, sin animar. */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: var(--reveal-x, 0px) var(--reveal-y, 12px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-load {
+    animation: reveal-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s) both;
+  }
+  @supports (animation-timeline: view()) {
+    /* Los primeros ~280 px de scroll tras asomar el borde superior: una sección
+       más alta que la pantalla no se queda a medio aparecer mientras se lee. */
+    .reveal-view {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry var(--reveal-shift, 0px) entry calc(var(--reveal-shift, 0px) + 280px);
+    }
+  }
+}
+
+.scroll-progress {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 100;
+    height: 2px;
+    transform-origin: left;
+    background: var(--color-cyan-400, #22d3ee);
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes scroll-progress {
+  from {
+    scale: 0 1;
+  }
+}

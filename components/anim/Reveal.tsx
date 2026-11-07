@@ -1,63 +1,49 @@
-'use client';
-
-import { motion, useReducedMotion } from 'motion/react';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 
-const offsets: Record<Direction, { x?: number; y?: number }> = {
-  up: { y: 12 },
-  down: { y: -12 },
-  left: { x: 12 },
-  right: { x: -12 },
-  none: {},
+const offsets: Record<Direction, [string, string]> = {
+  up: ['0px', '12px'],
+  down: ['0px', '-12px'],
+  left: ['12px', '0px'],
+  right: ['-12px', '0px'],
+  none: ['0px', '0px'],
 };
 
 interface RevealProps {
   children: ReactNode;
-  /** Seconds of delay before the reveal starts. */
-  delay?: number;
-  /** Slide-in direction. */
-  direction?: Direction;
-  /** Pop-in from a slightly smaller scale. */
-  scale?: boolean;
-  className?: string;
   /**
-   * Cuánto del elemento tiene que verse para que aparezca: 'some' (cualquier
-   * parte), 'all' o una fracción 0-1. Por defecto 'some': con una fracción,
-   * una sección más alta que la pantalla dividida por esa fracción (p. ej.
-   * «Proyectos» en un móvil, más de 4 pantallas con 0.25) nunca llega a
-   * mostrarse.
+   * 'view' (por defecto): aparece al entrar en pantalla, con una animación
+   * ligada al scroll (`animation-timeline: view()`). 'load': aparece al cargar
+   * la página, para lo que ya está a la vista (la portada).
    */
-  amount?: 'some' | 'all' | number;
-  duration?: number;
+  trigger?: 'view' | 'load';
+  /** En 'load', segundos de espera; en 'view', escalona: cuánto más tarde empieza. */
+  delay?: number;
+  direction?: Direction;
+  className?: string;
 }
 
 /**
- * Scroll-triggered entrance. Wraps server-rendered children, so sections can
- * stay Server Components while still animating in. Honours reduced-motion.
+ * Entrada con CSS puro (clases `reveal-*` de globals.css), sin JavaScript: el
+ * contenido llega visible en el HTML y el navegador lo anima. Sin soporte de
+ * animaciones por scroll, o con «reducir movimiento», se ve sin animación.
+ * Antes era `motion` y el HTML salía con opacity: 0 hasta hidratar, así que el
+ * nombre de la portada no se veía hasta que cargaba el JS.
  */
-export default function Reveal({
-  children,
-  delay = 0,
-  direction = 'up',
-  scale = false,
-  className,
-  amount = 'some',
-  duration = 0.5,
-}: RevealProps) {
-  const reduce = useReducedMotion();
-  const o = offsets[direction];
+export default function Reveal({ children, trigger = 'view', delay = 0, direction = 'up', className }: RevealProps) {
+  const [x, y] = offsets[direction];
+  const style: CSSProperties & Record<`--${string}`, string> = {
+    '--reveal-x': x,
+    '--reveal-y': y,
+    ...(trigger === 'load'
+      ? { '--reveal-delay': `${delay}s` }
+      : { '--reveal-shift': `${Math.round(delay * 600)}px` }),
+  };
 
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? { opacity: 0 } : { opacity: 0, ...o, scale: scale ? 0.85 : 1 }}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-      viewport={{ once: true, amount }}
-      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className={`reveal-${trigger}${className ? ` ${className}` : ''}`} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

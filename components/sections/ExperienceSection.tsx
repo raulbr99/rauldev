@@ -42,7 +42,7 @@ export default function ExperienceSection() {
                             : exp.achievements;
 
                         return (
-                            <Reveal key={exp.id} delay={index * 0.05} amount={0.15}>
+                            <Reveal key={exp.id} delay={index * 0.05}>
                                 <article className="group grid gap-6 border-b border-white/10 py-10 transition-colors hover:bg-white/[0.02] md:grid-cols-[10rem_1fr] md:gap-10">
                                     {/* índice + periodo */}
                                     <div className="flex items-baseline gap-4 md:flex-col md:gap-2">

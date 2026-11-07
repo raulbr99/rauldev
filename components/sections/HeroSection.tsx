@@ -21,7 +21,7 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
         {/* LEFT — big type */}
         <div>
-          <Reveal>
+          <Reveal trigger="load">
             <h1 className="mb-3 text-6xl font-semibold leading-[0.95] text-white sm:text-7xl xl:text-8xl">
               {t('name')}
             </h1>
@@ -30,14 +30,14 @@ export default function HeroSection() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal trigger="load" delay={0.1}>
             <p
               className="mb-8 max-w-xl text-lg leading-relaxed text-gray-300/90"
               dangerouslySetInnerHTML={{ __html: t.raw('description') }}
             />
           </Reveal>
 
-          <Reveal delay={0.2}>
+          <Reveal trigger="load" delay={0.2}>
             {/* Una acción principal; el resto, enlaces de texto. */}
             <div className="mb-9 flex flex-wrap items-center gap-x-7 gap-y-2">
               <a
@@ -57,7 +57,7 @@ export default function HeroSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.3}>
+          <Reveal trigger="load" delay={0.3}>
             <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-400">
               <a href={SOCIAL_URLS.github} aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
                 <Github className="h-5 w-5" />
@@ -79,7 +79,7 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT — framed "spec card" */}
-        <Reveal direction="left" delay={0.15} className="order-first lg:order-last">
+        <Reveal trigger="load" direction="left" delay={0.15} className="order-first lg:order-last">
           <div className="relative mx-auto max-w-[9.5rem] sm:max-w-[14rem] lg:max-w-sm">
             {/* accent corner brackets */}
             <span className="absolute -left-2 -top-2 h-6 w-6 border-l-2 border-t-2 border-cyan-400" />
