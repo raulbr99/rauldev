@@ -19,7 +19,7 @@ export const experiences: ExperienceItem[] = [
     {
         id: 'nanonino-sl-2',
         company: 'Nanonino SL',
-        role: 'Fullstack Developer',
+        role: 'Full Stack Developer',
         period: 'Oct 2025 - Actualidad',
         location: 'Alicante, España',
         type: 'Presencial',
@@ -43,7 +43,7 @@ export const experiences: ExperienceItem[] = [
     {
         id: 'nanonino-sl',
         company: 'Nanonino SL',
-        role: 'Fullstack Developer',
+        role: 'Full Stack Developer',
         period: 'Sep 2022 - Jun 2024',
         location: 'Alicante, España',
         type: 'Presencial',
@@ -61,7 +61,7 @@ export const experiences: ExperienceItem[] = [
     {
         id: 'evvant-sl',
         company: 'Evvant SL',
-        role: 'Fullstack Developer',
+        role: 'Full Stack Developer',
         period: 'Jan 2022 - May 2022',
         location: 'Murcia, España',
         type: 'Remoto',

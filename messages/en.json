@@ -98,7 +98,7 @@
     "builtProjects": "Products",
     "data": {
       "nanoninoCurrent": {
-        "role": "Fullstack Developer",
+        "role": "Full Stack Developer",
         "period": "Oct 2025 - Present",
         "location": "Alicante, Spain",
         "description": "Second stage at the company, building Talkrev, a multi-tenant conversational AI SaaS platform (chat, real-time voice and bookings), Turno, its AI agent for restaurants, and PartsNow.ai, its agentic-commerce product for heavy-duty truck and trailer parts.",
@@ -112,7 +112,7 @@
         ]
       },
       "nanonino": {
-        "role": "Fullstack Developer",
+        "role": "Full Stack Developer",
         "period": "Sep 2022 - Jun 2024",
         "location": "Alicante, Spain",
         "description": "Development of web and blockchain applications, working with international teams in India and Spain.",
@@ -125,7 +125,7 @@
         ]
       },
       "evvant": {
-        "role": "Fullstack Developer",
+        "role": "Full Stack Developer",
         "period": "Jan 2022 - May 2022",
         "location": "Murcia, Spain",
         "description": "Development of complete booking system, ensuring scalability and security with continuous performance improvements.",
