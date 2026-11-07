@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import projectsData from '@/data/projects.json';
 import { projectKeyMap } from '@/lib/project-keys';
+import { latestUpdate } from '@/lib/blog';
 import { SITE_URL, SITE_OWNER, CONTENT_UPDATED, localeUrl } from '@/lib/site';
 import {
   PERSON_ID,
@@ -48,7 +49,8 @@ export default async function StructuredData({ language }: StructuredDataProps) 
     about: { '@id': PERSON_ID },
     mainEntity: { '@id': PERSON_ID },
     dateCreated: '2024-01-01',
-    dateModified: CONTENT_UPDATED,
+    // La portada enseña los últimos artículos: cambia al publicar uno (igual que en el sitemap).
+    dateModified: latestUpdate(language),
     primaryImageOfPage: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/og-image.jpg`,

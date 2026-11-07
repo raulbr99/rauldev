@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { locales } from '@/i18n/config'
 import { SITE_URL, CONTENT_UPDATED, localeUrl } from '@/lib/site'
-import { getPost, getPosts, localImages } from '@/lib/blog'
+import { getPost, getPosts, latestUpdate, localImages } from '@/lib/blog'
 import projectsData from '@/data/projects.json'
 import { blogAlternates } from '@/lib/blog-alternates'
 
@@ -37,7 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = PATHS.flatMap((path) =>
     locales.map((locale) => ({
       url: localeUrl(locale, path),
-      lastModified: LAST_MODIFIED,
+      // La portada y /blog enseñan los últimos artículos: cambian cada vez que
+      // se publica uno, aunque nadie toque CONTENT_UPDATED.
+      lastModified: path === '' || path === '/blog' ? new Date(`${latestUpdate(locale)}T00:00:00.000Z`) : LAST_MODIFIED,
       alternates: {
         languages: {
           es: `${SITE_URL}${path}`,

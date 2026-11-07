@@ -8,7 +8,9 @@ export const SITE_URL = 'https://rauldev.dev';
 
 /**
  * Fecha de la última revisión del contenido (no cambia en cada build). La
- * usan el sitemap y el JSON-LD (`dateModified`).
+ * usan el sitemap y el JSON-LD (`dateModified`). La portada y /blog toman la
+ * más reciente entre esta y el último artículo (`latestUpdate` en lib/blog):
+ * publicar un artículo no obliga a cambiarla.
  */
 export const CONTENT_UPDATED = '2026-11-06';
 

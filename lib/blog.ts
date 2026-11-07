@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Locale } from '@/i18n/config';
+import { CONTENT_UPDATED } from '@/lib/site';
 
 /**
  * Los artículos son archivos Markdown en `content/blog/<locale>/<slug>.md`.
@@ -149,6 +150,17 @@ const LOCAL_IMAGE_RE = /!\[[^\]]*\]\((\/blog\/[^)\s]+\.(?:jpe?g|png|webp|avif|gi
 /** Imágenes locales del cuerpo (`![…](/blog/…)`), en orden de aparición y sin repetir. */
 export function localImages(body: string): string[] {
   return [...new Set(Array.from(body.matchAll(LOCAL_IMAGE_RE), (match) => match[1]))];
+}
+
+/**
+ * Última vez que cambió lo que enseñan la portada y /blog en un idioma (ISO
+ * YYYY-MM-DD): lo más reciente entre CONTENT_UPDATED y el último artículo
+ * publicado o revisado. Así publicar un artículo actualiza la fecha sin tocar
+ * CONTENT_UPDATED a mano.
+ */
+export function latestUpdate(locale: Locale): string {
+  const dates = getPosts(locale).map((post) => post.updated ?? post.date);
+  return [CONTENT_UPDATED, ...dates].sort().at(-1) as string;
 }
 
 /** Portada de un artículo en las listas: su primera imagen local, o null. */
