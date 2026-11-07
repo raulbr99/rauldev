@@ -414,7 +414,9 @@
     "followText": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
     "rssHint": "new articles",
     "keepReading": "Keep reading",
-    "anchorLabel": "Link to this section"
+    "anchorLabel": "Link to this section",
+    "onSocial": "This article on social",
+    "seeOn": "See on {network}"
   },
   "social": {
     "title": "Latest on social",

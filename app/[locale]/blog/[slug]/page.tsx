@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Instagram, Linkedin, Rss } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Instagram, Linkedin, Rss } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
@@ -12,6 +12,7 @@ import PostBody from '@/components/blog/PostBody';
 import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import ShareButtons from '@/components/blog/ShareButtons';
 import { getPost, getPosts, pickRelated } from '@/lib/blog';
+import articleSocial from '@/data/article-social.json';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, feedPath, feedTypes, postImageUrl } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
@@ -19,6 +20,14 @@ import { blogAlternates } from '@/lib/blog-alternates';
 import { PERSON_ID, WEBSITE_ID, baseNodes, crumb, jsonLdHtml, webPageId } from '@/lib/structured-data';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
+
+type SocialLink = { network: 'x' | 'linkedin' | 'instagram'; url: string };
+const SOCIAL_LABEL = { x: 'X', linkedin: 'LinkedIn', instagram: 'Instagram' } as const;
+
+/** Posts en redes que contaron este artículo (data/article-social.json, generado desde la lista de publicados). */
+function socialFor(slug: string): SocialLink[] {
+  return ((articleSocial as Record<string, SocialLink[]>)[slug] ?? []).filter((l) => l.network in SOCIAL_LABEL);
+}
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => getPosts(locale).map((post) => ({ locale, slug: post.slug })));
@@ -75,6 +84,7 @@ export default async function BlogPost({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'blog' });
   const ta = await getTranslations({ locale, namespace: 'a11y' });
   const related = pickRelated(getPosts(locale as Locale), post);
+  const social = socialFor(slug);
   const url = localeUrl(locale, `/blog/${slug}`);
   const dateFormat = new Intl.DateTimeFormat(locale === 'es' ? 'es-ES' : 'en-GB', {
     day: 'numeric',
@@ -98,6 +108,8 @@ export default async function BlogPost({ params }: Props) {
     image: postImageUrl(locale, slug),
     author: { '@id': PERSON_ID },
     publisher: { '@id': PERSON_ID },
+    // Donde se comenta: el post de X (o el primero que haya) que lo contó.
+    ...(social[0] ? { discussionUrl: social[0].url } : {}),
     isPartOf: { '@id': WEBSITE_ID },
   };
   const webPage = {
@@ -164,6 +176,28 @@ export default async function BlogPost({ params }: Props) {
           <div className="mt-12">
             <PostBody anchorLabel={t('anchorLabel')}>{post.body}</PostBody>
           </div>
+
+          {social.length > 0 && (
+            <p className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 border-y border-white/10 py-4">
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-400">{t('onSocial')}</span>
+              {social.map(({ network, url }) => {
+                const Icon = network === 'x' ? SiX : network === 'linkedin' ? Linkedin : Instagram;
+                return (
+                  <a
+                    key={network}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 py-1 text-sm text-gray-200 transition-colors hover:text-cyan-300"
+                  >
+                    <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
+                    {t('seeOn', { network: SOCIAL_LABEL[network] })}
+                    <ArrowUpRight className="h-3.5 w-3.5 text-gray-400" aria-hidden />
+                  </a>
+                );
+              })}
+            </p>
+          )}
         </article>
 
         <aside aria-label={t('shareEyebrow')} className="mt-16 border border-white/10 bg-slate-900/60">

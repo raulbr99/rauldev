@@ -414,7 +414,9 @@
     "followText": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
     "rssHint": "los artículos nuevos",
     "keepReading": "Sigue leyendo",
-    "anchorLabel": "Enlace a este apartado"
+    "anchorLabel": "Enlace a este apartado",
+    "onSocial": "Este artículo en redes",
+    "seeOn": "Ver en {network}"
   },
   "social": {
     "title": "Lo último en redes",

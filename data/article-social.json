@@ -1,0 +1,42 @@
+{
+  "alicante-voxels": [
+    {
+      "network": "x",
+      "url": "https://x.com/sr_rauldev/status/2117891608985112852"
+    },
+    {
+      "network": "linkedin",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7523657348427554816/"
+    },
+    {
+      "network": "instagram",
+      "url": "https://www.instagram.com/reel/DfVkRKRCow1/"
+    }
+  ],
+  "callosa-voxels": [
+    {
+      "network": "x",
+      "url": "https://x.com/sr_rauldev/status/2118725316088643693"
+    }
+  ],
+  "machine-skill": [
+    {
+      "network": "x",
+      "url": "https://x.com/sr_rauldev/status/2117274125848703025"
+    },
+    {
+      "network": "linkedin",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7523039749058678784/"
+    }
+  ],
+  "stack-diagram": [
+    {
+      "network": "x",
+      "url": "https://x.com/sr_rauldev/status/2117226143371735222"
+    },
+    {
+      "network": "linkedin",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7522990517341634560/"
+    }
+  ]
+}
