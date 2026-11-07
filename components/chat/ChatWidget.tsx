@@ -1,5 +1,7 @@
 'use client';
 
+// Antes que el SDK de IA: Zod sin eval (ver el fichero).
+import '@/lib/zod-jitless';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ArrowUp, Check, Copy, MessageSquare, RotateCcw, Square, X } from 'lucide-react';
