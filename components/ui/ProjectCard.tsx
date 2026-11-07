@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { ExternalLink, Github, Calendar, FileText } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Project } from '../../hooks/useProjects';
+import type { Project } from '@/lib/projects';
 import { projectKeyMap } from '@/lib/project-keys';
 import { Link } from '@/i18n/navigation';
 

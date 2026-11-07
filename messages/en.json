@@ -154,7 +154,6 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Personal projects I have designed and developed",
-    "loading": "Loading projects...",
     "viewAll": "Contact",
     "code": "Code",
     "demo": "Demo",

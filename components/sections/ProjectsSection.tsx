@@ -1,25 +1,21 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useProjects } from '../../hooks/useProjects';
-import LoadingSpinner from '../ui/LoadingSpinner';
-import ProjectCard from '../ui/ProjectCard';
-import SectionHeading from '../ui/SectionHeading';
+import ProjectCard from '@/components/ui/ProjectCard';
+import SectionHeading from '@/components/ui/SectionHeading';
+import { projects } from '@/lib/projects';
 
+/**
+ * Proyectos de la portada. Los datos son un JSON fijo, así que no hay estado de
+ * carga: las tarjetas salen hechas en el HTML.
+ *
+ * Sigue siendo de cliente a propósito. Probado el 07-11 como componente de
+ * servidor (ProjectCard también): el HTML y las capturas salen iguales, pero
+ * Turbopack (Next 16.4.5) mete next/image y Link en dos trozos de JS nuevos,
+ * repetidos, y la portada pasa de 1.125.433 a 1.179.144 bytes de JS.
+ */
 export default function ProjectsSection() {
-  const { projects, loading } = useProjects();
   const t = useTranslations('projects');
-
-  if (loading) {
-    return (
-      <section id="proyectos" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <LoadingSpinner />
-          <p className="text-gray-300 mt-4">{t('loading')}</p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="proyectos" className="py-20 px-4">
