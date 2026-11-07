@@ -101,6 +101,8 @@ export default function ExperienceSection() {
                                                             <img
                                                                 src={proj.logo}
                                                                 alt={proj.name}
+                                                                width={proj.width}
+                                                                height={proj.height}
                                                                 loading="lazy"
                                                                 decoding="async"
                                                                 className="h-7 w-auto opacity-80 brightness-0 invert transition-opacity group-hover:opacity-100"

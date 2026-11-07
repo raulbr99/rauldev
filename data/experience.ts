@@ -12,7 +12,7 @@ export interface ExperienceItem {
     tech: string[];
     highlight?: boolean;
     /** Featured products built during this role (logo shown in the card). */
-    projects?: { name: string; logo: string; url: string }[];
+    projects?: { name: string; logo: string; url: string; /** Proporción del SVG (su viewBox), para reservar el hueco. */ width: number; height: number }[];
 }
 
 export const experiences: ExperienceItem[] = [
@@ -35,9 +35,9 @@ export const experiences: ExperienceItem[] = [
         tech: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'Supabase', 'OpenAI API', 'Vercel'],
         highlight: true,
         projects: [
-            { name: 'Talkrev', logo: '/logos/talkrev.svg', url: 'https://talkrev.ai' },
-            { name: 'Turno', logo: '/logos/turno.svg', url: 'https://turno.ai' },
-            { name: 'PartsNow.ai', logo: '/logos/partsnow.svg', url: 'https://partsnow.ai' }
+            { name: 'Talkrev', logo: '/logos/talkrev.svg', url: 'https://talkrev.ai', width: 205, height: 42 },
+            { name: 'Turno', logo: '/logos/turno.svg', url: 'https://turno.ai', width: 960, height: 383 },
+            { name: 'PartsNow.ai', logo: '/logos/partsnow.svg', url: 'https://partsnow.ai', width: 1076, height: 350 }
         ]
     },
     {

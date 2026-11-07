@@ -1,7 +1,9 @@
 import { isValidElement, type ReactNode } from 'react';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { headingId } from '@/lib/blog';
+import { publicImageSize } from '@/lib/image-size';
 
 /** Texto plano de lo que react-markdown pasa como hijos (cadenas, <strong>, <code>…). */
 function textOf(node: ReactNode): string {
@@ -100,10 +102,27 @@ export default function PostBody({ children, anchorLabel }: { children: string; 
           td: ({ children }) => (
             <td className="border-b border-white/10 px-3 py-2 align-top">{children}</td>
           ),
-          img: ({ src, alt }) => (
+          img: ({ src, alt }) => {
+            const url = typeof src === 'string' ? src : undefined;
+            const size = url ? publicImageSize(url) : undefined;
+            // Fotos propias (public/): <Image> con sus medidas reales, así el
+            // navegador reserva el hueco (sin saltos) y Next las sirve en
+            // AVIF/WebP al ancho de la columna en vez del JPEG de 1600 px.
+            if (url && size) {
+              return (
+                <Image
+                  src={url}
+                  alt={alt ?? ''}
+                  width={size.width}
+                  height={size.height}
+                  sizes="(max-width: 800px) calc(100vw - 2rem), 736px"
+                  className="mb-5 h-auto w-full border border-white/10"
+                />
+              );
+            }
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={typeof src === 'string' ? src : undefined} alt={alt ?? ''} loading="lazy" className="mb-5 w-full border border-white/10" />
-          ),
+            return <img src={url} alt={alt ?? ''} loading="lazy" className="mb-5 w-full border border-white/10" />;
+          },
         }}
       >
         {children}
