@@ -2,6 +2,7 @@ import { isValidElement, type ReactNode } from 'react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import CodeBlock from '@/components/blog/CodeBlock';
 import { headingId } from '@/lib/blog';
 import { publicImageSize } from '@/lib/image-size';
 
@@ -42,7 +43,13 @@ function Heading({ level, children, anchorLabel }: { level: 2 | 3; children: Rea
  * Cuerpo de un artículo. Sin `rehype-raw`: el HTML dentro del Markdown no se
  * interpreta, así que un artículo no puede inyectar marcado.
  */
-export default function PostBody({ children, anchorLabel }: { children: string; anchorLabel: string }) {
+interface PostBodyProps {
+  children: string;
+  anchorLabel: string;
+  codeLabels: { copy: string; copied: string };
+}
+
+export default function PostBody({ children, anchorLabel, codeLabels }: PostBodyProps) {
   return (
     <div className="text-lg leading-relaxed text-gray-300">
       <ReactMarkdown
@@ -76,11 +83,18 @@ export default function PostBody({ children, anchorLabel }: { children: string; 
           ),
           hr: () => <hr className="my-10 border-white/10" />,
           // El bloque ``` llega como <pre><code>; el código en línea, como <code> suelto.
-          pre: ({ children }) => (
-            <pre className="mb-5 overflow-x-auto border border-white/10 bg-slate-900 p-4 font-mono text-sm leading-relaxed text-gray-200">
-              {children}
-            </pre>
-          ),
+          pre: ({ children }) => {
+            const className = isValidElement(children) ? (children.props as { className?: string }).className : undefined;
+            return (
+              <CodeBlock
+                language={className?.match(/language-([\w-]+)/)?.[1] ?? ''}
+                code={textOf(children).replace(/\n$/, '')}
+                labels={codeLabels}
+              >
+                {children}
+              </CodeBlock>
+            );
+          },
           code: ({ className, children }) =>
             className ? (
               <code className={className}>{children}</code>
