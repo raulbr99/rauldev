@@ -43,6 +43,8 @@
 - [Política de privacidad (ES)](https://rauldev.dev/privacidad) / [Privacy policy (EN)](https://rauldev.dev/en/privacidad)
 - [Política de cookies (ES)](https://rauldev.dev/cookies) / [Cookie policy (EN)](https://rauldev.dev/en/cookies)
 
+<!-- BLOG_Y_REDES: lo rellena app/llms.txt/route.ts en el build -->
+
 ## Contacto
 
 - Formulario de contacto: https://rauldev.dev/#contacto
