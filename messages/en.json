@@ -308,7 +308,8 @@
     "privacy": "Privacy policy",
     "cookies": "Cookie policy",
     "rights": "All rights reserved.",
-    "builtWith": "Built with Next.js and Tailwind"
+    "builtWith": "Built with Next.js and Tailwind",
+    "source": "Source on GitHub"
   },
   "legal": {
     "backHome": "Back to home",

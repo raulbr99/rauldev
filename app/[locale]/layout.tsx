@@ -7,7 +7,7 @@ import { locales, defaultLocale, type Locale } from '@/i18n/config';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SITE_URL, SITE_OWNER, homeSeo } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, homeSeo, SOCIAL_URLS } from '@/lib/site';
 import { notFoundMetadata } from '@/lib/not-found-metadata';
 import type { Metadata } from 'next';
 
@@ -107,6 +107,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="apple-mobile-web-app-title" content="Raúl Berná" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+        {/* rel="me": estos perfiles son de la misma persona que esta web (IndieWeb;
+            lo usan p. ej. Mastodon y Threads para verificar el enlace). */}
+        {Object.values(SOCIAL_URLS).map((href) => (
+          <link key={href} rel="me" href={href} />
+        ))}
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={clientMessages}>

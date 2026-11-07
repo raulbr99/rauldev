@@ -102,7 +102,7 @@ export default function Footer() {
                   <a
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
-                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    rel={href.startsWith('http') ? 'me noopener noreferrer' : undefined}
                     className={profileLink}
                   >
                     <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
@@ -116,7 +116,17 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 font-mono text-[11px] tracking-widest text-gray-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Raúl Berná Riera. {t('rights')}</p>
-          <p>{t('builtWith')}</p>
+          <p>
+            {t('builtWith')} ·{' '}
+            <a
+              href="https://github.com/raulbr99/rauldev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-cyan-300"
+            >
+              {t('source')}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

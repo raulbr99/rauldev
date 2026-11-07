@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_OWNER, localeUrl } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, localeUrl, SOCIAL_URLS } from '@/lib/site';
 
 /**
  * Piezas comunes del JSON-LD. Cada página pinta un único bloque `@graph` con
@@ -59,12 +59,7 @@ export function baseNodes(locale: string): Record<string, unknown>[] {
     },
     // sameAs vincula la entidad: los perfiles deben existir y coincidir
     // exactamente con los que enlaza la web.
-    sameAs: [
-      'https://github.com/raulbr99',
-      'https://www.linkedin.com/in/raul-berna-riera',
-      'https://x.com/sr_rauldev',
-      'https://www.instagram.com/raulberna.dev/',
-    ],
+    sameAs: [SOCIAL_URLS.github, SOCIAL_URLS.linkedin, SOCIAL_URLS.x, SOCIAL_URLS.instagram],
     jobTitle: 'Full Stack Developer',
     description: personDescription(locale),
     worksFor: { '@id': ORG_ID },
