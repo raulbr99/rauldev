@@ -14,6 +14,7 @@ export const navItems = [
     { href: '#experiencia', key: 'experience' },
     { href: '#habilidades', key: 'skills' },
     { href: '#proyectos', key: 'projects' },
+    { href: '#redes', key: 'social' },
     { href: '#contacto', key: 'contact' },
 ] as const;
 
@@ -67,10 +68,12 @@ export default function Navigation() {
                             </Link>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-4 lg:space-x-7">
+                        {/* Barra completa desde 1024 px: en español, con «Redes», no cabe antes
+                            (a 768 se cortaba el selector de idioma y «Sobre mí» se partía). */}
+                        <div className="hidden lg:flex items-center gap-4 xl:gap-7">
                             {navItems.map((item) => {
                                 const isActive = isHome && activeId === item.href.slice(1);
-                                const className = `font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
+                                const className = `whitespace-nowrap font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
                                     isActive ? 'text-cyan-300' : 'text-gray-300'
                                 }`;
                                 const label = (
@@ -100,7 +103,7 @@ export default function Navigation() {
                             <Link
                                 href="/blog"
                                 aria-current={inBlog ? 'page' : undefined}
-                                className={`font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
+                                className={`whitespace-nowrap font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
                                     inBlog ? 'text-cyan-300' : 'text-gray-300'
                                 }`}
                             >
@@ -120,7 +123,7 @@ export default function Navigation() {
                             <LanguageSwitcher />
                         </div>
 
-                        <div className="flex items-center gap-2 md:hidden">
+                        <div className="flex items-center gap-2 lg:hidden">
                             <button
                                 type="button"
                                 onClick={requestOpenPalette}

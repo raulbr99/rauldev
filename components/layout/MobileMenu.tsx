@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin, Instagram, BookOpen } from 'lucide-react';
+import { AtSign, X, Home, User, Briefcase, Wrench, FolderOpen, Mail, Github, Linkedin, Instagram, BookOpen } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
@@ -18,6 +18,7 @@ const menuItems = [
     { href: '#experiencia', key: 'experience', Icon: Briefcase },
     { href: '#habilidades', key: 'skills', Icon: Wrench },
     { href: '#proyectos', key: 'projects', Icon: FolderOpen },
+    { href: '#redes', key: 'social', Icon: AtSign },
     { href: '#contacto', key: 'contact', Icon: Mail },
 ] as const;
 
