@@ -110,11 +110,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="msapplication-TileColor" content="#22D3EE" />
         {/* Sin browserconfig.xml: que Edge/IE antiguos no lo pidan (daba 404). */}
         <meta name="msapplication-config" content="none" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Raúl Berná" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* ?v=2: iconos nuevos (nov 2026); el número obliga a pedirlos otra vez a quien guardó los antiguos. */}
+        <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
         <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         {/* rel="me": estos perfiles son de la misma persona que esta web (IndieWeb;
             lo usan p. ej. Mastodon y Threads para verificar el enlace). */}

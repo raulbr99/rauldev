@@ -105,11 +105,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Ficheros de public/ e imágenes OG generadas: su URL no cambia nunca
+        // (me.jpg, iconos, fotos de artículos, /og/…png). Con un año «immutable»
+        // un cambio no llegaría a quien ya los tuviera; un día y revalidar en
+        // segundo plano. Los de /_next/static llevan hash y Next les pone su
+        // propia caché de un año (esta regla no les afecta).
         source: '/(.*)\\.(ico|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|eot)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
           },
         ],
       },
