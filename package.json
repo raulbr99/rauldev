@@ -26,8 +26,8 @@
     "motion": "^12.40.0",
     "next": "16.4.5",
     "next-intl": "^4.6.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
@@ -37,8 +37,8 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "autoprefixer": "^10.4.21",
     "eslint": "10.8.1",
     "eslint-config-next": "16.4.5",
@@ -55,7 +55,7 @@
     "not dead"
   ],
   "overrides": {
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4"
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
   }
 }
