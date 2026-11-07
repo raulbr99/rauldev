@@ -176,6 +176,22 @@ export default async function BlogPost({ params }: Props) {
                 {t('updatedOn', { date: dateFormat.format(new Date(post.updated)) })}
               </p>
             )}
+            {/* Cada etiqueta lleva a /blog filtrado por ella (?tag=…, el filtro de BlogList). */}
+            {post.tags.length > 0 && (
+              <ul aria-label={t('tagsLabel')} className="mt-6 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <li key={tag}>
+                    <Link
+                      href={{ pathname: '/blog', query: { tag } }}
+                      className="inline-flex items-center gap-1 border border-white/15 px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                    >
+                      <span aria-hidden className="text-cyan-400/80">#</span>
+                      {tag}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </header>
 
           <TableOfContents headings={postHeadings(post.body)} title={t('tocTitle')} />
