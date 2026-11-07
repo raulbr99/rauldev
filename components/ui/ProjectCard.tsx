@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { ExternalLink, Github, Calendar } from 'lucide-react';
+import { ExternalLink, Github, Calendar, FileText } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Project } from '../../hooks/useProjects';
 import { projectKeyMap } from '@/lib/project-keys';
+import { Link } from '@/i18n/navigation';
 
 interface ProjectCardProps {
     project: Project;
@@ -100,6 +101,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 <ExternalLink className="w-4 h-4" />
                                 {t('demo')}
                             </a>
+                        )}
+                        {project.blog && (
+                            <Link
+                                href={`/blog/${project.blog}`}
+                                className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm"
+                            >
+                                <FileText className="w-4 h-4" aria-hidden />
+                                {t('howIBuiltIt')}
+                            </Link>
                         )}
                     </div>
 

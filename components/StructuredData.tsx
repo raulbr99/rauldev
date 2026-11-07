@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import projectsData from '@/data/projects.json';
 import { projectKeyMap } from '@/lib/project-keys';
-import { SITE_URL, SITE_OWNER, CONTENT_UPDATED } from '@/lib/site';
+import { SITE_URL, SITE_OWNER, CONTENT_UPDATED, localeUrl } from '@/lib/site';
 import {
   PERSON_ID,
   WEBSITE_ID,
@@ -113,6 +113,11 @@ export default async function StructuredData({ language }: StructuredDataProps) 
       };
       if (p.demo) item.url = p.demo;
       if (p.github) item.codeRepository = p.github;
+      // El artículo que cuenta cómo se hizo: une el proyecto con su BlogPosting.
+      if (p.blog) {
+        const articleUrl = localeUrl(language, `/blog/${p.blog}`);
+        item.subjectOf = { '@type': 'BlogPosting', '@id': `${articleUrl}#article`, url: articleUrl };
+      }
       return { '@type': 'ListItem', position: i + 1, item };
     }),
   };

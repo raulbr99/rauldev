@@ -10,6 +10,8 @@ export interface Project {
   logo?: string;
   github: string | null;
   demo: string | null;
+  /** Slug del artículo del blog que cuenta cómo se hizo, si lo hay. */
+  blog?: string;
   featured: boolean;
   category: string;
   createdAt: string;

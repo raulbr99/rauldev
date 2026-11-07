@@ -185,7 +185,8 @@
         "title": "Personal Portfolio",
         "description": "This very portfolio developed with Next.js 16, modern design, SEO optimized, contact system with Resend and scalable architecture."
       }
-    }
+    },
+    "howIBuiltIt": "How I built it"
   },
   "faq": {
     "title": "Frequently Asked Questions",
