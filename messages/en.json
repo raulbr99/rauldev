@@ -435,7 +435,7 @@
   },
   "palette": {
     "title": "Search the site",
-    "placeholder": "Search sections, articles, profiles…",
+    "placeholder": "Search sections, articles, projects, profiles…",
     "allPosts": "All articles",
     "askAssistant": "Ask the assistant",
     "rss": "Blog RSS",
@@ -445,6 +445,7 @@
     "groups": {
       "sections": "Sections",
       "posts": "Articles",
+      "projects": "Projects",
       "social": "Profiles",
       "actions": "Actions"
     }

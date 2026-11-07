@@ -435,7 +435,7 @@
   },
   "palette": {
     "title": "Buscar en la web",
-    "placeholder": "Busca secciones, artículos o redes…",
+    "placeholder": "Busca secciones, artículos, proyectos o redes…",
     "allPosts": "Todos los artículos",
     "askAssistant": "Preguntar al asistente",
     "rss": "RSS del blog",
@@ -445,6 +445,7 @@
     "groups": {
       "sections": "Secciones",
       "posts": "Artículos",
+      "projects": "Proyectos",
       "social": "Redes",
       "actions": "Acciones"
     }

@@ -1,15 +1,17 @@
 'use client';
 
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
-import { ArrowUpRight, FileText, Hash, Instagram, Linkedin, Github, MessageSquare, Rss, Search } from 'lucide-react';
+import { ArrowUpRight, FileText, FolderOpen, Hash, Instagram, Linkedin, Github, MessageSquare, Rss, Search } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { requestOpenChat } from '@/lib/chat-events';
 import { OPEN_PALETTE_EVENT, matchesQuery, postSearchText } from '@/lib/palette-events';
-import { SOCIAL_URLS, feedPath } from '@/lib/site';
+import { SITE_URL, SOCIAL_URLS, feedPath } from '@/lib/site';
+import { projectKeyMap } from '@/lib/project-keys';
+import projectsData from '@/data/projects.json';
 
-type Group = 'sections' | 'posts' | 'social' | 'actions';
+type Group = 'sections' | 'posts' | 'projects' | 'social' | 'actions';
 
 interface Item {
   id: string;
@@ -17,6 +19,8 @@ interface Item {
   label: string;
   hint?: string;
   icon: ReactNode;
+  /** Abre otra web en una pestaña nueva (lleva ↗). */
+  external?: boolean;
   run: () => void;
 }
 
@@ -45,6 +49,7 @@ export default function CommandPalette({
 }) {
   const t = useTranslations('palette');
   const tn = useTranslations('navigation');
+  const tp = useTranslations('projects');
   const locale = useLocale();
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -73,6 +78,22 @@ export default function CommandPalette({
         icon: <FileText className={icon} aria-hidden />,
         run: go(`/blog/${post.slug}`),
       })),
+      // Proyectos: abren la demo; el portfolio (su demo es esta web) abre el código.
+      ...projectsData.projects.map((project) => {
+        const key = projectKeyMap[project.id];
+        const title = key ? tp(`data.${key}.title`) : project.title;
+        const description = key ? tp(`data.${key}.description`) : project.description;
+        const href = project.demo && !project.demo.startsWith(SITE_URL) ? project.demo : project.github;
+        return {
+          id: `j-${project.id}`,
+          group: 'projects' as const,
+          label: title,
+          hint: `${project.category} ${project.tech.join(' ')} ${description}`,
+          icon: <FolderOpen className={icon} aria-hidden />,
+          external: !!href,
+          run: href ? open(href) : go('/#proyectos'),
+        };
+      }),
       { id: 'r-x', group: 'social' as const, label: 'X', hint: '@sr_rauldev twitter', icon: <SiX className={icon} aria-hidden />, run: open(SOCIAL_URLS.x) },
       { id: 'r-ig', group: 'social' as const, label: 'Instagram', hint: '@raulberna.dev', icon: <Instagram className={icon} aria-hidden />, run: open(SOCIAL_URLS.instagram) },
       { id: 'r-li', group: 'social' as const, label: 'LinkedIn', hint: 'Raúl Berná', icon: <Linkedin className={icon} aria-hidden />, run: open(SOCIAL_URLS.linkedin) },
@@ -87,7 +108,7 @@ export default function CommandPalette({
         run: () => window.location.assign(feedPath(locale)),
       },
     ];
-  }, [posts, router, t, tn, locale]);
+  }, [posts, router, t, tn, tp, locale]);
 
   const results = useMemo(
     () => items.filter((item) => matchesQuery(`${item.label} ${item.hint ?? ''}`, query)),
@@ -218,7 +239,7 @@ export default function CommandPalette({
               >
                 {item.icon}
                 <span className="flex-1 truncate">{item.label}</span>
-                {item.group === 'social' && <ArrowUpRight className="h-3.5 w-3.5 text-gray-500" aria-hidden />}
+                {(item.group === 'social' || item.external) && <ArrowUpRight className="h-3.5 w-3.5 text-gray-500" aria-hidden />}
               </div>
             </li>
           );
