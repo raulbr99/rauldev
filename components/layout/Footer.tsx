@@ -105,7 +105,7 @@ export default function Footer() {
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className={profileLink}
                   >
-                    <Icon className="h-4 w-4 text-cyan-400" />
+                    <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
                     {label}
                   </a>
                 </li>

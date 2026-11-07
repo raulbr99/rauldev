@@ -69,7 +69,7 @@ export default function SkillsSection() {
                         key={skill.name}
                         className="flex items-center gap-2 border border-white/10 px-3 py-2 transition-all hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/5"
                       >
-                        <span className="text-xl text-gray-400">{skill.icon}</span>
+                        <span aria-hidden className="text-xl text-gray-400">{skill.icon}</span>
                         <span className="font-mono text-xs text-gray-300">{skill.name}</span>
                       </div>
                     ))}

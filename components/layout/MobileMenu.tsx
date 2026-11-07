@@ -123,12 +123,12 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                             <li key={href}>
                                 {isHome ? (
                                     <a href={href} className={itemClass} onClick={() => setIsOpen(false)}>
-                                        <Icon className="h-5 w-5 text-cyan-400" />
+                                        <Icon className="h-5 w-5 text-cyan-400" aria-hidden />
                                         <span>{t(key)}</span>
                                     </a>
                                 ) : (
                                     <Link href={`/${href}`} className={itemClass} onClick={() => setIsOpen(false)}>
-                                        <Icon className="h-5 w-5 text-cyan-400" />
+                                        <Icon className="h-5 w-5 text-cyan-400" aria-hidden />
                                         <span>{t(key)}</span>
                                     </Link>
                                 )}
@@ -154,7 +154,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                 className="flex min-h-11 min-w-11 items-center justify-center text-gray-400 transition-colors hover:text-cyan-300"
                             >
-                                <Icon className="h-5 w-5" />
+                                <Icon className="h-5 w-5" aria-hidden />
                             </a>
                         ))}
                     </div>

@@ -34,7 +34,7 @@ export default function NotFound() {
 
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center bg-slate-950 px-4 py-20 text-center">
-      <p className="font-mono text-7xl font-bold text-cyan-400/30 sm:text-8xl">{t('code')}</p>
+      <p aria-hidden className="font-mono text-7xl font-bold text-cyan-400/60 sm:text-8xl">{t('code')}</p>
       <h1 className="mt-4 text-3xl font-bold uppercase leading-tight text-white sm:text-4xl">{t('title')}</h1>
       <p className="mt-4 max-w-md leading-relaxed text-gray-400">{t('description')}</p>
 

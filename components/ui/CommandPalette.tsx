@@ -174,7 +174,7 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
           aria-controls={listId}
           aria-activedescendant={results.length ? `${listId}-${current}` : undefined}
           aria-autocomplete="list"
-          className="h-14 w-full bg-transparent text-base text-white placeholder:text-gray-500 focus:outline-none"
+          className="h-14 w-full bg-transparent text-base text-white placeholder:text-gray-400 focus:outline-none"
         />
         <kbd className="hidden shrink-0 border border-white/15 px-1.5 py-0.5 font-mono text-[10px] text-gray-400 sm:block">esc</kbd>
       </div>
@@ -188,7 +188,7 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
           return (
             <li key={item.id} role="presentation">
               {header && (
-                <p role="presentation" className="px-4 pb-1 pt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gray-500">
+                <p role="presentation" className="px-4 pb-1 pt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gray-400">
                   {header}
                 </p>
               )}
@@ -211,7 +211,7 @@ export default function CommandPalette({ posts }: { posts: { slug: string; title
         })}
       </ul>
 
-      <p className="border-t border-white/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-widest text-gray-500">
+      <p className="border-t border-white/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-widest text-gray-400">
         {t('help')}
       </p>
     </dialog>

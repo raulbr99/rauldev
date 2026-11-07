@@ -109,11 +109,12 @@ export default function Navigation() {
                             <button
                                 type="button"
                                 onClick={requestOpenPalette}
-                                aria-label={`${tp('button')} (⌘K)`}
                                 aria-keyshortcuts="Meta+K Control+K /"
                                 className="flex min-h-11 items-center gap-2 border border-white/15 px-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
                             >
                                 <Search className="h-3.5 w-3.5" aria-hidden />
+                                {/* Nombre accesible = «Buscar ⌘K»: incluye lo que se ve (WCAG 2.5.3). */}
+                                <span className="sr-only">{tp('button')}</span>
                                 <kbd className="hidden font-mono lg:inline">⌘K</kbd>
                             </button>
                             <LanguageSwitcher />

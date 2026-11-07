@@ -222,7 +222,7 @@ export default async function BlogPost({ params }: Props) {
           </div>
           <p className="border-t border-white/10 px-6 py-4 text-sm text-gray-400">
             {t('ctaText')}{' '}
-            <Link href="/#contacto" className="text-cyan-300 underline-offset-4 hover:underline">
+            <Link href="/#contacto" className="text-cyan-300 underline underline-offset-4 hover:text-cyan-200">
               {t('ctaButton')}
             </Link>
           </p>

@@ -88,19 +88,19 @@ export default function HeroSection() {
           <Reveal trigger="load" delay={0.3}>
             <div className="flex items-center gap-5 font-mono text-xs tracking-widest text-gray-400">
               <a href={SOCIAL_URLS.github} aria-label="GitHub" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
-                <Github className="h-5 w-5" />
+                <Github className="h-5 w-5" aria-hidden />
               </a>
               <a href={SOCIAL_URLS.linkedin} aria-label="LinkedIn" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" aria-hidden />
               </a>
               <a href={SOCIAL_URLS.x} aria-label="X" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
-                <SiX className="h-5 w-5" />
+                <SiX className="h-5 w-5" aria-hidden />
               </a>
               <a href={SOCIAL_URLS.instagram} aria-label="Instagram" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-5 w-5" aria-hidden />
               </a>
               <a href="mailto:raulbernariera99@gmail.com" aria-label="Email" className="-m-2.5 p-2.5 transition-colors hover:text-cyan-300">
-                <Mail className="h-5 w-5" />
+                <Mail className="h-5 w-5" aria-hidden />
               </a>
             </div>
           </Reveal>
