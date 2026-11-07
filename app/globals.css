@@ -157,11 +157,59 @@ html {
     scroll-behavior: auto !important;
   }
 }
-/* Con el menú móvil abierto, el chat (botón y panel) se aparta: el botón
-   flotante caía encima del icono de Email del menú. MobileMenu pone el
-   atributo en <html> mientras está abierto. */
-html[data-menu-open] [data-chat-ui] {
+/* Menú del móvil (<dialog> nativo, ver MobileMenu): mientras está abierto la
+   página no hace scroll y el chat flotante no asoma por encima del fondo. */
+html:has(#menu-movil[open]) {
+  overflow: hidden;
+}
+
+html:has(#menu-movil[open]) [data-chat-ui] {
   display: none;
+}
+
+/* Entra deslizando desde la derecha y el fondo se oscurece; al cerrar, al revés.
+   `allow-discrete` deja animar el paso de display:none a visible (y vuelta). */
+.mobile-menu {
+  transform: translateX(100%);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    overlay 0.25s allow-discrete,
+    display 0.25s allow-discrete;
+}
+
+.mobile-menu[open] {
+  transform: none;
+}
+
+@starting-style {
+  .mobile-menu[open] {
+    transform: translateX(100%);
+  }
+}
+
+.mobile-menu::backdrop {
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    overlay 0.25s allow-discrete,
+    display 0.25s allow-discrete;
+}
+
+.mobile-menu[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .mobile-menu[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu::backdrop {
+    transition: none;
+  }
 }
 
 /* ── View Transitions (React <ViewTransition>, ver PostTitleTransition) ──

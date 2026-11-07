@@ -5,6 +5,7 @@ import { SiX } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
+import { SOCIAL_URLS } from '@/lib/site';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -21,89 +22,48 @@ const menuItems = [
 ] as const;
 
 const socialItems = [
-    { href: 'https://github.com/raulbr99', label: 'GitHub', Icon: Github },
-    { href: 'https://www.linkedin.com/in/raul-berna-riera', label: 'LinkedIn', Icon: Linkedin },
-    { href: 'https://x.com/sr_rauldev', label: 'X', Icon: SiX },
-    { href: 'https://www.instagram.com/raulberna.dev/', label: 'Instagram', Icon: Instagram },
+    { href: SOCIAL_URLS.github, label: 'GitHub', Icon: Github },
+    { href: SOCIAL_URLS.linkedin, label: 'LinkedIn', Icon: Linkedin },
+    { href: SOCIAL_URLS.x, label: 'X', Icon: SiX },
+    { href: SOCIAL_URLS.instagram, label: 'Instagram', Icon: Instagram },
     { href: 'mailto:raulbernariera99@gmail.com', label: 'Email', Icon: Mail },
 ] as const;
 
 const itemClass =
     'flex items-center gap-4 border border-transparent px-4 py-3 font-mono text-sm uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/30 hover:bg-white/5 hover:text-cyan-300';
 
-const FOCUSABLE = 'a[href], button:not([disabled])';
-
+/**
+ * Menú del móvil como <dialog> nativo abierto con showModal(): el navegador
+ * pone el foco dentro, deja inerte la página de detrás, lo cierra con Esc y
+ * devuelve el foco al botón que lo abrió. El bloqueo del scroll y ocultar el
+ * chat flotante van en globals.css (`html:has(#menu-movil[open])`), y también
+ * la entrada deslizando desde la derecha.
+ */
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const t = useTranslations('navigation');
     const ta = useTranslations('a11y');
     const isHome = usePathname() === '/';
-    const panelRef = useRef<HTMLDivElement>(null);
-    const openerRef = useRef<Element | null>(null);
+    const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
-        if (!isOpen) return;
-
-        openerRef.current = document.activeElement;
-        document.body.style.overflow = 'hidden';
-        // Oculta el chat flotante mientras el menú esté abierto (ver globals.css).
-        document.documentElement.dataset.menuOpen = 'true';
-
-        // El foco entra en el panel y queda atrapado dentro mientras esté abierto:
-        // sin esto se puede tabular por la página de detrás sin verla.
-        const panel = panelRef.current;
-        panel?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
-
-        const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                setIsOpen(false);
-                return;
-            }
-            if (e.key !== 'Tab' || !panel) return;
-
-            const items = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE));
-            if (items.length === 0) return;
-
-            const first = items[0];
-            const last = items[items.length - 1];
-
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-            }
-        };
-
-        document.addEventListener('keydown', onKeyDown);
-
-        return () => {
-            document.removeEventListener('keydown', onKeyDown);
-            document.body.style.overflow = '';
-            delete document.documentElement.dataset.menuOpen;
-            // Devuelve el foco al botón que lo abrió.
-            (openerRef.current as HTMLElement | null)?.focus?.();
-        };
-    }, [isOpen, setIsOpen]);
-
-    if (!isOpen) return null;
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+        if (isOpen && !dialog.open) dialog.showModal();
+        if (!isOpen && dialog.open) dialog.close();
+    }, [isOpen]);
 
     return (
-        <>
-            <div
-                className="fixed inset-0 bg-black/60 z-40 md:hidden"
-                onClick={() => setIsOpen(false)}
-                aria-hidden="true"
-            />
-
-            <div
-                ref={panelRef}
-                id="menu-movil"
-                role="dialog"
-                aria-modal="true"
-                aria-label={t('toggleMenu')}
-                className="fixed right-0 top-0 h-dvh w-80 max-w-[85vw] bg-slate-900 border-l border-white/10 shadow-2xl z-50 md:hidden"
-            >
+        <dialog
+            ref={dialogRef}
+            id="menu-movil"
+            aria-label={t('toggleMenu')}
+            // Esc lo cierra el navegador: hay que avisar al estado de React.
+            onClose={() => setIsOpen(false)}
+            // Clic en el fondo oscuro (fuera del panel) = cerrar.
+            onClick={(event) => event.target === dialogRef.current && setIsOpen(false)}
+            className="mobile-menu fixed inset-y-0 left-auto right-0 m-0 h-dvh max-h-none w-80 max-w-[85vw] border-0 border-l border-white/10 bg-slate-900 p-0 text-white shadow-2xl backdrop:bg-black/60"
+        >
+            <div className="relative h-full">
                 <div className="flex items-center justify-between p-6 border-b border-white/10">
                     <p className="text-xl font-bold uppercase tracking-tight text-white">
                         Raúl <span className="text-cyan-400">Dev</span>
@@ -151,7 +111,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                                 href={href}
                                 aria-label={label}
                                 target={href.startsWith('http') ? '_blank' : undefined}
-                                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                rel={href.startsWith('http') ? 'me noopener noreferrer' : undefined}
                                 className="flex min-h-11 min-w-11 items-center justify-center text-gray-400 transition-colors hover:text-cyan-300"
                             >
                                 <Icon className="h-5 w-5" aria-hidden />
@@ -160,6 +120,6 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </dialog>
     );
 }
