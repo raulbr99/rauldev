@@ -10,9 +10,10 @@ import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
 import PostBody from '@/components/blog/PostBody';
+import PostCover from '@/components/blog/PostCover';
 import PostTitleTransition from '@/components/blog/PostTitleTransition';
 import ShareButtons from '@/components/blog/ShareButtons';
-import { getPost, getPosts, pickRelated } from '@/lib/blog';
+import { getPost, getPosts, pickRelated, postCover } from '@/lib/blog';
 import articleSocial from '@/data/article-social.json';
 import { locales, type Locale } from '@/i18n/config';
 import { SITE_URL, SITE_OWNER, SOCIAL_URLS, localeUrl, feedPath, feedTypes, postImageUrl } from '@/lib/site';
@@ -277,17 +278,25 @@ export default async function BlogPost({ params }: Props) {
                 <li key={item.slug}>
                   <Link
                     href={`/blog/${item.slug}`}
-                    className="group flex h-full flex-col border border-white/10 p-5 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.03]"
+                    className="group flex h-full flex-col border border-white/10 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.03]"
                   >
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
-                      <time dateTime={item.date}>{dateFormat.format(new Date(item.date))}</time>
-                    </p>
-                    <PostTitleTransition slug={item.slug}>
-                      <h3 className="mt-2 text-lg font-bold leading-snug text-white transition-colors group-hover:text-cyan-300">
-                        {item.title}
-                      </h3>
-                    </PostTitleTransition>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-400">{item.description}</p>
+                    <PostCover
+                      src={postCover(locale as Locale, item.slug)}
+                      tag={item.tags[0]}
+                      sizes="(min-width: 640px) 380px, 100vw"
+                      className="aspect-[16/9] border-b border-white/10"
+                    />
+                    <div className="flex flex-1 flex-col p-5">
+                      <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400">
+                        <time dateTime={item.date}>{dateFormat.format(new Date(item.date))}</time>
+                      </p>
+                      <PostTitleTransition slug={item.slug}>
+                        <h3 className="mt-2 text-lg font-bold leading-snug text-white transition-colors group-hover:text-cyan-300">
+                          {item.title}
+                        </h3>
+                      </PostTitleTransition>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-400">{item.description}</p>
+                    </div>
                   </Link>
                 </li>
               ))}
