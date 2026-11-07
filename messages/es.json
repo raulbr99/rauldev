@@ -415,5 +415,21 @@
     "subtitle": "Lo que pruebo lo cuento en X en español, y en Instagram y LinkedIn en inglés.",
     "seeOn": "Ver en {network}",
     "follow": "Seguir en {network}"
+  },
+  "palette": {
+    "title": "Buscar en la web",
+    "placeholder": "Busca secciones, artículos o redes…",
+    "allPosts": "Todos los artículos",
+    "askAssistant": "Preguntar al asistente",
+    "rss": "RSS del blog",
+    "empty": "Nada con «{query}».",
+    "help": "↑↓ moverse · ↵ abrir · esc cerrar",
+    "button": "Buscar",
+    "groups": {
+      "sections": "Secciones",
+      "posts": "Artículos",
+      "social": "Redes",
+      "actions": "Acciones"
+    }
   }
 }

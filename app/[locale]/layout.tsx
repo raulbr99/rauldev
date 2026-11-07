@@ -1,5 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import CommandPalette from '@/components/ui/CommandPalette';
+import { getPosts } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 import { locales, defaultLocale, type Locale } from '@/i18n/config';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
@@ -80,7 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   // viajan al cliente los espacios que usan componentes 'use client'. El resto
   // (hero, about, experience, skills, footer, legal…) se resuelve en servidor.
   const clientMessages = Object.fromEntries(
-    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error', 'a11y', 'legal', 'footer'] as const)
+    (['navigation', 'projects', 'contact', 'validation', 'chat', 'error', 'a11y', 'legal', 'footer', 'palette'] as const)
       .filter((ns) => ns in messages)
       .map((ns) => [ns, messages[ns]])
   );
@@ -109,6 +111,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="antialiased">
         <NextIntlClientProvider messages={clientMessages}>
           {children}
+          <CommandPalette
+            posts={getPosts(locale as Locale).map(({ slug, title, tags }) => ({ slug, title, tags }))}
+          />
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />

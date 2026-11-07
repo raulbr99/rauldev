@@ -415,5 +415,21 @@
     "subtitle": "I post what I test on X in Spanish, and on Instagram and LinkedIn in English.",
     "seeOn": "See on {network}",
     "follow": "Follow on {network}"
+  },
+  "palette": {
+    "title": "Search the site",
+    "placeholder": "Search sections, articles, profiles…",
+    "allPosts": "All articles",
+    "askAssistant": "Ask the assistant",
+    "rss": "Blog RSS",
+    "empty": "Nothing for “{query}”.",
+    "help": "↑↓ move · ↵ open · esc close",
+    "button": "Search",
+    "groups": {
+      "sections": "Sections",
+      "posts": "Articles",
+      "social": "Profiles",
+      "actions": "Actions"
+    }
   }
 }

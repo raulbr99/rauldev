@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, Search, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import MobileMenu from './MobileMenu';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 import { Link, usePathname } from '@/i18n/navigation';
+import { requestOpenPalette } from '@/lib/palette-events';
 
 export const navItems = [
     { href: '#inicio', key: 'home' },
@@ -24,6 +25,7 @@ export default function Navigation() {
     const isHome = pathname === '/';
     const inBlog = pathname.startsWith('/blog');
     const ta = useTranslations('a11y');
+    const tp = useTranslations('palette');
 
     // Scroll-spy: marca en la navegación la sección que se está leyendo, para
     // que también lo anuncien los lectores de pantalla vía aria-current.
@@ -58,14 +60,14 @@ export default function Navigation() {
                 style={{ viewTransitionName: 'site-header' }}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center py-4">
-                        <div className="text-xl font-bold uppercase tracking-tight text-white">
-                            <span>
+                    <div className="flex justify-between items-center gap-4 py-4">
+                        <div className="whitespace-nowrap text-xl font-bold uppercase tracking-tight text-white">
+                            <Link href="/" className="transition-colors hover:text-cyan-100">
                                 Raúl <span className="text-cyan-400">Dev</span>
-                            </span>
+                            </Link>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-7">
+                        <div className="hidden md:flex items-center space-x-4 lg:space-x-7">
                             {navItems.map((item) => {
                                 const isActive = isHome && activeId === item.href.slice(1);
                                 const className = `font-mono text-xs uppercase tracking-widest transition-colors hover:text-cyan-300 ${
@@ -104,10 +106,28 @@ export default function Navigation() {
                             >
                                 {t('blog')}
                             </Link>
+                            <button
+                                type="button"
+                                onClick={requestOpenPalette}
+                                aria-label={`${tp('button')} (⌘K)`}
+                                aria-keyshortcuts="Meta+K Control+K /"
+                                className="flex min-h-11 items-center gap-2 border border-white/15 px-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-300 transition-colors hover:border-cyan-400/60 hover:text-cyan-300"
+                            >
+                                <Search className="h-3.5 w-3.5" aria-hidden />
+                                <kbd className="hidden font-mono lg:inline">⌘K</kbd>
+                            </button>
                             <LanguageSwitcher />
                         </div>
 
-                        <div className="flex items-center gap-4 md:hidden">
+                        <div className="flex items-center gap-2 md:hidden">
+                            <button
+                                type="button"
+                                onClick={requestOpenPalette}
+                                aria-label={tp('button')}
+                                className="flex min-h-11 min-w-11 items-center justify-center text-white transition-colors hover:text-cyan-300"
+                            >
+                                <Search className="h-5 w-5" aria-hidden />
+                            </button>
                             <LanguageSwitcher />
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
