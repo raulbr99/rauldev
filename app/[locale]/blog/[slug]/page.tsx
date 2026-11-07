@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, Instagram, Linkedin, Rss } from 'lucide-react'
 import { SiX } from 'react-icons/si';
 import { Link } from '@/i18n/navigation';
 import Navigation from '@/components/layout/Navigation';
+import ScrollProgress from '@/components/anim/ScrollProgress';
 import SkipLink from '@/components/layout/SkipLink';
 import Footer from '@/components/layout/Footer';
 import LazyChatWidget from '@/components/chat/LazyChatWidget';
@@ -140,6 +141,8 @@ export default async function BlogPost({ params }: Props) {
         }}
       />
       <SkipLink label={ta('skipToContent')} />
+      {/* Cuánto queda del artículo: la misma barra fina de la portada (CSS puro). */}
+      <ScrollProgress />
       <Navigation />
 
       <main id="contenido" className="mx-auto max-w-3xl px-4 pb-24 pt-32">
