@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "Raúl Berná — Portfolio",
   "short_name": "Raúl Berná",
   "description": "Construyo apps web, bots y herramientas de IA. Pruebo lo nuevo que sale en IA y cuento qué funcionó y qué no.",
@@ -10,7 +11,9 @@
   "scope": "/",
   "lang": "es",
   "dir": "ltr",
-  "categories": ["productivity"],
+  "categories": [
+    "productivity"
+  ],
   "screenshots": [
     {
       "src": "/og-image.jpg",
@@ -30,36 +33,63 @@
       "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     }
   ],
   "shortcuts": [
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "Lo que construyo y pruebo con IA, con lo que funcionó y lo que no.",
+      "url": "/blog",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
     {
       "name": "Experiencia",
       "short_name": "Experiencia",
       "description": "Trayectoria profesional y logros",
       "url": "/#experiencia",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Proyectos",
       "short_name": "Proyectos",
       "description": "Proyectos y productos desarrollados",
       "url": "/#proyectos",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Escríbeme por el formulario, por LinkedIn o por email.",
       "url": "/#contacto",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ],
   "related_applications": [],
