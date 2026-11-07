@@ -11,7 +11,7 @@ En producción en [rauldev.dev](https://rauldev.dev): español en `/` e inglés 
 - **Chat con IA**: responde en primera persona sobre mi experiencia, mis proyectos y el blog. Usa OpenAI (gpt-4.1-mini) y, si no responde, Vercel AI Gateway. Sus instrucciones y datos están en `lib/raul-context.ts` y salen de los mismos datos que pinta la web.
 - **Contacto**: el formulario envía un correo con Resend.
 - **Páginas legales**: aviso legal, privacidad y cookies.
-- **SEO**: metadatos, canonical y hreflang por página, un bloque JSON-LD por página, `sitemap.xml`, `robots.txt` y `public/llms.txt` para agentes de IA.
+- **SEO**: metadatos, canonical y hreflang por página, un bloque JSON-LD por página, `sitemap.xml`, `robots.txt`, RSS del blog (`/feed.xml`, `/en/feed.xml`), una imagen social por artículo (`/og/<idioma>/<slug>.png`) y `llms.txt` para agentes de IA (se genera en el build desde `content/llms.txt` más la lista de artículos y de posts en redes).
 
 ## Stack
 
@@ -66,7 +66,8 @@ npm run build
 - **Artículo nuevo**: copia `content/blog/es/plantilla-de-articulo.md`, cambia el nombre del fichero (será la URL) y rellena la cabecera. Con `draft: true` solo se ve en `npm run dev`. Para la versión en inglés, el mismo nombre en `content/blog/en/`: así los dos idiomas se enlazan con hreflang.
 - **Proyectos**: `data/projects.json`, sus textos traducidos en `messages/*.json` (`projects.data.<clave>`) y la clave en `lib/project-keys.ts`. El número de proyectos de la web sale de este fichero.
 - **Experiencia**: `data/experience.ts` y sus textos en `messages/*.json` (`experience.data.<clave>`).
-- Si cambian datos de perfil, revisa también `public/llms.txt`.
+- Si cambian datos de perfil, revisa también `content/llms.txt` (lo escrito a mano de `llms.txt`; el blog y las redes se añaden solos).
+- La sección «Lo último en redes» lee `data/social-posts.json`: al publicar un post nuevo, regenera ese fichero.
 
 ## Contacto
 
