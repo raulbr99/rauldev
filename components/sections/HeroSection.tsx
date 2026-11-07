@@ -31,9 +31,12 @@ export default function HeroSection() {
       aria-label="Hero"
       className="relative flex min-h-[70dvh] items-start bg-techgrid px-4 pt-24 pb-12 lg:min-h-[94dvh] lg:items-center lg:pt-28 lg:pb-16"
     >
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
-        {/* LEFT — big type */}
-        <div>
+      {/* grid-cols-1 = minmax(0, 1fr): sin columnas explícitas, la columna implícita
+          crecía hasta el ancho natural del aviso del último artículo (su título en
+          español no cabe a 320-375 px) y el texto del hero se salía por la derecha. */}
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
+        {/* LEFT — big type (min-w-0: que el título largo se recorte con «…» en vez de ensanchar la columna) */}
+        <div className="min-w-0">
           {latest && (
             <Reveal trigger="load">
               <Link
