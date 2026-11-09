@@ -1,5 +1,23 @@
 [
   {
+    "id": "2026-11-09-spacefast",
+    "date": "2026-11-09",
+    "text": {
+      "es": "Automattic, los de WordPress.com, ha lanzado hoy Spacefast: subes una carpeta con un comando y te da un enlace.",
+      "en": "Automattic, the company behind WordPress.com, launched Spacefast today. You publish a folder with one command and you get a link."
+    },
+    "links": [
+      {
+        "network": "x",
+        "url": "https://x.com/sr_rauldev/status/2119833644525121899"
+      },
+      {
+        "network": "linkedin",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7525599365122498560/"
+      }
+    ]
+  },
+  {
     "id": "2026-11-09-agent-memory",
     "date": "2026-11-09",
     "text": {
@@ -66,27 +84,6 @@
       {
         "network": "x",
         "url": "https://x.com/sr_rauldev/status/2117971006161625529"
-      }
-    ]
-  },
-  {
-    "id": "2026-11-03-alicante-voxels",
-    "date": "2026-11-04",
-    "text": {
-      "en": "I rebuilt Alicante in 1 m cubes, and you can explore it in your browser."
-    },
-    "links": [
-      {
-        "network": "x",
-        "url": "https://x.com/sr_rauldev/status/2117891608985112852"
-      },
-      {
-        "network": "linkedin",
-        "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7523657348427554816/"
-      },
-      {
-        "network": "instagram",
-        "url": "https://www.instagram.com/reel/DfVkRKRCow1/"
       }
     ]
   }
