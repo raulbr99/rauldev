@@ -157,6 +157,7 @@
     "viewAll": "Contact",
     "code": "Code",
     "demo": "Demo",
+    "mirrorTitle": "The same demo, hosted on {name}",
     "categories": {
       "ai": "AI/ML",
       "saas": "SaaS",

@@ -40,7 +40,11 @@ export function buildSystemPrompt(locale?: string): string {
 
   const projectsBlock = projectsData.projects
     .map((p) => {
-      const links = [p.demo && `demo: ${p.demo}`, p.github && `code: ${p.github}`]
+      const links = [
+        p.demo && `demo: ${p.demo}`,
+        'mirror' in p && p.mirror && `${p.mirror.label}: ${p.mirror.url}`,
+        p.github && `code: ${p.github}`,
+      ]
         .filter(Boolean)
         .join(', ');
       return `- ${p.title} [${p.category}]: ${p.description} Stack: ${p.tech.join(', ')}.${links ? ` (${links})` : ''}`;

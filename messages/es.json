@@ -157,6 +157,7 @@
     "viewAll": "Contactar",
     "code": "Código",
     "demo": "Demo",
+    "mirrorTitle": "La misma demo, publicada en {name}",
     "categories": {
       "ai": "IA/ML",
       "saas": "SaaS",

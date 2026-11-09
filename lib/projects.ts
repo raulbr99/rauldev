@@ -9,6 +9,8 @@ export interface Project {
   logo?: string;
   github: string | null;
   demo: string | null;
+  /** La misma demo publicada en otro sitio (p. ej., Spacefast), si la hay. */
+  mirror?: { label: string; url: string };
   /** Slug del artículo del blog que cuenta cómo se hizo, si lo hay. */
   blog?: string;
   featured: boolean;

@@ -48,6 +48,7 @@
         "image": "/projects/callosa-voxels.jpg",
         "github": null,
         "demo": "https://raulbr99.github.io/callosa-voxels/",
+        "mirror": { "label": "Spacefast", "url": "https://callosa-voxels.space.fast/" },
         "blog": "callosa-voxels",
         "featured": true,
         "category": "Web App",

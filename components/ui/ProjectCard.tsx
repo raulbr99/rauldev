@@ -78,8 +78,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     ))}
                 </div>
 
-                <div className="flex items-center justify-between mt-auto">
-                    <div className="flex gap-3">
+                <div className="flex items-center justify-between gap-3 mt-auto">
+                    <div className="flex flex-wrap gap-x-3 gap-y-1">
                         {project.github && (
                             <a
                                 href={project.github}
@@ -100,6 +100,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             >
                                 <ExternalLink className="w-4 h-4" />
                                 {t('demo')}
+                            </a>
+                        )}
+                        {project.mirror && (
+                            <a
+                                href={project.mirror.url}
+                                className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={t('mirrorTitle', { name: project.mirror.label })}
+                            >
+                                <ExternalLink className="w-4 h-4" aria-hidden />
+                                {project.mirror.label}
                             </a>
                         )}
                         {project.blog && (
