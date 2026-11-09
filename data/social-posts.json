@@ -1,5 +1,18 @@
 [
   {
+    "id": "2026-11-09-agent-memory",
+    "date": "2026-11-09",
+    "text": {
+      "es": "Anthropic contó la semana pasada que un agente que lo apunta todo puede acabar peor. En su prueba con Pokémon, Sonnet 3.7 guardó 413 ficheros de memoria y sacó 1 medalla. Fable 5 guardó 10 y sacó 4."
+    },
+    "links": [
+      {
+        "network": "x",
+        "url": "https://x.com/sr_rauldev/status/2119750891481747702"
+      }
+    ]
+  },
+  {
     "id": "2026-11-05-callosa-voxels",
     "date": "2026-11-06",
     "text": {
@@ -74,19 +87,6 @@
       {
         "network": "instagram",
         "url": "https://www.instagram.com/reel/DfVkRKRCow1/"
-      }
-    ]
-  },
-  {
-    "id": "2026-11-03-revolut-glm",
-    "date": "2026-11-03",
-    "text": {
-      "en": "Revolut now runs its coding models in-house."
-    },
-    "links": [
-      {
-        "network": "x",
-        "url": "https://x.com/sr_rauldev/status/2117572880808464762"
       }
     ]
   }
