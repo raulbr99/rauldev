@@ -9,6 +9,14 @@
       {
         "network": "x",
         "url": "https://x.com/sr_rauldev/status/2121133419589452199"
+      },
+      {
+        "network": "linkedin",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7527286912747835392/"
+      },
+      {
+        "network": "instagram",
+        "url": "https://www.instagram.com/reel/DfuOvL4BggY/"
       }
     ]
   },
