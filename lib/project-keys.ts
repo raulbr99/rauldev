@@ -8,5 +8,6 @@ export const projectKeyMap: Record<string, string> = {
   cuotia: 'cuotia',
   'alicante-voxels': 'alicanteVoxels',
   'callosa-voxels': 'callosaVoxels',
+  duskline: 'duskline',
   'portfolio-website': 'portfolio',
 };

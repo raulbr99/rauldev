@@ -56,6 +56,19 @@
         "status": "production"
       },
       {
+        "id": "duskline",
+        "title": "Duskline",
+        "description": "Juego 3D en el navegador: un robot de mantenimiento huye de un dron barrendero por las vías elevadas del metro al atardecer. Lo hizo Claude Fable 5.2 a partir de un prompt mío, en una sola tanda de 45 minutos: un único HTML de 93 KB, sin librerías externas y sin retocar. Está publicado en Fable52 Games con el prompt a la vista.",
+        "tech": ["Claude Fable 5.2", "Claude Code", "WebGL", "JavaScript", "Web Audio"],
+        "image": "/projects/duskline.jpg",
+        "github": null,
+        "demo": "https://fable52.games/play/duskline-vxn7rh",
+        "featured": true,
+        "category": "IA/ML",
+        "createdAt": "2026-11-13",
+        "status": "production"
+      },
+      {
         "id": "portfolio-website",
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable.",
@@ -70,8 +83,8 @@
       }
   ],
   "stats": {
-    "totalProjects": 6,
-    "featuredProjects": 6,
+    "totalProjects": 7,
+    "featuredProjects": 7,
     "inDevelopment": 0,
     "categories": ["IA/ML", "Web App", "Portfolio"],
     "technologies": ["Next.js", "TypeScript", "Neon", "Supabase", "PostgreSQL", "Tailwind CSS", "Claude AI", "Vercel", "Resend", "Three.js"]

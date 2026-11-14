@@ -184,6 +184,10 @@
       "portfolio": {
         "title": "Portfolio Personal",
         "description": "Este mismo portfolio desarrollado con Next.js 16, diseño moderno, SEO optimizado, sistema de contacto con Resend y arquitectura escalable."
+      },
+      "duskline": {
+        "title": "Duskline",
+        "description": "Juego 3D en el navegador: un robot de mantenimiento huye de un dron barrendero por las vías elevadas del metro al atardecer. Lo hizo Claude Fable 5.2 a partir de un prompt mío, en una sola tanda de 45 minutos: un único HTML de 93 KB, sin librerías externas y sin retocar. Está publicado en Fable52 Games con el prompt a la vista."
       }
     },
     "howIBuiltIt": "Cómo lo hice"

@@ -184,6 +184,10 @@
       "portfolio": {
         "title": "Personal Portfolio",
         "description": "This very portfolio developed with Next.js 16, modern design, SEO optimized, contact system with Resend and scalable architecture."
+      },
+      "duskline": {
+        "title": "Duskline",
+        "description": "A 3D browser game: a maintenance robot runs from a sweeper drone along an elevated metro line at sunset. Claude Fable 5.2 built it from my prompt in a single 45-minute run: one 93 KB HTML file, no external libraries, untouched. It's published on Fable52 Games with the prompt in full."
       }
     },
     "howIBuiltIt": "How I built it"
